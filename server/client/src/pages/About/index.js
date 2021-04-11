@@ -60,7 +60,7 @@ const About = () => {
           className="black-text btn transparent"
           style={{ margin: "30px 10px" }}
         >
-          See his work →
+          Read More →
         </a>
       </div>
     </div>

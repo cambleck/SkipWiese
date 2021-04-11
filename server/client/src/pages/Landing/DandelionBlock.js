@@ -8,7 +8,7 @@ const DandelionBlock = () => {
         marginTop: 15,
         display: "flex",
         width: "100%",
-        height: "800px",
+        height: "650px",
         backgroundImage: `url(${image})`,
         backgroundSize: "cover",
         flexDirection: "column",
