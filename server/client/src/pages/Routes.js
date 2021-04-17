@@ -7,7 +7,7 @@ import Admin from "./_Admin";
 import FourZeroFour from "./404";
 import Shop from "./Shop";
 import ArtworkPage from "./Gallery/ArtworkPage";
-
+import NewArtwork from "./_Admin/NewArtwork";
 export const Routes = () => {
   return (
     <Switch>
@@ -17,6 +17,7 @@ export const Routes = () => {
       <Route exact path="/about" component={About} />
       <Route exact path="/shop" component={Shop} />
       <Route exact path="/_admin" component={Admin} />
+      <Route exact path="/_admin/new" component={NewArtwork} />
 
       <Route render={FourZeroFour} />
     </Switch>

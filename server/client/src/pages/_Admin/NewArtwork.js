@@ -1,12 +1,13 @@
 import React from "react";
 import Form from "./Form";
 
-const Admin = () => {
+const NewArtwork = () => {
   return (
     <div className="container">
-      <a href="./_admin/new">NEW</a>
+      <h2>Add Artwork </h2>
+      <Form />
     </div>
   );
 };
 
-export default Admin;
+export default NewArtwork;

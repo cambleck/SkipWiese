@@ -25,6 +25,7 @@ class ArtworkForm extends Component {
     };
 
     this.props.submitArtwork(formValues, this.state.imageFile);
+    this.setState({ imageFile: "", title: "", type: "", size: "", price: "" });
   };
 
   handleSelectedFile = (event) => {
@@ -95,9 +96,17 @@ class ArtworkForm extends Component {
         onChange={this.handleTypeChange}
       >
         <option value="">Type</option>
-        <option value="1">Option 1</option>
-        <option value="2">Option 2</option>
-        <option value="3">Option 3</option>
+        <option value="Monotype">Monotype</option>
+        <option value="Etching">Etching</option>
+        <option value="Print">Print</option>
+        <option value="Pencil">Pencil</option>
+        <option value="Acrylic">Acrylic</option>
+        <option value="Oil">Oil</option>
+        <option value="Pastel">Pastel</option>
+        <option value="Sketch">Sketch</option>
+        <option value="Commercial">Commercial</option>
+        <option value="Watercolor">Watercolor</option>
+        <option value="Mixed Media">Mixed Media</option>
       </select>
     );
   }
