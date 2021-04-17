@@ -14,7 +14,10 @@ class ArtworkList extends Component {
   renderArtwork() {
     return map(this.props.artworks, (artwork) => {
       return (
-        <div className="col s12 m6 l4 card-container" style={{ margin: 40 }}>
+        <div
+          className="col s12 m6 l4 card-container"
+          style={{ margin: 40, minWidth: 300, minHeight: 200 }}
+        >
           <div
             style={{
               border: "10px solid rgb(32,12,38)",

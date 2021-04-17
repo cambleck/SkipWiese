@@ -1,7 +1,7 @@
 import React from "react";
 import M from "materialize-css";
 import DandelionBlock from "./DandelionBlock";
-import About from "../About";
+import About from "./About";
 import GalleryCarousel from "./GalleryCarousel";
 
 const renderFirstBlock = () => {

@@ -34,9 +34,13 @@ const DandelionBlock = () => {
         <div style={{ fontSize: 16, fontWeight: 400 }}>
           109 S Genesee St | Waukegan, IL 60085
         </div>
-        <button className="yellow-button yellow waves-effect ">
-          SEE MORE →
-        </button>
+        <a
+          className="yellow-button yellow waves-effect "
+          href="https://www.dandeliongallery.org/"
+          target="_blank"
+        >
+          <div style={{ marginTop: 15 }}>SEE MORE →</div>
+        </a>
       </div>
     </div>
   );

@@ -4,6 +4,14 @@ const requireLogin = require("../middlewares/requireLogin");
 const Artwork = mongoose.model("Artwork");
 
 module.exports = (app) => {
+  app.get("/api/artwork/:id", async (req, res) => {
+    console.log(req.params.id);
+    const artwork = await Artwork.findOne({
+      _id: req.params.id,
+    });
+    console.log("route", artwork);
+    res.send(artwork);
+  });
   app.get("/api/artwork", async (req, res) => {
     const artwork = await Artwork.find();
     res.send(artwork);

@@ -30,6 +30,13 @@ body,
   margin-top: 40px;
   cursor: pointer;
   color: black;
+  text-align: center;
+}
+
+.artwork-image {
+  max-width: 100%;
+  max-height: 100%;
+  border: 40px solid rgb(240, 240, 230);
 }
 .outline-button {
   width: 250px;
@@ -116,7 +123,7 @@ body,
   padding: 40px 20px;
   padding-top: 10px;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   border-radius: 0px 0px 30px 30px;
   margin: 0px;
 }

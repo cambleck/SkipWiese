@@ -28,6 +28,7 @@ export const fetchArtworkList = () => async (dispatch) => {
 };
 
 export const fetchArtwork = (id) => async (dispatch) => {
+  console.log(id);
   const res = await axios.get(`/api/artwork/${id}`);
 
   dispatch({ type: FETCH_ARTWORK, payload: res.data });

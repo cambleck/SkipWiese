@@ -40,7 +40,7 @@ class Carousel extends Component {
   }
   render() {
     return (
-      <div className="carousel" style={{ height: 700, marginTop: 30 }}>
+      <div className="carousel" style={{ height: 700 }}>
         {this.renderImages()}
       </div>
     );
