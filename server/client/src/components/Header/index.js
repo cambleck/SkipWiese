@@ -4,7 +4,7 @@ import logo from "./logo.svg";
 const Header = () => {
   return (
     <div className="header">
-      <a href="./" style={{ cursor: "pointer" }}>
+      <a href="../" style={{ cursor: "pointer" }}>
         <img
           src={logo}
           alt="Skip Wiese Logo"
@@ -19,14 +19,13 @@ const Header = () => {
           color: "black",
         }}
       >
-        <a href="./about" style={{ color: "black" }}>
-          {" "}
-          About{" "}
+        <a href="../about" style={{ color: "black" }}>
+          About
         </a>
-        <a href="./gallery" style={{ marginLeft: 30, color: "black" }}>
+        <a href="../gallery" style={{ marginLeft: 30, color: "black" }}>
           Gallery
         </a>
-        <a href="./contact" style={{ marginLeft: 30, color: "black" }}>
+        <a href="../shop" style={{ marginLeft: 30, color: "black" }}>
           Shop
         </a>
       </div>

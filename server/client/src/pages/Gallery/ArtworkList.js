@@ -3,26 +3,44 @@ import map from "lodash/map";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchArtworkList } from "../../actions";
+import M from "materialize-css";
 
 class ArtworkList extends Component {
   componentDidMount() {
-    this.props.fetchArtwork();
+    M.AutoInit();
+    this.props.fetchArtworkList();
   }
 
   renderArtwork() {
-    return map(this.props.artwork, (artwork) => {
+    return map(this.props.artworks, (artwork) => {
       return (
-        <div className="card darken-1 horizontal" key={artwork._id}>
-          <div className="card-stacked">
-            <div className="card-content">
+        <div className="col s12 m6 l4 card-container" style={{ margin: 40 }}>
+          <div
+            style={{
+              border: "10px solid rgb(32,12,38)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              boxShadow: "5px 7px 3px rgba(50,50,50,.5)",
+            }}
+          >
+            <img
+              className="materialboxed carousel-image"
+              src={
+                "https://skipwiese.s3.us-east-2.amazonaws.com/" +
+                artwork.imageUrl
+              }
+              alt={"image"}
+            />
+          </div>
+          <div className="content-container">
+            <div className="card-action" style={{ fontWeight: "bold" }}></div>
+            <Link to={`/gallery/${artwork._id}`} className="card-content">
               <span className="card-title">{artwork.title}</span>
-              <span className="card-title">{artwork.type}</span>
-              <span className="card-title">{artwork.size}</span>
-              <span className="card-title">{artwork.price}</span>
-            </div>
-            <div className="card-action">
-              <Link to={`/artworks/${artwork._id}`}>View</Link>
-            </div>
+              <span className="subContent">{artwork.type}</span>
+              <span className="subContent">{artwork.size}</span>
+              <span className="subContent">${artwork.price}</span>
+            </Link>
           </div>
         </div>
       );
@@ -30,7 +48,11 @@ class ArtworkList extends Component {
   }
 
   render() {
-    return <div>{this.renderArtwork()}</div>;
+    return (
+      <div class="grid" style={{ display: "flex" }}>
+        {this.renderArtwork()}
+      </div>
+    );
   }
 }
 
