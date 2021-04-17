@@ -5,7 +5,7 @@ const DandelionBlock = () => {
   return (
     <div
       style={{
-        marginTop: 15,
+        marginTop: 10,
         display: "flex",
         width: "100%",
         height: "650px",

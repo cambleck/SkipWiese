@@ -8,7 +8,7 @@ const Header = () => {
         <img
           src={logo}
           alt="Skip Wiese Logo"
-          style={{ width: 200, marginLeft: 20, marginTop: 15 }}
+          style={{ width: 150, marginLeft: 20, marginTop: 10 }}
         />
       </a>
       <div
@@ -27,7 +27,7 @@ const Header = () => {
           Gallery
         </a>
         <a href="./contact" style={{ marginLeft: 30, color: "black" }}>
-          Contact
+          Shop
         </a>
       </div>
     </div>
