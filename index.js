@@ -11,10 +11,6 @@ const app = express();
 
 app.use(bodyParser.json());
 
-app.get("/", (req, res) => {
-  res.send({ hi: "there" });
-});
-
 require("./routes/uploadRoutes")(app);
 require("./routes/artworkRoutes")(app);
 
