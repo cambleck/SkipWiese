@@ -11,10 +11,10 @@ class Carousel extends Component {
   }
 
   renderImages() {
-    return _.map(this.props.imageList, ({ src, alt }) => {
+    return _.map(this.props.imageList, ({ image, type }) => {
       return (
         <a
-          key={src}
+          key={type}
           className="carousel-item"
           style={{
             display: "flex",
@@ -25,14 +25,23 @@ class Carousel extends Component {
         >
           <div
             style={{
-              border: "10px solid rgb(32,12,38)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              boxShadow: "5px 7px 3px rgba(50,50,50,.5)",
             }}
           >
-            <img className="materialboxed carousel-image" src={src} alt={alt} />
+            <div
+              style={{
+                border: "10px solid rgb(32,12,38)",
+                boxShadow: "5px 7px 3px rgba(50,50,50,.5)",
+              }}
+            >
+              <img
+                className="materialboxed carousel-image"
+                src={image}
+                alt={type}
+              />
+            </div>
           </div>
         </a>
       );

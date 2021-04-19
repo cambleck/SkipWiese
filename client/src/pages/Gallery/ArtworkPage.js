@@ -8,6 +8,7 @@ import M from "materialize-css";
 class ArtworkPage extends Component {
   componentDidMount() {
     M.AutoInit();
+    window.scrollTo(0, 0);
     this.props.fetchArtwork(this.props.match.params.id);
   }
 
@@ -33,28 +34,43 @@ class ArtworkPage extends Component {
 
     return (
       <div
-        className=""
-        style={{ margin: 40, marginBottom: 100, marginTop: 80 }}
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
       >
         <div
           style={{
-            border: "10px solid rgb(32,12,38)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            boxShadow: "5px 7px 3px rgba(50,50,50,.5)",
+            margin: 40,
+            marginBottom: 100,
+            marginTop: 80,
+
+            maxWidth: "800px",
           }}
         >
-          {this.renderImage()}
-        </div>
-        <div className="content-container">
-          <div className="card-action" style={{ fontWeight: "bold" }}></div>
-          <Link to={`/gallery/${artwork._id}`} className="card-content">
-            <span className="card-title">{artwork.title}</span>
-            <span className="subContent">{artwork.type}</span>
-            <span className="subContent">{artwork.size}</span>
-            <span className="subContent">${artwork.price}</span>
-          </Link>
+          <div
+            style={{
+              border: "12px solid rgb(32,12,38)",
+
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              boxShadow: "5px 7px 3px rgba(50,50,50,.5)",
+            }}
+          >
+            {this.renderImage()}
+          </div>
+          <div className="art-content-container">
+            <div className="card-action"></div>
+            <div className="art-content">
+              <span className="card-title">{artwork.title}</span>
+              <span className="subContent">{artwork.type}</span>
+              <span className="subContent">{artwork.size}</span>
+              <span className="subContent">${artwork.price}</span>
+            </div>
+          </div>
         </div>
       </div>
     );
