@@ -6,7 +6,11 @@ class Carousel extends Component {
   componentDidMount() {
     document.addEventListener("DOMContentLoaded", function () {
       var elems = document.querySelectorAll(".carousel");
-      M.Carousel.init(elems, { padding: 100, shift: 100 });
+      M.Carousel.init(elems, {
+        padding: 100,
+        shift: 200,
+        numVisible: 3,
+      });
     });
   }
 

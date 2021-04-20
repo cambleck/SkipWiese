@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import M from "materialize-css";
+
 const ArtCard = ({ artwork }) => {
   const imageRef = React.useRef();
 
