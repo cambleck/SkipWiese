@@ -37,7 +37,6 @@ const ArtCard = ({ artwork }) => {
             {artwork.type.toLowerCase()}
           </span>
           <span className="subContent">{artwork.size}</span>
-          <span className="subContent">${artwork.price}</span>
         </Link>
       </div>
     </div>

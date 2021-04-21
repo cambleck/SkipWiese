@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const keys = require("./config/keys");
 const bodyParser = require("body-parser");
 require("./models/Artwork");
-
+require("./services/cache");
 mongoose.Promise = global.Promise;
 mongoose.connect(keys.mongoURI);
 

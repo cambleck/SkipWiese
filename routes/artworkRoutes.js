@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const requireLogin = require("../middlewares/requireLogin");
+const cleanCache = require("../middlewares/cleanCache");
 
 const Artwork = mongoose.model("Artwork");
 
@@ -22,7 +23,7 @@ module.exports = (app) => {
     res.send(artwork);
   });
 
-  app.post("/api/artwork", async (req, res) => {
+  app.post("/api/artwork", cleanCache, async (req, res) => {
     const { title, type, size, price, imageUrl } = req.body;
 
     const artwork = new Artwork({
