@@ -21,15 +21,15 @@ export const submitArtwork = (values, file) => async (dispatch) => {
   });
 };
 
-export const fetchArtworkList = () => async (dispatch) => {
-  const res = await axios.get("/api/artwork");
+export const fetchArtworkList = (type) => async (dispatch) => {
+  const res = await axios.get(`/api/artwork/s/${type}`);
 
   dispatch({ type: FETCH_ARTWORK_LIST, payload: res.data });
 };
 
 export const fetchArtwork = (id) => async (dispatch) => {
   console.log(id);
-  const res = await axios.get(`/api/artwork/${id}`);
+  const res = await axios.get(`/api/artwork/a/${id}`);
 
   dispatch({ type: FETCH_ARTWORK, payload: res.data });
 };

@@ -13,6 +13,7 @@ class App extends Component {
         <BrowserRouter>
           <div>
             <Header />
+
             {Routes()}
             <Footer />
           </div>

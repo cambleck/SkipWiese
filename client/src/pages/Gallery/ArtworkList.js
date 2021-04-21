@@ -8,7 +8,7 @@ import ArtCard from "./ArtCard";
 
 class ArtworkList extends Component {
   componentDidMount() {
-    this.props.fetchArtworkList();
+    this.props.fetchArtworkList(this.props.match.params.type);
   }
 
   renderArtwork() {
@@ -18,15 +18,12 @@ class ArtworkList extends Component {
   }
 
   render() {
-    return (
-      <div class="grid" style={{ display: "flex" }}>
-        {this.renderArtwork()}
-      </div>
-    );
+    console.log(this.props.artworks);
+    return <div class="grid">{this.renderArtwork()}</div>;
   }
 }
 
-function mapStateToProps({ artworks }) {
+function mapStateToProps({ artworks }, ownProps) {
   return { artworks };
 }
 

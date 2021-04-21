@@ -1,5 +1,6 @@
 import React from "react";
 import _ from "lodash";
+import { Link } from "react-router-dom";
 import typeList from "../typeList";
 import all from "../_images/all.jpg";
 const renderTypes = () => {
@@ -11,7 +12,12 @@ const renderTypes = () => {
           backgroundImage: `url(${image})`,
         }}
       >
-        <div className="type-box-cover">{type}</div>
+        <Link
+          to={`./gallery/s/${type.toLowerCase()}`}
+          className="type-box-cover"
+        >
+          {type}
+        </Link>
       </div>
     );
   });
@@ -21,7 +27,9 @@ const TypePage = () => {
   return (
     <div className="row type-grid">
       <div className="type-box" style={{ backgroundImage: `url(${all}) ` }}>
-        <div className="type-box-cover">All</div>
+        <Link to="./gallery/s/all" className="type-box-cover">
+          All
+        </Link>
       </div>
       {renderTypes()}
     </div>

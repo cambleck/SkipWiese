@@ -5,15 +5,16 @@ const DandelionBlock = () => {
   return (
     <div
       style={{
-        marginTop: 10,
         display: "flex",
-        width: "100%",
+        width: "95%",
         height: "650px",
         backgroundImage: `url(${image})`,
         backgroundSize: "cover",
         flexDirection: "column",
         position: "relative",
         padding: 30,
+        marginBottom: 30,
+        marginTop: 10,
       }}
     >
       <div className="landingBlob">

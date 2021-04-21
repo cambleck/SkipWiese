@@ -10,7 +10,7 @@ const ArtCard = ({ artwork }) => {
   }, [imageRef]);
 
   return (
-    <div className="col s12 m6 l4 card-container" style={{ margin: 40 }}>
+    <div className="col s12 m6 l4 card-container" style={{ margin: 100 }}>
       <div
         style={{
           border: "10px solid rgb(32,12,38)",
@@ -31,9 +31,11 @@ const ArtCard = ({ artwork }) => {
       </div>
       <div className="content-container">
         <div className="card-action" style={{ fontWeight: "bold" }}></div>
-        <Link to={`/gallery/${artwork._id}`} className="card-content">
+        <Link to={`/gallery/a/${artwork._id}`} className="card-content">
           <span className="card-title">{artwork.title}</span>
-          <span className="subContent">{artwork.type}</span>
+          <span className="subContent" style={{ textTransform: "capitalize" }}>
+            {artwork.type.toLowerCase()}
+          </span>
           <span className="subContent">{artwork.size}</span>
           <span className="subContent">${artwork.price}</span>
         </Link>

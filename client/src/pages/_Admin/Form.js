@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import formFields from "./formFields";
 import { withRouter } from "react-router-dom";
 import * as actions from "../../actions";
+import typeList from "../typeList";
 
 class ArtworkForm extends Component {
   state = {
@@ -83,6 +84,12 @@ class ArtworkForm extends Component {
     );
   }
 
+  renderTypeOptions() {
+    return _.map(typeList, ({ type }) => {
+      return <option value={`${type}`}>{type}</option>;
+    });
+  }
+
   typePicker() {
     return (
       <select
@@ -95,18 +102,8 @@ class ArtworkForm extends Component {
         }}
         onChange={this.handleTypeChange}
       >
-        <option value="">Type</option>
-        <option value="Monotype">Monotype</option>
-        <option value="Etching">Etching</option>
-        <option value="Print">Print</option>
-        <option value="Pencil">Pencil</option>
-        <option value="Acrylic">Acrylic</option>
-        <option value="Oil">Oil</option>
-        <option value="Pastel">Pastel</option>
-        <option value="Sketch">Sketch</option>
-        <option value="Commercial">Commercial</option>
-        <option value="Watercolor">Watercolor</option>
-        <option value="Mixed Media">Mixed Media</option>
+        <option value="no-type">no type</option>
+        {this.renderTypeOptions()}
       </select>
     );
   }

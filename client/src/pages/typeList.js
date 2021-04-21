@@ -11,17 +11,17 @@ import Watercolor from "./_images/watercolor.JPG";
 import MixedMedia from "./_images/mixedMedia.JPG";
 
 export default [
-  { type: "Print", image: Print },
-  { type: "Etching", image: Etching },
-  { type: "Monotype", image: Monotype },
-  { type: "Watercolor", image: Watercolor },
-  { type: "Oil", image: Oil },
-  { type: "Commercial", image: Commercial },
-  { type: "Acrylic", image: Acrylic },
-  { type: "Pastel", image: Pastel },
+  { type: "PRINT", image: Print },
+  { type: "ETCHING", image: Etching },
+  { type: "MONOTYPE", image: Monotype },
+  { type: "WATERCOLOR", image: Watercolor },
+  { type: "OIL", image: Oil },
+  { type: "COMMERCIAL", image: Commercial },
+  { type: "ACRYLIC", image: Acrylic },
+  { type: "PASTEL", image: Pastel },
 
-  { type: "Pencil", image: Pencil },
-  { type: "Sketch", image: Sketch },
+  { type: "PENCIL", image: Pencil },
+  { type: "SKETCH", image: Sketch },
 
-  { type: "Mixed Media", image: MixedMedia },
+  { type: "MIXED MEDIA", image: MixedMedia },
 ];

@@ -7,6 +7,7 @@ export default function (state = {}, action) {
       const artwork = action.payload;
       return { ...state, [artwork._id]: artwork };
     case FETCH_ARTWORK_LIST:
+      state = [];
       return { ...state, ...mapKeys(action.payload, "_id") };
     default:
       return state;
