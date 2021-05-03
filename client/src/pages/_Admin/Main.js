@@ -16,6 +16,13 @@ const Admin = () => {
       <a className="admin-main-button" href="./_admin/Orders">
         Orders
       </a>
+      <a
+        className="admin-main-button"
+        href="./api/logout"
+        style={{ width: 200, background: "white" }}
+      >
+        Sign Out
+      </a>
     </div>
   );
 };

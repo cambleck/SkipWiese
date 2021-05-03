@@ -1,14 +1,12 @@
 html,
 body,
 #app {
-  margin: 0;
-  width: 100%;
   color: black;
   background-color: rgb(250, 250, 250);
   font-weight: 350;
   font-family: "Gill Sans", monospace;
   display: flex;
-  min-height: 100vh !important;
+  min-height: 100vh;
   flex-direction: column;
 }
 

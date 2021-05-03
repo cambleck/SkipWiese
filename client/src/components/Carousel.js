@@ -2,15 +2,18 @@ import _ from "lodash";
 import React, { Component } from "react";
 import M from "materialize-css";
 
+const options = {
+  padding: 100,
+  shift: 200,
+  numVisible: 3,
+  duration: 400,
+};
+
 class Carousel extends Component {
   componentDidMount() {
     document.addEventListener("DOMContentLoaded", function () {
       var elems = document.querySelectorAll(".carousel");
-      M.Carousel.init(elems, {
-        padding: 100,
-        shift: 200,
-        numVisible: 3,
-      });
+      var instances = M.Carousel.init(elems, options);
     });
   }
 

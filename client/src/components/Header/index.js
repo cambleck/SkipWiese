@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <>
+    <header>
       <div
         style={{
           width: "100%",
@@ -74,7 +74,7 @@ const Header = () => {
           </ul>
         </div>
       </nav>
-    </>
+    </header>
   );
 };
 export default Header;

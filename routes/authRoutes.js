@@ -9,7 +9,6 @@ module.exports = (app) => {
         req.logIn(user, (err) => {
           if (err) throw err;
           res.redirect("/_admin");
-          console.log(req.user, "1");
         });
       }
       console.log(req.user);
