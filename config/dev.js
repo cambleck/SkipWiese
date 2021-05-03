@@ -4,4 +4,5 @@ module.exports = {
   redisUrl: "redis://127.0.0.1:6379",
   accessKeyId: "AKIA4BFMFUEZUVP7WLVT",
   secretAccessKey: "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",
+  cookieKey: "123123123",
 };

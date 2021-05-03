@@ -83,7 +83,6 @@ class ArtworkPage extends Component {
 }
 
 function mapStateToProps({ artworks }, ownProps) {
-  console.log(artworks);
   return { artwork: artworks[ownProps.match.params.id] };
 }
 

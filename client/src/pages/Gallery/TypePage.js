@@ -25,13 +25,22 @@ const renderTypes = () => {
 
 const TypePage = () => {
   return (
-    <div className="row type-grid">
-      <div className="type-box" style={{ backgroundImage: `url(${all}) ` }}>
-        <Link to="./gallery/s/all" className="type-box-cover">
-          All
-        </Link>
+    <div
+      style={{
+        width: "100%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <div className="row type-grid">
+        <div className="type-box" style={{ backgroundImage: `url(${all}) ` }}>
+          <Link to="./gallery/s/all" className="type-box-cover">
+            All
+          </Link>
+        </div>
+        {renderTypes()}
       </div>
-      {renderTypes()}
     </div>
   );
 };

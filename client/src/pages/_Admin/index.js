@@ -1,12 +1,31 @@
-import React from "react";
-import Form from "./Form";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import Login from "./Login";
+import Main from "./Main";
+import * as actions from "../../actions";
 
-const Admin = () => {
-  return (
-    <div className="container">
-      <a href="./_admin/new">NEW</a>
-    </div>
-  );
-};
+class Admin extends Component {
+  componentDidMount() {
+    this.props.fetchUser();
+  }
+  renderContent() {
+    switch (this.props.auth) {
+      case null:
+        return;
+      case false:
+        return <Login />;
+      default:
+        return <Main />;
+    }
+  }
 
-export default Admin;
+  render() {
+    return <>{this.renderContent()}</>;
+  }
+}
+
+function mapStateToProps({ auth }) {
+  return { auth };
+}
+
+export default connect(mapStateToProps, actions)(Admin);

@@ -1,18 +1,39 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const passport = require("passport");
+const cookieSession = require("cookie-session");
 const keys = require("./config/keys");
 const bodyParser = require("body-parser");
 require("./models/Artwork");
+require("./models/User");
 require("./services/cache");
+require("./services/passport");
 mongoose.Promise = global.Promise;
 mongoose.connect(keys.mongoURI);
 
 const app = express();
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(
+  cookieSession({
+    maxAge: 30 * 24 * 60 * 60 * 1000,
+    keys: [keys.cookieKey],
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 
+app.use((req, res, next) => {
+  console.log(req.session);
+  console.log(req.user);
+  next();
+});
+
+require("./routes/authRoutes")(app);
 require("./routes/uploadRoutes")(app);
 require("./routes/artworkRoutes")(app);
+require("./routes/adminRoutes")(app);
 
 if (process.env.NODE_ENV === "production") {
   // Express will serve up production assets
