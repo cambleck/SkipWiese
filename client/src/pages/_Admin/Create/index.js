@@ -1,7 +1,7 @@
 import React from "react";
 import Form from "./Form";
 
-const NewArtwork = () => {
+const Create = () => {
   return (
     <div className="container">
       <h2>Add Artwork </h2>
@@ -10,4 +10,4 @@ const NewArtwork = () => {
   );
 };
 
-export default NewArtwork;
+export default Create;

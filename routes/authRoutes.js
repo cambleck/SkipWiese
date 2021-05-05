@@ -4,8 +4,9 @@ module.exports = (app) => {
   app.post("/api/login", (req, res, next) => {
     passport.authenticate("local", (err, user, info) => {
       if (err) throw err;
-      if (!user) res.send("Error");
-      else {
+      if (!user) {
+        res.redirect("/_admin");
+      } else {
         req.logIn(user, (err) => {
           if (err) throw err;
           res.redirect("/_admin");

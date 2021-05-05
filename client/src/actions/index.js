@@ -7,7 +7,7 @@ export const fetchUser = () => async (dispatch) => {
   dispatch({ type: FETCH_USER, payload: res.data });
 };
 
-export const submitArtwork = (values, file) => async (dispatch) => {
+export const submitArtwork = (values, file, history) => async (dispatch) => {
   const uploadConfig = await axios.get("/api/upload");
 
   const upload = await axios.put(uploadConfig.data.url, file, {
@@ -20,6 +20,7 @@ export const submitArtwork = (values, file) => async (dispatch) => {
     ...values,
     imageUrl: uploadConfig.data.key,
   });
+  history.push("/_admin");
 };
 
 export const fetchArtworkList = (type) => async (dispatch) => {

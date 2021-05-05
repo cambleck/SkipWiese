@@ -1,11 +1,16 @@
 import React from "react";
-import Form from "./Form";
 
-const Admin = () => {
+const Main = () => {
   return (
     <div
       className="container"
-      style={{ display: "flex", flexDirection: "column", marginBottom: 100 }}
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        marginBottom: 100,
+        marginTop: 100,
+        alignItems: "center",
+      }}
     >
       <a className="admin-main-button" href="./_admin/new">
         CREATE NEW
@@ -19,7 +24,11 @@ const Admin = () => {
       <a
         className="admin-main-button"
         href="./api/logout"
-        style={{ width: 200, background: "white" }}
+        style={{
+          width: 200,
+          background: "white",
+          marginTop: 50,
+        }}
       >
         Sign Out
       </a>
@@ -27,4 +36,4 @@ const Admin = () => {
   );
 };
 
-export default Admin;
+export default Main;

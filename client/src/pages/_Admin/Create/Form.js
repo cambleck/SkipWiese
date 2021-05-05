@@ -1,12 +1,11 @@
 import _ from "lodash";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import ArtworkField from "./ArtworkField";
 import { connect } from "react-redux";
 import formFields from "./formFields";
 import { withRouter } from "react-router-dom";
-import * as actions from "../../actions";
-import typeList from "../typeList";
+import * as actions from "../../../actions";
+import typeList from "../../typeList";
 
 class ArtworkForm extends Component {
   state = {
@@ -25,7 +24,11 @@ class ArtworkForm extends Component {
       price: this.state.price,
     };
 
-    this.props.submitArtwork(formValues, this.state.imageFile);
+    this.props.submitArtwork(
+      formValues,
+      this.state.imageFile,
+      this.props.history
+    );
     this.setState({ imageFile: "", title: "", type: "", size: "", price: "" });
   };
 

@@ -23,4 +23,6 @@ module.exports = (app) => {
       res.send(400, err);
     }
   });
+
+  app.get("/_admin/new", requireLogin, (req, res) => {});
 };

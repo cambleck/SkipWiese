@@ -21,7 +21,9 @@ passport.use(
         return done(err);
       }
       if (!user) {
-        return done(null, false, { message: "Incorrect username." });
+        res.status(401);
+        res.end(info.message);
+        return;
       }
       if (!user || user.password !== password) {
         return done(null, false, { message: "Incorrect password." });
