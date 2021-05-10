@@ -6,7 +6,7 @@ const DandelionBlock = () => {
     <div
       style={{
         display: "flex",
-        width: "95%",
+        width: "100%",
         height: "650px",
         backgroundImage: `url(${image})`,
         backgroundSize: "cover",

@@ -1,5 +1,10 @@
 import axios from "axios";
-import { FETCH_USER, FETCH_ARTWORK_LIST, FETCH_ARTWORK } from "./types";
+import {
+  FETCH_USER,
+  FETCH_ARTWORK_LIST,
+  FETCH_ARTWORK,
+  CLEAR_LIST,
+} from "./types";
 
 export const fetchUser = () => async (dispatch) => {
   const res = await axios.get("/api/user");
@@ -23,8 +28,8 @@ export const submitArtwork = (values, file, history) => async (dispatch) => {
   history.push("/_admin");
 };
 
-export const fetchArtworkList = (type) => async (dispatch) => {
-  const res = await axios.get(`/api/artwork/s/${type}`);
+export const fetchArtworkList = (type, pageNumber) => async (dispatch) => {
+  const res = await axios.get(`/api/artwork/s/${type}/${pageNumber}`);
 
   dispatch({ type: FETCH_ARTWORK_LIST, payload: res.data });
 };
@@ -33,4 +38,8 @@ export const fetchArtwork = (id) => async (dispatch) => {
   const res = await axios.get(`/api/artwork/a/${id}`);
 
   dispatch({ type: FETCH_ARTWORK, payload: res.data });
+};
+
+export const clearList = () => async (dispatch) => {
+  dispatch({ type: CLEAR_LIST, payload: "" });
 };

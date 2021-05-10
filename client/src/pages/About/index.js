@@ -1,5 +1,6 @@
 import React from "react";
 import image from "./About.jpeg";
+import image2 from "./skip_painting_mural.jpeg";
 
 const About = () => {
   return (
@@ -10,29 +11,88 @@ const About = () => {
         justifyContent: "center",
         margin: 30,
         marginTop: 60,
-        fontSize: 16,
+        fontSize: 18,
+        marginBottom: 200,
       }}
     >
       <div style={{ maxWidth: 800 }}>
         <img src={image} style={{ float: "left", height: 300, margin: 20 }} />
         <p>
           Leroy “Skip” Wiese is a man of many talents. The diversity of his work
-          is truly astounding. He defies category or simple explanation. Skip is
-          a professional artist who managed to make a living full time with his
-          art from his early years fresh out of high school right up to his
-          death. He was born in Chicago and has been a Waukegan resident for
-          more than 60 years. Skip was a founding and long time member of St.
-          Dismas Church and Dandelion Gallery. He was an honorary board member
-          of the Deer Path Art League, in addition he was a Golden Deeds
-          recipient and member of the Waukegan Exchange Club. He retired from H
-          & R Studio, Chicago as a Fashion Illustrator in 1980. He opened his
-          own studio in Waukegan as an artist and teacher. Skip was a veteran of
-          the United States Army during the Korean War. He is survived by his
-          daughters, Carrie (James) Ware, Christina (Dennis) Heslin, Catherine
-          (Jack) Herman, Corrinne (Michael) Bleck; sister, Patricia (Robert)
-          Mitchell of Arizona; 11 grandchildren; extended family and dear
-          friends in the art community.
+          is truly astounding. He defies category or simple explanation. Skip
+          was a professional artist who managed to make a living full time with
+          his art from his early years fresh out of high school right up to the
+          day died. He was born in Chicago and was a Waukegan resident for more
+          than 60 years. He retired from H & R Studio, Chicago as a Fashion
+          Illustrator in 1980 in order to devote full time to his work as a
+          freelance artist. Within a decade he opened his first studio and
+          gallery on Genesee Street, as well as showing at various “pop-up”
+          galleries over time. Eventually he moved his studio to the Genesee
+          Theater building and had two storefront galleries there.
         </p>
+        <p style={{ fontWeight: "bold", margin: 20 }}>
+          "Many people don't understand art. They'll look at a piece and say 'My
+          kid could do that.' Well, that might be true, but what they really
+          need to ask themselves is what the artist is trying to say."
+        </p>
+        <p>
+          He showed artistic talent at an early age. When he was only seven
+          years old he was already copying and sketching Smilin’ Jack comics. He
+          always had in his own words “a natural knack for art.” He attended
+          parochial school, which had at the time once–a-week art classes. He
+          later attended Lane Technical High School and studied art three hours
+          a day in various art classes offered there. While still in high school
+          he enrolled in The Famous Artist School correspondence course and
+          managed to build a modest portfolio, which later helped land him his
+          first job. In 1951, after graduating from Lane Tech, he attended The
+          Art Institute part time while serving a two-year apprenticeship in
+          commercial art at H & R Studio—a downtown Chicago fashion art studio.
+          At the time H & R Studio was one of the largest commercial studios in
+          Chicago employing over 30 artists.
+        </p>
+        <img src={image2} style={{ float: "right", height: 300, margin: 20 }} />
+        <p>
+          In the 1950s there were quite a number of art studios in Chicago
+          employing scores of young artists eager to learn commercial art and
+          land a full-paying job. Many of these artists, like Skip, would
+          apprentice in a downtown studio while taking classes part time at the
+          Art Institute. Skip worked first as an apprentice and then “on the
+          board” as a commercial artist for such clients as Sears, Marshall
+          Field’s, and Carson Pirie Scott to name but a few. He learned plenty
+          about technique. This studio shop experience allowed a teaching
+          environment without formality. As apprentice, he could ask questions
+          of his fellow shop artists such as “how do you do shiny lapels on a
+          tuxedo?” And he would learn just how. For instance he was told to
+          think of himself as a weaver when drawing fabric. It was a very
+          hands-on approach.
+        </p>
+
+        <p>
+          The wellspring of Skip’s work is vast—almost endless in scope. He had
+          literally hundreds of art pieces spanning over 60 years work stashed
+          in his home and garage studio. He works in pencil, oil, watercolor,
+          pastels, acrylic, mixed media, collage and many types of
+          printmaking—you name it, the list goes on and on.
+        </p>
+
+        <p>
+          He purposely doesn’t usually date his pieces, preferring instead to
+          let them have a continuous life.
+        </p>
+        <p
+          style={{
+            fontWeight: "bold",
+            margin: 20,
+            marginTop: 40,
+            marginBottom: 200,
+          }}
+        >
+          “You can’t really steal the idea, you only can take it and run with it
+          and turn it into your own interpretation.”
+        </p>
+        <a href="" style={{ marginTop: 250 }}>
+          The Many Faces Of Artist Skip Wiese
+        </a>
       </div>
     </div>
   );

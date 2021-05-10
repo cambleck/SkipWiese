@@ -17,8 +17,12 @@ export const Routes = () => {
       <Route exact path="/gallery" component={Gallery} />
       <Route path="/gallery/a/:id" component={ArtworkPage} />
       <Route path="/gallery/s/:type" component={ArtworkList} />
+      <Route
+        path="/gallery/s/:type?:pageNumber=:pageNumber"
+        component={ArtworkList}
+      />
       <Route exact path="/about" component={About} />
-      <Route exact path="/shop" component={Shop} />
+
       <Route exact path="/_admin" component={Admin} />
       <Route path="/_admin/new" component={NewArtwork} />
 

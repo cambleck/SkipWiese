@@ -5,6 +5,22 @@ import { Link } from "react-router-dom";
 import { fetchArtwork } from "../../actions";
 import M from "materialize-css";
 
+const MImage = ({ url }) => {
+  const imageRef = React.useRef();
+
+  React.useEffect(() => {
+    M.Materialbox.init(imageRef.current);
+  }, [imageRef]);
+  return (
+    <img
+      className="materialboxed artwork-image"
+      src={"https://skipwiese.s3.us-east-2.amazonaws.com/" + url}
+      alt=""
+      ref={imageRef}
+    />
+  );
+};
+
 class ArtworkPage extends Component {
   componentDidMount() {
     M.AutoInit();
@@ -14,15 +30,7 @@ class ArtworkPage extends Component {
 
   renderImage() {
     if (this.props.artwork.imageUrl) {
-      return (
-        <img
-          className="materialboxed artwork-image"
-          src={
-            "https://skipwiese.s3.us-east-2.amazonaws.com/" +
-            this.props.artwork.imageUrl
-          }
-        />
-      );
+      return <MImage url={this.props.artwork.imageUrl} />;
     }
   }
 
@@ -58,12 +66,18 @@ class ArtworkPage extends Component {
               alignItems: "center",
               justifyContent: "center",
               boxShadow: "5px 7px 3px rgba(50,50,50,.5)",
+              minHeight: 300,
+              minWidth: 400,
             }}
           >
             {this.renderImage()}
           </div>
           <div className="art-content-container">
-            <div className="card-action"></div>
+            <div className="art-description">
+              This is a descriptino that adds a little bit of extra detail and
+              lets the viewer can a greater insight into the midn of the artist
+              skip wiese
+            </div>
             <div className="art-content">
               <span className="card-title">{artwork.title}</span>
               <span
@@ -73,7 +87,6 @@ class ArtworkPage extends Component {
                 {artwork.type.toLowerCase()}
               </span>
               <span className="subContent">{artwork.size}</span>
-              <span className="subContent">${artwork.price}</span>
             </div>
           </div>
         </div>

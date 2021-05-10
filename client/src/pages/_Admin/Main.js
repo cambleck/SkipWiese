@@ -18,9 +18,7 @@ const Main = () => {
       <a className="admin-main-button" href="./_admin/View">
         VIEW DATABASE
       </a>
-      <a className="admin-main-button" href="./_admin/Orders">
-        Orders
-      </a>
+
       <a
         className="admin-main-button"
         href="./api/logout"

@@ -10,7 +10,10 @@ const ArtCard = ({ artwork }) => {
   }, [imageRef]);
 
   return (
-    <div className="col s12 m6 l4 card-container" style={{ margin: 100 }}>
+    <div
+      className="col s12 m6 l4 card-container"
+      style={{ margin: "200px 10px" }}
+    >
       <div
         style={{
           border: "10px solid rgb(32,12,38)",
@@ -18,10 +21,12 @@ const ArtCard = ({ artwork }) => {
           alignItems: "center",
           justifyContent: "center",
           boxShadow: "5px 7px 3px rgba(50,50,50,.5)",
+          minHeight: 300,
+          minWidth: 400,
         }}
       >
         <img
-          className="materialboxed gallery-image"
+          className="materialboxed card-image"
           src={
             "https://skipwiese.s3.us-east-2.amazonaws.com/" + artwork.imageUrl
           }

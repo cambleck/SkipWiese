@@ -58,19 +58,6 @@ const Header = () => {
                 GALLERY
               </Link>
             </li>
-            <li>
-              <Link
-                to="/shop"
-                style={{
-                  color: "black",
-                  fontSize: 12,
-                  fontWeight: "600",
-                  letterSpacing: "0.056em",
-                }}
-              >
-                SHOP
-              </Link>
-            </li>
           </ul>
         </div>
       </nav>
