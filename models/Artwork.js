@@ -4,8 +4,9 @@ const { Schema } = mongoose;
 const artworkSchema = new Schema({
   title: String,
   type: String,
-  size: String,
-  price: String,
+  height: String,
+  width: String,
+  description: String,
   imageUrl: String,
 });
 

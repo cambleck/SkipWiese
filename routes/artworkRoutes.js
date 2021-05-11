@@ -11,17 +11,27 @@ module.exports = (app) => {
     });
     res.send(artwork);
   });
+
+  app.get("/api/artwork/s/listview", async (req, res) => {
+    console.log("apiartwork");
+    const artwork = await Artwork.find();
+    console.log(artwork);
+    res.send(artwork);
+  });
+
   app.get("/api/artwork/s/:type/:pageNumber", async (req, res) => {
     let artwork = {};
-    console.log(req.params);
-    const limit = 3;
+    console.log(req.params.pageNumber);
+    const limit = 7;
     const page = req.params.pageNumber;
     var count = 0;
     if (req.params.type === "all") {
       try {
         // execute query with page and limit values
         artwork = await Artwork.find()
+          .sort({ title: 1 })
           .limit(limit * 1)
+
           .skip((page - 1) * limit)
           .exec();
 

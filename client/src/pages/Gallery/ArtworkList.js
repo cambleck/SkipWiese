@@ -3,15 +3,16 @@ import map from "lodash/map";
 import { connect } from "react-redux";
 import Pagination from "react-js-pagination";
 import { fetchArtworkList, clearList } from "../../actions";
+import MenuButton from "./MenuButton";
 
 import ArtCard from "./ArtCard";
 
 class ArtworkList extends Component {
   state = {
-    activePage: 1,
+    activePage: this.props.match.params.pageNumber,
   };
   componentDidMount() {
-    window.scrollTo(0, 0);
+    console.log(this.state.activePage);
     this.props.clearList();
     this.props.fetchArtworkList(
       this.props.match.params.type,
@@ -21,9 +22,12 @@ class ArtworkList extends Component {
 
   handlePageChange(pageNumber) {
     window.scrollTo(0, 0);
-    console.log(pageNumber, "PagenUmber");
     this.setState({ activePage: pageNumber });
+    console.log(this.props.match.params, pageNumber);
     this.props.clearList();
+    this.props.history.push(
+      `/gallery/s/${this.props.match.params.type}/${pageNumber}`
+    );
     this.props.fetchArtworkList(this.props.match.params.type, pageNumber);
   }
 
@@ -35,9 +39,10 @@ class ArtworkList extends Component {
 
   render() {
     return (
-      <div class="grid" style={{ flexDirection: "column", marginTop: -50 }}>
+      <div className="grid" style={{ flexDirection: "column", marginTop: -50 }}>
         {this.renderArtwork()}
         <br></br>
+
         {this.props.artworks.totalPages > 1 && (
           <Pagination
             activePage={this.state.activePage}

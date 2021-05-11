@@ -1,5 +1,5 @@
 import React from "react";
-import image from "./About.jpeg";
+import image from "./skip.jpeg";
 import image2 from "./skip_painting_mural.jpeg";
 
 const About = () => {
@@ -11,7 +11,7 @@ const About = () => {
         justifyContent: "center",
         margin: 30,
         marginTop: 60,
-        fontSize: 18,
+        fontSize: 14,
         marginBottom: 200,
       }}
     >
@@ -30,7 +30,7 @@ const About = () => {
           galleries over time. Eventually he moved his studio to the Genesee
           Theater building and had two storefront galleries there.
         </p>
-        <p style={{ fontWeight: "bold", margin: 20 }}>
+        <p style={{ fontWeight: "bold", margin: 20, fontSize: 18 }}>
           "Many people don't understand art. They'll look at a piece and say 'My
           kid could do that.' Well, that might be true, but what they really
           need to ask themselves is what the artist is trying to say."
@@ -67,32 +67,58 @@ const About = () => {
           hands-on approach.
         </p>
 
-        <p>
-          The wellspring of Skip’s work is vast—almost endless in scope. He had
-          literally hundreds of art pieces spanning over 60 years work stashed
-          in his home and garage studio. He works in pencil, oil, watercolor,
-          pastels, acrylic, mixed media, collage and many types of
-          printmaking—you name it, the list goes on and on.
-        </p>
-
-        <p>
-          He purposely doesn’t usually date his pieces, preferring instead to
-          let them have a continuous life.
-        </p>
         <p
           style={{
             fontWeight: "bold",
             margin: 20,
-            marginTop: 40,
-            marginBottom: 200,
+
+            fontSize: 18,
           }}
         >
           “You can’t really steal the idea, you only can take it and run with it
           and turn it into your own interpretation.”
         </p>
-        <a href="" style={{ marginTop: 250 }}>
-          The Many Faces Of Artist Skip Wiese
-        </a>
+
+        <p>
+          The wellspring of Skip’s work is vast—almost endless in scope. He had
+          literally hundreds of art pieces spanning over 60 years work stashed
+          in his home and garage studio. He worked in pencil, oil, watercolor,
+          pastels, acrylic, mixed media, collage and many types of
+          printmaking—you name it, the list goes on and on. He purposely didn't
+          usually date his pieces, preferring instead to let them have a
+          continuous life. And that is the purpose of this site; to continue on
+          the life of his work and to share the many beautiful things he
+          created. Enjoy!
+        </p>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <iframe
+            className="iframe"
+            src="https://www.youtube.com/embed/DNJgNuHoNgo"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            style={{ margin: 30 }}
+          ></iframe>
+          <iframe
+            className="iframe"
+            src="https://www.youtube.com/embed/pyBDxxL2qu0"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            style={{ margin: 30 }}
+          ></iframe>
+          <a href="" style={{ marginTop: 50 }}>
+            The Many Faces Of Artist Skip Wiese
+          </a>
+        </div>
       </div>
     </div>
   );

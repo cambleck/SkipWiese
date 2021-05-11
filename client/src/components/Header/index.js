@@ -14,7 +14,7 @@ const Header = () => {
       ></div>
       <nav className="nav white">
         <div
-          class="nav-wrapper"
+          className="nav-wrapper"
           style={{
             backgroundColor: "rgba(255,250,100,.02)",
           }}
@@ -31,7 +31,7 @@ const Header = () => {
             />
           </Link>
 
-          <ul class="right" style={{ marginRight: 20 }}>
+          <ul className="right" style={{ marginRight: 20 }}>
             <li>
               <Link
                 to="/about"

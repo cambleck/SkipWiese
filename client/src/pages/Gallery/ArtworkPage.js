@@ -73,11 +73,12 @@ class ArtworkPage extends Component {
             {this.renderImage()}
           </div>
           <div className="art-content-container">
-            <div className="art-description">
-              This is a descriptino that adds a little bit of extra detail and
-              lets the viewer can a greater insight into the midn of the artist
-              skip wiese
-            </div>
+            {artwork.description ? (
+              <div className="art-description">{artwork.description}</div>
+            ) : (
+              <div className=""></div>
+            )}
+
             <div className="art-content">
               <span className="card-title">{artwork.title}</span>
               <span

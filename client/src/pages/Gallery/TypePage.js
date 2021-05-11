@@ -31,8 +31,15 @@ const TypePage = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        flexDirection: "column",
       }}
     >
+      <Link className="list-button" to="./list">
+        <i className="material-icons menu-item" style={{ marginRight: 10 }}>
+          menu
+        </i>
+        List View
+      </Link>
       <div className="row type-grid">
         <div className="type-box" style={{ backgroundImage: `url(${all}) ` }}>
           <Link to="./gallery/s/all" className="type-box-cover">

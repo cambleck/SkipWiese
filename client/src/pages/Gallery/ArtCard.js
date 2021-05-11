@@ -41,7 +41,11 @@ const ArtCard = ({ artwork }) => {
           <span className="subContent" style={{ textTransform: "capitalize" }}>
             {artwork.type.toLowerCase()}
           </span>
-          <span className="subContent">{artwork.size}</span>
+          {artwork.height && (
+            <span className="subContent">
+              {artwork.height}x{artwork.width}
+            </span>
+          )}
         </Link>
       </div>
     </div>

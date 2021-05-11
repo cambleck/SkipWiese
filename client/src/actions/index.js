@@ -4,6 +4,7 @@ import {
   FETCH_ARTWORK_LIST,
   FETCH_ARTWORK,
   CLEAR_LIST,
+  FETCH_LISTVIEW,
 } from "./types";
 
 export const fetchUser = () => async (dispatch) => {
@@ -32,6 +33,11 @@ export const fetchArtworkList = (type, pageNumber) => async (dispatch) => {
   const res = await axios.get(`/api/artwork/s/${type}/${pageNumber}`);
 
   dispatch({ type: FETCH_ARTWORK_LIST, payload: res.data });
+};
+export const fetchListView = () => async (dispatch) => {
+  const res = await axios.get(`/api/artwork/s/listview`);
+
+  dispatch({ type: FETCH_LISTVIEW, payload: res.data });
 };
 
 export const fetchArtwork = (id) => async (dispatch) => {

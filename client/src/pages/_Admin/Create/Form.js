@@ -12,16 +12,17 @@ class ArtworkForm extends Component {
     imageFile: "",
     title: "",
     type: "",
-    size: "",
-    price: "",
+    height: "",
+    width: "",
+    description: "",
   };
 
   handleSubmit = () => {
     const formValues = {
       title: this.state.title,
       type: this.state.type,
-      size: this.state.size,
-      price: this.state.price,
+      width: this.state.width,
+      description: this.state.description,
     };
 
     this.props.submitArtwork(
@@ -29,7 +30,13 @@ class ArtworkForm extends Component {
       this.state.imageFile,
       this.props.history
     );
-    this.setState({ imageFile: "", title: "", type: "", size: "", price: "" });
+    this.setState({
+      imageFile: "",
+      title: "",
+      type: "",
+      width: "",
+      description: "",
+    });
   };
 
   handleSelectedFile = (event) => {
@@ -44,11 +51,14 @@ class ArtworkForm extends Component {
   handleTypeChange = (event) => {
     this.setState({ type: event.target.value });
   };
-  handleSizeChange = (event) => {
-    this.setState({ size: event.target.value });
+  handleWidthChange = (event) => {
+    this.setState({ width: event.target.value });
   };
-  handlePriceChange = (event) => {
-    this.setState({ price: event.target.value });
+  handleHeightChange = (event) => {
+    this.setState({ height: event.target.value });
+  };
+  handleDescriptionChange = (event) => {
+    this.setState({ description: event.target.value });
   };
 
   displayImage() {
@@ -78,7 +88,7 @@ class ArtworkForm extends Component {
         <input
           id="title"
           type="text"
-          class="validate"
+          className="validate"
           value={this.state.title}
           onChange={this.handleTitleChange}
         />
@@ -96,7 +106,7 @@ class ArtworkForm extends Component {
   typePicker() {
     return (
       <select
-        class="browser-default"
+        className="browser-default"
         style={{
           background: "transparent",
           border: "none",
@@ -127,32 +137,46 @@ class ArtworkForm extends Component {
     );
   }
 
-  sizeInput() {
+  widthInput() {
     return (
       <div className="input-field col s6">
         <input
-          id="size"
+          id="width"
           type="text"
-          class="validate"
-          value={this.state.size}
-          onChange={this.handleSizeChange}
+          className="validate"
+          value={this.state.width}
+          onChange={this.handleWidthChange}
         />
-        <label for="size">Size</label>
+        <label for="width">Width</label>
+      </div>
+    );
+  }
+  heightInput() {
+    return (
+      <div className="input-field col s6">
+        <input
+          id="height"
+          type="text"
+          className="validate"
+          value={this.state.height}
+          onChange={this.handleHeightChange}
+        />
+        <label for="height">Height</label>
       </div>
     );
   }
 
-  priceInput() {
+  descriptionInput() {
     return (
       <div className="input-field col s6">
         <input
-          id="price"
+          id="description"
           type="text"
-          class="validate"
-          value={this.state.price}
-          onChange={this.handlePriceChange}
+          className="validate"
+          value={this.state.description}
+          onChange={this.handleDescriptionChange}
         />
-        <label for="price">Price</label>
+        <label for="description">Description</label>
       </div>
     );
   }
@@ -164,13 +188,14 @@ class ArtworkForm extends Component {
   render() {
     const { imageFile, selectedImage } = this.state;
     return (
-      <div class="col s12" style={{ maxWidth: 500, marginBottom: 200 }}>
+      <div className="col s12" style={{ maxWidth: 500, marginBottom: 200 }}>
         {this.displayImage()}
         {this.imageInput()}
         {this.titleInput()}
         {this.typePicker()}
-        {this.sizeInput()}
-        {this.priceInput()}
+        {this.heightInput()}
+        {this.widthInput()}
+        {this.descriptionInput()}
         {this.submitButton()}
       </div>
     );
