@@ -11,7 +11,7 @@ const About = () => {
         justifyContent: "center",
         margin: 30,
         marginTop: 60,
-        fontSize: 14,
+        fontSize: 16,
         marginBottom: 200,
       }}
     >

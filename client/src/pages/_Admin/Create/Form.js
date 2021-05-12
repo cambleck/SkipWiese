@@ -12,6 +12,7 @@ class ArtworkForm extends Component {
     imageFile: "",
     title: "",
     type: "",
+    typeLabel: "",
     height: "",
     width: "",
     description: "",
@@ -49,7 +50,8 @@ class ArtworkForm extends Component {
     this.setState({ title: event.target.value });
   };
   handleTypeChange = (event) => {
-    this.setState({ type: event.target.value });
+    var res = event.target.value.split(".");
+    this.setState({ type: res[0], typeLabel: res[1] });
   };
   handleWidthChange = (event) => {
     this.setState({ width: event.target.value });
@@ -98,8 +100,12 @@ class ArtworkForm extends Component {
   }
 
   renderTypeOptions() {
-    return _.map(typeList, ({ type }) => {
-      return <option value={`${type}`}>{type}</option>;
+    return _.map(typeList, ({ value, label }) => {
+      return (
+        <option value={`${value}|${label}`}>
+          {value} - {label}
+        </option>
+      );
     });
   }
 

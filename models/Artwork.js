@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 const artworkSchema = new Schema({
   title: String,
-  type: String,
+  type: Object,
   height: String,
   width: String,
   description: String,

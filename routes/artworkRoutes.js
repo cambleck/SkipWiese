@@ -13,9 +13,8 @@ module.exports = (app) => {
   });
 
   app.get("/api/artwork/s/listview", async (req, res) => {
-    console.log("apiartwork");
-    const artwork = await Artwork.find();
-    console.log(artwork);
+    const artwork = await Artwork.find().sort({ title: 1 });
+
     res.send(artwork);
   });
 
