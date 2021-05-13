@@ -138,6 +138,10 @@ main {
   color: black;
 }
 
+.admin-image-add {
+  height: 100px;
+}
+
 .art-description {
   border: 1px solid rgba(0, 0, 0, 0.05);
   width: 60%;

@@ -17,8 +17,8 @@ export default [
   { value: "PENCIL", label: "Pencil" },
   { value: "SKETCH", label: "Sketch" },
 
-  { value: "MIXED MEDIA", label: "MixedMedia" },
+  { value: "MIXED MEDIA", label: "Mixed Media" },
   { value: "MIXED MEDIA", label: "Oil | Acrylic" },
   { value: "MIXED MEDIA", label: "Acrylic | Collage" },
-  { value: "MIXED MEDIA", label: "MixedMedia" },
+  { value: "MIXED MEDIA", label: "Mixed Media" },
 ];

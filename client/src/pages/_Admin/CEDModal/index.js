@@ -2,12 +2,12 @@ import _ from "lodash";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import formFields from "./formFields";
 import { withRouter } from "react-router-dom";
 import * as actions from "../../../actions";
-import typeList from "../../typeList";
+import typeList from "./typeList";
+import M from "materialize-css";
 
-class ArtworkForm extends Component {
+class CreateNewModal extends Component {
   state = {
     imageFile: "",
     title: "",
@@ -17,6 +17,15 @@ class ArtworkForm extends Component {
     width: "",
     description: "",
   };
+
+  componentDidMount() {
+    const options = {
+      onCloseEnd: () => {
+        this.handleSubmit();
+      },
+    };
+    M.Modal.init(this.Modal, options);
+  }
 
   handleSubmit = () => {
     const formValues = {
@@ -35,6 +44,8 @@ class ArtworkForm extends Component {
       imageFile: "",
       title: "",
       type: "",
+      typeLabel: "",
+      height: "",
       width: "",
       description: "",
     });
@@ -50,7 +61,8 @@ class ArtworkForm extends Component {
     this.setState({ title: event.target.value });
   };
   handleTypeChange = (event) => {
-    var res = event.target.value.split(".");
+    var res = event.target.value.split("|");
+
     this.setState({ type: res[0], typeLabel: res[1] });
   };
   handleWidthChange = (event) => {
@@ -79,7 +91,6 @@ class ArtworkForm extends Component {
           src={this.state.imageFile}
           alt="add an image"
         />
-        4:3
       </div>
     );
   }
@@ -103,7 +114,7 @@ class ArtworkForm extends Component {
     return _.map(typeList, ({ value, label }) => {
       return (
         <option value={`${value}|${label}`}>
-          {value} - {label}
+          ({value}) - {label}
         </option>
       );
     });
@@ -129,14 +140,14 @@ class ArtworkForm extends Component {
 
   imageInput() {
     return (
-      <div className="adminInput">
+      <div>
         <label className="textInput-label">Add Image</label>
         <div style={{ paddingTop: 10 }}>
           <input
             type="file"
             accept="image/*"
             onChange={this.handleSelectedFile}
-            style={{ marginLeft: 10, fontFamily: "monospace" }}
+            style={{ marginLeft: 10 }}
           />
         </div>
       </div>
@@ -149,7 +160,6 @@ class ArtworkForm extends Component {
         <input
           id="width"
           type="text"
-          className="validate"
           value={this.state.width}
           onChange={this.handleWidthChange}
         />
@@ -163,7 +173,6 @@ class ArtworkForm extends Component {
         <input
           id="height"
           type="text"
-          className="validate"
           value={this.state.height}
           onChange={this.handleHeightChange}
         />
@@ -178,7 +187,6 @@ class ArtworkForm extends Component {
         <input
           id="description"
           type="text"
-          className="validate"
           value={this.state.description}
           onChange={this.handleDescriptionChange}
         />
@@ -188,13 +196,27 @@ class ArtworkForm extends Component {
   }
 
   submitButton() {
-    return <button onClick={() => this.handleSubmit()}> Submit</button>;
+    return (
+      <div class="modal-footer">
+        <a href="" class="modal-close waves-effect waves-green btn-flat">
+          SUBMIT
+        </a>
+      </div>
+    );
   }
 
   render() {
     const { imageFile, selectedImage } = this.state;
+    const { type } = this.props;
     return (
-      <div className="col s12" style={{ maxWidth: 500, marginBottom: 200 }}>
+      <div
+        id={`modal-${type}`}
+        class="modal"
+        style={{ padding: 100 }}
+        ref={(Modal) => {
+          this.Modal = Modal;
+        }}
+      >
         {this.displayImage()}
         {this.imageInput()}
         {this.titleInput()}
@@ -212,4 +234,4 @@ function mapStateToProps(state) {
   return {};
 }
 
-export default connect(mapStateToProps, actions)(withRouter(ArtworkForm));
+export default connect(mapStateToProps, actions)(withRouter(CreateNewModal));

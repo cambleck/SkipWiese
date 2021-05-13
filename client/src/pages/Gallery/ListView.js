@@ -1,10 +1,12 @@
 import React from "react";
 import _ from "lodash";
 import { connect } from "react-redux";
-import { fetchListView } from "../../actions";
+import { fetchListView, fetchUser } from "../../actions";
 import Search from "./Search";
 
-const renderList = (list) => {
+import CEDModal from "../_Admin/CEDModal/";
+
+const renderList = (list, auth) => {
   return _.map(list, ({ title, imageUrl, size, type, _id }) => {
     console.log(_id);
     return (
@@ -30,6 +32,16 @@ const renderList = (list) => {
             arrow_forward
           </i>
         </a>
+        {auth && (
+          <a href="#modal-edit" className="secondary-content">
+            <i
+              className="material-icons black-text"
+              style={{ textShadow: "0px 0px 1px white", marginRight: 50 }}
+            >
+              settings
+            </i>
+          </a>
+        )}
       </li>
     );
   });
@@ -65,7 +77,7 @@ class ListView extends React.Component {
   };
   componentDidMount() {
     this.props.fetchListView();
-    console.log(this.props.artworks);
+    this.props.fetchUser();
   }
   render() {
     return (
@@ -76,16 +88,29 @@ class ListView extends React.Component {
             searchValue={this.state.searchValue}
           />
         </div>
+        {this.props.auth && (
+          <>
+            {" "}
+            <a
+              class="waves-effect waves-light btn modal-trigger"
+              href="#modal-new"
+              style={{ marginBottom: 20 }}
+            >
+              New
+            </a>
+            <CEDModal type="new" />
+          </>
+        )}
         <ul class="collection">
-          {renderList(this.filterList(this.props.artworks))}
+          {renderList(this.filterList(this.props.artworks), this.props.auth)}
         </ul>
       </div>
     );
   }
 }
 
-function mapStateToProps({ artworks }, ownProps) {
-  return { artworks };
+function mapStateToProps({ artworks, auth }, ownProps) {
+  return { artworks, auth };
 }
 
-export default connect(mapStateToProps, { fetchListView })(ListView);
+export default connect(mapStateToProps, { fetchListView, fetchUser })(ListView);

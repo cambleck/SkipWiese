@@ -7,7 +7,6 @@ import Admin from "./_Admin";
 import FourZeroFour from "./404";
 import Shop from "./Shop";
 import ArtworkPage from "./Gallery/ArtworkPage";
-import NewArtwork from "./_Admin/Create/";
 import ArtworkList from "./Gallery/ArtworkList";
 import ListView from "./Gallery/ListView";
 
@@ -24,7 +23,6 @@ export const Routes = () => {
       <Route exact path="/about" component={About} />
       <Route exact path="/list" component={ListView} />
       <Route exact path="/_admin" component={Admin} />
-      <Route path="/_admin/new" component={NewArtwork} />
 
       <Route render={FourZeroFour} />
     </Switch>
