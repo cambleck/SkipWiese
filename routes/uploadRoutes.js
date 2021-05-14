@@ -24,6 +24,5 @@ module.exports = (app) => {
       },
       (err, url) => res.send({ key, url })
     );
-    console.log("POSTMALONE");
   });
 };

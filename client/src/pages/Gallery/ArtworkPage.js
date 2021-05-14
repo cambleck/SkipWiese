@@ -81,13 +81,12 @@ class ArtworkPage extends Component {
 
             <div className="art-content">
               <span className="card-title">{artwork.title}</span>
-              <span
-                className="subContent"
-                style={{ textTransform: "capitalize" }}
-              >
-                {artwork.type.toLowerCase()}
+              <span className="subContent">
+                {artwork.typeLabel ? artwork.typeLabel : ""}
               </span>
-              <span className="subContent">{artwork.size}</span>
+              <span className="subContent">
+                {artwork.height} x {artwork.width}
+              </span>
             </div>
           </div>
         </div>

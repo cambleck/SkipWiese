@@ -6,6 +6,7 @@ import {
   CLEAR_LIST,
   FETCH_LISTVIEW,
   DELETE_ARTWORK,
+  SUBMIT_ARTWORK,
 } from "./types";
 
 export const fetchUser = () => async (dispatch) => {
@@ -21,7 +22,6 @@ export const deleteArtwork = (imageUrl, id) => async (dispatch) => {
 
 export const submitArtwork = (values, file, history) => async (dispatch) => {
   const uploadConfig = await axios.get("/api/upload");
-  console.log(values, "Values");
   const upload = await axios.put(uploadConfig.data.url, file, {
     headers: {
       "Content-Type": file.type,
@@ -32,7 +32,8 @@ export const submitArtwork = (values, file, history) => async (dispatch) => {
     ...values,
     imageUrl: uploadConfig.data.key,
   });
-  history.push("/_admin");
+
+  dispatch({ type: SUBMIT_ARTWORK, payload: res.data });
 };
 
 export const fetchArtworkList = (type, pageNumber) => async (dispatch) => {

@@ -5,6 +5,7 @@ import {
   CLEAR_LIST,
   FETCH_LISTVIEW,
   DELETE_ARTWORK,
+  SUBMIT_ARTWORK,
 } from "../actions/types";
 
 export default function (state = {}, action) {
@@ -13,6 +14,10 @@ export default function (state = {}, action) {
       const art = action.payload;
 
       return { ...state, [action.payload._id]: art };
+    case SUBMIT_ARTWORK:
+      const submitedWork = action.payload;
+
+      return { ...state, [action.payload._id]: submitedWork };
     case FETCH_ARTWORK_LIST:
       const { artwork, totalPages, currentPage } = action.payload;
       state = [];
@@ -27,7 +32,6 @@ export default function (state = {}, action) {
       state = [];
       return listview;
     case DELETE_ARTWORK:
-      console.log(action);
       return state.filter((artwork) => artwork._id !== action.payload);
     case CLEAR_LIST:
       state = [];

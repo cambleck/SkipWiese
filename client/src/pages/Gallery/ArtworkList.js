@@ -12,7 +12,6 @@ class ArtworkList extends Component {
     activePage: this.props.match.params.pageNumber,
   };
   componentDidMount() {
-    console.log(this.state.activePage);
     this.props.clearList();
     this.props.fetchArtworkList(
       this.props.match.params.type,
@@ -23,7 +22,6 @@ class ArtworkList extends Component {
   handlePageChange(pageNumber) {
     window.scrollTo(0, 0);
     this.setState({ activePage: pageNumber });
-    console.log(this.props.match.params, pageNumber);
     this.props.clearList();
     this.props.history.push(
       `/gallery/s/${this.props.match.params.type}/${pageNumber}`
@@ -33,7 +31,7 @@ class ArtworkList extends Component {
 
   renderArtwork() {
     return map(this.props.artworks.artwork, (artwork) => {
-      return <ArtCard artwork={artwork} />;
+      return <ArtCard artwork={artwork} key={artwork._id} />;
     });
   }
 

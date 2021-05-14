@@ -7,9 +7,9 @@ import Search from "./Search";
 import CreateModal from "../_Admin/CreateModal/";
 
 const renderList = (list, auth, onDeleteClick) => {
-  return _.map(list, ({ title, imageUrl, size, type, _id }) => {
+  return _.map(list, ({ title, imageUrl, height, width, typeLabel, _id }) => {
     return (
-      <li class="collection-item avatar">
+      <li className="collection-item avatar" key={_id}>
         <img
           src={"https://skipwiese.s3.us-east-2.amazonaws.com/" + imageUrl}
           alt=""
@@ -18,10 +18,10 @@ const renderList = (list, auth, onDeleteClick) => {
         <span className="title" style={{ fontWeight: "bold" }}>
           {title}
         </span>
-        <p style={{ textTransform: "capitalize" }}>
-          {type ? type.toLowerCase() : ""}
+        <p>
+          {typeLabel ? typeLabel : ""}
           <br></br>
-          {size}
+          {height} x {width}
         </p>
         <a href={`gallery/a/${_id}`} className="secondary-content">
           <i
@@ -34,7 +34,7 @@ const renderList = (list, auth, onDeleteClick) => {
         {auth && (
           <>
             <a
-              class="modal-trigger secondary-content"
+              className="modal-trigger secondary-content"
               onClick={() => onDeleteClick(imageUrl, _id)}
               style={{ marginBottom: 20, marginRight: 50, cursor: "pointer" }}
             >
@@ -69,7 +69,9 @@ class ListView extends React.Component {
           item.title
             .toLowerCase()
             .includes(self.state.searchValue.toLowerCase()) ||
-          item.type.toLowerCase().includes(self.state.searchValue.toLowerCase())
+          item.typeLabel
+            .toLowerCase()
+            .includes(self.state.searchValue.toLowerCase())
         );
       });
     } else {
@@ -84,7 +86,6 @@ class ListView extends React.Component {
   };
 
   onDeleteClick = (imageUrl, id) => {
-    console.log(imageUrl, id);
     this.props.deleteArtwork(imageUrl, id);
   };
   componentDidMount() {
@@ -104,7 +105,7 @@ class ListView extends React.Component {
           <>
             {" "}
             <a
-              class="waves-effect waves-light btn modal-trigger"
+              className="waves-effect waves-light btn modal-trigger"
               href="#modal-new"
               style={{ marginBottom: 20 }}
             >
@@ -113,7 +114,7 @@ class ListView extends React.Component {
             <CreateModal type="new" id="" />
           </>
         )}
-        <ul class="collection">
+        <ul className="collection">
           {renderList(
             this.filterList(this.props.artworks),
             this.props.auth,

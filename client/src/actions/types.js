@@ -4,3 +4,4 @@ export const FETCH_ARTWORK = "fetch_artwork";
 export const CLEAR_LIST = "clear_list";
 export const FETCH_LISTVIEW = "fetch_listview";
 export const DELETE_ARTWORK = "delete_artwork";
+export const SUBMIT_ARTWORK = "submit_artwork";

@@ -38,9 +38,7 @@ const ArtCard = ({ artwork }) => {
         <div className="card-action" style={{ fontWeight: "bold" }}></div>
         <Link to={`/gallery/a/${artwork._id}`} className="card-content">
           <span className="card-title">{artwork.title}</span>
-          <span className="subContent" style={{ textTransform: "capitalize" }}>
-            {artwork.type.toLowerCase()}
-          </span>
+          <span className="subContent">{artwork.typeLabel}</span>
           {artwork.height && (
             <span className="subContent">
               {artwork.height}x{artwork.width}

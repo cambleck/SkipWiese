@@ -2,7 +2,6 @@ import React from "react";
 import M from "materialize-css";
 
 const ClickableImage = (url) => {
-  console.log(url, "IMAGEMLKSMDFLKMASDLFKM");
   return (
     <img
       className="materialboxed gallery-image"

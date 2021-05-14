@@ -101,18 +101,18 @@ const About = () => {
             className="iframe"
             src="https://www.youtube.com/embed/DNJgNuHoNgo"
             title="YouTube video player"
-            frameborder="0"
+            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
+            allowFullScreen
             style={{ margin: 30 }}
           ></iframe>
           <iframe
             className="iframe"
             src="https://www.youtube.com/embed/pyBDxxL2qu0"
             title="YouTube video player"
-            frameborder="0"
+            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
+            allowFullScreen
             style={{ margin: 30 }}
           ></iframe>
           <a href="" style={{ marginTop: 50 }}>

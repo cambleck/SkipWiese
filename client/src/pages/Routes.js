@@ -5,7 +5,6 @@ import Gallery from "./Gallery";
 import About from "./About";
 import Admin from "./_Admin";
 import FourZeroFour from "./404";
-import Shop from "./Shop";
 import ArtworkPage from "./Gallery/ArtworkPage";
 import ArtworkList from "./Gallery/ArtworkList";
 import ListView from "./Gallery/ListView";

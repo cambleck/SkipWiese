@@ -10,10 +10,10 @@ import M from "materialize-css";
 const SubmitButton = ({ handleSubmit }) => {
   console.log(handleSubmit);
   return (
-    <div class="modal-footer">
+    <div className="modal-footer">
       <a
         href=""
-        class="waves-effect waves-green btn-flat"
+        className="waves-effect waves-green btn-flat"
         onClick={handleSubmit}
         style={{ background: "green", color: "white", borderRadius: 5 }}
       >
@@ -99,7 +99,7 @@ class CreateNewModal extends Component {
           value={this.state.title}
           onChange={this.handleTitleChange}
         />
-        <label for="title">Title</label>
+        <label htmlFor="title">Title</label>
       </div>
     );
   }
@@ -107,7 +107,7 @@ class CreateNewModal extends Component {
   renderTypeOptions() {
     return _.map(typeList, ({ value, label }) => {
       return (
-        <option value={`${value}|${label}`}>
+        <option value={`${value}|${label}`} key={label}>
           ({value}) - {label}
         </option>
       );
@@ -157,7 +157,7 @@ class CreateNewModal extends Component {
           value={this.state.width}
           onChange={this.handleWidthChange}
         />
-        <label for="width">Width</label>
+        <label htmlFor="width">Width</label>
       </div>
     );
   }
@@ -170,7 +170,7 @@ class CreateNewModal extends Component {
           value={this.state.height}
           onChange={this.handleHeightChange}
         />
-        <label for="height">Height</label>
+        <label htmlFor="height">Height</label>
       </div>
     );
   }
@@ -184,7 +184,7 @@ class CreateNewModal extends Component {
           value={this.state.description}
           onChange={this.handleDescriptionChange}
         />
-        <label for="description">Description</label>
+        <label htmlFor="description">Description</label>
       </div>
     );
   }
@@ -193,14 +193,43 @@ class CreateNewModal extends Component {
     const { imageFile, selectedImage } = this.state;
     const { type } = this.props;
     return (
-      <div id={`modal-${type}`} class="modal" style={{ padding: 100 }}>
+      <div
+        id={`modal-${type}`}
+        className="modal"
+        style={{ padding: 100, paddingTop: 20 }}
+      >
+        <h5 style={{ marginBottom: 20, marginLeft: -20 }}>NEW ARTWORK</h5>
         {this.imageInput()}
         {this.titleInput()}
         {this.typePicker()}
         {this.heightInput()}
         {this.widthInput()}
         {this.descriptionInput()}
-        <SubmitButton handleSubmit={() => this.onHandleSubmit()} />
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <button
+            onClick={() => this.onHandleSubmit()}
+            className="modal-close"
+            style={{
+              background: "rgb(255,240,0)",
+              border: "none",
+              borderRadius: 5,
+              width: 200,
+              height: 50,
+              cursor: "pointer",
+              fontWeight: "bold",
+              boxShadow: "0px 0px 15px black",
+              marginTop: 20,
+            }}
+          >
+            SUBMIT{" "}
+          </button>
+        </div>
       </div>
     );
   }

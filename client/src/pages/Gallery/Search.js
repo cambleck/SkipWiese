@@ -4,7 +4,7 @@ import M from "materialize-css";
 const Search = ({ searchValue, onSearchChange }) => {
   return (
     <div
-      class="row "
+      className="row "
       style={{
         display: "flex",
         alignItems: "center",
@@ -15,11 +15,11 @@ const Search = ({ searchValue, onSearchChange }) => {
         maxWidth: 500,
       }}
     >
-      <div class="col s12" style={{ marginTop: 24 }}>
-        <div class="row">
-          <form class="col s12">
-            <div class="input-field col s12 font">
-              <i class="material-icons prefix ">search</i>
+      <div className="col s12" style={{ marginTop: 24 }}>
+        <div className="row">
+          <form className="col s12">
+            <div className="input-field col s12 font">
+              <i className="material-icons prefix ">search</i>
               <input
                 type="text"
                 value={searchValue}

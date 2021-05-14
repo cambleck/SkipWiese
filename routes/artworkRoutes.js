@@ -104,7 +104,6 @@ module.exports = (app) => {
       imageUrl,
       typeLabel,
     } = req.body;
-    console.log(req.body);
     const artwork = new Artwork({
       title,
       type,

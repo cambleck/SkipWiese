@@ -11,6 +11,7 @@ const renderTypes = () => {
         style={{
           backgroundImage: `url(${image})`,
         }}
+        key={image}
       >
         <Link
           to={`./gallery/s/${type.toLowerCase()}`}
