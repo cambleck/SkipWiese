@@ -14,6 +14,7 @@ const s3 = new aws.S3({
 module.exports = (app) => {
   app.get("/api/upload", (req, res) => {
     const key = `${uuid()}.jpeg`;
+
     s3.getSignedUrl(
       "putObject",
       {
@@ -23,5 +24,6 @@ module.exports = (app) => {
       },
       (err, url) => res.send({ key, url })
     );
+    console.log("POSTMALONE");
   });
 };

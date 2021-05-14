@@ -1,14 +1,13 @@
 import React from "react";
 import _ from "lodash";
 import { connect } from "react-redux";
-import { fetchListView, fetchUser } from "../../actions";
+import { fetchListView, fetchUser, deleteArtwork } from "../../actions";
 import Search from "./Search";
 
-import CEDModal from "../_Admin/CEDModal/";
+import CreateModal from "../_Admin/CreateModal/";
 
-const renderList = (list, auth) => {
+const renderList = (list, auth, onDeleteClick) => {
   return _.map(list, ({ title, imageUrl, size, type, _id }) => {
-    console.log(_id);
     return (
       <li class="collection-item avatar">
         <img
@@ -33,14 +32,22 @@ const renderList = (list, auth) => {
           </i>
         </a>
         {auth && (
-          <a href="#modal-edit" className="secondary-content">
-            <i
-              className="material-icons black-text"
-              style={{ textShadow: "0px 0px 1px white", marginRight: 50 }}
+          <>
+            <a
+              class="modal-trigger secondary-content"
+              onClick={() => onDeleteClick(imageUrl, _id)}
+              style={{ marginBottom: 20, marginRight: 50, cursor: "pointer" }}
             >
-              settings
-            </i>
-          </a>
+              <i
+                className="material-icons red-text"
+                style={{
+                  textShadow: "0px 0px 1px white",
+                }}
+              >
+                delete
+              </i>
+            </a>
+          </>
         )}
       </li>
     );
@@ -50,13 +57,13 @@ const renderList = (list, auth) => {
 class ListView extends React.Component {
   state = {
     searchValue: "",
+    id: "",
   };
 
   filterList = (list) => {
     const self = this;
     let filter = [];
     if (this.state.searchValue != "") {
-      console.log(this.state);
       filter = list.filter(function (item) {
         return (
           item.title
@@ -74,6 +81,11 @@ class ListView extends React.Component {
 
   onSearchChange = (event) => {
     this.setState({ searchValue: event.target.value });
+  };
+
+  onDeleteClick = (imageUrl, id) => {
+    console.log(imageUrl, id);
+    this.props.deleteArtwork(imageUrl, id);
   };
   componentDidMount() {
     this.props.fetchListView();
@@ -98,11 +110,15 @@ class ListView extends React.Component {
             >
               New
             </a>
-            <CEDModal type="new" />
+            <CreateModal type="new" id="" />
           </>
         )}
         <ul class="collection">
-          {renderList(this.filterList(this.props.artworks), this.props.auth)}
+          {renderList(
+            this.filterList(this.props.artworks),
+            this.props.auth,
+            (imageUrl, id) => this.onDeleteClick(imageUrl, id)
+          )}
         </ul>
       </div>
     );
@@ -113,4 +129,8 @@ function mapStateToProps({ artworks, auth }, ownProps) {
   return { artworks, auth };
 }
 
-export default connect(mapStateToProps, { fetchListView, fetchUser })(ListView);
+export default connect(mapStateToProps, {
+  fetchListView,
+  fetchUser,
+  deleteArtwork,
+})(ListView);

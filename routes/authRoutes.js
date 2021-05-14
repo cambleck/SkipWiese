@@ -5,14 +5,13 @@ module.exports = (app) => {
     passport.authenticate("local", (err, user, info) => {
       if (err) throw err;
       if (!user) {
-        res.redirect("/_admin");
+        res.redirect("/list");
       } else {
         req.logIn(user, (err) => {
           if (err) throw err;
-          res.redirect("/_admin");
+          res.redirect("/list");
         });
       }
-      console.log(req.user);
     })(req, res, next);
   });
 
@@ -22,7 +21,6 @@ module.exports = (app) => {
   });
 
   app.get("/api/user", (req, res) => {
-    console.log(req.user, "2");
     res.send(req.user);
   });
 };

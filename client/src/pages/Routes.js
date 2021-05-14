@@ -22,7 +22,7 @@ export const Routes = () => {
       <Route exact path="/gallery/s/:type" component={ArtworkList} />
       <Route exact path="/about" component={About} />
       <Route exact path="/list" component={ListView} />
-      <Route exact path="/_admin" component={Admin} />
+      <Route exact path="/login" component={Admin} />
 
       <Route render={FourZeroFour} />
     </Switch>

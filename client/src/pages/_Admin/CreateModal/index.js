@@ -7,6 +7,22 @@ import * as actions from "../../../actions";
 import typeList from "./typeList";
 import M from "materialize-css";
 
+const SubmitButton = ({ handleSubmit }) => {
+  console.log(handleSubmit);
+  return (
+    <div class="modal-footer">
+      <a
+        href=""
+        class="waves-effect waves-green btn-flat"
+        onClick={handleSubmit}
+        style={{ background: "green", color: "white", borderRadius: 5 }}
+      >
+        SUBMIT
+      </a>
+    </div>
+  );
+};
+
 class CreateNewModal extends Component {
   state = {
     imageFile: "",
@@ -19,18 +35,16 @@ class CreateNewModal extends Component {
   };
 
   componentDidMount() {
-    const options = {
-      onCloseEnd: () => {
-        this.handleSubmit();
-      },
-    };
-    M.Modal.init(this.Modal, options);
+    M.AutoInit();
   }
 
-  handleSubmit = () => {
+  onHandleSubmit = () => {
+    console.log(this.state);
     const formValues = {
       title: this.state.title,
       type: this.state.type,
+      typeLabel: this.state.typeLabel,
+      height: this.state.height,
       width: this.state.width,
       description: this.state.description,
     };
@@ -74,26 +88,6 @@ class CreateNewModal extends Component {
   handleDescriptionChange = (event) => {
     this.setState({ description: event.target.value });
   };
-
-  displayImage() {
-    return (
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          flexDirection: "column",
-          alignItems: "center",
-          textAlign: "center",
-        }}
-      >
-        <img
-          className="add-image"
-          src={this.state.imageFile}
-          alt="add an image"
-        />
-      </div>
-    );
-  }
 
   titleInput() {
     return (
@@ -195,36 +189,18 @@ class CreateNewModal extends Component {
     );
   }
 
-  submitButton() {
-    return (
-      <div class="modal-footer">
-        <a href="" class="modal-close waves-effect waves-green btn-flat">
-          SUBMIT
-        </a>
-      </div>
-    );
-  }
-
   render() {
     const { imageFile, selectedImage } = this.state;
     const { type } = this.props;
     return (
-      <div
-        id={`modal-${type}`}
-        class="modal"
-        style={{ padding: 100 }}
-        ref={(Modal) => {
-          this.Modal = Modal;
-        }}
-      >
-        {this.displayImage()}
+      <div id={`modal-${type}`} class="modal" style={{ padding: 100 }}>
         {this.imageInput()}
         {this.titleInput()}
         {this.typePicker()}
         {this.heightInput()}
         {this.widthInput()}
         {this.descriptionInput()}
-        {this.submitButton()}
+        <SubmitButton handleSubmit={() => this.onHandleSubmit()} />
       </div>
     );
   }

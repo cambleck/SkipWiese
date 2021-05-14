@@ -4,6 +4,7 @@ import {
   FETCH_ARTWORK,
   CLEAR_LIST,
   FETCH_LISTVIEW,
+  DELETE_ARTWORK,
 } from "../actions/types";
 
 export default function (state = {}, action) {
@@ -22,9 +23,12 @@ export default function (state = {}, action) {
       };
     case FETCH_LISTVIEW:
       const listview = action.payload;
-      console.log(listview);
+
       state = [];
       return listview;
+    case DELETE_ARTWORK:
+      console.log(action);
+      return state.filter((artwork) => artwork._id !== action.payload);
     case CLEAR_LIST:
       state = [];
       return state;
