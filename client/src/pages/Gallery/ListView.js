@@ -8,8 +8,13 @@ import CreateModal from "../_Admin/CreateModal/";
 
 const renderList = (list, auth, onDeleteClick) => {
   return _.map(list, ({ title, imageUrl, height, width, typeLabel, _id }) => {
+    const size = `${height} x ${width}`;
     return (
-      <li className="collection-item avatar" key={_id}>
+      <a
+        href={`gallery/a/${_id}`}
+        className="collection-item avatar black-text"
+        key={_id}
+      >
         <img
           src={"https://skipwiese.s3.us-east-2.amazonaws.com/" + imageUrl}
           alt=""
@@ -21,22 +26,27 @@ const renderList = (list, auth, onDeleteClick) => {
         <p>
           {typeLabel ? typeLabel : ""}
           <br></br>
-          {height} x {width}
+          {size}
         </p>
-        <a href={`gallery/a/${_id}`} className="secondary-content">
+        <div className="secondary-content">
           <i
             className="material-icons black-text"
             style={{ textShadow: "0px 0px 1px white" }}
           >
             arrow_forward
           </i>
-        </a>
+        </div>
         {auth && (
           <>
             <a
               className="modal-trigger secondary-content"
               onClick={() => onDeleteClick(imageUrl, _id)}
-              style={{ marginBottom: 20, marginRight: 50, cursor: "pointer" }}
+              style={{
+                marginBottom: 20,
+                marginRight: 50,
+                cursor: "pointer",
+                zIndex: 1,
+              }}
             >
               <i
                 className="material-icons red-text"
@@ -49,7 +59,7 @@ const renderList = (list, auth, onDeleteClick) => {
             </a>
           </>
         )}
-      </li>
+      </a>
     );
   });
 };

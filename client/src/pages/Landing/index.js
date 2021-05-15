@@ -1,11 +1,11 @@
 import React from "react";
 import M from "materialize-css";
-import DandelionBlock from "./DandelionBlock";
+import FirstBlock from "./FirstBlock";
 import About from "./About";
 import GalleryCarousel from "./GalleryCarousel";
 
 const renderFirstBlock = () => {
-  return <DandelionBlock />;
+  return <FirstBlock />;
 };
 
 const renderSecondBlock = () => {
