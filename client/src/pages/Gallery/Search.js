@@ -9,7 +9,7 @@ const Search = ({ searchValue, onSearchChange }) => {
         display: "flex",
         alignItems: "center",
         borderRadius: 20,
-
+        marginTop: 20,
         padding: "10px 30px",
         height: 20,
         maxWidth: 500,

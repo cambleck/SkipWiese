@@ -3,6 +3,10 @@ import _ from "lodash";
 import { Link } from "react-router-dom";
 import typeList from "../typeList";
 import all from "../_images/all.jpg";
+
+const randomR = Math.floor(Math.random() * 256);
+const randomG = Math.floor(Math.random() * 256);
+const randomB = Math.floor(Math.random() * 256);
 const renderTypes = () => {
   return _.map(typeList, ({ type, image }) => {
     return (
@@ -10,6 +14,7 @@ const renderTypes = () => {
         className="type-box"
         style={{
           backgroundImage: `url(${image})`,
+          backgroundColor: "rgb(18,20,22)",
         }}
         key={image}
       >
@@ -24,7 +29,7 @@ const renderTypes = () => {
   });
 };
 
-const TypePage = () => {
+const GalleryPage = () => {
   return (
     <div
       style={{
@@ -42,7 +47,13 @@ const TypePage = () => {
         List View
       </Link>
       <div className="row type-grid">
-        <div className="type-box" style={{ backgroundImage: `url(${all}) ` }}>
+        <div
+          className="type-box"
+          style={{
+            backgroundImage: `url(${all}) `,
+            backgroundColor: "rgb(18,20,22)",
+          }}
+        >
           <Link to="./gallery/s/all" className="type-box-cover">
             All
           </Link>
@@ -53,4 +64,4 @@ const TypePage = () => {
   );
 };
 
-export default TypePage;
+export default GalleryPage;

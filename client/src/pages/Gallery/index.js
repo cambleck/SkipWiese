@@ -1,13 +1,13 @@
 import React from "react";
 import M from "materialize-css";
-import TypePage from "./TypePage";
+import GalleryPage from "./GalleryPage";
 
 class Gallery extends React.Component {
   componentDidMount() {
     M.AutoInit();
   }
   render() {
-    return <TypePage />;
+    return <GalleryPage />;
   }
 }
 export default Gallery;

@@ -73,7 +73,7 @@ class ListView extends React.Component {
   filterList = (list) => {
     const self = this;
     let filter = [];
-    if (this.state.searchValue != "") {
+    if (list && this.state.searchValue != "") {
       filter = list.filter(function (item) {
         return (
           item.title
