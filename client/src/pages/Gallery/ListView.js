@@ -21,12 +21,12 @@ const renderList = (list, auth, onDeleteClick) => {
           className="circle"
         />
         <span className="title" style={{ fontWeight: "bold" }}>
-          {title}
+          {title && title}
         </span>
         <p>
           {typeLabel ? typeLabel : ""}
           <br></br>
-          {size}
+          {height && size}
         </p>
         <div className="secondary-content">
           <i

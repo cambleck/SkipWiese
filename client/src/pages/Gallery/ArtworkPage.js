@@ -39,7 +39,7 @@ class ArtworkPage extends Component {
       return "";
     }
     const { artwork } = this.props;
-
+    const size = `${artwork.height} x ${artwork.width}`;
     return (
       <div
         style={{
@@ -66,8 +66,8 @@ class ArtworkPage extends Component {
               alignItems: "center",
               justifyContent: "center",
               boxShadow: "5px 7px 3px rgba(50,50,50,.5)",
-              minHeight: 300,
-              minWidth: 400,
+              minHeight: 100,
+              minWidth: 150,
             }}
           >
             {this.renderImage()}
@@ -84,9 +84,7 @@ class ArtworkPage extends Component {
               <span className="subContent">
                 {artwork.typeLabel ? artwork.typeLabel : ""}
               </span>
-              <span className="subContent">
-                {artwork.height} x {artwork.width}
-              </span>
+              <span className="subContent">{artwork.height && size}</span>
             </div>
           </div>
         </div>
