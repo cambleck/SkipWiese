@@ -51,7 +51,6 @@ class ArtworkList extends Component {
             activeLinkClass="active-pag"
             innerClass="pag"
             itemClass="item-pag"
-            hideFirstLastPages="true"
           />
         )}
       </div>
