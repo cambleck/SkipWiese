@@ -44,7 +44,7 @@ const GalleryPage = () => {
         <i className="material-icons menu-item" style={{ marginRight: 10 }}>
           menu
         </i>
-        List View
+        LIST
       </Link>
       <div className="row type-grid">
         <div

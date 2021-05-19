@@ -9,12 +9,14 @@ const About = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        flexDirection: "column",
         margin: 30,
-        marginTop: 60,
+        marginTop: 10,
         fontSize: 16,
         marginBottom: 200,
       }}
     >
+      <h2 style={{ fontWeight: "bold", marginBottom: 50 }}> SKIP WIESE</h2>
       <div style={{ maxWidth: 800 }}>
         <img src={image} style={{ float: "left", height: 300, margin: 20 }} />
         <p>

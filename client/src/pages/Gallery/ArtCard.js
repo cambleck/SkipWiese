@@ -3,12 +3,14 @@ import { Link } from "react-router-dom";
 import M from "materialize-css";
 
 const ArtCard = ({ artwork }) => {
+  const { height, width, imageUrl, _id, title, type, typeLabel } = artwork;
   const imageRef = React.useRef();
 
   React.useEffect(() => {
     M.Materialbox.init(imageRef.current);
   }, [imageRef]);
-  const size = `${artwork.height} x ${artwork.width}`;
+  const size = `${height} x ${width}`;
+
   return (
     <div
       className="col s12 m6 l4 card-container"
@@ -16,7 +18,6 @@ const ArtCard = ({ artwork }) => {
     >
       <div
         style={{
-          border: "10px solid rgb(32,12,38)",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -27,21 +28,23 @@ const ArtCard = ({ artwork }) => {
       >
         <img
           className="materialboxed card-image"
-          src={
-            "https://skipwiese.s3.us-east-2.amazonaws.com/" + artwork.imageUrl
-          }
+          src={"https://skipwiese.s3.us-east-2.amazonaws.com/" + imageUrl}
           alt={"image"}
           ref={imageRef}
         />
       </div>
-      <div className="content-container">
-        <div className="card-action" style={{ fontWeight: "bold" }}></div>
-        <Link to={`/gallery/a/${artwork._id}`} className="card-content">
-          <span className="card-title">{artwork.title}</span>
-          <span className="subContent">{artwork.typeLabel}</span>
-          {artwork.height && <span className="subContent">{size}</span>}
-        </Link>
-      </div>
+      {!height && !title && !typeLabel ? (
+        <></>
+      ) : (
+        <div className="content-container">
+          <div className="card-action" style={{ fontWeight: "bold" }}></div>
+          <Link to={`/gallery/a/${_id}`} className="card-content">
+            <span className="card-title">{title}</span>
+            <span className="subContent">{typeLabel}</span>
+            {height && <span className="subContent">{size}</span>}
+          </Link>
+        </div>
+      )}
     </div>
   );
 };

@@ -73,6 +73,7 @@ module.exports = (app) => {
     } else {
       try {
         artwork = await Artwork.find({ type: req.params.type.toUpperCase() })
+          .sort({ title: 1 })
           .limit(limit * 1)
           .skip((page - 1) * limit)
           .exec();

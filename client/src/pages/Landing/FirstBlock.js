@@ -42,8 +42,9 @@ const FirstBlock = () => {
           className="yellow-button waves-effect "
           href="mailto:ckbleck@gmail.com"
           target="_blank"
+          style={{ display: "flex", alignItems: "center" }}
         >
-          <div>Find Out More →</div>
+          <div>CONTACT →</div>
         </a>
       </div>
     </div>
