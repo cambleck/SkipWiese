@@ -28,6 +28,7 @@ class Carousel extends Component {
             alignItems: "center",
             justifyContent: "center",
             flexDirection: "column",
+            marginTop: 20,
           }}
         >
           <div
@@ -39,7 +40,6 @@ class Carousel extends Component {
           >
             <div
               style={{
-                border: "10px solid rgb(32,12,38)",
                 boxShadow: "5px 7px 3px rgba(50,50,50,.5)",
               }}
             >

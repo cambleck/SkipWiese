@@ -1,7 +1,7 @@
 import Monotype from "./_images/monotype.jpeg";
 import Etching from "./_images/etching.jpeg";
 import Print from "./_images/print.jpeg";
-import Pencil from "./_images/pencil.jpeg";
+import Graphite from "./_images/graphite.jpeg";
 import Acrylic from "./_images/acrylic.jpeg";
 import Oil from "./_images/oil.jpeg";
 import Pastel from "./_images/pastel.jpeg";
@@ -22,7 +22,7 @@ export default [
 
   { type: "ACRYLIC", image: Acrylic },
 
-  { type: "PENCIL", image: Pencil },
+  { type: "GRAPHITE", image: Graphite },
 
   { type: "SKETCH", image: Sketch },
 ];

@@ -149,13 +149,15 @@ main {
 .art-content {
   border: 1px solid rgba(0, 0, 0, 0.05);
   width: 30%;
+  min-width: 130px;
   background-color: white;
   display: flex;
   flex-direction: column;
   align-items: right;
   right: 0px;
   text-align: left;
-  padding: 15px;
+  margin-left: 3px;
+  padding: 10px;
   color: black;
 }
 
@@ -165,7 +167,7 @@ main {
 
 .art-description {
   border: 1px solid rgba(0, 0, 0, 0.05);
-  width: 60%;
+
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -175,6 +177,10 @@ main {
   padding: 15px;
   font-size: 12px;
   color: black;
+}
+
+.card-container {
+  margin: auto;
 }
 
 .content-container {
@@ -222,6 +228,7 @@ main {
 }
 .card-image {
   max-width: 500px;
+  width: 80vw;
 }
 .add-image {
   width: 50%;
@@ -280,11 +287,30 @@ main {
 .collection-item:hover {
   background: rgba(250, 240, 0, 0.01);
 }
-
+.about-self-image {
+  float: left;
+  margin: 20px;
+  margin-left: 0px;
+  margin-bottom: 10px;
+  height: 300px;
+}
 .type-box-cover:hover {
   background: none;
   text-shadow: 0px 0px 10px white;
   color: black;
+}
+
+.about-title {
+  margin-bottom: 30px;
+}
+.about-container {
+  display: flex;
+  padding: 20px;
+  justify-content: center;
+
+  flex-direction: column;
+  font-size: 16px;
+  margin-bottom: 200px;
 }
 
 @media only screen and (max-width: 500px) {
@@ -292,9 +318,14 @@ main {
     max-width: 300px;
   }
   .card-image {
-    max-width: 400px;
+    max-width: 300px;
+  }
+  .iframe {
+    width: 200px;
+    height: 100px;
   }
 }
+
 @media only screen and (max-width: 600px) {
   .card-image {
     max-width: 400px;
@@ -310,11 +341,23 @@ main {
     margin: 10px;
   }
   .iframe {
-    width: 375px;
-    height: 210px;
+    width: 337px;
+    height: 189px;
+  }
+  .about-self-image {
+    height: 200px;
   }
 }
 @media only screen and (max-width: 800px) {
+  .about-container {
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+
+    flex-direction: column;
+    font-size: 16px;
+    margin-bottom: 200px;
+  }
 }
 .card-title {
   font-weight: bold;

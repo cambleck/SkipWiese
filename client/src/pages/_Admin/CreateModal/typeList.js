@@ -14,7 +14,7 @@ export default [
   { value: "ACRYLIC", label: "Acrylic" },
   { value: "PASTEL", label: "Pastel" },
 
-  { value: "PENCIL", label: "Pencil" },
+  { value: "GRAPHITE", label: "Graphite" },
   { value: "SKETCH", label: "Sketch" },
 
   { value: "MIXED MEDIA", label: "Mixed Media" },

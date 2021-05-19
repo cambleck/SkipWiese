@@ -20,9 +20,9 @@ const renderList = (list, auth, onDeleteClick) => {
           alt=""
           className="circle"
         />
-        <span className="title" style={{ fontWeight: "bold" }}>
+        <div className="title" style={{ fontWeight: "bold", maxWidth: "80%" }}>
           {title && title}
-        </span>
+        </div>
         <p>
           {typeLabel ? typeLabel : ""}
           <br></br>

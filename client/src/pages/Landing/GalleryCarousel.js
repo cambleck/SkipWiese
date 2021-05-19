@@ -4,7 +4,9 @@ import ImageList from "../typeList";
 
 const GalleryCarousel = () => {
   return (
-    <div style={{ background: "rgba(0,0,0,.01)", width: "100%" }}>
+    <div
+      style={{ background: "rgba(0,0,0,.01)", width: "100%", marginTop: -30 }}
+    >
       <Carousel imageList={ImageList} />
       <div
         style={{

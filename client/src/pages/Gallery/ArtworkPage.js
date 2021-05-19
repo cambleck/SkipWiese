@@ -80,7 +80,9 @@ class ArtworkPage extends Component {
           </div>
           <div className="art-content-container">
             {description ? (
-              <div className="art-description">{description}</div>
+              <div>
+                <div className="art-description">{description}</div>
+              </div>
             ) : (
               <div className=""></div>
             )}
@@ -88,10 +90,14 @@ class ArtworkPage extends Component {
             {!height && !title && !typeLabel ? (
               <></>
             ) : (
-              <div className="art-content">
-                <span className="card-title">{title}</span>
-                <span className="subContent">{typeLabel ? typeLabel : ""}</span>
-                <span className="subContent">{height && size}</span>
+              <div>
+                <div className="art-content">
+                  <span className="card-title">{title}</span>
+                  <span className="subContent">
+                    {typeLabel ? typeLabel : ""}
+                  </span>
+                  <span className="subContent">{height && size}</span>
+                </div>
               </div>
             )}
           </div>
