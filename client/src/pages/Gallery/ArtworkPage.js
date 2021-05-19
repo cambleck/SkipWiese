@@ -39,7 +39,17 @@ class ArtworkPage extends Component {
       return "";
     }
     const { artwork } = this.props;
-    const size = `${artwork.height} x ${artwork.width}`;
+    const {
+      imageUrl,
+      title,
+      height,
+      width,
+      description,
+      type,
+      typeLabel,
+      _id,
+    } = artwork;
+    const size = `${height} x ${width}`;
     return (
       <div
         style={{
@@ -60,32 +70,30 @@ class ArtworkPage extends Component {
         >
           <div
             style={{
-              border: "12px solid rgb(32,12,38)",
-
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               boxShadow: "5px 7px 3px rgba(50,50,50,.5)",
-              minHeight: 100,
-              minWidth: 150,
             }}
           >
             {this.renderImage()}
           </div>
           <div className="art-content-container">
-            {artwork.description ? (
-              <div className="art-description">{artwork.description}</div>
+            {description ? (
+              <div className="art-description">{description}</div>
             ) : (
               <div className=""></div>
             )}
 
-            <div className="art-content">
-              <span className="card-title">{artwork.title}</span>
-              <span className="subContent">
-                {artwork.typeLabel ? artwork.typeLabel : ""}
-              </span>
-              <span className="subContent">{artwork.height && size}</span>
-            </div>
+            {!height && !title && !typeLabel ? (
+              <></>
+            ) : (
+              <div className="art-content">
+                <span className="card-title">{title}</span>
+                <span className="subContent">{typeLabel ? typeLabel : ""}</span>
+                <span className="subContent">{height && size}</span>
+              </div>
+            )}
           </div>
         </div>
       </div>

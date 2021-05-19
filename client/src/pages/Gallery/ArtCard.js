@@ -22,8 +22,6 @@ const ArtCard = ({ artwork }) => {
           alignItems: "center",
           justifyContent: "center",
           boxShadow: "5px 7px 3px rgba(50,50,50,.5)",
-          minHeight: 150,
-          minWidth: 200,
         }}
       >
         <img
@@ -34,7 +32,16 @@ const ArtCard = ({ artwork }) => {
         />
       </div>
       {!height && !title && !typeLabel ? (
-        <></>
+        <div className="content-container">
+          <div className="card-action" style={{ fontWeight: "bold" }}></div>
+          <Link
+            to={`/gallery/a/${_id}`}
+            className="card-content"
+            style={{ textAlign: "center", fontSize: 20, fontWeight: "bold" }}
+          >
+            →
+          </Link>
+        </div>
       ) : (
         <div className="content-container">
           <div className="card-action" style={{ fontWeight: "bold" }}></div>

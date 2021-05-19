@@ -47,6 +47,7 @@ const GalleryPage = () => {
         LIST
       </Link>
       <div className="row type-grid">
+        {renderTypes()}
         <div
           className="type-box"
           style={{
@@ -58,7 +59,6 @@ const GalleryPage = () => {
             All
           </Link>
         </div>
-        {renderTypes()}
       </div>
     </div>
   );
