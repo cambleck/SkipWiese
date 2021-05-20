@@ -100,6 +100,11 @@ main {
   max-width: 100%;
   max-height: 100%;
 }
+.card-image {
+  max-width: 100%;
+  max-height: 100%;
+  box-shadow: 5px 7px 3px rgba(50, 50, 50, 0.5);
+}
 .outline-button {
   width: 250px;
   height: 50px;
@@ -171,17 +176,13 @@ main {
 
 .gallery-content-container {
   display: flex;
-  flex-direction: row;
-  align-items: right;
   justify-content: space-between;
   margin-top: 20px;
-
-  min-width: 200px;
+  max-width: 500px;
 }
 .art-content-container {
   display: flex;
-  flex-direction: row;
-  align-items: right;
+
   justify-content: space-between;
   margin-top: 30px;
 
@@ -217,11 +218,7 @@ main {
 .gallery-image {
   max-width: 400px;
 }
-.card-image {
-  max-width: 500px;
-  width: 80vw;
-  box-shadow: 5px 7px 3px rgba(50, 50, 50, 0.5);
-}
+
 .add-image {
   width: 50%;
 }
@@ -306,9 +303,6 @@ main {
 }
 
 @media only screen and (max-width: 500px) {
-  .card-image {
-    max-width: 300px;
-  }
   .iframe {
     width: 200px;
     height: 100px;
@@ -332,15 +326,8 @@ main {
 }
 
 @media only screen and (max-width: 600px) {
-  .card-image {
-    max-width: 400px;
-  }
 }
 @media only screen and (max-width: 700px) {
-  .card-image {
-    max-width: 400px;
-  }
-
   .iframe {
     width: 337px;
     height: 189px;

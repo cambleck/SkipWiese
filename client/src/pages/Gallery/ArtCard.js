@@ -23,7 +23,7 @@ const ArtCard = ({ artwork }) => {
   return (
     <div
       className="col s12 m6 l4 card-container"
-      style={{ margin: "200px auto" }}
+      style={{ margin: "200px 20px" }}
     >
       <div
         style={{
@@ -58,7 +58,6 @@ const ArtCard = ({ artwork }) => {
             to={`/gallery/a/${_id}`}
             style={{
               width: "50%",
-
               display: "flex",
               justifyContent: "flex-end",
             }}

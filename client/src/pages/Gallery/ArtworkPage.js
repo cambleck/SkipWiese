@@ -85,7 +85,7 @@ class ArtworkPage extends Component {
             ) : (
               <div
                 style={{
-                  maxWidth: "50%",
+                  width: "50%",
 
                   display: "flex",
                   justifyContent: "flex-end",
