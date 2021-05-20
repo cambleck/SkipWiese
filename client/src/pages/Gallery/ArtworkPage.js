@@ -12,12 +12,20 @@ const MImage = ({ url }) => {
     M.Materialbox.init(imageRef.current);
   }, [imageRef]);
   return (
-    <img
-      className="materialboxed artwork-image"
-      src={"https://skipwiese.s3.us-east-2.amazonaws.com/" + url}
-      alt=""
-      ref={imageRef}
-    />
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <img
+        className="materialboxed artwork-image"
+        src={"https://skipwiese.s3.us-east-2.amazonaws.com/" + url}
+        alt=""
+        ref={imageRef}
+      />
+    </div>
   );
 };
 
@@ -64,20 +72,13 @@ class ArtworkPage extends Component {
             margin: 40,
             marginBottom: 100,
             marginTop: 80,
-
             maxWidth: "700px",
           }}
         >
           {this.renderImage()}
 
           <div className="art-content-container">
-            {description ? (
-              <div>
-                <div className="art-description">{description}</div>
-              </div>
-            ) : (
-              <div className=""></div>
-            )}
+            <div className="card-action" style={{ fontWeight: "bold" }}></div>
 
             {!height && !title && !typeLabel ? (
               <></>
@@ -89,6 +90,7 @@ class ArtworkPage extends Component {
                     {typeLabel ? typeLabel : ""}
                   </span>
                   <span className="subContent">{height && size}</span>
+                  <span className="subContent">{description}</span>
                 </div>
               </div>
             )}

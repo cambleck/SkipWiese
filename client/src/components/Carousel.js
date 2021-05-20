@@ -39,17 +39,7 @@ class Carousel extends Component {
               justifyContent: "center",
             }}
           >
-            <div
-              style={{
-                boxShadow: "5px 7px 3px rgba(50,50,50,.5)",
-              }}
-            >
-              <img
-                className="materialboxed carousel-image"
-                src={image}
-                alt={type}
-              />
-            </div>
+            <img className=" carousel-image" src={image} alt={type} />
           </div>
         </a>
       );
