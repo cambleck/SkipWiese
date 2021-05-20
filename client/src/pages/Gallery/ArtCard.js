@@ -62,7 +62,7 @@ const ArtCard = ({ artwork }) => {
               justifyContent: "flex-end",
             }}
           >
-            <div className="art-content" style={{ width: "100%" }}>
+            <div className="art-content">
               <span className="card-title">{title}</span>
               <span className="subContent">{typeLabel ? typeLabel : ""}</span>
               <span className="subContent">{height && size}</span>
