@@ -83,14 +83,23 @@ class ArtworkPage extends Component {
             {!height && !title && !typeLabel ? (
               <></>
             ) : (
-              <div>
+              <div
+                style={{
+                  maxWidth: "50%",
+
+                  display: "flex",
+                  justifyContent: "flex-end",
+                }}
+              >
                 <div className="art-content">
                   <span className="card-title">{title}</span>
                   <span className="subContent">
                     {typeLabel ? typeLabel : ""}
                   </span>
                   <span className="subContent">{height && size}</span>
-                  <span className="subContent">{description}</span>
+                  <span className="subContent" style={{ marginTop: 10 }}>
+                    {description}
+                  </span>
                 </div>
               </div>
             )}

@@ -3,7 +3,16 @@ import { Link } from "react-router-dom";
 import M from "materialize-css";
 
 const ArtCard = ({ artwork }) => {
-  const { height, width, imageUrl, _id, title, type, typeLabel } = artwork;
+  const {
+    height,
+    width,
+    imageUrl,
+    _id,
+    title,
+    type,
+    typeLabel,
+    description,
+  } = artwork;
   const imageRef = React.useRef();
 
   React.useEffect(() => {
@@ -21,7 +30,6 @@ const ArtCard = ({ artwork }) => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          boxShadow: "5px 7px 3px rgba(50,50,50,.5)",
         }}
       >
         <img
@@ -32,23 +40,37 @@ const ArtCard = ({ artwork }) => {
         />
       </div>
       {!height && !title && !typeLabel ? (
-        <div className="content-container">
+        <div className="gallery-content-container">
           <div className="card-action" style={{ fontWeight: "bold" }}></div>
           <Link
             to={`/gallery/a/${_id}`}
-            className="card-content"
+            className=""
             style={{ textAlign: "center", fontSize: 20, fontWeight: "bold" }}
           >
             →
           </Link>
         </div>
       ) : (
-        <div className="content-container">
+        <div className="gallery-content-container">
           <div className="card-action" style={{ fontWeight: "bold" }}></div>
-          <Link to={`/gallery/a/${_id}`} className="card-content">
-            <span className="card-title">{title}</span>
-            <span className="subContent">{typeLabel}</span>
-            {height && <span className="subContent">{size}</span>}
+
+          <Link
+            to={`/gallery/a/${_id}`}
+            style={{
+              width: "50%",
+
+              display: "flex",
+              justifyContent: "flex-end",
+            }}
+          >
+            <div className="art-content" style={{ width: "100%" }}>
+              <span className="card-title">{title}</span>
+              <span className="subContent">{typeLabel ? typeLabel : ""}</span>
+              <span className="subContent">{height && size}</span>
+              <span className="subContent" style={{ marginTop: 10 }}>
+                {description}
+              </span>
+            </div>
           </Link>
         </div>
       )}
