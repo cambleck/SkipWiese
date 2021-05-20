@@ -65,19 +65,11 @@ class ArtworkPage extends Component {
             marginBottom: 100,
             marginTop: 80,
 
-            maxWidth: "800px",
+            maxWidth: "700px",
           }}
         >
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              boxShadow: "5px 7px 3px rgba(50,50,50,.5)",
-            }}
-          >
-            {this.renderImage()}
-          </div>
+          {this.renderImage()}
+
           <div className="art-content-container">
             {description ? (
               <div>

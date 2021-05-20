@@ -7,6 +7,7 @@ const options = {
   shift: 200,
   numVisible: 3,
   duration: 400,
+  indicators: true,
 };
 
 class Carousel extends Component {
