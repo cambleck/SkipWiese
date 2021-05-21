@@ -10,13 +10,13 @@ import ArtCard from "./ArtCard";
 class ArtworkList extends Component {
   state = {
     activePage: this.props.match.params.pageNumber,
+    loading: true,
   };
   componentDidMount() {
     this.props.clearList();
-    this.props.fetchArtworkList(
-      this.props.match.params.type,
-      this.state.activePage
-    );
+    this.props
+      .fetchArtworkList(this.props.match.params.type, this.state.activePage)
+      .then(() => this.setState({ loading: false }));
   }
 
   handlePageChange(pageNumber) {
@@ -37,23 +37,34 @@ class ArtworkList extends Component {
 
   render() {
     return (
-      <div className="grid" style={{ flexDirection: "column", marginTop: -50 }}>
-        {this.renderArtwork()}
-        <br></br>
+      <>
+        {this.state.loading ? (
+          <div class="loader-container">
+            <div class="loader"></div>
+          </div>
+        ) : (
+          <div
+            className="grid"
+            style={{ flexDirection: "column", marginTop: -50 }}
+          >
+            {this.renderArtwork()}
+            <br></br>
 
-        {this.props.artworks.totalPages > 1 && (
-          <Pagination
-            activePage={this.state.activePage}
-            itemsCountPerPage={2}
-            totalItemsCount={this.props.artworks.totalPages * 2}
-            pageRangeDisplayed={5}
-            onChange={this.handlePageChange.bind(this)}
-            activeLinkClass="active-pag"
-            innerClass="pag"
-            itemClass="item-pag"
-          />
+            {this.props.artworks.totalPages > 1 && (
+              <Pagination
+                activePage={this.state.activePage}
+                itemsCountPerPage={2}
+                totalItemsCount={this.props.artworks.totalPages * 2}
+                pageRangeDisplayed={5}
+                onChange={this.handlePageChange.bind(this)}
+                activeLinkClass="active-pag"
+                innerClass="pag"
+                itemClass="item-pag"
+              />
+            )}
+          </div>
         )}
-      </div>
+      </>
     );
   }
 }

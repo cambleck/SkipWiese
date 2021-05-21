@@ -2,7 +2,7 @@ import React from "react";
 import _ from "lodash";
 import { Link } from "react-router-dom";
 import typeList from "../typeList";
-import all from "../_images/all.jpg";
+import all from "../_images/all.jpeg";
 
 const randomR = Math.floor(Math.random() * 256);
 const randomG = Math.floor(Math.random() * 256);

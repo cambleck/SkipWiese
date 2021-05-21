@@ -68,6 +68,7 @@ class ListView extends React.Component {
   state = {
     searchValue: "",
     id: "",
+    loading: true,
   };
 
   filterList = (list) => {
@@ -99,39 +100,47 @@ class ListView extends React.Component {
     this.props.deleteArtwork(imageUrl, id);
   };
   componentDidMount() {
-    this.props.fetchListView();
+    this.props.fetchListView().then(() => this.setState({ loading: false }));
     this.props.fetchUser();
   }
   render() {
     return (
-      <div className="container" style={{ marginBottom: 200 }}>
-        <div className="list-panel">
-          <Search
-            onSearchChange={this.onSearchChange}
-            searchValue={this.state.searchValue}
-          />
-        </div>
-        {this.props.auth && (
-          <>
-            {" "}
-            <a
-              className="waves-effect waves-light btn modal-trigger"
-              href="#modal-new"
-              style={{ marginBottom: 20 }}
-            >
-              New
-            </a>
-            <CreateModal type="new" id="" />
-          </>
+      <>
+        {this.state.loading ? (
+          <div class="loader-container">
+            <div class="loader"></div>
+          </div>
+        ) : (
+          <div className="container" style={{ marginBottom: 200 }}>
+            <div className="list-panel">
+              <Search
+                onSearchChange={this.onSearchChange}
+                searchValue={this.state.searchValue}
+              />
+            </div>
+            {this.props.auth && (
+              <>
+                {" "}
+                <a
+                  className="waves-effect waves-light btn modal-trigger"
+                  href="#modal-new"
+                  style={{ marginBottom: 20 }}
+                >
+                  New
+                </a>
+                <CreateModal type="new" id="" />
+              </>
+            )}
+            <ul className="collection">
+              {renderList(
+                this.filterList(this.props.artworks),
+                this.props.auth,
+                (imageUrl, id) => this.onDeleteClick(imageUrl, id)
+              )}
+            </ul>
+          </div>
         )}
-        <ul className="collection">
-          {renderList(
-            this.filterList(this.props.artworks),
-            this.props.auth,
-            (imageUrl, id) => this.onDeleteClick(imageUrl, id)
-          )}
-        </ul>
-      </div>
+      </>
     );
   }
 }

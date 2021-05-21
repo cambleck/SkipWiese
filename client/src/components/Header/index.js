@@ -20,15 +20,7 @@ const Header = () => {
           }}
         >
           <Link to="/" style={{ cursor: "pointer" }}>
-            <img
-              src={logo}
-              alt="Skip Wiese Logo"
-              style={{
-                width: 150,
-                marginLeft: 20,
-                marginTop: 12,
-              }}
-            />
+            <img src={logo} alt="Skip Wiese Logo" className="logo" />
           </Link>
 
           <ul className="right" style={{ marginRight: 20 }}>

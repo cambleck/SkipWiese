@@ -174,7 +174,11 @@ main {
   margin: auto;
   max-width: 500px;
 }
-
+.logo {
+  width: 130px;
+  margin-left: 20px;
+  margin-top: 12px;
+}
 .gallery-content-container {
   display: flex;
   justify-content: space-between;
@@ -308,6 +312,7 @@ main {
     width: 200px;
     height: 100px;
   }
+
   .landingBlob {
     padding: 20px;
     position: absolute;
@@ -327,6 +332,10 @@ main {
 }
 
 @media only screen and (max-width: 600px) {
+  .logo {
+    width: 120px;
+    margin-top: 12px;
+  }
 }
 @media only screen and (max-width: 700px) {
   .iframe {
