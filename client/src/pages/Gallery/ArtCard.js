@@ -23,7 +23,7 @@ const ArtCard = ({ artwork }) => {
   return (
     <div
       className="col s12 m6 l4 card-container"
-      style={{ margin: "200px 20px" }}
+      style={{ margin: "200px auto" }}
     >
       <div
         style={{
