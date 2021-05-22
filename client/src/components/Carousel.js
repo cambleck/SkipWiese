@@ -2,6 +2,7 @@ import _ from "lodash";
 import React, { Component } from "react";
 import M from "materialize-css";
 
+// custom options for Carousel
 const options = {
   padding: 100,
   shift: 200,
@@ -21,24 +22,8 @@ class Carousel extends Component {
   renderImages() {
     return _.map(this.props.imageList, ({ image, type }) => {
       return (
-        <a
-          key={type}
-          className="carousel-item"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            flexDirection: "column",
-            marginTop: 20,
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
+        <a key={type} className="carousel-item">
+          <div className="flex-center">
             <img className=" carousel-image" src={image} alt={type} />
           </div>
         </a>
@@ -46,11 +31,7 @@ class Carousel extends Component {
     });
   }
   render() {
-    return (
-      <div className="carousel" style={{ height: 700 }}>
-        {this.renderImages()}
-      </div>
-    );
+    return <div className="carousel">{this.renderImages()}</div>;
   }
 }
 

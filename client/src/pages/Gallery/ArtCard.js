@@ -22,13 +22,7 @@ const ArtCard = ({ artwork }) => {
 
   return (
     <div className="col s12 m6 l4 card-container">
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
+      <div className="flex-center">
         <img
           className="materialboxed card-image"
           src={"https://skipwiese.s3.us-east-2.amazonaws.com/" + imageUrl}

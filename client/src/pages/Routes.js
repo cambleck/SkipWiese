@@ -16,13 +16,11 @@ export const Routes = () => {
       <Route exact path="/" component={Landing} />
       <Route exact path="/gallery" component={Gallery} />
       <Route path="/gallery/a/:id" component={ArtworkPage} />
-
       <Route path="/gallery/s/:type/:pageNumber" component={ArtworkList} />
       <Route exact path="/gallery/s/:type" component={ArtworkList} />
       <Route exact path="/about" component={About} />
       <Route exact path="/list" component={ListView} />
       <Route exact path="/login" component={Admin} />
-
       <Route render={FourZeroFour} />
     </Switch>
   );

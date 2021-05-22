@@ -3,28 +3,11 @@ import React, { Component } from "react";
 class Login extends Component {
   render() {
     return (
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
+      <div className="flex-center">
         <form
           action="/api/login"
           method="post"
-          style={{
-            width: 400,
-            display: "flex",
-            alignItems: "center",
-            flexDirection: "column",
-            justifyContent: "center",
-            border: "1px solid rgb(220,220,220)",
-            borderRadius: "10px",
-            padding: 50,
-            margin: 50,
-            background: "white",
-          }}
+          className="login-form flex-center column"
         >
           <div>
             <label style={{ letterSpacing: 3 }}>Username:</label>

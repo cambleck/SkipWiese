@@ -5,48 +5,21 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <header>
-      <div
-        style={{
-          width: "100%",
-          background: "rgba(255, 245, 0, .8)",
-          height: 4,
-        }}
-      ></div>
+      <div className="header-stripe"></div>
       <nav className="nav white">
-        <div
-          className="nav-wrapper"
-          style={{
-            backgroundColor: "rgba(255,250,100,.02)",
-          }}
-        >
-          <Link to="/" style={{ cursor: "pointer" }}>
+        <div className="nav-wrapper">
+          <Link to="/" className="pointer">
             <img src={logo} alt="Skip Wiese Logo" className="logo" />
           </Link>
 
-          <ul className="right" style={{ marginRight: 20 }}>
+          <ul className="right">
             <li>
-              <Link
-                to="/about"
-                style={{
-                  color: "black",
-                  fontSize: 12,
-                  fontWeight: "600",
-                  letterSpacing: "0.056em",
-                }}
-              >
+              <Link to="/about" className="header-tab">
                 ABOUT
               </Link>
             </li>
             <li>
-              <Link
-                to="/gallery"
-                style={{
-                  color: "black",
-                  fontSize: 12,
-                  fontWeight: "600",
-                  letterSpacing: "0.056em",
-                }}
-              >
+              <Link to="/gallery" className="header-tab">
                 GALLERY
               </Link>
             </li>

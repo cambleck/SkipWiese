@@ -19,10 +19,7 @@ export default [
   { type: "MONOTYPE", image: Monotype },
   { type: "WATERCOLOR", image: Watercolor },
   { type: "OIL", image: Oil },
-
   { type: "ACRYLIC", image: Acrylic },
-
   { type: "GRAPHITE", image: Graphite },
-
   { type: "SKETCH", image: Sketch },
 ];

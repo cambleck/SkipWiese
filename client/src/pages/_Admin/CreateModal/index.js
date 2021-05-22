@@ -205,13 +205,7 @@ class CreateNewModal extends Component {
         {this.heightInput()}
         {this.widthInput()}
         {this.descriptionInput()}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
+        <div className="flex-center">
           <button
             onClick={() => this.onHandleSubmit()}
             className="modal-close"

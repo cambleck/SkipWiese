@@ -10,6 +10,8 @@ class App extends React.Component {
   state = {
     loading: true,
   };
+
+  // removes loading icon after page loads
   componentDidMount() {
     this.fakeRequest().then(() => {
       const el = document.querySelector(".loader-container");

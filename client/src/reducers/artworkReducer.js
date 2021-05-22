@@ -12,11 +12,9 @@ export default function (state = {}, action) {
   switch (action.type) {
     case FETCH_ARTWORK:
       const art = action.payload;
-
       return { ...state, [action.payload._id]: art };
     case SUBMIT_ARTWORK:
       const submitedWork = action.payload;
-
       return { ...state, [action.payload._id]: submitedWork };
     case FETCH_ARTWORK_LIST:
       const { artwork, totalPages, currentPage } = action.payload;
@@ -28,7 +26,6 @@ export default function (state = {}, action) {
       };
     case FETCH_LISTVIEW:
       const listview = action.payload;
-
       state = [];
       return listview;
     case DELETE_ARTWORK:

@@ -4,18 +4,9 @@ import ImageList from "../typeList";
 
 const GalleryCarousel = () => {
   return (
-    <div
-      style={{ background: "rgba(0,0,0,.01)", width: "100%", marginTop: -30 }}
-    >
+    <div style={{ background: "rgba(0,0,0,.01)", width: "100%" }}>
       <Carousel imageList={ImageList} />
-      <div
-        style={{
-          display: "flex",
-          width: "100%",
-          alignITems: "center",
-          justifyContent: "center",
-        }}
-      >
+      <div className="flex-center full-width">
         <a
           href="./gallery"
           className="black-text btn transparent"

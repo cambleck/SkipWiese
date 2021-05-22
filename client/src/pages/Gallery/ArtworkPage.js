@@ -12,13 +12,7 @@ const MImage = ({ url }) => {
     M.Materialbox.init(imageRef.current);
   }, [imageRef]);
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
+    <div className="flex-center">
       <img
         className="materialboxed artwork-image"
         src={"https://skipwiese.s3.us-east-2.amazonaws.com/" + url}
@@ -59,14 +53,7 @@ class ArtworkPage extends Component {
     } = artwork;
     const size = `${height} x ${width}`;
     return (
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
+      <div className="flex-center column">
         <div
           style={{
             margin: 40,
@@ -86,7 +73,6 @@ class ArtworkPage extends Component {
               <div
                 style={{
                   width: "50%",
-
                   display: "flex",
                   justifyContent: "flex-end",
                 }}

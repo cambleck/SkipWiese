@@ -120,7 +120,6 @@ class ListView extends React.Component {
             </div>
             {this.props.auth && (
               <>
-                {" "}
                 <a
                   className="waves-effect waves-light btn modal-trigger"
                   href="#modal-new"

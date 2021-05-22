@@ -13,7 +13,6 @@ const FirstBlock = () => {
         flexDirection: "column",
         position: "relative",
         padding: 30,
-        marginBottom: 30,
       }}
     >
       <div className="landingBlob">
