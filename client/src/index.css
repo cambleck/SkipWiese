@@ -171,7 +171,7 @@ main {
 }
 
 .card-container {
-  margin: auto;
+  margin: 200px 0px;
   max-width: 500px;
 }
 .logo {
@@ -235,7 +235,6 @@ main {
   padding: 20px;
   max-width: 1500px;
 
-  margin: 0px;
   margin-bottom: 200px;
   margin-top: 20px;
 }
@@ -367,13 +366,12 @@ main {
 
 .grid {
   display: flex;
-  flex-wrap: wrap;
-  padding: 40px 20px;
+
   padding-top: 10px;
   align-items: center;
   justify-content: space-around;
   border-radius: 0px 0px 30px 30px;
-  margin: 0px;
+  padding: 20px;
   margin-bottom: 100px;
 }
 

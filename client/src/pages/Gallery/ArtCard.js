@@ -21,10 +21,7 @@ const ArtCard = ({ artwork }) => {
   const size = `${height} x ${width}`;
 
   return (
-    <div
-      className="col s12 m6 l4 card-container"
-      style={{ margin: "200px auto" }}
-    >
+    <div className="col s12 m6 l4 card-container">
       <div
         style={{
           display: "flex",
