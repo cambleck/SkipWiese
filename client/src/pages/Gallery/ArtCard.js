@@ -30,7 +30,7 @@ const ArtCard = ({ artwork }) => {
           ref={imageRef}
         />
       </div>
-      {!height && !title && !typeLabel ? (
+      {!height && !title ? (
         <div className="gallery-content-container">
           <div className="card-action" style={{ fontWeight: "bold" }}></div>
           <Link
