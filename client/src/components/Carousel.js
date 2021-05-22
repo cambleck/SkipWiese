@@ -3,9 +3,6 @@ import React, { Component } from "react";
 import M from "materialize-css";
 
 const options = {
-  padding: 100,
-  shift: 200,
-  numVisible: 3,
   duration: 400,
   indicators: true,
 };
