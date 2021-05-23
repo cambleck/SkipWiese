@@ -67,7 +67,7 @@ class ArtworkPage extends Component {
           <div className="art-content-container">
             <div className="card-action" style={{ fontWeight: "bold" }}></div>
 
-            {!height && !title && !typeLabel ? (
+            {!height && !title ? (
               <></>
             ) : (
               <div
