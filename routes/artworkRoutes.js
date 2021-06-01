@@ -22,7 +22,7 @@ module.exports = (app) => {
   });
 
   app.get("/api/artwork/s/listview", async (req, res) => {
-    const artwork = await Artwork.find().sort({ title: -1 });
+    const artwork = await Artwork.find().sort({ title: 1 });
 
     res.send(artwork);
   });
