@@ -1,5 +1,5 @@
 import React from "react";
-import image from "./self-portrait.JPG";
+import image from "./self-portrait.webp";
 
 const FirstBlock = () => {
   return (

@@ -1,14 +1,14 @@
-import Monotype from "./_images/monotype.jpeg";
-import Etching from "./_images/etching.jpeg";
-import Print from "./_images/print.jpeg";
-import Graphite from "./_images/graphite.jpeg";
-import Acrylic from "./_images/acrylic.jpeg";
-import Oil from "./_images/oil.jpeg";
-import Pastel from "./_images/pastel.jpeg";
-import Sketch from "./_images/sketch.jpeg";
-import Commercial from "./_images/commercial.jpeg";
-import Watercolor from "./_images/watercolor.jpeg";
-import MixedMedia from "./_images/mixedMedia.jpeg";
+import Monotype from "./_images/monotype.webp";
+import Etching from "./_images/etching.webp";
+import Print from "./_images/print.webp";
+import Graphite from "./_images/graphite.webp";
+import Acrylic from "./_images/acrylic.webp";
+import Oil from "./_images/oil.webp";
+import Pastel from "./_images/pastel.webp";
+import Sketch from "./_images/sketch.webp";
+import Commercial from "./_images/commercial.webp";
+import Watercolor from "./_images/watercolor.webp";
+import MixedMedia from "./_images/mixedMedia.webp";
 
 export default [
   { type: "PASTEL", image: Pastel },

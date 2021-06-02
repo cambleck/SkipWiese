@@ -2,7 +2,7 @@ import React from "react";
 import _ from "lodash";
 import { Link } from "react-router-dom";
 import typeList from "../typeList";
-import all from "../_images/all.jpeg";
+import all from "../_images/all.webp";
 
 const renderTypes = () => {
   return _.map(typeList, ({ type, image }) => {

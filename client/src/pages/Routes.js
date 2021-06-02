@@ -1,13 +1,15 @@
 import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
-import Landing from "./Landing";
-import Gallery from "./Gallery";
-import About from "./About";
-import Admin from "./_Admin";
-import FourZeroFour from "./404";
-import ArtworkPage from "./Gallery/ArtworkPage";
-import ArtworkList from "./Gallery/ArtworkList";
-import ListView from "./Gallery/ListView";
+import loadable from "@loadable/component";
+
+const Landing = loadable(() => import("./Landing"));
+const Gallery = loadable(() => import("./Gallery"));
+const About = loadable(() => import("./About"));
+const Admin = loadable(() => import("./_Admin"));
+const FourZeroFour = loadable(() => import("./404"));
+const ArtworkPage = loadable(() => import("./Gallery/ArtworkPage"));
+const ArtworkList = loadable(() => import("./Gallery/ArtworkList"));
+const ListView = loadable(() => import("./Gallery/ListView"));
 
 export const Routes = () => {
   return (
