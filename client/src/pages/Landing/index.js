@@ -2,7 +2,6 @@ import React from "react";
 import M from "materialize-css";
 import FirstBlock from "./FirstBlock";
 import ThirdBlock from "./About";
-import SecondBlock from "./GalleryCarousel";
 
 class Landing extends React.Component {
   componentDidMount() {
@@ -12,7 +11,6 @@ class Landing extends React.Component {
     return (
       <div className="flex-center column">
         <FirstBlock />
-        <SecondBlock />
         <ThirdBlock />
       </div>
     );
