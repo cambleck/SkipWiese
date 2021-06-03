@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const aws = require("aws-sdk");
 const requireLogin = require("../middlewares/requireLogin");
-// const cleanCache = require("../middlewares/cleanCache");
 const keys = require("../config/keys");
 const Artwork = mongoose.model("Artwork");
 
