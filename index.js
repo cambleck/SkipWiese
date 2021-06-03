@@ -2,6 +2,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const passport = require("passport");
 const cookieSession = require("cookie-session");
+const expressStaticGzip = require("express-static-gzip");
+const path = require("path");
 const keys = require("./config/keys");
 const bodyParser = require("body-parser");
 require("./models/Artwork");
@@ -23,6 +25,12 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use(
+  expressStaticGzip(path.join(__dirname, "build"), {
+    enableBrotli: true,
+  })
+);
 
 app.use((req, res, next) => {
   next();
