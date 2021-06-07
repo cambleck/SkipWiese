@@ -363,6 +363,7 @@ main {
 
 .about-title {
   margin-bottom: 30px;
+  text-decoration: underline;
 }
 .about-container {
   display: flex;
