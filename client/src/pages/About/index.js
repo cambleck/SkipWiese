@@ -40,7 +40,7 @@ const About = () => {
             He always had in his own words “a natural knack for art.” He
             attended parochial school, which had at the time once–a-week art
             classes. He later attended Lane Technical High School and studied
-            art three hours a day in various art classes offered there. While
+            art three hours a day in various art classes offered there.  While
             still in high school he enrolled in The Famous Artist School
             correspondence course and managed to build a modest portfolio, which
             later helped land him his first job. In 1951, after graduating from
