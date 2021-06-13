@@ -29,11 +29,15 @@ const renderTypes = () => {
 const GalleryPage = () => {
   return (
     <div className="flex-center full-width column">
-      <Link className="list-button" to="./list">
+      <Link
+        className="black-text btn transparent flex-center"
+        style={{ padding: "10px 50px", margin: 40 }}
+        to="./list"
+      >
         <i className="material-icons menu-item" style={{ marginRight: 10 }}>
           menu
         </i>
-        LIST
+        LIST VIEW
       </Link>
       <div className="row type-grid">
         {renderTypes()}
