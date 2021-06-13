@@ -20,10 +20,13 @@ const renderList = (list, auth, onDeleteClick) => {
           alt=""
           className="list-image circle"
         />
-        <div className="title" style={{ fontWeight: "bold", maxWidth: "80%" }}>
+        <div
+          className="title"
+          style={{ fontWeight: "bold", maxWidth: "80%", fontSize: 14 }}
+        >
           {title && title}
         </div>
-        <p>
+        <p style={{ fontSize: 12 }}>
           {typeLabel ? typeLabel : ""}
           <br></br>
           {height && size}
