@@ -21,8 +21,16 @@ module.exports = (app) => {
   });
 
   app.get("/api/artwork/s/listview", async (req, res) => {
-    const artwork = await Artwork.find().sort({ title: 1 });
+    var noTitleArray = [];
+    var artwork = await Artwork.find().sort({ title: 0 });
 
+    noTitleArray = artwork.filter((item) => {
+      return item.title === "";
+    });
+    artwork = artwork.filter((item) => {
+      return item.title != "";
+    });
+    artwork.push.apply(artwork, noTitleArray);
     res.send(artwork);
   });
 

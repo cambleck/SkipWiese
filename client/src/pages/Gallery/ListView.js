@@ -18,7 +18,7 @@ const renderList = (list, auth, onDeleteClick) => {
         <img
           src={"https://skipwiese.s3.us-east-2.amazonaws.com/" + imageUrl}
           alt=""
-          className="circle"
+          className="list-image circle"
         />
         <div className="title" style={{ fontWeight: "bold", maxWidth: "80%" }}>
           {title && title}
