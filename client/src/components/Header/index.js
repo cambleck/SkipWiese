@@ -8,24 +8,27 @@ const Header = () => {
       <div className="header-stripe"></div>
       <nav className="nav white">
         <div className="nav-wrapper">
-          <Link to="/" className="pointer">
-            <img src={logo} alt="Skip Wiese Logo" className="logo" />
-          </Link>
-
-          <ul className="right">
-            <li>
-              <Link to="/about" className="header-tab">
-                ABOUT
-              </Link>
-            </li>
-            <li>
-              <Link to="/gallery" className="header-tab">
-                GALLERY
-              </Link>
-            </li>
-          </ul>
+          <img src={logo} alt="Skip Wiese Logo" className="logo" />
         </div>
       </nav>
+      <div class="nav-content">
+        <ul class="tabs flex-center">
+          <li class="tab  black-text">
+            <a href="#test1">Home</a>
+          </li>
+          <li class="tab">
+            <a class="active" href="#test2">
+              About
+            </a>
+          </li>
+          <li class="tab">
+            <a href="#test3">Gallery</a>
+          </li>
+          <li class="tab">
+            <a href="#test4">All</a>
+          </li>
+        </ul>
+      </div>
     </header>
   );
 };
