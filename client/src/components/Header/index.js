@@ -7,25 +7,25 @@ const Header = () => {
     <header>
       <div className="header-stripe"></div>
       <nav className="nav white">
+        <div className="stripe"></div>
         <div className="nav-wrapper">
           <img src={logo} alt="Skip Wiese Logo" className="logo" />
         </div>
+        <div className="stripe"></div>
       </nav>
       <div class="nav-content">
         <ul class="tabs flex-center">
-          <li class="tab  black-text">
-            <a href="#test1">Home</a>
+          <li class="tab ">
+            <a href="#home">Home</a>
           </li>
           <li class="tab">
-            <a class="active" href="#test2">
-              About
-            </a>
+            <a href="#about">About</a>
           </li>
           <li class="tab">
-            <a href="#test3">Gallery</a>
+            <a href="#gallery">Gallery</a>
           </li>
           <li class="tab">
-            <a href="#test4">All</a>
+            <a href="#all">All</a>
           </li>
         </ul>
       </div>

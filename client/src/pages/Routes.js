@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import loadable from "@loadable/component";
 
-const Landing = loadable(() => import("./Landing"));
+const Home = loadable(() => import("./Home"));
 const Gallery = loadable(() => import("./Gallery"));
 const About = loadable(() => import("./About"));
 const Admin = loadable(() => import("./_Admin"));
@@ -15,7 +15,7 @@ export const Routes = () => {
   return (
     <Switch>
       <Redirect from="/gallery/s/:type/1" to="/gallery/s/:type" />
-      <Route exact path="/" component={Landing} />
+      <Route exact path="/" component={Home} />
       <Route exact path="/gallery" component={Gallery} />
       <Route path="/gallery/a/:id" component={ArtworkPage} />
       <Route path="/gallery/s/:type/:pageNumber" component={ArtworkList} />

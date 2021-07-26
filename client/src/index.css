@@ -2,7 +2,7 @@ html,
 body,
 #app {
   color: black;
-  background-color: rgb(250, 250, 250);
+  background-color: rgb(255, 250, 250);
   font-weight: 350;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
   display: flex;
@@ -115,29 +115,31 @@ header {
   color: black;
 }
 .tabs .tab a:focus.active {
-  background-color: rgba(255, 255, 150) !important;
-
-  /*Custom Background Color While Active*/
+  background-color: rgba(255, 250, 250, 0) !important;
 }
 
 .tabs .tab a {
   color: #000;
-  border-radius: 5px 5px 0px 0px;
+  font-weight: 600;
   letter-spacing: 0.05em;
 } /*Black color to the text*/
 
 .tabs .tab a:hover {
-  background-color: yellow;
+  background-color: rgba(255, 255, 150) !important;
+  border-radius: 15px;
   color: #000;
 } /*Text color on hover*/
 
 .tabs .tab a.active {
-  background-color: yellow;
   color: #000;
 } /*Background and text color when a tab is active*/
 
 .tabs .indicator {
   background-color: yellow;
+  box-shadow: 0px 0px 1px rgb(159, 159, 159) inset;
+
+  border-radius: 10px;
+  height: 7px;
 } /*Color of underline*/
 
 .nav {
@@ -146,9 +148,21 @@ header {
   display: flex;
   align-items: center;
   height: 120px;
-  justify-content: center;
+  justify-content: space-around;
 }
 
+.stripe {
+  height: 5px;
+  width: 100%;
+  margin: 20px;
+  background: yellow;
+  border: 1px solid rgb(240, 240, 240);
+  border-radius: 10px;
+}
+
+.nav-content {
+  margin-top: -10px;
+}
 .card-action {
 }
 
@@ -202,7 +216,7 @@ header {
 }
 .logo {
   width: 130px;
-  margin-left: -20px;
+
   margin-top: 12px;
 }
 .gallery-content-container {
