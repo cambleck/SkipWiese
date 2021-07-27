@@ -2,7 +2,7 @@ html,
 body,
 #app {
   color: black;
-  background-color: rgb(255, 250, 250);
+  background-color: rgb(253, 253, 253);
   font-weight: 350;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
   display: flex;
@@ -557,6 +557,12 @@ header {
 
 ul li {
   color: black;
+}
+
+.modal {
+  box-shadow: 2px 2px 6px black;
+  max-width: 1000px;
+  background: rgba(16, 18, 20, 0.95);
 }
 
 .item-pag {

@@ -19,6 +19,7 @@
     "react-scripts": "4.0.2",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
+    "simple-react-lightbox": "^3.6.6",
     "web-vitals": "^1.1.0"
   },
   "scripts": {
