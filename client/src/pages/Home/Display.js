@@ -1,4 +1,5 @@
 import React from "react";
+import _ from "lodash";
 import image from "./self-portrait.webp";
 import image2 from "../_images/monotype.webp";
 import image3 from "../_images/etching.webp";
@@ -6,6 +7,25 @@ import image4 from "../_images/graphite.webp";
 import image5 from "../_images/commercial.webp";
 import M from "materialize-css";
 import { SRLWrapper } from "simple-react-lightbox";
+
+const imageList = [
+  { image: image, caption: "Self Portrait", box: 1 },
+  { image: image2, caption: "Monotype", box: 2 },
+  { image: image3, caption: "Etching", box: 2 },
+  { image: image4, caption: "Graphite", box: 1 },
+  { image: image, caption: "Self Portrait", box: 1 },
+  { image: image5, caption: "Commerical", box: 2 },
+  { image: image2, caption: "Monotype", box: 2 },
+  { image: image4, caption: "Graphite", box: 1 },
+  { image: image, caption: "Self Portrait", box: 1 },
+  { image: image3, caption: "Etching", box: 2 },
+  { image: image5, caption: "Commerical", box: 2 },
+  { image: image4, caption: "Graphite", box: 1 },
+  { image: image4, caption: "Graphite", box: 1 },
+  { image: image2, caption: "Monotype", box: 2 },
+  { image: image3, caption: "Etching", box: 2 },
+  { image: image4, caption: "Graphite", box: 1 },
+];
 
 const options = {
   settings: {
@@ -30,25 +50,57 @@ const options = {
   },
 };
 
+const renderList = () => {
+  return _.map(imageList, ({ image, caption, box }) => {
+    switch (box) {
+      case 1:
+        return (
+          <img
+            src={image}
+            style={{
+              width: "72%",
+              height: 400,
+              margin: 5,
+              objectFit: "cover",
+            }}
+            alt={caption}
+          />
+        );
+      case 2:
+        return (
+          <img
+            src={image}
+            style={{
+              width: "22%",
+              height: 400,
+              margin: 5,
+              objectFit: "cover",
+            }}
+            alt={caption}
+          />
+        );
+      case 3:
+        return (
+          <img
+            src={image}
+            style={{
+              maxWidth: 400,
+              maxHeight: 300,
+              margin: 5,
+              objectFit: "cover",
+            }}
+            alt={caption}
+          />
+        );
+    }
+  });
+};
+
 class Display extends React.Component {
   render() {
     return (
       <SRLWrapper options={options}>
-        <div>
-          <img src={image} style={{ width: 500 }} alt="Picture of the author" />
-        </div>
-        <a href={image2}>
-          <img src={image2} alt="Umbrella" />
-        </a>
-        <a href={image3}>
-          <img src={image3} alt="Umbrella" />
-        </a>
-        <a href={image4}>
-          <img src={image4} alt="Umbrella" />
-        </a>
-        <a href={image5}>
-          <img src={image5} alt="Umbrella" />
-        </a>
+        <div className="grid">{renderList()}</div>
       </SRLWrapper>
     );
   }

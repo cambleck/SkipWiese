@@ -504,13 +504,10 @@ header {
 }
 
 .grid {
+  flex-wrap: wrap !important;
   display: flex;
-
-  padding-top: 10px;
   align-items: center;
-  justify-content: space-around;
-  border-radius: 0px 0px 30px 30px;
-  padding: 20px;
+  justify-content: center;
   margin-bottom: 100px;
 }
 
