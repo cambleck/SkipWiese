@@ -10,6 +10,7 @@ const About = () => {
         alignItems: "center",
         justifyContent: "center",
       }}
+      id="about"
     >
       <div className="about-container">
         <h2 className="about-title"> SKIP WIESE</h2>

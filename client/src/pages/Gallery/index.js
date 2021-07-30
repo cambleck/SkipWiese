@@ -28,7 +28,7 @@ const renderTypes = () => {
 
 const GalleryPage = () => {
   return (
-    <div className="flex-center full-width column">
+    <div id="gallery" className="flex-center full-width column">
       <Link
         className="black-text btn transparent flex-center"
         style={{ padding: "10px 50px", margin: 40 }}

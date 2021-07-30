@@ -8,7 +8,7 @@ class Home extends React.Component {
   }
   render() {
     return (
-      <div className="flex-center column" style={{ marginTop: -20 }}>
+      <div id="home" className="flex-center column" style={{ marginTop: -20 }}>
         <Display />
       </div>
     );
