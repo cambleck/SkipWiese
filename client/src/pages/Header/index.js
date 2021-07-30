@@ -20,12 +20,13 @@ class Header extends React.Component {
         </nav>
         <div class="nav-content">
           <ul class="tabs flex-center">
-            <li class="tab">
-              <Link to="/">Home</Link>
+            <li class="tab ">
+              <a href="#home">Home</a>
             </li>
-            <Link to="/about" class="tab">
-              <Link to="/about">About</Link>
-            </Link>
+
+            <li class="tab">
+              <a href="#about">About</a>
+            </li>
             <li class="tab">
               <a href="#gallery">Gallery</a>
             </li>

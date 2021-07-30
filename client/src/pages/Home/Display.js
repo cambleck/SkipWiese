@@ -29,18 +29,18 @@ const imageList = [
 
 const options = {
   settings: {
-    overlayColor: "rgb(10, 12, 14)",
+    overlayColor: "rgb(255, 255, 255)",
     autoplaySpeed: 3000,
     transitionSpeed: 1200,
   },
   buttons: {
-    backgroundColor: "rgb(10,12,14)",
-    iconColor: "rgba(255, 255, 139, 0.8)",
+    backgroundColor: "rgb(255,255,255)",
+    iconColor: "rgba(10, 12, 14, 0.8)",
     showDownloadButton: false,
   },
 
   caption: {
-    captionColor: "white",
+    captionColor: "black",
     captionFontFamily: "Gill Sans, sans-serif",
     captionFontWeight: "400",
     captionContainerPadding: "0px 10px",
