@@ -8,7 +8,7 @@ const Search = ({ searchValue, onSearchChange }) => {
         <div className="row">
           <form className="col s12">
             <div className="input-field col s12 font">
-              <i className="material-icons prefix ">search</i>
+              <i className="material-icons prefix">search</i>
               <input
                 type="text"
                 value={searchValue}

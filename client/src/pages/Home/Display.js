@@ -30,8 +30,8 @@ const imageList = [
 const options = {
   settings: {
     overlayColor: "rgb(255, 255, 255)",
-    autoplaySpeed: 3000,
-    transitionSpeed: 1200,
+    autoplaySpeed: 2500,
+    transitionSpeed: 2000,
   },
   buttons: {
     backgroundColor: "rgb(255,255,255)",
