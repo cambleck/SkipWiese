@@ -21,17 +21,25 @@ class Header extends React.Component {
         <div class="nav-content">
           <ul class="tabs flex-center">
             <li class="tab ">
-              <a href="#home">Home</a>
+              <a class="active" target="_self" href="./">
+                Home
+              </a>
             </li>
 
             <li class="tab">
-              <a href="#about">About</a>
+              <a class="active" target="_self" href="./about">
+                About
+              </a>
             </li>
             <li class="tab">
-              <a href="#gallery">Gallery</a>
+              <a class="active" target="_self" href="./gallery">
+                Gallery
+              </a>
             </li>
             <li class="tab">
-              <a href="#all">All</a>
+              <a class="active" target="_self" href="./list">
+                All
+              </a>
             </li>
           </ul>
         </div>
