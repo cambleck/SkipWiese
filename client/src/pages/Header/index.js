@@ -20,26 +20,17 @@ class Header extends React.Component {
         </nav>
         <div className="nav-content">
           <ul class="flex-center row" style={{ width: 400 }}>
-            <Link class="col s3 nav-tab " to="./">
-              <a class="active" target="_self" href="./">
-                Home
-              </a>
+            <Link class="col s3 nav-tab " to="/">
+              Home
             </Link>
-
-            <Link class="col s3 nav-tab" to="./about">
-              <a class="active" target="_self" href="./about">
-                About
-              </a>
+            <Link class="col s3 nav-tab " to="/about">
+              About
             </Link>
-            <Link class="col s3 nav-tab" to="./gallery">
-              <a class="active" target="_self" href="./gallery">
-                Gallery
-              </a>
+            <Link class="col s3 nav-tab" to="/gallery">
+              Gallery
             </Link>
-            <Link class="col s3 nav-tab" to="./lists">
-              <a class="active" target="_self" href="./list">
-                All
-              </a>
+            <Link class="col s3 nav-tab" to="/list">
+              All
             </Link>
           </ul>
         </div>
