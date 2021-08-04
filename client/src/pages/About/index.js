@@ -100,24 +100,6 @@ const About = () => {
               alignItems: "center",
             }}
           >
-            <iframe
-              className="iframe"
-              src="https://www.youtube.com/embed/DNJgNuHoNgo"
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              style={{ margin: 30 }}
-            ></iframe>
-            <iframe
-              className="iframe"
-              src="https://www.youtube.com/embed/pyBDxxL2qu0"
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              style={{ margin: 30 }}
-            ></iframe>
             <a href="" style={{ marginTop: 50 }}>
               The Many Faces Of Artist Skip Wiese
             </a>
