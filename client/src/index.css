@@ -16,7 +16,7 @@ button:focus {
 }
 
 main {
-  flex: 1 0 auto;
+  flex: 0 auto;
 }
 
 .list-image {
@@ -148,12 +148,11 @@ header {
 } /*Color of underline*/
 
 .nav {
-  box-shadow: 0px 0.5px 1px rgba(220, 220, 220, 0.5);
-
   display: flex;
   align-items: center;
   height: 120px;
   justify-content: space-around;
+  box-shadow: none;
 }
 
 .stripe {
@@ -166,7 +165,12 @@ header {
 }
 
 .nav-content {
-  margin-top: -10px;
+  background: white;
+
+  color: black;
+}
+.nav-tab {
+  text-align: center;
 }
 .card-action {
 }
