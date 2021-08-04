@@ -6,16 +6,18 @@ import { Routes } from "./Routes";
 import Header from "./Header";
 import Footer from "./Footer";
 
-const App = () => {
-  return (
-    <div>
-      <BrowserRouter>
-        <Header />
-        <main>{Routes()}</main>
-        <Footer />
-      </BrowserRouter>
-    </div>
-  );
-};
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <BrowserRouter>
+          <Header />
+          <main>{Routes()}</main>
+          <Footer />
+        </BrowserRouter>
+      </div>
+    );
+  }
+}
 
 export default App;

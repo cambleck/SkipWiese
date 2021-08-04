@@ -2,7 +2,7 @@ html,
 body,
 #app {
   color: black;
-  background-color: rgb(253, 253, 253);
+  background-color: rgb(254, 252, 248);
   font-weight: 350;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
   display: flex;
@@ -11,8 +11,7 @@ body,
 }
 
 button:focus {
-  background-color: rgb(240, 255, 75);
-  border-radius: 10px;
+  background-color: transparent;
 }
 
 main {
@@ -119,33 +118,6 @@ header {
   cursor: pointer;
   color: black;
 }
-.tabs .tab a:focus.active {
-  background-color: rgba(255, 250, 250, 0) !important;
-}
-
-.tabs .tab a {
-  color: #000;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-} /*Black color to the text*/
-
-.tabs .tab a:hover {
-  background-color: rgba(255, 255, 150) !important;
-  border-radius: 15px;
-  color: #000;
-} /*Text color on hover*/
-
-.tabs .tab a.active {
-  color: #000;
-} /*Background and text color when a tab is active*/
-
-.tabs .indicator {
-  background-color: yellow;
-  box-shadow: 0px 0px 1px rgb(159, 159, 159) inset;
-
-  border-radius: 10px;
-  height: 7px;
-} /*Color of underline*/
 
 .nav {
   display: flex;
@@ -159,16 +131,16 @@ header {
   height: 5px;
   width: 100%;
   margin: 20px;
-  background: yellow;
+  background: rgb(250, 240, 0);
   border: 1px solid rgb(240, 240, 240);
   border-radius: 10px;
 }
 
 .nav-content {
   background: white;
-  margin-top: -20px;
+  margin-top: -35px;
   height: 40px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .nav-width {
@@ -181,20 +153,19 @@ header {
   text-align: center;
   color: black;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 10px;
-  z-index: 100000;
-  border-radius: 10px;
+  letter-spacing: 0.07em;
+  padding: 15px;
+  font-size: 12px;
+  margin: 10px;
+  width: 75px;
   height: 30px;
   font-weight: 600;
   border: none;
   background: transparent;
   font-family: "Gill Sans";
+  cursor: pointer;
 }
 
-.nav-tab:active {
-  background-color: none;
-}
 .nav-tab:hover {
   background-color: rgba(255, 255, 100, 0.5);
 }
@@ -329,15 +300,8 @@ header {
 }
 .header-stripe {
   width: 100%;
-  background: rgba(255, 245, 0, 0.8);
+  background: rgb(250, 240, 0);
   height: 4px;
-}
-
-.header-tab {
-  color: black;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.056em;
 }
 
 .flex-center {
