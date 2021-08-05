@@ -8,7 +8,7 @@ const list = [
   { href: "", label: "Home" },
   { href: "about", label: "About" },
   { href: "gallery", label: "Gallery" },
-  { href: "list", label: "All" },
+  { href: "list", label: "List" },
 ];
 
 const Header = () => {
