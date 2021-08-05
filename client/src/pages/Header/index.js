@@ -5,16 +5,17 @@ import M from "materialize-css";
 import { Link, useHistory } from "react-router-dom";
 
 const list = [
-  { href: "", label: "Home" },
-  { href: "about", label: "About" },
-  { href: "gallery", label: "Gallery" },
-  { href: "list", label: "List" },
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/gallery", label: "Gallery" },
+  { href: "/list", label: "List" },
 ];
 
-const Header = () => {
+const Header = ({ display, updateDisplay }) => {
   const history = useHistory();
   const onClick = (href) => {
-    history.push(`/${href}`);
+    history.push(`${href}`);
+    updateDisplay(href);
   };
   const displayTabs = () => {
     return _.map(list, ({ href, label }) => {
@@ -27,6 +28,17 @@ const Header = () => {
           >
             {label}
           </button>
+          {display === href && (
+            <div
+              style={{
+                width: "100%",
+                height: 5,
+                background: "rgb(240,240,0)",
+                borderRadius: 10,
+                marginTop: -3,
+              }}
+            ></div>
+          )}
         </div>
       );
     });
