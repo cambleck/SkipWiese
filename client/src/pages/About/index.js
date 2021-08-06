@@ -13,8 +13,7 @@ const About = () => {
       id="about"
     >
       <div className="about-container">
-        <h2 className="about-title"> SKIP WIESE</h2>
-        <div style={{ maxWidth: 800, width: "85vw" }}>
+        <div style={{ maxWidth: 700, width: "85vw" }}>
           <img src={image} className="about-self-image" />
           <p>
             Leroy “Skip” Wiese is a man of many talents. The diversity of his
