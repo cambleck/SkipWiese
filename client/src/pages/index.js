@@ -11,9 +11,6 @@ class App extends React.Component {
     display: window.location.pathname,
   };
 
-  componentDidMount() {
-    console.log(this.state.display);
-  }
   updateDisplay = (page) => {
     this.setState({ display: page });
   };
