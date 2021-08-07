@@ -52,47 +52,18 @@ const options = {
 
 const renderList = () => {
   return _.map(imageList, ({ image, caption, box }) => {
-    switch (box) {
-      case 1:
-        return (
-          <img
-            src={image}
-            style={{
-              width: "72%",
-              height: 400,
-              margin: 5,
-              objectFit: "cover",
-            }}
-            alt={caption}
-          />
-        );
-      case 2:
-        return (
-          <img
-            src={image}
-            style={{
-              width: "22%",
-              height: 400,
-              margin: 5,
-              objectFit: "cover",
-            }}
-            alt={caption}
-          />
-        );
-      case 3:
-        return (
-          <img
-            src={image}
-            style={{
-              maxWidth: 400,
-              maxHeight: 300,
-              margin: 5,
-              objectFit: "cover",
-            }}
-            alt={caption}
-          />
-        );
-    }
+    return (
+      <img
+        src={image}
+        style={{
+          width: 350,
+          height: 350,
+          margin: 10,
+          objectFit: "cover",
+        }}
+        alt={caption}
+      />
+    );
   });
 };
 
@@ -100,7 +71,9 @@ class Display extends React.Component {
   render() {
     return (
       <SRLWrapper options={options}>
-        <div className="grid">{renderList()}</div>
+        <div className="grid" style={{ marginTop: 10 }}>
+          {renderList()}
+        </div>
       </SRLWrapper>
     );
   }
