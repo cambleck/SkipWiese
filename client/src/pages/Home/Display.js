@@ -52,18 +52,7 @@ const options = {
 
 const renderList = () => {
   return _.map(imageList, ({ image, caption, box }) => {
-    return (
-      <img
-        src={image}
-        style={{
-          width: 350,
-          height: 350,
-          margin: 10,
-          objectFit: "cover",
-        }}
-        alt={caption}
-      />
-    );
+    return <img src={image} className="home-image" alt={caption} />;
   });
 };
 
@@ -71,9 +60,7 @@ class Display extends React.Component {
   render() {
     return (
       <SRLWrapper options={options}>
-        <div className="grid" style={{ marginTop: 10 }}>
-          {renderList()}
-        </div>
+        <div className="grid">{renderList()}</div>
       </SRLWrapper>
     );
   }
