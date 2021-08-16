@@ -9,11 +9,12 @@ const About = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        textIndent: "1.5em",
       }}
       id="about"
     >
       <div className="about-container">
-        <div style={{ maxWidth: 700, width: "85vw" }}>
+        <div style={{ maxWidth: 650, width: "85vw" }}>
           <img src={image} className="about-self-image" />
           <p>
             Leroy “Skip” Wiese is a man of many talents. The diversity of his
@@ -29,11 +30,25 @@ const About = () => {
             studio to the Genesee Theater building and had two storefront
             galleries there.
           </p>
-          <p style={{ fontWeight: "bold", margin: "20px auto", fontSize: 18 }}>
-            "Many people don't understand art. They'll look at a piece and say
-            'My kid could do that.' Well, that might be true, but what they
-            really need to ask themselves is what the artist is trying to say."
-          </p>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+
+              borderLeft: "5px solid rgb(90,90,100)",
+              padding: 20,
+              borderRadius: 5,
+              background: "rgb(250,250,250)",
+            }}
+          >
+            <p style={{ margin: "20px auto", fontSize: 18 }}>
+              "Many people don't understand art. They'll look at a piece and say
+              'My kid could do that.' Well, that might be true, but what they
+              really need to ask themselves is what the artist is trying to
+              say."
+            </p>
+          </div>
           <p>
             He showed artistic talent at an early age. When he was only seven
             years old he was already copying and sketching Smilin’ Jack comics.
@@ -68,19 +83,29 @@ const About = () => {
             he was told to think of himself as a weaver when drawing fabric. It
             was a very hands-on approach.
           </p>
-
-          <p
+          <div
             style={{
-              fontWeight: "bold",
-              margin: "20px auto",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
 
-              fontSize: 18,
+              borderLeft: "5px solid rgb(90,90,100)",
+              padding: 20,
+              borderRadius: 5,
+              background: "rgb(250,250,250)",
             }}
           >
-            “You can’t really steal the idea, you only can take it and run with
-            it and turn it into your own interpretation.”
-          </p>
+            <p
+              style={{
+                margin: "20px auto",
 
+                fontSize: 18,
+              }}
+            >
+              “You can’t really steal the idea, you only can take it and run
+              with it and turn it into your own interpretation.”
+            </p>
+          </div>
           <p>
             The wellspring of Skip’s work is vast—almost endless in scope. He
             had literally hundreds of art pieces spanning over 60 years work
@@ -96,12 +121,56 @@ const About = () => {
             style={{
               display: "flex",
               flexDirection: "column",
-              alignItems: "center",
+              alignItems: "flex-start",
+
+              borderLeft: "5px solid rgb(45,45,50)",
+              padding: 20,
+              borderRadius: 5,
+              background: "rgb(245,245,245)",
             }}
           >
-            <a href="" style={{ marginTop: 50 }}>
-              The Many Faces Of Artist Skip Wiese
-            </a>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                width: "90%",
+              }}
+            >
+              <div
+                style={{
+                  fontWeight: "bold",
+
+                  fontSize: 24,
+                }}
+              >
+                Artist Statement{" "}
+              </div>
+              <div style={{ color: "rgb(150, 150, 150)", fontSize: 14 }}>
+                August 28, 1995
+              </div>
+            </div>
+            <p>
+              Since my student days at the Art Institute of Chicago, I had been
+              an admirer of the "Impressionists", those wonderful painters, like
+              Monet, Pissarro, Renoir, Degas and so many others, who captured
+              the moments of their time, like a candid camera.
+              <br />
+              <p>
+                Striving to create my own impressions of the moment, seems to be
+                a theme in my work, for as long as I can remember. My pastel
+                paintings are filled with broken color, filtering through other
+                colors, into what may appear to be, say white, or any other
+                general color, is really a display of pink lanendars, blues,
+                yellows and everything in between with the hope of capturing the
+                color mood of that moment.
+              </p>
+              <p>
+                My black and white monotypes are silhouettes of life and action,
+                not detail, but passing moment, the after image that remains in
+                my mind's eye.
+              </p>
+            </p>
           </div>
         </div>
       </div>
