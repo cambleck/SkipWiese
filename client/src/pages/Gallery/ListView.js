@@ -12,56 +12,76 @@ const renderList = (list, auth, onDeleteClick) => {
     return (
       <a
         href={`gallery/a/${_id}`}
-        className="collection-item avatar black-text"
+        className="collection-list-item black-text"
         key={_id}
       >
         <img
           src={"https://skipwiese.s3.us-east-2.amazonaws.com/" + imageUrl}
           alt=""
-          className="list-image circle"
+          className="list-image"
         />
         <div
-          className="title"
-          style={{ fontWeight: "bold", maxWidth: "80%", fontSize: 14 }}
+          style={{
+            display: "flex",
+            alignItems: "flex-start",
+          }}
         >
-          {title && title}
-        </div>
-        <p style={{ fontSize: 12 }}>
-          {typeLabel ? typeLabel : ""}
-          <br></br>
-          {height && size}
-        </p>
-        <div className="secondary-content">
+          <div style={{ width: "60%", border: "1px solid black" }}>
+            <div
+              style={{
+                fontWeight: "bold",
+
+                fontSize: 14,
+                whiteSpace: "nowrap",
+                textOverflow: "ellipsis",
+                width: "100%",
+                border: "1px solid black",
+                overflow: "hidden",
+                textAlign: "left",
+              }}
+            >
+              {title && title}
+            </div>
+            <div style={{ fontSize: 12 }}>
+              {typeLabel ? typeLabel : ""} {height && `(${size})`}
+            </div>
+          </div>
+
           <i
             className="material-icons black-text"
-            style={{ textShadow: "0px 0px 1px white" }}
+            style={{
+              textShadow: "0px 0px 1px white",
+              marginRight: 10,
+              border: "1px solid black",
+              marginLeft: 20,
+            }}
           >
             arrow_forward
           </i>
-        </div>
-        {auth && (
-          <>
-            <a
-              className="modal-trigger secondary-content"
-              onClick={() => onDeleteClick(imageUrl, _id)}
-              style={{
-                marginBottom: 20,
-                marginRight: 50,
-                cursor: "pointer",
-                zIndex: 1,
-              }}
-            >
-              <i
-                className="material-icons red-text"
+          {auth && (
+            <>
+              <a
+                className="modal-trigger secondary-content"
+                onClick={() => onDeleteClick(imageUrl, _id)}
                 style={{
-                  textShadow: "0px 0px 1px white",
+                  marginBottom: 20,
+                  marginRight: 50,
+                  cursor: "pointer",
+                  zIndex: 1,
                 }}
               >
-                delete
-              </i>
-            </a>
-          </>
-        )}
+                <i
+                  className="material-icons red-text"
+                  style={{
+                    textShadow: "0px 0px 1px white",
+                  }}
+                >
+                  delete
+                </i>
+              </a>
+            </>
+          )}
+        </div>
       </a>
     );
   });
