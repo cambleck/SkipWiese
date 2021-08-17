@@ -82,7 +82,7 @@ const About = () => {
       <div className="about-container">
         <div style={{ maxWidth: 650, width: "90vw" }}>
           <img src={image} className="about-self-image" />
-          <p style={{ textIndent: "0em" }}>
+          <p>
             Leroy “Skip” Wiese is a man of many talents. The diversity of his
             work is truly astounding. He defies category or simple explanation.
             Skip was a professional artist who managed to make a living full
@@ -100,10 +100,12 @@ const About = () => {
             style={{
               display: "flex",
               flexDirection: "column",
-              alignItems: "flex-start",
-
+              alignItems: "center",
+              textAlign: "center",
               borderLeft: "5px solid rgb(120,134,148)",
-              padding: 20,
+              padding: 10,
+              paddingLeft: 15,
+              textIndent: 0,
               borderRadius: 5,
               background: "rgb(255,255,255)",
               boxShadow: "0px 0px 5px rgb(220,220,220) inset",
@@ -154,10 +156,13 @@ const About = () => {
             style={{
               display: "flex",
               flexDirection: "column",
-              alignItems: "flex-start",
+              alignItems: "center",
+              textAlign: "center",
 
               borderLeft: "5px solid rgb(120,134,148)",
-              padding: 20,
+              padding: 10,
+              paddingLeft: 15,
+              textIndent: 0,
               borderRadius: 5,
               textIndent: "0em",
               background: "rgb(255,255,255)",
