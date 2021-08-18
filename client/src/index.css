@@ -29,13 +29,13 @@ main {
 }
 
 .list-image {
-  border-radius: 2px !important;
+  border-radius: 13px;
   min-height: 70px;
   min-width: 70px;
   max-height: 70px;
   max-width: 70px;
+  padding: 10px;
   object-fit: cover;
-  margin-right: 20px !important;
 }
 .menu-button {
   width: 100px;
@@ -80,9 +80,6 @@ main {
 .list-button:active {
   box-shadow: 0px 0px 40px rgba(120, 180, 250, 0.2) !important;
   background: rgba(240, 245, 243);
-}
-
-header {
 }
 
 .yellow-button {
@@ -154,7 +151,7 @@ header {
   margin-top: -35px;
   height: 40px;
   margin-bottom: 15px;
-  border-bottom: 1px solid rgba(200, 200, 200, 0.3);
+  border-bottom: 1px solid rgba(220, 230, 200, 0.7);
 }
 
 .nav-width {
@@ -407,7 +404,6 @@ header {
 }
 
 .collection-list-item {
-  border-top: 1px solid rgba(200, 220, 230, 0.5);
   display: flex;
   background: rgb(255, 255, 253) !important;
 }
@@ -429,6 +425,13 @@ header {
   background: none;
   text-shadow: 0px 0px 10px white;
   color: black;
+}
+
+.list-container {
+  margin: 5px;
+  padding: 5px;
+  max-width: 800px;
+  width: 100%;
 }
 
 .about-title {

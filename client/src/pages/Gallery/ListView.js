@@ -15,18 +15,27 @@ const renderList = (list, auth, onDeleteClick) => {
         className="collection-list-item black-text"
         key={_id}
       >
-        <img
-          src={"https://skipwiese.s3.us-east-2.amazonaws.com/" + imageUrl}
-          alt=""
-          className="list-image"
-        />
         <div
           style={{
+            width: "100%",
             display: "flex",
-            alignItems: "flex-start",
+            justifyContent: "flex-start",
+            alignItems: "center",
           }}
         >
-          <div style={{ width: "60%", border: "1px solid black" }}>
+          <img
+            src={"https://skipwiese.s3.us-east-2.amazonaws.com/" + imageUrl}
+            alt=""
+            className="list-image"
+          />
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+
+              maxWidth: "70%",
+            }}
+          >
             <div
               style={{
                 fontWeight: "bold",
@@ -34,29 +43,32 @@ const renderList = (list, auth, onDeleteClick) => {
                 fontSize: 14,
                 whiteSpace: "nowrap",
                 textOverflow: "ellipsis",
-                width: "100%",
-                border: "1px solid black",
+
                 overflow: "hidden",
                 textAlign: "left",
               }}
             >
               {title && title}
             </div>
-            <div style={{ fontSize: 12 }}>
+            <div style={{ fontSize: 12, color: "rgb(60, 64, 66)" }}>
               {typeLabel ? typeLabel : ""} {height && `(${size})`}
             </div>
           </div>
+        </div>
 
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
           <i
             className="material-icons black-text"
             style={{
               textShadow: "0px 0px 1px white",
-              marginRight: 10,
-              border: "1px solid black",
-              marginLeft: 20,
             }}
           >
-            arrow_forward
+            chevron_right
           </i>
           {auth && (
             <>
@@ -128,14 +140,14 @@ class ListView extends React.Component {
   }
   render() {
     return (
-      <>
+      <div className="flex-center column">
         {this.state.loading ? (
           <div class="loader-container">
             <div class="loader"></div>
           </div>
         ) : (
           <div
-            className="container"
+            className="list-container"
             style={{ marginBottom: 200, marginTop: 50 }}
           >
             <div className="list-panel">
@@ -165,7 +177,7 @@ class ListView extends React.Component {
             </ul>
           </div>
         )}
-      </>
+      </div>
     );
   }
 }
