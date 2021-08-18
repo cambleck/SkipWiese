@@ -147,11 +147,26 @@ class ListView extends React.Component {
           </div>
         ) : (
           <div className="list-container">
-            <div className="list-panel">
-              <Search
-                onSearchChange={this.onSearchChange}
-                searchValue={this.state.searchValue}
-              />
+            <div className="flex-center column">
+              <div className="list-panel">
+                <Search
+                  onSearchChange={this.onSearchChange}
+                  searchValue={this.state.searchValue}
+                />
+                <div
+                  style={{
+                    width: 1,
+                    height: 20,
+                    background: "black",
+                    margin: 5,
+                  }}
+                ></div>
+                <select class="browser-default">
+                  <option value="1">A-Z</option>
+                  <option value="2">Option 2</option>
+                  <option value="3">Option 3</option>
+                </select>
+              </div>
             </div>
             {this.props.auth && (
               <>

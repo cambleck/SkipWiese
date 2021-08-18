@@ -49,12 +49,30 @@ main {
   cursor: pointer;
   border: 1px solid black;
 }
-.input-field {
-  margin: 20px 10px;
+
+.browser-default {
+  max-width: 150px;
+  border: none !important;
+  border-radius: 0px;
+  color: black;
+  padding: 0px;
+  border-bottom: 1px solid black !important;
+  outline: none !important;
+  padding-left: 5px;
 }
+
 .list-panel {
-  margin: 10px;
-  margin-bottom: 50px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  max-width: 600px;
+  width: 100%;
+  padding: 20px;
+  padding-top: 0px;
+}
+
+.input-field {
+  border: 1px solid red;
 }
 
 .list-button {
@@ -128,14 +146,15 @@ main {
 }
 
 .prefix {
-  color: rgb(135, 136, 137);
+  color: rgb(185, 187, 185);
 }
 
 .input-field .prefix.active {
-  color: black;
+  color: rgb(20, 23, 27);
 }
 .input-field input:focus {
-  border-bottom: 1px solid rgba(10, 10, 10, 0.6) !important;
+  border-bottom: 1px solid rgba(10, 10, 10) !important;
+  box-shadow: 0 0px 0 0 #000;
 }
 
 .nav {
@@ -285,9 +304,13 @@ main {
 .search {
   display: flex;
   align-items: center;
-  border-radius: 20px;
-  height: 10px;
-  max-width: 400px;
+  width: 100%;
+
+  padding: 0px;
+}
+
+.search-input {
+  margin: 0px !important;
 }
 
 .login-form {
@@ -408,6 +431,7 @@ main {
 .collection {
   border: none;
   background: transparent;
+  margin-top: 20px;
 }
 
 .collection-list-item {
@@ -436,7 +460,7 @@ main {
 
 .list-container {
   margin: 40px 5px;
-
+  margin-top: 20px;
   padding: 5px;
   max-width: 800px;
   width: 100%;
