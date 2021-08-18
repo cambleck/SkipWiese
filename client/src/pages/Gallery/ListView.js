@@ -146,10 +146,7 @@ class ListView extends React.Component {
             <div class="loader"></div>
           </div>
         ) : (
-          <div
-            className="list-container"
-            style={{ marginBottom: 200, marginTop: 50 }}
-          >
+          <div className="list-container">
             <div className="list-panel">
               <Search
                 onSearchChange={this.onSearchChange}

@@ -14,7 +14,7 @@ const MImage = ({ url }) => {
   return (
     <div className="flex-center">
       <img
-        className="materialboxed artwork-image"
+        className="artwork-image"
         src={"https://skipwiese.s3.us-east-2.amazonaws.com/" + url}
         alt=""
         ref={imageRef}

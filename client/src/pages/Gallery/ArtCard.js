@@ -24,7 +24,7 @@ const ArtCard = ({ artwork }) => {
     <div className="col s12 m6 l4 card-container">
       <div className="flex-center">
         <img
-          className="materialboxed card-image"
+          className="artwork-image"
           src={"https://skipwiese.s3.us-east-2.amazonaws.com/" + imageUrl}
           alt={"image"}
           ref={imageRef}
