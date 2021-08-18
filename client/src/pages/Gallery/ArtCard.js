@@ -13,11 +13,7 @@ const ArtCard = ({ artwork }) => {
     typeLabel,
     description,
   } = artwork;
-  const imageRef = React.useRef();
 
-  React.useEffect(() => {
-    M.Materialbox.init(imageRef.current);
-  }, [imageRef]);
   const size = `${height} x ${width}`;
 
   return (
@@ -27,7 +23,6 @@ const ArtCard = ({ artwork }) => {
           className="artwork-image"
           src={"https://skipwiese.s3.us-east-2.amazonaws.com/" + imageUrl}
           alt={"image"}
-          ref={imageRef}
         />
       </div>
       {!height && !title ? (

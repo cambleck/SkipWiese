@@ -412,11 +412,11 @@ main {
 
 .collection-list-item {
   display: flex;
-  background: rgb(255, 255, 253) !important;
+  background: rgb(249, 252, 252) !important;
 }
 
 .collection-list-item:hover {
-  background: rgb(250, 250, 250) !important;
+  background: rgb(243, 243, 243) !important;
 }
 .collection-list-item:active {
   background: rgb(244, 244, 244) !important;
