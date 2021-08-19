@@ -11,15 +11,15 @@ import Watercolor from "./_images/watercolor.webp";
 import MixedMedia from "./_images/mixedMedia.webp";
 
 export default [
-  { type: "PASTEL", image: Pastel },
-  { type: "MIXED MEDIA", image: MixedMedia },
-  { type: "COMMERCIAL", image: Commercial },
-  { type: "PRINT", image: Print },
-  { type: "ETCHING", image: Etching },
-  { type: "MONOTYPE", image: Monotype },
-  { type: "WATERCOLOR", image: Watercolor },
-  { type: "OIL", image: Oil },
-  { type: "ACRYLIC", image: Acrylic },
-  { type: "GRAPHITE", image: Graphite },
-  { type: "SKETCH", image: Sketch },
+  { type: "Pastel", image: Pastel },
+  { type: "Mixed Media", image: MixedMedia },
+  { type: "Commercial", image: Commercial },
+  { type: "Print", image: Print },
+  { type: "Etching", image: Etching },
+  { type: "Monotype", image: Monotype },
+  { type: "Watercolor", image: Watercolor },
+  { type: "Oil", image: Oil },
+  { type: "Acrylic", image: Acrylic },
+  { type: "Graphite", image: Graphite },
+  { type: "Sketch", image: Sketch },
 ];

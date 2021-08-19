@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import Pagination from "react-js-pagination";
 import { fetchArtworkList, clearList } from "../../actions";
 import MenuButton from "./MenuButton";
+import Lightbox from "../../common/Lightbox";
 
 import ArtCard from "./ArtCard";
 
@@ -47,7 +48,7 @@ class ArtworkList extends Component {
             className="grid"
             style={{ flexDirection: "column", marginTop: -50 }}
           >
-            {this.renderArtwork()}
+            <Lightbox>{this.renderArtwork()}</Lightbox>
             <br></br>
 
             {this.props.artworks.totalPages > 1 && (

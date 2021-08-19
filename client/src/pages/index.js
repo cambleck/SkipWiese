@@ -3,8 +3,8 @@ import { BrowserRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { Routes } from "./Routes";
-import Header from "./Header";
-import Footer from "./Footer";
+import Header from "../common/Header";
+import Footer from "../common/Footer";
 
 class App extends React.Component {
   state = {

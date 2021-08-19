@@ -7,21 +7,13 @@ import all from "../_images/all.webp";
 const renderTypes = () => {
   return _.map(typeList, ({ type, image }) => {
     return (
-      <div
-        className="type-box"
-        style={{
-          backgroundImage: `url(${image})`,
-          backgroundColor: "rgb(18,20,22)",
-        }}
-        key={image}
+      <Link
+        to={`./gallery/s/${type.toLowerCase()}`}
+        className="type-card flex-center column"
       >
-        <Link
-          to={`./gallery/s/${type.toLowerCase()}`}
-          className="type-box-cover"
-        >
-          {type}
-        </Link>
-      </div>
+        <img className="type-image" src={image} alt={type} />
+        <div style={{ padding: 5 }}>{type}</div>
+      </Link>
     );
   });
 };
@@ -38,7 +30,7 @@ const GalleryPage = () => {
             backgroundColor: "rgb(18,20,22)",
           }}
         >
-          <Link to="./gallery/s/all" className="type-box-cover">
+          <Link to="./gallery/s/all" className="type-box">
             All
           </Link>
         </div>
