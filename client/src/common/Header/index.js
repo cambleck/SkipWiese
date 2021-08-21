@@ -7,8 +7,9 @@ import { Link, useHistory } from "react-router-dom";
 const list = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
+  { href: "/list", label: "List" },
   { href: "/gallery", label: "Gallery" },
-  { href: "/list", label: "Shop" },
+  { href: "/shop", label: "Shop" },
 ];
 
 const Header = ({ display, updateDisplay }) => {
