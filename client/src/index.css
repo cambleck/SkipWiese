@@ -27,10 +27,6 @@ button:focus {
   background-color: transparent;
 }
 
-main {
-  flex: 0 auto;
-}
-
 .list-image {
   border-radius: 13px;
   min-height: 70px;

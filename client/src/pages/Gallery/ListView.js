@@ -32,7 +32,6 @@ const renderList = (list, auth, onDeleteClick) => {
             style={{
               display: "flex",
               flexDirection: "column",
-
               maxWidth: "70%",
             }}
           >

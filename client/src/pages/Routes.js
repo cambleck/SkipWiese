@@ -4,6 +4,7 @@ import loadable from "@loadable/component";
 
 const Home = loadable(() => import("./Home"));
 const Gallery = loadable(() => import("./Gallery"));
+const Shop = loadable(() => import("./Shop"));
 const About = loadable(() => import("./About"));
 const Admin = loadable(() => import("./_Admin"));
 const FourZeroFour = loadable(() => import("./404"));
@@ -22,6 +23,7 @@ export const Routes = () => {
       <Route exact path="/gallery/s/:type" component={ArtworkList} />
       <Route exact path="/about" component={About} />
       <Route exact path="/list" component={ListView} />
+      <Route exact path="/shop" component={Shop} />
       <Route exact path="/login" component={Admin} />
       <Route component={FourZeroFour} />
     </Switch>

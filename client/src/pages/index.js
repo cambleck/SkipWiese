@@ -22,7 +22,7 @@ class App extends React.Component {
             display={this.state.display}
             updateDisplay={(page) => this.updateDisplay(page)}
           />
-          <main>{Routes()}</main>
+          <body>{Routes()}</body>
           <Footer />
         </BrowserRouter>
       </div>
