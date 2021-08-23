@@ -49,8 +49,21 @@ button:focus {
   border: 1px solid black;
 }
 
+.search {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-left: -15px;
+  padding: 0px;
+  max-width: 400px;
+}
+
+.search-input {
+  margin: 0px !important;
+}
+
 .browser-default {
-  max-width: 150px;
+  max-width: 100px;
   border: none !important;
   border-radius: 0px;
   color: black;
@@ -294,18 +307,6 @@ button:focus {
   right: 20px;
   top: 80px;
   left: 20px;
-}
-
-.search {
-  display: flex;
-  align-items: center;
-  width: 100%;
-
-  padding: 0px;
-}
-
-.search-input {
-  margin: 0px !important;
 }
 
 .login-form {

@@ -10,7 +10,7 @@ const Admin = loadable(() => import("./_Admin"));
 const FourZeroFour = loadable(() => import("./404"));
 const ArtworkPage = loadable(() => import("./Gallery/ArtworkPage"));
 const ArtworkList = loadable(() => import("./Gallery/ArtworkList"));
-const ListView = loadable(() => import("./Gallery/ListView"));
+const ListView = loadable(() => import("./List"));
 
 export const Routes = () => {
   return (
