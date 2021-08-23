@@ -1,6 +1,7 @@
 import React from "react";
 import M from "materialize-css";
 import Display from "./Display";
+import Banner from "./Banner";
 
 class Home extends React.Component {
   componentDidMount() {
@@ -8,7 +9,8 @@ class Home extends React.Component {
   }
   render() {
     return (
-      <div id="home" className="flex-center column" style={{}}>
+      <div id="home" className="flex-center column">
+        <Banner />
         <Display />
       </div>
     );
