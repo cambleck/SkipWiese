@@ -428,13 +428,16 @@ button:focus {
 }
 
 .banner {
-  background: rgba(250, 240, 0, 0.8);
+  background: rgba(255, 255, 100, 0.9);
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 60px;
+  height: 80px;
   width: 100vw;
+  font-size: 16px;
   position: fixed;
+  text-align: center;
+  flex-direction: column;
   bottom: 0;
 }
 
@@ -488,6 +491,13 @@ button:focus {
   }
 }
 
+@media only screen and (max-width: 500px) {
+  .nav-tab {
+    font-size: 10px;
+
+    width: 55px;
+  }
+}
 @media only screen and (max-width: 600px) {
   .logo {
     width: 120px;

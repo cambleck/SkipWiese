@@ -12,6 +12,20 @@ const list = [
   { href: "/shop", label: "Shop" },
 ];
 
+const Indicator = () => {
+  return (
+    <div
+      style={{
+        width: "100%",
+        height: 5,
+        background: "rgb(240,240,0)",
+        borderRadius: 10,
+        marginTop: -3,
+      }}
+    ></div>
+  );
+};
+
 const Header = ({ display, updateDisplay }) => {
   const history = useHistory();
   const onClick = (href) => {
@@ -29,17 +43,7 @@ const Header = ({ display, updateDisplay }) => {
           >
             {label}
           </button>
-          {display === href && (
-            <div
-              style={{
-                width: "100%",
-                height: 5,
-                background: "rgb(240,240,0)",
-                borderRadius: 10,
-                marginTop: -3,
-              }}
-            ></div>
-          )}
+          {display === href && <Indicator />}
         </div>
       );
     });

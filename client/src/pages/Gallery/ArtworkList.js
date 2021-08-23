@@ -3,7 +3,7 @@ import map from "lodash/map";
 import { connect } from "react-redux";
 import Pagination from "react-js-pagination";
 import { fetchArtworkList, clearList } from "../../actions";
-import MenuButton from "./MenuButton";
+
 import Lightbox from "../../common/Lightbox";
 
 import ArtCard from "./ArtCard";

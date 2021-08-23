@@ -4,13 +4,14 @@ const Banner = () => {
   return (
     <div className="banner">
       {" "}
-      OCTOBER 2021 || Celebrate the Life of Skip Wiese -
+      Celebrating the Life of Skip Wiese || OCTOBER 2021
       <a
         style={{
           marginLeft: 5,
           cursor: "pointer",
           fontWeight: "bold",
-          color: "green",
+          color: "black",
+          textDecoration: "underline",
         }}
       >
         Find out more
