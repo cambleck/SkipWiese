@@ -12,7 +12,7 @@ const renderTypes = () => {
         className="type-card flex-center column"
       >
         <img className="type-image" src={image} alt={type} />
-        <div style={{ padding: 5 }}>{type}</div>
+        <div style={{ padding: 10 }}>{type}</div>
       </Link>
     );
   });
@@ -23,17 +23,10 @@ const GalleryPage = () => {
     <div id="gallery" className="flex-center full-width column">
       <div className="row type-grid">
         {renderTypes()}
-        <div
-          className="type-box"
-          style={{
-            backgroundImage: `url(${all}) `,
-            backgroundColor: "rgb(18,20,22)",
-          }}
-        >
-          <Link to="./gallery/s/all" className="type-box">
-            All
-          </Link>
-        </div>
+        <Link className="type-card flex-center column" to="./gallery/s/all">
+          <img className="type-image" src={all} alt="all" />
+          <div style={{ padding: 10, color: "black" }}>All</div>
+        </Link>
       </div>
     </div>
   );

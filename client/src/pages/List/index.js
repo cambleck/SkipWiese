@@ -10,88 +10,68 @@ const renderList = (list, auth, onDeleteClick) => {
   return _.map(list, ({ title, imageUrl, height, width, typeLabel, _id }) => {
     const size = `${height} x ${width}`;
     return (
-      <a
-        href={`gallery/a/${_id}`}
-        className="collection-list-item black-text"
-        key={_id}
-      >
+      <a href={`gallery/a/${_id}`} className=" list-item black-text" key={_id}>
         <div
           style={{
-            width: "100%",
             display: "flex",
-            justifyContent: "flex-start",
             alignItems: "center",
+            justifyContent: "space-between",
+            width: "100%",
           }}
         >
-          <img
-            src={"https://skipwiese.s3.us-east-2.amazonaws.com/" + imageUrl}
-            alt=""
-            className="list-image"
-          />
           <div
             style={{
               display: "flex",
-              flexDirection: "column",
-              maxWidth: "70%",
+              justifyContent: "flex-start",
+              alignItems: "center",
+              width: "90%",
+
+              textOverflow: "ellipsis",
+
+              overflow: "hidden",
             }}
           >
-            <div
-              style={{
-                fontWeight: "bold",
-
-                fontSize: 14,
-                whiteSpace: "nowrap",
-                textOverflow: "ellipsis",
-
-                overflow: "hidden",
-                textAlign: "left",
-              }}
-            >
-              {title && title}
-            </div>
-            <div style={{ fontSize: 12, color: "rgb(60, 64, 66)" }}>
-              {typeLabel ? typeLabel : ""} {height && `(${size})`}
-            </div>
-          </div>
-        </div>
-
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-          }}
-        >
-          <i
-            className="material-icons black-text"
-            style={{
-              textShadow: "0px 0px 1px white",
-            }}
-          >
-            chevron_right
-          </i>
-          {auth && (
-            <>
-              <a
-                className="modal-trigger secondary-content"
-                onClick={() => onDeleteClick(imageUrl, _id)}
+            <img
+              src={"https://skipwiese.s3.us-east-2.amazonaws.com/" + imageUrl}
+              alt=""
+              className="list-image"
+            />
+            <div className="list-title">
+              <div
                 style={{
-                  marginBottom: 20,
-                  marginRight: 50,
-                  cursor: "pointer",
-                  zIndex: 1,
+                  fontWeight: "bold",
+
+                  fontSize: 13,
+
+                  textAlign: "left",
                 }}
               >
-                <i
-                  className="material-icons red-text"
-                  style={{
-                    textShadow: "0px 0px 1px white",
-                  }}
-                >
-                  delete
-                </i>
-              </a>
-            </>
-          )}
+                {title && title}
+              </div>
+              <div style={{ fontSize: 12, color: "rgb(60, 64, 66)" }}>
+                {typeLabel ? typeLabel : ""} {height && `(${size})`}
+              </div>
+            </div>
+          </div>
+
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "10%",
+              margin: 0,
+            }}
+          >
+            <i
+              className="material-icons black-text"
+              style={{
+                textShadow: "0px 0px 1px white",
+              }}
+            >
+              chevron_right
+            </i>
+          </div>
         </div>
       </a>
     );

@@ -14,6 +14,7 @@ class ArtworkList extends Component {
     loading: true,
   };
   componentDidMount() {
+    window.scrollTo(0, 0);
     this.props.clearList();
     this.props
       .fetchArtworkList(this.props.match.params.type, this.state.activePage)
