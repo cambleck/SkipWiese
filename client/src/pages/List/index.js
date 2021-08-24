@@ -3,77 +3,25 @@ import _ from "lodash";
 import { connect } from "react-redux";
 import { fetchListView, fetchUser, deleteArtwork } from "../../actions";
 import Search from "./Search";
-
+import ListItem from "./ListItem";
 import CreateModal from "../_Admin/CreateModal/";
 
 const renderList = (list, auth, onDeleteClick) => {
   return _.map(list, ({ title, imageUrl, height, width, typeLabel, _id }) => {
-    const size = `${height} x ${width}`;
+    var size;
+    if (height) {
+      size = `${height} x ${width}`;
+    } else {
+      size = null;
+    }
     return (
-      <a href={`gallery/a/${_id}`} className=" list-item black-text" key={_id}>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            width: "100%",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "flex-start",
-              alignItems: "center",
-              width: "90%",
-
-              textOverflow: "ellipsis",
-
-              overflow: "hidden",
-            }}
-          >
-            <img
-              src={"https://skipwiese.s3.us-east-2.amazonaws.com/" + imageUrl}
-              alt=""
-              className="list-image"
-            />
-            <div className="list-title">
-              <div
-                style={{
-                  fontWeight: "bold",
-
-                  fontSize: 13,
-
-                  textAlign: "left",
-                }}
-              >
-                {title && title}
-              </div>
-              <div style={{ fontSize: 12, color: "rgb(60, 64, 66)" }}>
-                {typeLabel ? typeLabel : ""} {height && `(${size})`}
-              </div>
-            </div>
-          </div>
-
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              width: "10%",
-              margin: 0,
-            }}
-          >
-            <i
-              className="material-icons black-text"
-              style={{
-                textShadow: "0px 0px 1px white",
-              }}
-            >
-              chevron_right
-            </i>
-          </div>
-        </div>
-      </a>
+      <ListItem
+        title={title}
+        image={imageUrl}
+        size={size}
+        typeLabel={typeLabel}
+        _id={_id}
+      />
     );
   });
 };

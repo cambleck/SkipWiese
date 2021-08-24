@@ -9,7 +9,7 @@ const About = loadable(() => import("./About"));
 const Admin = loadable(() => import("./_Admin"));
 const FourZeroFour = loadable(() => import("./404"));
 const ArtworkPage = loadable(() => import("./Gallery/ArtworkPage"));
-const ArtworkList = loadable(() => import("./Gallery/ArtworkList"));
+const GalleryScroll = loadable(() => import("./Gallery/GalleryScroll"));
 const ListView = loadable(() => import("./List"));
 
 export const Routes = () => {
@@ -19,8 +19,8 @@ export const Routes = () => {
       <Route exact path="/" component={Home} />
       <Route exact path="/gallery" component={Gallery} />
       <Route path="/gallery/a/:id" component={ArtworkPage} />
-      <Route path="/gallery/s/:type/:pageNumber" component={ArtworkList} />
-      <Route exact path="/gallery/s/:type" component={ArtworkList} />
+      <Route path="/gallery/s/:type/:pageNumber" component={GalleryScroll} />
+      <Route exact path="/gallery/s/:type" component={GalleryScroll} />
       <Route exact path="/about" component={About} />
       <Route exact path="/list" component={ListView} />
       <Route exact path="/shop" component={Shop} />

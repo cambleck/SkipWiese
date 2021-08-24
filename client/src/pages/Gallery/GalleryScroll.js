@@ -8,7 +8,7 @@ import Lightbox from "../../common/Lightbox";
 
 import ArtCard from "./ArtCard";
 
-class ArtworkList extends Component {
+class GalleryScroll extends Component {
   state = {
     activePage: this.props.match.params.pageNumber,
     loading: true,
@@ -76,5 +76,5 @@ function mapStateToProps({ artworks }, ownProps) {
 }
 
 export default connect(mapStateToProps, { fetchArtworkList, clearList })(
-  ArtworkList
+  GalleryScroll
 );
