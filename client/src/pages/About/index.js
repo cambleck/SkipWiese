@@ -76,6 +76,7 @@ const About = () => {
         alignItems: "center",
         justifyContent: "center",
         textIndent: "1.5em",
+        textAlign: "justify",
       }}
       id="about"
     >
@@ -133,10 +134,7 @@ const About = () => {
             Chicago fashion art studio. At the time H & R Studio was one of the
             largest commercial studios in Chicago employing over 30 artists.
           </p>
-          <img
-            src={image2}
-            style={{ float: "right", width: 300, margin: 20 }}
-          />
+          <img src={image2} className="about-image-two" />
           <p>
             In the 1950s there were quite a number of art studios in Chicago
             employing scores of young artists eager to learn commercial art and
