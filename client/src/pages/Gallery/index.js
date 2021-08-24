@@ -18,7 +18,7 @@ const renderTypes = () => {
   });
 };
 
-const GalleryPage = () => {
+const Gallery = () => {
   return (
     <div id="gallery" className="flex-center full-width column">
       <div className="row type-grid">
@@ -32,4 +32,4 @@ const GalleryPage = () => {
   );
 };
 
-export default GalleryPage;
+export default Gallery;

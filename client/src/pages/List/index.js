@@ -2,8 +2,8 @@ import React from "react";
 import _ from "lodash";
 import { connect } from "react-redux";
 import { fetchListView, fetchUser, deleteArtwork } from "../../actions";
-import Search from "./Search";
 import ListItem from "./ListItem";
+import ListPanel from "./ListPanel";
 import CreateModal from "../_Admin/CreateModal/";
 
 const renderList = (list, auth, onDeleteClick) => {
@@ -75,25 +75,10 @@ class ListView extends React.Component {
         ) : (
           <div className="list-container">
             <div className="flex-center column">
-              <div className="list-panel">
-                <Search
-                  onSearchChange={this.onSearchChange}
-                  searchValue={this.state.searchValue}
-                />
-                <div
-                  style={{
-                    width: 1,
-                    height: 20,
-                    background: "black",
-                    margin: 5,
-                  }}
-                ></div>
-                <select class="browser-default">
-                  <option value="1">A-Z</option>
-                  <option value="2">Option 2</option>
-                  <option value="3">Option 3</option>
-                </select>
-              </div>
+              <ListPanel
+                onSearchChange={this.onSearchChange}
+                searchValue={this.state.searchValue}
+              />
             </div>
             {this.props.auth && (
               <>

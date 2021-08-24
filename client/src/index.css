@@ -497,13 +497,19 @@ button:focus {
   }
 }
 
-@media only screen and (max-width: 500px) {
+/* iphone 5/se */
+@media only screen and (max-width: 320px) {
+}
+
+/* iphone 6/7/8/X */
+@media only screen and (max-width: 380px) {
   .nav-tab {
     font-size: 10px;
 
     width: 55px;
   }
 }
+/* iphone 6/7/8/X */
 @media only screen and (max-width: 600px) {
   .logo {
     width: 120px;
@@ -522,6 +528,8 @@ button:focus {
     height: 200px;
   }
 }
+
+/* ipad */
 @media only screen and (max-width: 800px) {
   .about-container {
     display: flex;

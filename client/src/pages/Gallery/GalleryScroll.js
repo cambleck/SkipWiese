@@ -50,7 +50,6 @@ class GalleryScroll extends Component {
             style={{ flexDirection: "column", marginTop: -50 }}
           >
             <Lightbox>{this.renderArtwork()}</Lightbox>
-            <br></br>
 
             {this.props.artworks.totalPages > 1 && (
               <Pagination
