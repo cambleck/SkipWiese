@@ -261,7 +261,7 @@ button:focus {
 }
 
 .card-container {
-  margin: 200px 0px;
+  margin: 200px 20px;
   max-width: 500px;
 }
 .logo {
@@ -271,9 +271,18 @@ button:focus {
 }
 .gallery-content-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   margin-top: 20px;
-  max-width: 500px;
+  width: 100%;
+}
+
+.gallery-content {
+  display: flex;
+  justify-content: flex-end;
+  max-width: 250px;
+}
+.gallery-content:hover {
+  background: rgb(200, 200, 200);
 }
 .art-content-container {
   display: flex;

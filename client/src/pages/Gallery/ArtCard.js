@@ -5,16 +5,7 @@ import M from "materialize-css";
 const ArtworkInfo = ({ title, _id, typeLabel, size, description }) => {
   return (
     <div className="gallery-content-container">
-      <div className="card-action" style={{ fontWeight: "bold" }}></div>
-
-      <Link
-        to={`/gallery/a/${_id}`}
-        style={{
-          width: "50%",
-          display: "flex",
-          justifyContent: "flex-end",
-        }}
-      >
+      <Link to={`/gallery/a/${_id}`} className="gallery-content">
         <div className="art-content">
           <span className="card-title">{title}</span>
           <span className="subContent">{typeLabel ? typeLabel : ""}</span>

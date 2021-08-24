@@ -33,7 +33,7 @@ class GalleryScroll extends Component {
 
   renderArtwork() {
     return map(this.props.artworks.artwork, (artwork) => {
-      return <ArtCard artwork={artwork} key={artwork._id} />;
+      return <ArtCard artwork={artwork} />;
     });
   }
 
@@ -45,10 +45,7 @@ class GalleryScroll extends Component {
             <div class="loader"></div>
           </div>
         ) : (
-          <div
-            className="grid"
-            style={{ flexDirection: "column", marginTop: -50 }}
-          >
+          <div className="grid" style={{ marginTop: -100 }}>
             <Lightbox>{this.renderArtwork()}</Lightbox>
 
             {this.props.artworks.totalPages > 1 && (
