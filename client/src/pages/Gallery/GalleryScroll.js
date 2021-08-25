@@ -7,6 +7,7 @@ import { fetchArtworkList, clearList } from "../../actions";
 import Lightbox from "../../common/Lightbox";
 
 import ArtCard from "./ArtCard";
+import GalleryPanel from "./GalleryPanel";
 
 class GalleryScroll extends Component {
   state = {
@@ -45,7 +46,8 @@ class GalleryScroll extends Component {
             <div class="loader"></div>
           </div>
         ) : (
-          <div className="grid">
+          <div className="grid column">
+            <GalleryPanel />
             <Lightbox>{this.renderArtwork()}</Lightbox>
           </div>
         )}

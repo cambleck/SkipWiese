@@ -12,7 +12,14 @@ const renderTypes = () => {
         className="type-card flex-center column"
       >
         <img className="type-image" src={image} alt={type} />
-        <div style={{ padding: 10 }}>{type}</div>
+        <div
+          className="flex-center"
+          style={{
+            padding: "10px 5px",
+          }}
+        >
+          {type}
+        </div>
       </Link>
     );
   });

@@ -31,8 +31,8 @@ const ListPanel = ({ searchValue, onSearchChange }) => {
       ></div>
       <select class="browser-default">
         <option value="1">A-Z</option>
-        <option value="2">Option 2</option>
-        <option value="3">Option 3</option>
+        <option value="2">Z-A</option>
+        <option value="3">Random</option>
       </select>
     </div>
   );

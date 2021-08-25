@@ -127,6 +127,17 @@ button:focus {
   border-radius: 5px;
 }
 
+input[type="text"] {
+  border-bottom: 1px solid black !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+input[type="text"]:focus {
+  border-bottom: 1px solid black !important;
+
+  outline: none !important;
+}
+
 .yellow-button:hover {
   background: rgba(255, 245, 0, 1);
   box-shadow: 0px 0px 5px black;
@@ -217,9 +228,6 @@ button:focus {
   margin-left: 3px;
 }
 
-.modal {
-  padding: 100px;
-}
 .card-content {
   border: 1px solid rgba(0, 0, 0, 0.05);
   width: 50%;
@@ -359,12 +367,12 @@ button:focus {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  max-width: 900px;
+  max-width: 800px;
   margin-top: 20px;
 }
 .type-image {
-  width: 175px;
-  height: 175px;
+  width: 150px;
+  height: 150px;
   object-fit: cover;
   border-radius: 5px 5px 0px 0px;
 }
@@ -384,7 +392,7 @@ button:focus {
   letter-spacing: 0.02em;
   font-weight: 550;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 14px;
   letter-spacing: 0.05em;
 }
 
@@ -506,69 +514,6 @@ button:focus {
   }
 }
 
-/* iphone 5/se */
-@media only screen and (max-width: 320px) {
-}
-
-/* iphone 6/7/8/X */
-@media only screen and (max-width: 4000px) {
-  .nav-tab {
-    font-size: 10px;
-
-    width: 55px;
-  }
-  .banner {
-    height: 60px;
-    font-size: 13px;
-  }
-  .type-image {
-    width: 120px;
-    height: 120px;
-  }
-
-  .type-card {
-    margin: 15px;
-    cursor: pointer;
-    font-size: 12px;
-    letter-spacing: 0.05em;
-  }
-}
-/* iphone 6/7/8/X */
-@media only screen and (max-width: 600px) {
-  .logo {
-    width: 120px;
-    margin-top: 12px;
-  }
-  .nav-width {
-    width: 100%;
-  }
-  .about-image-two {
-    width: 100%;
-    margin: 20px 0px;
-  }
-}
-@media only screen and (max-width: 700px) {
-  .iframe {
-    width: 337px;
-    height: 189px;
-  }
-  .about-self-image {
-    height: 200px;
-  }
-}
-
-/* ipad */
-@media only screen and (max-width: 800px) {
-  .about-container {
-    display: flex;
-    padding: 20px;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
-    margin-bottom: 200px;
-  }
-}
 .artwork-info-title {
   font-weight: bold;
 }
@@ -627,9 +572,10 @@ ul li {
 }
 
 .modal {
-  box-shadow: 2px 2px 6px black;
   max-width: 1000px;
-  background: rgba(16, 18, 20, 0.95);
+  background: rgb(255, 252, 245);
+  border-radius: 10px;
+  padding: 100px;
 }
 
 .item-pag {
@@ -641,4 +587,72 @@ ul li {
   width: 20px;
   color: black !important;
   font-size: 18px;
+}
+
+/* iphone 5/se */
+@media only screen and (max-width: 320px) {
+}
+
+/* iphone 6/7/8/X */
+@media only screen and (max-width: 400px) {
+  .nav-tab {
+    font-size: 10px;
+
+    width: 55px;
+  }
+  .banner {
+    height: 60px;
+    font-size: 13px;
+  }
+}
+/* iphone 6/7/8/X */
+@media only screen and (max-width: 600px) {
+  .logo {
+    width: 120px;
+    margin-top: 12px;
+  }
+  .nav-width {
+    width: 100%;
+  }
+  .about-image-two {
+    width: 100%;
+    margin: 20px 0px;
+  }
+  .type-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .type-card {
+    margin: 15px;
+    cursor: pointer;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .iframe {
+    width: 337px;
+    height: 189px;
+  }
+  .about-self-image {
+    height: 200px;
+  }
+
+  .modal {
+    padding: 30px;
+  }
+}
+
+/* ipad */
+@media only screen and (max-width: 800px) {
+  .about-container {
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    margin-bottom: 200px;
+  }
 }

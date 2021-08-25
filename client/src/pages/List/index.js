@@ -6,6 +6,21 @@ import ListItem from "./ListItem";
 import ListPanel from "./ListPanel";
 import CreateModal from "../_Admin/CreateModal/";
 
+const CreateNewButton = () => {
+  return (
+    <>
+      <a
+        className="waves-effect waves-light btn modal-trigger yellow black-text"
+        href="#modal-new"
+        style={{ marginBottom: 20, position: "fixed", bottom: 20, right: 20 }}
+      >
+        NEW +
+      </a>
+      <CreateModal type="new" id="" />
+    </>
+  );
+};
+
 const renderList = (list, auth, onDeleteClick) => {
   return _.map(list, ({ title, imageUrl, height, width, typeLabel, _id }) => {
     var size;
@@ -68,6 +83,7 @@ class ListView extends React.Component {
   render() {
     return (
       <div className="flex-center column">
+        {this.props.auth && <CreateNewButton />}
         {this.state.loading ? (
           <div class="loader-container">
             <div class="loader"></div>
@@ -80,18 +96,7 @@ class ListView extends React.Component {
                 searchValue={this.state.searchValue}
               />
             </div>
-            {this.props.auth && (
-              <>
-                <a
-                  className="waves-effect waves-light btn modal-trigger"
-                  href="#modal-new"
-                  style={{ marginBottom: 20 }}
-                >
-                  New
-                </a>
-                <CreateModal type="new" id="" />
-              </>
-            )}
+
             <ul className="collection">
               {renderList(
                 this.filterList(this.props.artworks),

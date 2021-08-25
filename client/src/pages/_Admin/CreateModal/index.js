@@ -8,17 +8,25 @@ import typeList from "./typeList";
 import M from "materialize-css";
 
 const SubmitButton = ({ handleSubmit }) => {
-  console.log(handleSubmit);
   return (
-    <div className="modal-footer">
-      <a
-        href=""
-        className="waves-effect waves-green btn-flat"
+    <div className="flex-center" style={{ justifyContent: "flex-end" }}>
+      <button
         onClick={handleSubmit}
-        style={{ background: "green", color: "white", borderRadius: 5 }}
+        className="modal-close"
+        style={{
+          background: "rgb(255,240,100)",
+          border: "none",
+          borderRadius: 5,
+          width: 200,
+          height: 50,
+          cursor: "pointer",
+          fontWeight: "bold",
+
+          marginTop: 20,
+        }}
       >
-        SUBMIT
-      </a>
+        SUBMIT{" "}
+      </button>
     </div>
   );
 };
@@ -123,6 +131,7 @@ class CreateNewModal extends Component {
           border: "none",
           bottomBorder: "1px solid black",
           outline: "none",
+          maxWidth: 200,
         }}
         onChange={this.handleTypeChange}
       >
@@ -150,7 +159,7 @@ class CreateNewModal extends Component {
 
   widthInput() {
     return (
-      <div className="input-field col s6">
+      <div className="input-field col s2" style={{ marginRight: 5 }}>
         <input
           id="width"
           type="text"
@@ -174,6 +183,14 @@ class CreateNewModal extends Component {
       </div>
     );
   }
+  sizeInput() {
+    return (
+      <div className="flex-center" style={{ justifyContent: "flex-start" }}>
+        {this.widthInput()}
+        {this.heightInput()}
+      </div>
+    );
+  }
 
   descriptionInput() {
     return (
@@ -193,37 +210,14 @@ class CreateNewModal extends Component {
     const { imageFile, selectedImage } = this.state;
     const { type } = this.props;
     return (
-      <div
-        id={`modal-${type}`}
-        className="modal"
-        style={{ padding: 100, paddingTop: 20 }}
-      >
+      <div id={`modal-${type}`} className="modal">
         <h5 style={{ marginBottom: 20, marginLeft: -20 }}>NEW ARTWORK</h5>
         {this.imageInput()}
         {this.titleInput()}
         {this.typePicker()}
-        {this.heightInput()}
-        {this.widthInput()}
+        {this.sizeInput()}
         {this.descriptionInput()}
-        <div className="flex-center">
-          <button
-            onClick={() => this.onHandleSubmit()}
-            className="modal-close"
-            style={{
-              background: "rgb(255,240,0)",
-              border: "none",
-              borderRadius: 5,
-              width: 200,
-              height: 50,
-              cursor: "pointer",
-              fontWeight: "bold",
-              boxShadow: "0px 0px 15px black",
-              marginTop: 20,
-            }}
-          >
-            SUBMIT{" "}
-          </button>
-        </div>
+        <SubmitButton handleSubmit={() => this.onHandleSubmit()} />
       </div>
     );
   }
