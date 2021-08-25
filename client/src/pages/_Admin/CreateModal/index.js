@@ -15,10 +15,10 @@ const SubmitButton = ({ handleSubmit }) => {
         className="modal-close"
         style={{
           background: "rgb(255,240,100)",
-          border: "none",
+          border: "1px solid black",
           borderRadius: 5,
-          width: 200,
-          height: 50,
+          width: 150,
+          height: 40,
           cursor: "pointer",
           fontWeight: "bold",
 
@@ -73,7 +73,12 @@ class CreateNewModal extends Component {
     });
   };
 
-  handleSelectedFile = (event) => {
+  handleSelectedImageFile = (event) => {
+    this.setState({
+      imageFile: event.target.files[0],
+    });
+  };
+  handleSelectedImageFile = (event) => {
     this.setState({
       imageFile: event.target.files[0],
     });
@@ -143,13 +148,13 @@ class CreateNewModal extends Component {
 
   imageInput() {
     return (
-      <div>
+      <div style={{ paddingTop: 10 }}>
         <label className="textInput-label">Add Image</label>
         <div style={{ paddingTop: 10 }}>
           <input
             type="file"
             accept="image/*"
-            onChange={this.handleSelectedFile}
+            onChange={this.handleSelectedImageFile}
             style={{ marginLeft: 10 }}
           />
         </div>
@@ -211,7 +216,9 @@ class CreateNewModal extends Component {
     const { type } = this.props;
     return (
       <div id={`modal-${type}`} className="modal">
-        <h5 style={{ marginBottom: 20, marginLeft: -20 }}>NEW ARTWORK</h5>
+        <div className="flex-center" style={{ marginBottom: 20 }}>
+          <h5>NEW ARTWORK</h5>
+        </div>
         {this.imageInput()}
         {this.titleInput()}
         {this.typePicker()}

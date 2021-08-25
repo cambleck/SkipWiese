@@ -5,8 +5,10 @@ const GalleryPanel = () => {
     <div className="flex-center" style={{ width: "100%", marginTop: 30 }}>
       <select class="browser-default" style={{ maxWidth: 200, margin: 5 }}>
         <option value="1">Mixed Media</option>
-        <option value="2">Z-A</option>
-        <option value="3">Random</option>
+        <option value="2">Pastel</option>
+        <option value="3">Watercolor</option>
+        <option value="3">Acrylic</option>
+        <option value="3">Oil</option>
       </select>
       <select class="browser-default" style={{ margin: 5 }}>
         <option value="1">A-Z</option>

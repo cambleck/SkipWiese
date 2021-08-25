@@ -36,7 +36,9 @@ class Display extends React.Component {
   render() {
     return (
       <Lightbox>
-        <div className="grid">{renderList()}</div>
+        <div className="grid" style={{ marginTop: 40 }}>
+          {renderList()}
+        </div>
       </Lightbox>
     );
   }

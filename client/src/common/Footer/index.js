@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="page-footer white">
+    <footer className="page-footer transparent">
       <div className="container black-text" style={{ height: 40 }}>
         © 2021 The Estate of Skip Wiese
         {/*| Site By{" "}

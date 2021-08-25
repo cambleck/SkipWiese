@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import reduxThunk from "redux-thunk";
 import "./index.css";
-import SimpleReactLightbox from "simple-react-lightbox";
+import SimpleReactLightbox from "simple-react-lightbox-pro";
 import App from "./pages";
 import reducers from "./reducers";
 import ReactGA from "react-ga";

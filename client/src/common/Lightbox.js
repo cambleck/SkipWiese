@@ -1,5 +1,5 @@
 import React from "react";
-import { SRLWrapper } from "simple-react-lightbox";
+import { SRLWrapper } from "simple-react-lightbox-pro";
 
 const options = {
   settings: {
@@ -24,8 +24,12 @@ const options = {
   },
 };
 
-const Lightbox = ({ children }) => {
-  return <SRLWrapper options={options}>{children}</SRLWrapper>;
+const Lightbox = ({ children, customCaptions }) => {
+  return (
+    <SRLWrapper options={options} customCaptions={customCaptions}>
+      {children}
+    </SRLWrapper>
+  );
 };
 
 export default Lightbox;

@@ -27,7 +27,11 @@ const renderTypes = () => {
 
 const Gallery = () => {
   return (
-    <div id="gallery" className="flex-center full-width column">
+    <div
+      id="gallery"
+      className="flex-center full-width column"
+      style={{ marginTop: 10, marginBottom: 40 }}
+    >
       <div className="row type-grid">
         {renderTypes()}
         <Link className="type-card flex-center column" to="./gallery/s/all">

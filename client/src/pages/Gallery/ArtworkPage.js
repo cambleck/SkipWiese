@@ -9,7 +9,6 @@ class ArtworkPage extends Component {
   componentDidMount() {
     window.scrollTo(0, 0);
     this.props.fetchArtwork(this.props.match.params.id);
-    console.log(this.props.artwork);
   }
 
   render() {

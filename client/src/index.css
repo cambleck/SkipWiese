@@ -189,8 +189,6 @@ input[type="text"]:focus {
   background: transparent;
   margin-top: -35px;
   height: 40px;
-
-  border-bottom: 1px solid rgba(220, 230, 200, 0.7);
 }
 
 .nav-width {
@@ -576,6 +574,7 @@ ul li {
   background: rgb(255, 252, 245);
   border-radius: 10px;
   padding: 100px;
+  padding-top: 20px;
 }
 
 .item-pag {

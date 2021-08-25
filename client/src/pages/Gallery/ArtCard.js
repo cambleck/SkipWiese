@@ -55,7 +55,12 @@ const ArtCard = ({ artwork }) => {
           <Link
             to={`/gallery/a/${_id}`}
             className=""
-            style={{ textAlign: "center", fontSize: 20, fontWeight: "bold" }}
+            style={{
+              textAlign: "center",
+              fontSize: 20,
+              fontWeight: "bold",
+              color: "black",
+            }}
           >
             →
           </Link>
