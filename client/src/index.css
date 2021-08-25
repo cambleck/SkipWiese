@@ -11,7 +11,7 @@ html,
 body,
 #app {
   color: black;
-  background-color: rgb(255, 255, 254);
+  background-color: rgb(255, 253, 250);
   font-weight: 350;
   font-family: "Gill Sans", sans-serif;
   letter-spacing: 0.01rem;
@@ -157,10 +157,6 @@ button:focus {
   color: rgb(185, 187, 185);
 }
 
-.input-field .prefix.active {
-  color: rgb(0, 0, 0);
-}
-
 .nav {
   display: flex;
   align-items: center;
@@ -179,7 +175,7 @@ button:focus {
 }
 
 .nav-content {
-  background: white;
+  background: transparent;
   margin-top: -35px;
   height: 40px;
 
@@ -216,7 +212,7 @@ button:focus {
 .card-action {
 }
 
-.subContent {
+.artwork-info-subContent {
   font-size: 12px;
   margin-left: 3px;
 }
@@ -261,7 +257,7 @@ button:focus {
 }
 
 .card-container {
-  margin: 200px 20px;
+  margin: 100px 20px;
   max-width: 500px;
 }
 .logo {
@@ -269,27 +265,25 @@ button:focus {
 
   margin-top: 12px;
 }
-.gallery-content-container {
+.artwork-info-container {
   display: flex;
   justify-content: flex-end;
   margin-top: 20px;
   width: 100%;
 }
 
-.gallery-content {
+.artwork-info-card {
   display: flex;
   justify-content: flex-end;
   max-width: 250px;
 }
-.gallery-content:hover {
-  background: rgb(200, 200, 200);
-}
+
 .art-content-container {
   display: flex;
 
   justify-content: space-between;
   margin-top: 30px;
-
+  min-width: 150px;
   max-width: 700px;
 }
 
@@ -386,11 +380,12 @@ button:focus {
   box-shadow: 0px 0px 15px rgba(200, 202, 220, 0.3);
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
   letter-spacing: 0.02em;
   font-weight: 550;
   cursor: pointer;
   font-size: 15px;
+  letter-spacing: 0.05em;
 }
 
 .type-card:hover {
@@ -420,7 +415,6 @@ button:focus {
 
 .list-item {
   display: flex;
-  background: rgb(249, 252, 252) !important;
 }
 
 .list-item:hover {
@@ -517,7 +511,7 @@ button:focus {
 }
 
 /* iphone 6/7/8/X */
-@media only screen and (max-width: 380px) {
+@media only screen and (max-width: 4000px) {
   .nav-tab {
     font-size: 10px;
 
@@ -526,6 +520,17 @@ button:focus {
   .banner {
     height: 60px;
     font-size: 13px;
+  }
+  .type-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .type-card {
+    margin: 15px;
+    cursor: pointer;
+    font-size: 12px;
+    letter-spacing: 0.05em;
   }
 }
 /* iphone 6/7/8/X */
@@ -564,7 +569,7 @@ button:focus {
     margin-bottom: 200px;
   }
 }
-.card-title {
+.artwork-info-title {
   font-weight: bold;
 }
 

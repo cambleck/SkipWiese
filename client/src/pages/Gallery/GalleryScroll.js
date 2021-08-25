@@ -45,21 +45,8 @@ class GalleryScroll extends Component {
             <div class="loader"></div>
           </div>
         ) : (
-          <div className="grid" style={{ marginTop: -100 }}>
+          <div className="grid">
             <Lightbox>{this.renderArtwork()}</Lightbox>
-
-            {this.props.artworks.totalPages > 1 && (
-              <Pagination
-                activePage={this.state.activePage}
-                itemsCountPerPage={2}
-                totalItemsCount={this.props.artworks.totalPages * 2}
-                pageRangeDisplayed={5}
-                onChange={this.handlePageChange.bind(this)}
-                activeLinkClass="active-pag"
-                innerClass="pag"
-                itemClass="item-pag"
-              />
-            )}
           </div>
         )}
       </>

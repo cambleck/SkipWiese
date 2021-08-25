@@ -134,6 +134,7 @@ const About = () => {
             Chicago fashion art studio. At the time H & R Studio was one of the
             largest commercial studios in Chicago employing over 30 artists.
           </p>
+
           <img src={image2} className="about-image-two" />
           <p>
             In the 1950s there were quite a number of art studios in Chicago

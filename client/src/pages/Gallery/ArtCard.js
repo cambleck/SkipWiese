@@ -4,13 +4,15 @@ import M from "materialize-css";
 
 const ArtworkInfo = ({ title, _id, typeLabel, size, description }) => {
   return (
-    <div className="gallery-content-container">
-      <Link to={`/gallery/a/${_id}`} className="gallery-content">
+    <div className="artwork-info-container">
+      <Link to={`/gallery/a/${_id}`} className="artwork-info-card">
         <div className="art-content">
-          <span className="card-title">{title}</span>
-          <span className="subContent">{typeLabel ? typeLabel : ""}</span>
-          <span className="subContent">{size && size}</span>
-          <span className="subContent" style={{ marginTop: 10 }}>
+          <span className="artwork-info-title">{title}</span>
+          <span className="artwork-info-subContent">
+            {typeLabel ? typeLabel : ""}
+          </span>
+          <span className="artwork-info-subContent">{size && size}</span>
+          <span className="artwork-info-subContent" style={{ marginTop: 10 }}>
             {description}
           </span>
         </div>
@@ -47,8 +49,8 @@ const ArtCard = ({ artwork }) => {
           alt={"image"}
         />
       </div>
-      {!height && !title ? (
-        <div className="gallery-content-container">
+      {!size && !title ? (
+        <div className="artwork-info-container">
           <div className="card-action" style={{ fontWeight: "bold" }}></div>
           <Link
             to={`/gallery/a/${_id}`}
