@@ -34,6 +34,7 @@ const SubmitButton = ({ handleSubmit }) => {
 class CreateNewModal extends Component {
   state = {
     imageFile: "",
+    thumbnailFile: "",
     title: "",
     type: "",
     typeLabel: "",
@@ -64,6 +65,7 @@ class CreateNewModal extends Component {
     );
     this.setState({
       imageFile: "",
+      thumbnailFile: "",
       title: "",
       type: "",
       typeLabel: "",
@@ -78,9 +80,9 @@ class CreateNewModal extends Component {
       imageFile: event.target.files[0],
     });
   };
-  handleSelectedImageFile = (event) => {
+  handleSelectedThumbnailFile = (event) => {
     this.setState({
-      imageFile: event.target.files[0],
+      thumbnailFile: event.target.files[0],
     });
   };
 
@@ -161,6 +163,21 @@ class CreateNewModal extends Component {
       </div>
     );
   }
+  thumbnailInput() {
+    return (
+      <div style={{ paddingTop: 10 }}>
+        <label className="textInput-label">Add Thumbnail</label>
+        <div style={{ paddingTop: 10 }}>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={this.handleSelectedThumbnailFile}
+            style={{ marginLeft: 10 }}
+          />
+        </div>
+      </div>
+    );
+  }
 
   widthInput() {
     return (
@@ -220,6 +237,7 @@ class CreateNewModal extends Component {
           <h5>NEW ARTWORK</h5>
         </div>
         {this.imageInput()}
+        {this.thumbnailInput()}
         {this.titleInput()}
         {this.typePicker()}
         {this.sizeInput()}

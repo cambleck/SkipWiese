@@ -1,6 +1,6 @@
 import React from "react";
 import _ from "lodash";
-import logo from "../../logo.webp";
+import logo from "../../logo.png";
 import M from "materialize-css";
 import { Link, useHistory } from "react-router-dom";
 

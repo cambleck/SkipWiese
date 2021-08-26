@@ -3,12 +3,12 @@ import { SRLWrapper } from "simple-react-lightbox-pro";
 
 const options = {
   settings: {
-    overlayColor: "rgb(255, 255, 255)",
-    autoplaySpeed: 2500,
-    transitionSpeed: 2000,
+    overlayColor: "rgb(255, 253, 250)",
+    autoplaySpeed: 5000,
+    transitionSpeed: 3000,
   },
   buttons: {
-    backgroundColor: "rgb(255,255,255)",
+    backgroundColor: "transparent",
     iconColor: "rgba(10, 12, 14, 0.8)",
     showDownloadButton: false,
   },
