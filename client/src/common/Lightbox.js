@@ -5,6 +5,7 @@ const options = {
   settings: {
     overlayColor: "rgb(255, 253, 250)",
     autoplaySpeed: 5000,
+    disablePanzoom: true,
     transitionSpeed: 3000,
   },
   buttons: {
@@ -21,6 +22,9 @@ const options = {
   },
   progressBar: {
     showProgressBar: false,
+  },
+  thumbnails: {
+    thumbnailsPosition: "left",
   },
 };
 
