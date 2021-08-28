@@ -1,9 +1,9 @@
 import React, { Component } from "react";
+import _ from "lodash";
 import map from "lodash/map";
 import { connect } from "react-redux";
 import Pagination from "react-js-pagination";
 import { fetchArtworkList, clearList } from "../../actions";
-
 import Lightbox from "../../common/Lightbox";
 
 import ArtCard from "./ArtCard";
@@ -13,13 +13,15 @@ class GalleryScroll extends Component {
   state = {
     activePage: this.props.match.params.pageNumber,
     loading: true,
+    customCaptions: [],
   };
   componentDidMount() {
     window.scrollTo(0, 0);
     this.props.clearList();
     this.props
       .fetchArtworkList(this.props.match.params.type, this.state.activePage)
-      .then(() => this.setState({ loading: false }));
+      .then(() => this.setState({ loading: false }))
+      .then(() => this.captionList());
   }
 
   handlePageChange(pageNumber) {
@@ -38,7 +40,26 @@ class GalleryScroll extends Component {
     });
   }
 
+  captionList() {
+    var captionList = [];
+    if (this.props.artwork != null) {
+      for (let i = 0; i < this.props.artwork.length; i++) {
+        captionList.append({
+          id: this.props.artwork[i]._id,
+          caption: (
+            <div className="SRLCustomCaption">
+              {this.props.artwork[i].title}
+            </div>
+          ),
+        });
+      }
+
+      this.setState({ customCaptions: captionList });
+    }
+  }
+
   render() {
+    console.log(this.state.customCaptions);
     return (
       <>
         {this.state.loading ? (
@@ -48,7 +69,9 @@ class GalleryScroll extends Component {
         ) : (
           <div className="grid column">
             <GalleryPanel />
-            <Lightbox>{this.renderArtwork()}</Lightbox>
+            <Lightbox customCaptions={this.state.customCaptions}>
+              {this.renderArtwork()}
+            </Lightbox>
           </div>
         )}
       </>
