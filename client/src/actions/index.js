@@ -36,8 +36,8 @@ export const submitArtwork = (values, file, history) => async (dispatch) => {
   dispatch({ type: SUBMIT_ARTWORK, payload: res.data });
 };
 
-export const fetchArtworkList = (type, pageNumber) => async (dispatch) => {
-  const res = await axios.get(`/api/artwork/s/${type}/${pageNumber}`);
+export const fetchArtworkList = (type) => async (dispatch) => {
+  const res = await axios.get(`/api/artwork/s/${type}`);
 
   dispatch({ type: FETCH_ARTWORK_LIST, payload: res.data });
 };

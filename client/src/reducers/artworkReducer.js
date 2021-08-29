@@ -17,13 +17,9 @@ export default function (state = {}, action) {
       const submitedWork = action.payload;
       return { ...state, [action.payload._id]: submitedWork };
     case FETCH_ARTWORK_LIST:
-      const { artwork, totalPages, currentPage } = action.payload;
-      state = [];
-      return {
-        ...state,
-        artwork,
-        totalPages,
-      };
+      const artwork = action.payload;
+
+      return artwork;
     case FETCH_LISTVIEW:
       const listview = action.payload;
       state = [];

@@ -54,24 +54,13 @@ module.exports = (app) => {
     res.send("Deleted");
   });
 
-  app.get("/api/artwork/s/:type/:pageNumber", async (req, res) => {
+  app.get("/api/artwork/s/:type", async (req, res) => {
     let artwork = {};
 
-    const limit = 7;
-    const page = req.params.pageNumber;
-    var count = 0;
     if (req.params.type === "all") {
       try {
         // execute query with page and limit values
-        artwork = await Artwork.find()
-          .sort({ title: 1 })
-          .limit(limit * 1)
-
-          .skip((page - 1) * limit)
-          .exec();
-
-        // get total documents in the Posts collection
-        count = await Artwork.countDocuments();
+        artwork = await Artwork.find().sort({ title: 1 });
 
         // return response with posts, total pages, and current page
       } catch (err) {
@@ -79,27 +68,16 @@ module.exports = (app) => {
       }
     } else {
       try {
-        artwork = await Artwork.find({ type: req.params.type.toUpperCase() })
-          .sort({ title: 1 })
-          .limit(limit * 1)
-          .skip((page - 1) * limit)
-          .exec();
-
-        // get total documents in the Posts collection
-        count = await Artwork.countDocuments({
+        artwork = await Artwork.find({
           type: req.params.type.toUpperCase(),
-        });
+        }).sort({ title: 1 });
 
         // return response with posts, total pages, and current page
       } catch (err) {
         console.error(err.message);
       }
     }
-    res.send({
-      artwork,
-      totalPages: Math.ceil(count / limit),
-      currentPage: page,
-    });
+    res.send(artwork);
   });
 
   app.post("/api/artwork", requireLogin, async (req, res) => {

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import _ from "lodash";
 import map from "lodash/map";
 import { connect } from "react-redux";
-import Pagination from "react-js-pagination";
 import { fetchArtworkList, clearList } from "../../actions";
 import Lightbox from "../../common/Lightbox";
 
@@ -11,7 +10,6 @@ import GalleryPanel from "./GalleryPanel";
 
 class GalleryScroll extends Component {
   state = {
-    activePage: this.props.match.params.pageNumber,
     loading: true,
     customCaptions: [],
   };
@@ -19,23 +17,13 @@ class GalleryScroll extends Component {
     window.scrollTo(0, 0);
     this.props.clearList();
     this.props
-      .fetchArtworkList(this.props.match.params.type, this.state.activePage)
+      .fetchArtworkList(this.props.match.params.type)
       .then(() => this.setState({ loading: false }))
       .then(() => this.captionList());
   }
 
-  handlePageChange(pageNumber) {
-    window.scrollTo(0, 0);
-    this.setState({ activePage: pageNumber });
-    this.props.clearList();
-    this.props.history.push(
-      `/gallery/s/${this.props.match.params.type}/${pageNumber}`
-    );
-    this.props.fetchArtworkList(this.props.match.params.type, pageNumber);
-  }
-
   renderArtwork() {
-    return map(this.props.artworks.artwork, (artwork) => {
+    return map(this.props.artworks, (artwork) => {
       return <ArtCard artwork={artwork} />;
     });
   }
@@ -53,13 +41,12 @@ class GalleryScroll extends Component {
           ),
         });
       }
-
+      console.log(captionList, "captionList");
       this.setState({ customCaptions: captionList });
     }
   }
 
   render() {
-    console.log(this.state.customCaptions);
     return (
       <>
         {this.state.loading ? (
