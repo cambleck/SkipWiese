@@ -4,9 +4,19 @@ import map from "lodash/map";
 import { connect } from "react-redux";
 import { fetchArtworkList, clearList } from "../../actions";
 import Lightbox from "../../common/Lightbox";
-
+import { Link } from "react-router-dom";
 import ArtCard from "./ArtCard";
 import GalleryPanel from "./GalleryPanel";
+
+const captionThree = (
+  <a
+    href="http://simple-react-lightbox.dev"
+    target="__blank"
+    className="SRLCustomCaption myCustomButton"
+  >
+    Help her make a choice
+  </a>
+);
 
 class GalleryScroll extends Component {
   state = {
@@ -23,21 +33,72 @@ class GalleryScroll extends Component {
   }
 
   renderArtwork() {
-    return map(this.props.artworks, (artwork) => {
+    return map(this.props.artworkList, (artwork) => {
       return <ArtCard artwork={artwork} />;
     });
   }
 
   captionList() {
     var captionList = [];
-    if (this.props.artwork != null) {
-      for (let i = 0; i < this.props.artwork.length; i++) {
-        captionList.append({
-          id: this.props.artwork[i]._id,
+    if (this.props.artworkList != null) {
+      for (let i = 0; i < this.props.artworkList.length; i++) {
+        const {
+          title,
+          typeLabel,
+          height,
+          width,
+          description,
+          _id,
+        } = this.props.artworkList[i];
+        var size;
+        if (height) {
+          size = `${height} x ${width}`;
+        } else {
+          size = null;
+        }
+        captionList.push({
+          id: i - 1,
           caption: (
-            <div className="SRLCustomCaption">
-              {this.props.artwork[i].title}
-            </div>
+            <>
+              {!title ? (
+                <div className="artwork-info-container">
+                  <div
+                    className="card-action"
+                    style={{ fontWeight: "bold" }}
+                  ></div>
+                  <a
+                    href={`/gallery/a/${_id}`}
+                    className=""
+                    style={{
+                      textAlign: "center",
+                      fontSize: 20,
+                      fontWeight: "bold",
+                      color: "black",
+                    }}
+                  >
+                    →
+                  </a>
+                </div>
+              ) : (
+                <div
+                  className="artwork-info-container"
+                  style={{ marginTop: -20, background: "black", width: "100%" }}
+                >
+                  <a
+                    href={`/gallery/a/${_id}`}
+                    className="artwork-info-card"
+                    style={{ maxWidth: "none" }}
+                  >
+                    <div className="art-content">
+                      <span className="artwork-info-title">{title}</span>
+                      <span className="artwork-info-subContent">
+                        {typeLabel ? typeLabel : ""}
+                      </span>
+                    </div>
+                  </a>
+                </div>
+              )}
+            </>
           ),
         });
       }
@@ -47,6 +108,7 @@ class GalleryScroll extends Component {
   }
 
   render() {
+    console.log(this.state.customCaptions);
     return (
       <>
         {this.state.loading ? (
@@ -66,8 +128,8 @@ class GalleryScroll extends Component {
   }
 }
 
-function mapStateToProps({ artworks }, ownProps) {
-  return { artworks };
+function mapStateToProps({ artworkList }, ownProps) {
+  return { artworkList };
 }
 
 export default connect(mapStateToProps, { fetchArtworkList, clearList })(

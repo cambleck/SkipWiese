@@ -23,8 +23,8 @@ class ArtworkPage extends Component {
   }
 }
 
-function mapStateToProps({ artworks }, ownProps) {
-  return { artwork: artworks[ownProps.match.params.id] };
+function mapStateToProps({ artworkList }, ownProps) {
+  return { artwork: artworkList[ownProps.match.params.id] };
 }
 
 export default connect(mapStateToProps, { fetchArtwork })(ArtworkPage);

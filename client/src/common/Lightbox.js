@@ -24,7 +24,8 @@ const options = {
     showProgressBar: false,
   },
   thumbnails: {
-    thumbnailsPosition: "left",
+    thumbnailsOpacity: 0.4,
+    thumbnailsSize: ["50px", "50px"],
   },
 };
 

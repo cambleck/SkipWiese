@@ -4,5 +4,5 @@ import artworkReducer from "./artworkReducer";
 
 export default combineReducers({
   auth: authReducer,
-  artworks: artworkReducer,
+  artworkList: artworkReducer,
 });
