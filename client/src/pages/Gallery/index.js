@@ -8,7 +8,7 @@ const renderTypes = () => {
   return _.map(typeList, ({ type, image }) => {
     return (
       <Link
-        to={`./gallery/s/${type.toLowerCase()}`}
+        to={`./gallery/${type.toLowerCase()}`}
         className="type-card flex-center column"
       >
         <img className="type-image" src={image} alt={type} />
@@ -34,7 +34,7 @@ const Gallery = () => {
     >
       <div className="row type-grid">
         {renderTypes()}
-        <Link className="type-card flex-center column" to="./gallery/s/all">
+        <Link className="type-card flex-center column" to="./gallery/all">
           <img className="type-image" src={all} alt="all" />
           <div style={{ padding: 10, color: "black" }}>All</div>
         </Link>

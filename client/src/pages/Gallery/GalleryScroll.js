@@ -8,16 +8,6 @@ import { Link } from "react-router-dom";
 import ArtCard from "./ArtCard";
 import GalleryPanel from "./GalleryPanel";
 
-const captionThree = (
-  <a
-    href="http://simple-react-lightbox.dev"
-    target="__blank"
-    className="SRLCustomCaption myCustomButton"
-  >
-    Help her make a choice
-  </a>
-);
-
 class GalleryScroll extends Component {
   state = {
     loading: true,
@@ -57,7 +47,7 @@ class GalleryScroll extends Component {
           size = null;
         }
         captionList.push({
-          id: i - 1,
+          id: i,
           caption: (
             <>
               {!title ? (
@@ -102,13 +92,12 @@ class GalleryScroll extends Component {
           ),
         });
       }
-      console.log(captionList, "captionList");
+
       this.setState({ customCaptions: captionList });
     }
   }
 
   render() {
-    console.log(this.state.customCaptions);
     return (
       <>
         {this.state.loading ? (

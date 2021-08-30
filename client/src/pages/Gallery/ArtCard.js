@@ -2,10 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import M from "materialize-css";
 
-const ArtworkInfo = ({ title, _id, typeLabel, size, description }) => {
+const ArtworkInfo = ({ title, _id, typeLabel, size, description, noLink }) => {
   return (
     <div className="artwork-info-container">
-      <Link to={`/gallery/a/${_id}`} className="artwork-info-card">
+      <Link
+        to={!noLink && `/${_id}`}
+        className="artwork-info-card"
+        style={{ cursor: noLink && "default" }}
+      >
         <div className="art-content">
           <span className="artwork-info-title">{title}</span>
           <span className="artwork-info-subContent">
@@ -21,7 +25,7 @@ const ArtworkInfo = ({ title, _id, typeLabel, size, description }) => {
   );
 };
 
-const ArtCard = ({ artwork }) => {
+const ArtCard = ({ artwork, noLink }) => {
   const {
     height,
     width,
@@ -72,6 +76,7 @@ const ArtCard = ({ artwork }) => {
           typeLabel={typeLabel}
           description={description}
           size={size}
+          noLink={noLink}
         />
       )}
     </div>

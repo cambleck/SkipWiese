@@ -99,7 +99,7 @@ class ListView extends React.Component {
 
             <ul className="collection">
               {renderList(
-                this.filterList(this.props.artworks),
+                this.filterList(this.props.artworkList),
                 this.props.auth,
                 (imageUrl, id) => this.onDeleteClick(imageUrl, id)
               )}
@@ -111,8 +111,8 @@ class ListView extends React.Component {
   }
 }
 
-function mapStateToProps({ artworks, auth }, ownProps) {
-  return { artworks, auth };
+function mapStateToProps({ artworkList, auth }, ownProps) {
+  return { artworkList, auth };
 }
 
 export default connect(mapStateToProps, {

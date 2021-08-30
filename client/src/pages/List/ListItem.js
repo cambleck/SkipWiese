@@ -2,7 +2,7 @@ import React from "react";
 
 const ListItem = ({ title, image, size, typeLabel, _id }) => {
   return (
-    <a href={`gallery/a/${_id}`} className=" list-item black-text" key={_id}>
+    <a href={`${_id}`} className=" list-item black-text" key={_id}>
       <div
         style={{
           display: "flex",

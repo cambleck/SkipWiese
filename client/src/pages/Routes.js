@@ -15,16 +15,15 @@ const ListView = loadable(() => import("./List"));
 export const Routes = () => {
   return (
     <Switch>
-      <Redirect from="/gallery/s/:type/1" to="/gallery/s/:type" />
       <Route exact path="/" component={Home} />
       <Route exact path="/gallery" component={Gallery} />
-      <Route path="/gallery/a/:id" component={ArtworkPage} />
-      <Route path="/gallery/s/:type/:pageNumber" component={GalleryScroll} />
-      <Route exact path="/gallery/s/:type" component={GalleryScroll} />
+
+      <Route exact path="/gallery/:type" component={GalleryScroll} />
       <Route exact path="/about" component={About} />
       <Route exact path="/list" component={ListView} />
       <Route exact path="/shop" component={Shop} />
       <Route exact path="/login" component={Admin} />
+      <Route path="/:id" component={ArtworkPage} />
       <Route component={FourZeroFour} />
     </Switch>
   );
