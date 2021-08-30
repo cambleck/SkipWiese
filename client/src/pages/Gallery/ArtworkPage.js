@@ -5,8 +5,7 @@ import { Link } from "react-router-dom";
 import { fetchArtwork, fetchUser } from "../../actions";
 import ArtCard from "./ArtCard";
 import CreateModal from "../_Admin/CreateModal/";
-import { Helmet } from "react-helmet";
-
+import MetaInfo from "../../common/MetaInfo";
 const EditButton = () => {
   return (
     <>
@@ -38,11 +37,7 @@ class ArtworkPage extends Component {
     }
     return (
       <div className="flex-center column">
-        <Helmet>
-          <meta charSet="utf-8" />
-          <title>{this.props.artwork.title} | Skip Wiese</title>
-          <link rel="canonical" href="http://mysite.com/example" />
-        </Helmet>
+        <MetaInfo title={`${this.props.artwork.title} | Skip Wiese`} />
 
         {this.props.auth && <EditButton />}
         <ArtCard artwork={this.props.artwork} noLink="true" />

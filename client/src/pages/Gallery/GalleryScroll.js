@@ -7,7 +7,7 @@ import Lightbox from "../../common/Lightbox";
 import { Link } from "react-router-dom";
 import ArtCard from "./ArtCard";
 import GalleryPanel from "./GalleryPanel";
-import { Helmet } from "react-helmet";
+import MetaInfo from "../../common/MetaInfo";
 
 class GalleryScroll extends Component {
   state = {
@@ -91,11 +91,7 @@ class GalleryScroll extends Component {
   render() {
     return (
       <>
-        <Helmet>
-          <meta charSet="utf-8" />
-          <title>Mixed Media | Skip Wiese</title>
-          <link rel="canonical" href="http://mysite.com/example" />
-        </Helmet>
+        <MetaInfo title="Mixed Media | Skip Wiese" />
         <GalleryPanel />
         {this.state.loading ? (
           <div class="loader-container">

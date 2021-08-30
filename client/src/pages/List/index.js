@@ -86,7 +86,7 @@ class ListView extends React.Component {
       <div className="flex-center column">
         <Helmet>
           <meta charSet="utf-8" />
-          <title>List - Skip Wiese</title>
+          <title>List | Skip Wiese</title>
           <link rel="canonical" href="http://mysite.com/example" />
         </Helmet>
         <div className="list-container">

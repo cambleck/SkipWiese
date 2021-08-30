@@ -3,7 +3,7 @@ import _ from "lodash";
 import { Link } from "react-router-dom";
 import typeList from "../typeList";
 import all from "../_images/all.webp";
-import { Helmet } from "react-helmet";
+import MetaInfo from "../../common/MetaInfo";
 
 const renderTypes = () => {
   return _.map(typeList, ({ type, image }) => {
@@ -33,11 +33,7 @@ const Gallery = () => {
       className="flex-center full-width column"
       style={{ marginTop: 10, marginBottom: 40 }}
     >
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Gallery | Skip Wiese</title>
-        <link rel="canonical" href="http://mysite.com/example" />
-      </Helmet>
+      <MetaInfo title="Gallery | Skip Wiese" />
       <div className="row type-grid">
         {renderTypes()}
         <Link className="type-card flex-center column" to="./gallery/all">
