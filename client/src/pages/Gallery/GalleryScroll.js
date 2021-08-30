@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import _ from "lodash";
 import map from "lodash/map";
 import { connect } from "react-redux";
-import { fetchArtworkList, clearList } from "../../actions";
+import { fetchArtworkList } from "../../actions";
 import Lightbox from "../../common/Lightbox";
 import { Link } from "react-router-dom";
 import ArtCard from "./ArtCard";
@@ -15,7 +15,6 @@ class GalleryScroll extends Component {
   };
   componentDidMount() {
     window.scrollTo(0, 0);
-    this.props.clearList();
     this.props
       .fetchArtworkList(this.props.match.params.type)
       .then(() => this.setState({ loading: false }))
@@ -32,20 +31,8 @@ class GalleryScroll extends Component {
     var captionList = [];
     if (this.props.artworkList != null) {
       for (let i = 0; i < this.props.artworkList.length; i++) {
-        const {
-          title,
-          typeLabel,
-          height,
-          width,
-          description,
-          _id,
-        } = this.props.artworkList[i];
-        var size;
-        if (height) {
-          size = `${height} x ${width}`;
-        } else {
-          size = null;
-        }
+        const { title, typeLabel, _id } = this.props.artworkList[i];
+
         captionList.push({
           id: i,
           caption: (
@@ -57,7 +44,7 @@ class GalleryScroll extends Component {
                     style={{ fontWeight: "bold" }}
                   ></div>
                   <a
-                    href={`/gallery/a/${_id}`}
+                    href={`/${_id}`}
                     className=""
                     style={{
                       textAlign: "center",
@@ -72,10 +59,13 @@ class GalleryScroll extends Component {
               ) : (
                 <div
                   className="artwork-info-container"
-                  style={{ marginTop: -20, background: "black", width: "100%" }}
+                  style={{
+                    marginBottom: 50,
+                    width: "100%",
+                  }}
                 >
                   <a
-                    href={`/gallery/a/${_id}`}
+                    href={`/${_id}`}
                     className="artwork-info-card"
                     style={{ maxWidth: "none" }}
                   >
@@ -100,13 +90,13 @@ class GalleryScroll extends Component {
   render() {
     return (
       <>
+        <GalleryPanel />
         {this.state.loading ? (
           <div class="loader-container">
             <div class="loader"></div>
           </div>
         ) : (
           <div className="grid column">
-            <GalleryPanel />
             <Lightbox customCaptions={this.state.customCaptions}>
               {this.renderArtwork()}
             </Lightbox>
@@ -121,6 +111,4 @@ function mapStateToProps({ artworkList }, ownProps) {
   return { artworkList };
 }
 
-export default connect(mapStateToProps, { fetchArtworkList, clearList })(
-  GalleryScroll
-);
+export default connect(mapStateToProps, { fetchArtworkList })(GalleryScroll);

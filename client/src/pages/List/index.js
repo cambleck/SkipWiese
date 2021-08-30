@@ -83,20 +83,19 @@ class ListView extends React.Component {
   render() {
     return (
       <div className="flex-center column">
-        {this.props.auth && <CreateNewButton />}
-        {this.state.loading ? (
-          <div class="loader-container">
-            <div class="loader"></div>
+        <div className="list-container">
+          <div className="flex-center column">
+            <ListPanel
+              onSearchChange={this.onSearchChange}
+              searchValue={this.state.searchValue}
+            />
           </div>
-        ) : (
-          <div className="list-container">
-            <div className="flex-center column">
-              <ListPanel
-                onSearchChange={this.onSearchChange}
-                searchValue={this.state.searchValue}
-              />
+          {this.props.auth && <CreateNewButton />}
+          {this.state.loading ? (
+            <div class="loader-container">
+              <div class="loader"></div>
             </div>
-
+          ) : (
             <ul className="collection">
               {renderList(
                 this.filterList(this.props.artworkList),
@@ -104,8 +103,8 @@ class ListView extends React.Component {
                 (imageUrl, id) => this.onDeleteClick(imageUrl, id)
               )}
             </ul>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     );
   }

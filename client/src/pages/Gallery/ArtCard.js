@@ -54,21 +54,25 @@ const ArtCard = ({ artwork, noLink }) => {
         />
       </div>
       {!size && !title ? (
-        <div className="artwork-info-container">
-          <div className="card-action" style={{ fontWeight: "bold" }}></div>
-          <Link
-            to={`/gallery/a/${_id}`}
-            className=""
-            style={{
-              textAlign: "center",
-              fontSize: 20,
-              fontWeight: "bold",
-              color: "black",
-            }}
-          >
-            →
-          </Link>
-        </div>
+        noLink ? (
+          <></>
+        ) : (
+          <div className="artwork-info-container">
+            <div className="card-action" style={{ fontWeight: "bold" }}></div>
+            <Link
+              to={`/${_id}`}
+              className=""
+              style={{
+                textAlign: "center",
+                fontSize: 20,
+                fontWeight: "bold",
+                color: "black",
+              }}
+            >
+              →
+            </Link>
+          </div>
+        )
       ) : (
         <ArtworkInfo
           title={title}
