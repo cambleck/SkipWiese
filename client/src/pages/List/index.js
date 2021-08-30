@@ -5,6 +5,7 @@ import { fetchListView, fetchUser, deleteArtwork } from "../../actions";
 import ListItem from "./ListItem";
 import ListPanel from "./ListPanel";
 import CreateModal from "../_Admin/CreateModal/";
+import { Helmet } from "react-helmet";
 
 const CreateNewButton = () => {
   return (
@@ -83,6 +84,11 @@ class ListView extends React.Component {
   render() {
     return (
       <div className="flex-center column">
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>List - Skip Wiese</title>
+          <link rel="canonical" href="http://mysite.com/example" />
+        </Helmet>
         <div className="list-container">
           <div className="flex-center column">
             <ListPanel

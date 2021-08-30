@@ -1,6 +1,7 @@
 import React from "react";
 import image from "./skip.jpeg";
 import image2 from "./skip_painting_mural.jpeg";
+import { Helmet } from "react-helmet";
 
 const ArtistStatement = () => {
   return (
@@ -80,6 +81,11 @@ const About = () => {
       }}
       id="about"
     >
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>About | Skip Wiese</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div className="about-container">
         <div style={{ maxWidth: 650, width: "90vw" }}>
           <img src={image} className="about-self-image" />
