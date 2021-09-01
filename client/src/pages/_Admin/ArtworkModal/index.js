@@ -6,31 +6,38 @@ import * as actions from "../../../actions";
 
 import {
   SubmitButton,
+  DeleteButton,
   TitleInput,
   ImageInput,
   SizeInput,
   TypePicker,
   DescriptionInput,
+  FeaturedCheckbox,
 } from "./formComponents";
 import M from "materialize-css";
 
 class CreateNewModal extends Component {
   state = {
-    imageFile: "",
-    thumbnailFile: "",
-    title: "",
-    type: "",
-    typeLabel: "",
-    height: "",
-    width: "",
-    description: "",
+    imageFile: this.props.editMode ? this.props.artwork.imageUrl : "",
+
+    title: this.props.editMode ? this.props.artwork.title : "",
+    type: this.props.editMode ? this.props.artwork.type : "",
+    typeLabel: this.props.editMode ? this.props.artwork.typeLabel : "",
+    height: this.props.editMode ? this.props.artwork.height : "",
+    width: this.props.editMode ? this.props.artwork.width : "",
+    description: this.props.editMode ? this.props.artwork.description : "",
+    isFeatured: this.props.isFeatured ? this.props.artwork.isFeatured : false,
   };
 
   componentDidMount() {
     M.AutoInit();
   }
 
-  onHandleSubmit = () => {
+  handleDelete = (imageUrl, id) => {
+    this.props.deleteArtwork(imageUrl, id);
+  };
+
+  handleSubmit = () => {
     console.log(this.state);
     const formValues = {
       title: this.state.title,
@@ -87,16 +94,24 @@ class CreateNewModal extends Component {
     this.setState({ description: event.target.value });
   };
 
+  handleFeatureChange = () => {
+    this.setState({ isFeatured: !this.state.isFeatured });
+  };
+
   render() {
     const {
       imageFile,
       selectedImage,
       title,
+      type,
+      typeLabel,
       width,
       height,
       description,
+      isFeatured,
     } = this.state;
-    const { editMode } = this.props;
+    const { editMode, artwork, handleDelete } = this.props;
+    console.log(isFeatured);
     return (
       <div id="artworkModal" className="modal">
         <div className="flex-center" style={{ marginBottom: 20 }}>
@@ -107,19 +122,52 @@ class CreateNewModal extends Component {
           editMode={editMode}
         />
 
-        <TitleInput value={title} onChange={this.handleTitleChange} />
-        <TypePicker onChange={this.handleTypeChange} />
+        <TitleInput
+          value={title}
+          onChange={this.handleTitleChange}
+          editMode={editMode}
+        />
+        <TypePicker
+          selectedValue={editMode && `${type}${typeLabel}`}
+          onChange={this.handleTypeChange}
+        />
         <SizeInput
           widthValue={width}
           widthOnChange={this.handleWidthChange}
           heightValue={height}
           heightOnChange={this.handleHeightChange}
+          editMode={editMode}
         />
         <DescriptionInput
           value={description}
           onChange={this.handleDescriptionChange}
+          editMode={editMode}
         />
-        <SubmitButton handleSubmit={() => this.onHandleSubmit()} />
+        <FeaturedCheckbox
+          value={isFeatured}
+          onChange={this.handleFeatureChange}
+        />
+        <div
+          className="flex-center"
+          style={{ justifyContent: "space-between" }}
+        >
+          {editMode ? (
+            <DeleteButton
+              handleDelete={() =>
+                this.handleDelete(
+                  this.props.artwork.imageUrl,
+                  this.props.artwork._id
+                )
+              }
+            />
+          ) : (
+            <div></div>
+          )}
+          <SubmitButton
+            handleSubmit={() => this.handleSubmit()}
+            editMode={editMode}
+          />
+        </div>
       </div>
     );
   }

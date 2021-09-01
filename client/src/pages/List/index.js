@@ -11,9 +11,9 @@ const CreateNewArtworkButton = () => {
   return (
     <>
       <a
-        className="waves-effect waves-light btn modal-trigger yellow black-text"
+        className="waves-effect waves-light btn modal-trigger yellow black-text flex-center"
         href="#artworkModal"
-        style={{ marginBottom: 20, position: "fixed", bottom: 20, right: 20 }}
+        style={{ position: "fixed", bottom: 20, right: 20 }}
       >
         NEW +
       </a>

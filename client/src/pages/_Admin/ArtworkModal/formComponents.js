@@ -2,56 +2,67 @@ import React from "react";
 import _ from "lodash";
 import typeList from "./typeList";
 
-export const SubmitButton = ({ handleSubmit }) => {
+const TextInput = ({ value, onChange, label, editMode, inactive }) => {
+  return (
+    <div className=" input-field col s6" style={{ marginTop: 20 }}>
+      <input id={label} type="text" value={value} onChange={onChange} />
+      <label className={editMode && !inactive && "active"} for={label}>
+        {label}
+      </label>
+    </div>
+  );
+};
+
+export const SubmitButton = ({ handleSubmit, editMode }) => {
+  return (
+    <div className="flex-center" style={{ justifyContent: "flex-end" }}>
+      <button onClick={handleSubmit} className="modal-close btn" style={{}}>
+        {editMode ? "UPDATE" : "SUBMIT"}
+      </button>
+    </div>
+  );
+};
+export const DeleteButton = ({ handleDelete }) => {
   return (
     <div className="flex-center" style={{ justifyContent: "flex-end" }}>
       <button
-        onClick={handleSubmit}
-        className="modal-close"
-        style={{
-          background: "rgb(255,240,100)",
-          border: "1px solid black",
-          borderRadius: 5,
-          width: 150,
-          height: 40,
-          cursor: "pointer",
-          fontWeight: "bold",
-
-          marginTop: 20,
-        }}
+        onClick={handleDelete}
+        className="modal-close btn"
+        style={{ background: "rgba(255,0,0,.5)" }}
       >
-        SUBMIT
+        DELETE
       </button>
     </div>
   );
 };
 
-export const TitleInput = ({ value, onChange }) => {
+export const TitleInput = ({ value, onChange, editMode }) => {
   return (
-    <div className="input-field col s6">
-      <input
-        id="title"
-        type="text"
-        className="validate"
-        value={value}
-        onChange={onChange}
-      />
-      <label htmlFor="title">Title</label>
-    </div>
+    <TextInput
+      value={value}
+      onChange={onChange}
+      label="Title"
+      editMode={editMode}
+      inactive={value === ""}
+    />
   );
 };
 
-function renderTypeOptions() {
+function renderTypeOptions(selectedValue) {
   return _.map(typeList, ({ value, label }) => {
     return (
-      <option value={`${value}|${label}`} key={label}>
+      <option
+        selected={selectedValue === `${value}${label}`}
+        value={`${value}|${label}`}
+        key={label}
+      >
         ({value}) - {label}
       </option>
     );
   });
 }
 
-export const TypePicker = ({ onChange }) => {
+export const TypePicker = ({ selectedValue, onChange }) => {
   return (
     <select
       className="browser-default"
@@ -60,12 +71,12 @@ export const TypePicker = ({ onChange }) => {
         border: "none",
         bottomBorder: "1px solid black",
         outline: "none",
-        maxWidth: 200,
+        maxWidth: 335,
       }}
       onChange={onChange}
     >
       <option value="no-type">no type</option>
-      {renderTypeOptions()}
+      {renderTypeOptions(selectedValue)}
     </select>
   );
 };
@@ -116,21 +127,27 @@ thumbnailInput() {
 }
 */
 
-const WidthInput = ({ value, onChange }) => {
+const WidthInput = ({ value, onChange, editMode }) => {
   return (
-    <div className="input-field col s2" style={{ marginRight: 5 }}>
-      <input id="width" type="text" value={value} onChange={onChange} />
-      <label htmlFor="width">Width</label>
-    </div>
+    <TextInput
+      value={value}
+      onChange={onChange}
+      label="Width"
+      editMode={editMode}
+      inactive={value === ""}
+    />
   );
 };
 
-const HeightInput = ({ value, onChange }) => {
+const HeightInput = ({ value, onChange, editMode }) => {
   return (
-    <div className="input-field col s6">
-      <input id="height" type="text" value={value} onChange={onChange} />
-      <label htmlFor="height">Height</label>
-    </div>
+    <TextInput
+      value={value}
+      onChange={onChange}
+      label="Height"
+      editMode={editMode}
+      inactive={value === ""}
+    />
   );
 };
 export const SizeInput = ({
@@ -138,30 +155,43 @@ export const SizeInput = ({
   widthOnChange,
   heightValue,
   heightOnChange,
+  editMode,
 }) => {
   return (
     <div className="flex-center" style={{ justifyContent: "flex-start" }}>
-      <WidthInput value={widthValue} onChange={widthOnChange} />
-      <HeightInput value={heightValue} onChange={heightOnChange} />
+      <WidthInput
+        value={widthValue}
+        onChange={widthOnChange}
+        editMode={editMode}
+      />
+      <HeightInput
+        value={heightValue}
+        onChange={heightOnChange}
+        editMode={editMode}
+      />
     </div>
   );
 };
 
-export const DescriptionInput = ({ value, onChange }) => {
+export const FeaturedCheckbox = ({ isFeatured, onChange }) => {
   return (
-    <div className="input-field col s6">
-      <input id="description" type="text" value={value} onChange={onChange} />
-      <label htmlFor="description">Description</label>
-    </div>
+    <p>
+      <label>
+        <input type="checkbox" />
+        <span>Homepage Display</span>
+      </label>
+    </p>
   );
 };
 
-const TextInput = ({ value, onChange, label }) => {
+export const DescriptionInput = ({ value, onChange, editMode }) => {
   return (
-    <div className=" col s6" style={{ margin: 10 }}>
-      <input id={label} type="text" value={value} onChange={() => onChange()} />
-      <label for={label}>{label}</label>
-    </div>
+    <TextInput
+      value={value}
+      onChange={onChange}
+      label="Description"
+      editMode={editMode}
+      inactive={value === ""}
+    />
   );
 };
-export default TextInput;

@@ -578,6 +578,17 @@ ul li {
   padding-top: 20px;
 }
 
+.btn {
+  border-radius: 3px;
+  width: 160px;
+  height: 45px;
+  cursor: pointer;
+  font-weight: bold;
+  margin: 20px auto;
+  letter-spacing: 0.1em;
+  font-size: 12px;
+}
+
 .item-pag {
   display: flex;
   align-items: center;
@@ -621,6 +632,16 @@ ul li {
   .type-image {
     width: 120px;
     height: 120px;
+  }
+  .btn {
+    border-radius: 3px;
+    width: 100px;
+    height: 35px;
+    letter-spacing: 0.05em;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .type-card {

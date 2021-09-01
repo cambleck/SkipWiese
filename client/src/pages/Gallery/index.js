@@ -31,7 +31,7 @@ const Gallery = () => {
     <div
       id="gallery"
       className="flex-center full-width column"
-      style={{ marginTop: 10, marginBottom: 40 }}
+      style={{ marginTop: 10 }}
     >
       <MetaInfo title="Gallery | Skip Wiese" />
       <div className="row type-grid">
