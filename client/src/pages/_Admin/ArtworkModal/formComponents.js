@@ -81,7 +81,7 @@ export const TypePicker = ({ selectedValue, onChange }) => {
   );
 };
 
-export const ImageInput = ({ onChange, image, editMode }) => {
+export const ImageInput = ({ onChange, imageUrl, editMode }) => {
   return (
     <div
       className="flex-center"
@@ -89,7 +89,7 @@ export const ImageInput = ({ onChange, image, editMode }) => {
     >
       {editMode && (
         <img
-          src={image}
+          src={"https://skipwiese.s3.us-east-2.amazonaws.com/" + imageUrl}
           style={{ width: 50, height: 50, objectFit: "cover", marginRight: 10 }}
         />
       )}
@@ -173,11 +173,11 @@ export const SizeInput = ({
   );
 };
 
-export const FeaturedCheckbox = ({ isFeatured, onChange }) => {
+export const FeaturedCheckbox = ({ value, onChange }) => {
   return (
     <p>
       <label>
-        <input type="checkbox" />
+        <input type="checkbox" value={value} onChange={onChange} />
         <span>Homepage Display</span>
       </label>
     </p>

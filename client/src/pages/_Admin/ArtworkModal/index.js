@@ -39,20 +39,26 @@ class CreateNewModal extends Component {
 
   handleSubmit = () => {
     console.log(this.state);
+
+    const {
+      title,
+      type,
+      typeLabel,
+      height,
+      width,
+      description,
+      imageFile,
+    } = this.state;
     const formValues = {
-      title: this.state.title,
-      type: this.state.type,
-      typeLabel: this.state.typeLabel,
-      height: this.state.height,
-      width: this.state.width,
-      description: this.state.description,
+      title: title,
+      type: type,
+      typeLabel: typeLabel,
+      height: height,
+      width: width,
+      description: description,
     };
 
-    this.props.submitArtwork(
-      formValues,
-      this.state.imageFile,
-      this.props.history
-    );
+    this.props.submitArtwork(formValues, imageFile, this.props.history);
     this.setState({
       imageFile: "",
       thumbnailFile: "",
@@ -120,6 +126,7 @@ class CreateNewModal extends Component {
         <ImageInput
           onChange={this.handleSelectedImageFile}
           editMode={editMode}
+          imageUrl={this.props.artwork.imageUrl}
         />
 
         <TitleInput
