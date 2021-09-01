@@ -11,7 +11,7 @@ const EditButton = () => {
     <>
       <a
         className="waves-effect waves-light btn modal-trigger yellow black-text flex-center"
-        href="#modal-new"
+        href="#artworkModal"
         style={{ marginBottom: 20, position: "fixed", bottom: 20, right: 20 }}
       >
         Edit
@@ -19,7 +19,7 @@ const EditButton = () => {
           edit
         </i>
       </a>
-      <ArtworkModal />
+      <ArtworkModal editMode="true" />
     </>
   );
 };

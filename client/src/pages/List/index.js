@@ -7,17 +7,17 @@ import ListPanel from "./ListPanel";
 import ArtworkModal from "../_Admin/ArtworkModal/";
 import { Helmet } from "react-helmet";
 
-const CreateNewButton = () => {
+const CreateNewArtworkButton = () => {
   return (
     <>
       <a
         className="waves-effect waves-light btn modal-trigger yellow black-text"
-        href="#modal-new"
+        href="#artworkModal"
         style={{ marginBottom: 20, position: "fixed", bottom: 20, right: 20 }}
       >
         NEW +
       </a>
-      <ArtworkModal type="new" id="" />
+      <ArtworkModal id="" />
     </>
   );
 };
@@ -96,7 +96,7 @@ class ListView extends React.Component {
               searchValue={this.state.searchValue}
             />
           </div>
-          {this.props.auth && <CreateNewButton />}
+          {this.props.auth && <CreateNewArtworkButton />}
           {this.state.loading ? (
             <div class="loader-container">
               <div class="loader"></div>
