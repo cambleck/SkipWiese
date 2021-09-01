@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { fetchListView, fetchUser, deleteArtwork } from "../../actions";
 import ListItem from "./ListItem";
 import ListPanel from "./ListPanel";
-import CreateModal from "../_Admin/CreateModal/";
+import ArtworkModal from "../_Admin/ArtworkModal/";
 import { Helmet } from "react-helmet";
 
 const CreateNewButton = () => {
@@ -17,7 +17,7 @@ const CreateNewButton = () => {
       >
         NEW +
       </a>
-      <CreateModal type="new" id="" />
+      <ArtworkModal type="new" id="" />
     </>
   );
 };

@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchArtwork, fetchUser } from "../../actions";
 import ArtCard from "./ArtCard";
-import CreateModal from "../_Admin/CreateModal/";
+import ArtworkModal from "../_Admin/ArtworkModal/";
 import MetaInfo from "../../common/MetaInfo";
 const EditButton = () => {
   return (
@@ -19,7 +19,7 @@ const EditButton = () => {
           edit
         </i>
       </a>
-      <CreateModal type="new" id="" />
+      <ArtworkModal />
     </>
   );
 };

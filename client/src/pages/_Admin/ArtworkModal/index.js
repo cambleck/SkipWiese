@@ -237,7 +237,7 @@ class CreateNewModal extends Component {
           <h5>NEW ARTWORK</h5>
         </div>
         {this.imageInput()}
-        {this.thumbnailInput()}
+
         {this.titleInput()}
         {this.typePicker()}
         {this.sizeInput()}
