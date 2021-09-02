@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import map from "lodash/map";
 import { connect } from "react-redux";
+import Lightbox from "../../common/Lightbox";
 import { Link } from "react-router-dom";
 import { fetchArtwork, fetchUser, deleteArtwork } from "../../actions";
 import ArtCard from "./ArtCard";
@@ -41,7 +42,9 @@ class ArtworkPage extends Component {
         <MetaInfo title={`${this.props.artwork.title} | Skip Wiese`} />
 
         {this.props.auth && <EditArtworkButton artwork={this.props.artwork} />}
-        <ArtCard artwork={this.props.artwork} noLink="true" />
+        <Lightbox single>
+          <ArtCard artwork={this.props.artwork} noLink="true" />
+        </Lightbox>
       </div>
     );
   }

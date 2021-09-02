@@ -28,10 +28,40 @@ const options = {
     thumbnailsSize: ["50px", "50px"],
   },
 };
+const singleOptions = {
+  settings: {
+    overlayColor: "rgb(255, 253, 250)",
+    autoplaySpeed: 5000,
+    disablePanzoom: true,
+    transitionSpeed: 3000,
+  },
+  buttons: {
+    backgroundColor: "transparent",
+    iconColor: "rgba(10, 12, 14, 0.8)",
+    showDownloadButton: false,
+    showNextButton: false,
+    showPrevButton: false,
+    showThumbnailsButton: false,
+    showAutoplayButton: false,
+  },
 
-const Lightbox = ({ children, customCaptions }) => {
+  caption: {
+    showCaption: false,
+  },
+  progressBar: {
+    showProgressBar: false,
+  },
+  thumbnails: {
+    showThumbnails: false,
+  },
+};
+
+const Lightbox = ({ children, customCaptions, single }) => {
   return (
-    <SRLWrapper options={options} customCaptions={customCaptions}>
+    <SRLWrapper
+      options={single ? singleOptions : options}
+      customCaptions={customCaptions}
+    >
       {children}
     </SRLWrapper>
   );

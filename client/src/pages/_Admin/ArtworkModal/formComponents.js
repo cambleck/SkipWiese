@@ -1,11 +1,25 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import _ from "lodash";
 import typeList from "./typeList";
 
 const TextInput = ({ value, onChange, label, editMode, inactive }) => {
   return (
-    <div className=" input-field col s6" style={{ marginTop: 20 }}>
-      <input id={label} type="text" value={value} onChange={onChange} />
+    <div
+      className=" input-field col s6"
+      style={{
+        marginTop: 15,
+        fontFamily: "Gill Sans",
+        paddingLeft: 5,
+      }}
+    >
+      <input
+        onKeyPress="return event.charCode != 32"
+        id={label}
+        type="text"
+        value={value}
+        onChange={onChange}
+      />
       <label className={editMode && !inactive && "active"} for={label}>
         {label}
       </label>
@@ -24,7 +38,11 @@ export const SubmitButton = ({ handleSubmit, editMode }) => {
 };
 export const DeleteButton = ({ handleDelete }) => {
   return (
-    <div className="flex-center" style={{ justifyContent: "flex-end" }}>
+    <Link
+      to="/list"
+      className="flex-center"
+      style={{ justifyContent: "flex-end" }}
+    >
       <button
         onClick={handleDelete}
         className="modal-close btn"
@@ -32,7 +50,7 @@ export const DeleteButton = ({ handleDelete }) => {
       >
         DELETE
       </button>
-    </div>
+    </Link>
   );
 };
 
@@ -45,6 +63,26 @@ export const TitleInput = ({ value, onChange, editMode }) => {
       editMode={editMode}
       inactive={value === ""}
     />
+  );
+};
+export const UrlString = ({ value, onChange, editMode }) => {
+  return (
+    <div
+      className="flex-center"
+      style={{ fontSize: 18, justifyContent: "flex-start" }}
+    >
+      <div style={{ marginBottom: 7, color: "grey" }}>
+        {" "}
+        https://skipwiese.com/
+      </div>
+      <TextInput
+        value={value}
+        onChange={onChange}
+        label="Url String"
+        editMode={editMode}
+        inactive={value === ""}
+      />
+    </div>
   );
 };
 
@@ -164,6 +202,7 @@ export const SizeInput = ({
         onChange={widthOnChange}
         editMode={editMode}
       />
+      |
       <HeightInput
         value={heightValue}
         onChange={heightOnChange}
@@ -177,8 +216,8 @@ export const FeaturedCheckbox = ({ value, onChange }) => {
   return (
     <p>
       <label>
-        <input type="checkbox" value={value} onChange={onChange} />
-        <span>Homepage Display</span>
+        <input type="checkbox" checked={value} onChange={onChange} />
+        <span>Featured on Home Page</span>
       </label>
     </p>
   );

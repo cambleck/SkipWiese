@@ -8,6 +8,7 @@ import {
   SubmitButton,
   DeleteButton,
   TitleInput,
+  UrlString,
   ImageInput,
   SizeInput,
   TypePicker,
@@ -16,17 +17,31 @@ import {
 } from "./formComponents";
 import M from "materialize-css";
 
+const INITIAL_STATE = {
+  imageFile: "",
+  thumbnailFile: "",
+  title: "",
+  urlString: "",
+  type: "",
+  typeLabel: "",
+  height: "",
+  width: "",
+  description: "",
+  isFeatured: false,
+};
+
 class CreateNewModal extends Component {
   state = {
     imageFile: this.props.editMode ? this.props.artwork.imageUrl : "",
 
     title: this.props.editMode ? this.props.artwork.title : "",
+    urlString: this.props.editMode ? this.props.artwork.urlString : "",
     type: this.props.editMode ? this.props.artwork.type : "",
     typeLabel: this.props.editMode ? this.props.artwork.typeLabel : "",
     height: this.props.editMode ? this.props.artwork.height : "",
     width: this.props.editMode ? this.props.artwork.width : "",
     description: this.props.editMode ? this.props.artwork.description : "",
-    isFeatured: this.props.isFeatured ? this.props.artwork.isFeatured : false,
+    isFeatured: this.props.editMode ? this.props.artwork.isFeatured : false,
   };
 
   componentDidMount() {
@@ -48,27 +63,22 @@ class CreateNewModal extends Component {
       width,
       description,
       imageFile,
+      isFeatured,
+      urlString,
     } = this.state;
     const formValues = {
       title: title,
+      urlString: urlString,
       type: type,
       typeLabel: typeLabel,
       height: height,
       width: width,
       description: description,
+      isFeatured: isFeatured,
     };
 
     this.props.submitArtwork(formValues, imageFile, this.props.history);
-    this.setState({
-      imageFile: "",
-      thumbnailFile: "",
-      title: "",
-      type: "",
-      typeLabel: "",
-      height: "",
-      width: "",
-      description: "",
-    });
+    this.setState(INITIAL_STATE);
   };
 
   handleSelectedImageFile = (event) => {
@@ -84,6 +94,9 @@ class CreateNewModal extends Component {
 
   handleTitleChange = (event) => {
     this.setState({ title: event.target.value });
+  };
+  handleUrlStringChange = (event) => {
+    this.setState({ urlString: event.target.value });
   };
   handleTypeChange = (event) => {
     var res = event.target.value.split("|");
@@ -109,6 +122,7 @@ class CreateNewModal extends Component {
       imageFile,
       selectedImage,
       title,
+      urlString,
       type,
       typeLabel,
       width,
@@ -126,7 +140,7 @@ class CreateNewModal extends Component {
         <ImageInput
           onChange={this.handleSelectedImageFile}
           editMode={editMode}
-          imageUrl={this.props.artwork.imageUrl}
+          imageUrl={editMode && this.props.artwork.imageUrl}
         />
 
         <TitleInput
@@ -134,6 +148,7 @@ class CreateNewModal extends Component {
           onChange={this.handleTitleChange}
           editMode={editMode}
         />
+
         <TypePicker
           selectedValue={editMode && `${type}${typeLabel}`}
           onChange={this.handleTypeChange}
@@ -148,6 +163,11 @@ class CreateNewModal extends Component {
         <DescriptionInput
           value={description}
           onChange={this.handleDescriptionChange}
+          editMode={editMode}
+        />
+        <UrlString
+          value={urlString}
+          onChange={this.handleUrlStringChange}
           editMode={editMode}
         />
         <FeaturedCheckbox

@@ -89,6 +89,8 @@ module.exports = (app) => {
       description,
       imageUrl,
       typeLabel,
+      isFeatured,
+      urlString,
     } = req.body;
     const artwork = new Artwork({
       title,
@@ -98,6 +100,8 @@ module.exports = (app) => {
       height,
       description,
       imageUrl,
+      isFeatured,
+      urlString,
     });
 
     try {
