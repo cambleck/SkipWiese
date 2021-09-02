@@ -28,6 +28,18 @@ export const submitArtwork = (values, file, history) => async (dispatch) => {
     },
   });
 
+  /*
+
+export const updateArtwork = (values, file) => async (dispatch) => {
+  const uploadConfig = await axios.get("/api/upload");
+  const upload = await axios.put(uploadConfig.data.url, file, {
+    headers: {
+      "Content-Type": file.type,
+    },
+  });
+
+  */
+
   const res = await axios.post("/api/artwork", {
     ...values,
     imageUrl: uploadConfig.data.key,

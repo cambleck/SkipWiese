@@ -7,17 +7,18 @@ const options = {
     autoplaySpeed: 5000,
     disablePanzoom: true,
     transitionSpeed: 3000,
+    disableWheelControls: true,
   },
   buttons: {
     backgroundColor: "transparent",
-    iconColor: "rgba(10, 12, 14, 0.8)",
+    iconColor: "rgba(13, 12, 10, 0.2)",
     showDownloadButton: false,
   },
 
   caption: {
     captionColor: "black",
     captionFontFamily: "Gill Sans, sans-serif",
-    captionFontWeight: "400",
+    captionFontWeight: "bold",
     captionContainerPadding: "0px 10px",
   },
   progressBar: {

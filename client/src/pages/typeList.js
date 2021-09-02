@@ -9,6 +9,7 @@ import Sketch from "./_images/sketch.webp";
 import Commercial from "./_images/commercial.webp";
 import Watercolor from "./_images/watercolor.webp";
 import MixedMedia from "./_images/mixedMedia.webp";
+import All from "./_images/all.webp";
 
 export default [
   { type: "Pastel", image: Pastel },
@@ -22,4 +23,5 @@ export default [
   { type: "Acrylic", image: Acrylic },
   { type: "Graphite", image: Graphite },
   { type: "Sketch", image: Sketch },
+  { type: "All", image: All },
 ];

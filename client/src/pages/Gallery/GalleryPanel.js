@@ -1,20 +1,67 @@
 import React from "react";
+import _ from "lodash";
+import typeList from "../typeList";
+import { useHistory } from "react-router-dom";
 
-const GalleryPanel = () => {
+function renderTypeOptions() {
+  return _.map(typeList, ({ type }) => {
+    console.log(type);
+    return (
+      <option value={type.toUpperCase()} key={type}>
+        {type}
+      </option>
+    );
+  });
+}
+
+const GalleryPanel = ({ onSortChange, sort, onShuffleClick, type }) => {
+  const history = useHistory();
+
+  const handleTypeChange = (event) => {
+    history.push(`/gallery/${event.target.value.toLowerCase()}`);
+    window.location.reload();
+  };
   return (
-    <div className="flex-center" style={{ width: "100%", marginTop: 30 }}>
-      <select class="browser-default" style={{ maxWidth: 200, margin: 5 }}>
-        <option value="1">Mixed Media</option>
-        <option value="2">Pastel</option>
-        <option value="3">Watercolor</option>
-        <option value="3">Acrylic</option>
-        <option value="3">Oil</option>
+    <div
+      className="flex-center"
+      style={{ width: "100%", marginTop: 30, background: "transparent" }}
+    >
+      <select
+        class="browser-default"
+        style={{ maxWidth: 200, margin: 5 }}
+        defaultValue={type.toUpperCase()}
+        onChange={handleTypeChange}
+      >
+        {renderTypeOptions()}
       </select>
-      <select class="browser-default" style={{ margin: 5 }}>
-        <option value="1">A-Z</option>
-        <option value="2">Z-A</option>
-        <option value="3">Random</option>
+      <select
+        class="browser-default"
+        onChange={onSortChange}
+        defaultValue="default"
+      >
+        <option value="default">A-Z</option>
+        <option value="reverse">Z-A</option>
+        <option value="shuffle">Shuffle</option>
       </select>
+      {sort === "shuffle" && (
+        <button
+          className="btn flex-center black-text"
+          style={{
+            position: "fixed",
+            bottom: 20,
+            right: 20,
+            background: "rgb(255,240,100)",
+            width: 75,
+            height: 75,
+            borderRadius: "50%",
+          }}
+          onClick={onShuffleClick}
+        >
+          <i class="material-icons medium" style={{ fontSize: 28 }}>
+            shuffle
+          </i>
+        </button>
+      )}
     </div>
   );
 };

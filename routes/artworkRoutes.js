@@ -24,13 +24,6 @@ module.exports = (app) => {
     var noTitleArray = [];
     var artwork = await Artwork.find().sort({ title: 0 });
 
-    noTitleArray = artwork.filter((item) => {
-      return item.title === "";
-    });
-    artwork = artwork.filter((item) => {
-      return item.title != "";
-    });
-    artwork.push.apply(artwork, noTitleArray);
     res.send(artwork);
   });
 
@@ -59,10 +52,7 @@ module.exports = (app) => {
 
     if (req.params.type === "all") {
       try {
-        // execute query with page and limit values
-        artwork = await Artwork.find().sort({ title: 1 });
-
-        // return response with posts, total pages, and current page
+        artwork = await Artwork.find().sort({ title: 0 });
       } catch (err) {
         console.error(err.message);
       }
@@ -70,7 +60,7 @@ module.exports = (app) => {
       try {
         artwork = await Artwork.find({
           type: req.params.type.toUpperCase(),
-        }).sort({ title: 1 });
+        }).sort({ title: 0 });
 
         // return response with posts, total pages, and current page
       } catch (err) {

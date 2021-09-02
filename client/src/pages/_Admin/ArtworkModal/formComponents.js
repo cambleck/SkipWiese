@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import _ from "lodash";
 import typeList from "./typeList";
+import Lightbox from "../../../common/Lightbox";
 
 const TextInput = ({ value, onChange, label, editMode, inactive }) => {
   return (
@@ -13,14 +14,11 @@ const TextInput = ({ value, onChange, label, editMode, inactive }) => {
         paddingLeft: 5,
       }}
     >
-      <input
-        onKeyPress="return event.charCode != 32"
-        id={label}
-        type="text"
-        value={value}
-        onChange={onChange}
-      />
-      <label className={editMode && !inactive && "active"} for={label}>
+      <input id={label} type="text" value={value} onChange={onChange} />
+      <label
+        className={editMode && !inactive ? "active" : undefined}
+        htmlFor={label}
+      >
         {label}
       </label>
     </div>
@@ -86,14 +84,10 @@ export const UrlString = ({ value, onChange, editMode }) => {
   );
 };
 
-function renderTypeOptions(selectedValue) {
+function renderTypeOptions() {
   return _.map(typeList, ({ value, label }) => {
     return (
-      <option
-        selected={selectedValue === `${value}${label}`}
-        value={`${value}|${label}`}
-        key={label}
-      >
+      <option value={`${value}|${label}`} key={label}>
         ({value}) - {label}
       </option>
     );
@@ -112,9 +106,10 @@ export const TypePicker = ({ selectedValue, onChange }) => {
         maxWidth: 335,
       }}
       onChange={onChange}
+      defaultValue={selectedValue}
     >
       <option value="no-type">no type</option>
-      {renderTypeOptions(selectedValue)}
+      {renderTypeOptions()}
     </select>
   );
 };
@@ -126,10 +121,17 @@ export const ImageInput = ({ onChange, imageUrl, editMode }) => {
       style={{ paddingTop: 10, justifyContent: "flex-start" }}
     >
       {editMode && (
-        <img
-          src={"https://skipwiese.s3.us-east-2.amazonaws.com/" + imageUrl}
-          style={{ width: 50, height: 50, objectFit: "cover", marginRight: 10 }}
-        />
+        <Lightbox single>
+          <img
+            src={"https://skipwiese.s3.us-east-2.amazonaws.com/" + imageUrl}
+            style={{
+              width: 50,
+              height: 50,
+              objectFit: "cover",
+              marginRight: 10,
+            }}
+          />
+        </Lightbox>
       )}
       <div>
         <label className="textInput-label">

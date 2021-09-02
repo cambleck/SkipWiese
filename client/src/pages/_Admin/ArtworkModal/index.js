@@ -53,8 +53,6 @@ class CreateNewModal extends Component {
   };
 
   handleSubmit = () => {
-    console.log(this.state);
-
     const {
       title,
       type,
@@ -131,7 +129,7 @@ class CreateNewModal extends Component {
       isFeatured,
     } = this.state;
     const { editMode, artwork, handleDelete } = this.props;
-    console.log(isFeatured);
+
     return (
       <div id="artworkModal" className="modal">
         <div className="flex-center" style={{ marginBottom: 20 }}>
@@ -150,7 +148,7 @@ class CreateNewModal extends Component {
         />
 
         <TypePicker
-          selectedValue={editMode && `${type}${typeLabel}`}
+          selectedValue={editMode && `${type}|${typeLabel}`}
           onChange={this.handleTypeChange}
         />
         <SizeInput

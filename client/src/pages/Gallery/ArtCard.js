@@ -50,7 +50,7 @@ const ArtCard = ({ artwork, noLink }) => {
         <img
           className="artwork-image"
           src={"https://skipwiese.s3.us-east-2.amazonaws.com/" + imageUrl}
-          alt={"image"}
+          alt={title}
         />
       </div>
       {!size && !title ? (

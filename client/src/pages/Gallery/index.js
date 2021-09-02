@@ -2,7 +2,7 @@ import React from "react";
 import _ from "lodash";
 import { Link } from "react-router-dom";
 import typeList from "../typeList";
-import all from "../_images/all.webp";
+
 import MetaInfo from "../../common/MetaInfo";
 
 const renderTypes = () => {
@@ -34,13 +34,7 @@ const Gallery = () => {
       style={{ marginTop: 10 }}
     >
       <MetaInfo title="Gallery | Skip Wiese" />
-      <div className="row type-grid">
-        {renderTypes()}
-        <Link className="type-card flex-center column" to="./gallery/all">
-          <img className="type-image" src={all} alt="all" />
-          <div style={{ padding: 10, color: "black" }}>All</div>
-        </Link>
-      </div>
+      <div className="row type-grid">{renderTypes()}</div>
     </div>
   );
 };

@@ -17,7 +17,13 @@ const Search = ({ searchValue, onSearchChange }) => {
   );
 };
 
-const ListPanel = ({ searchValue, onSearchChange }) => {
+const ListPanel = ({
+  searchValue,
+  onSearchChange,
+  onSortChange,
+  sort,
+  onShuffleClick,
+}) => {
   return (
     <div className="list-panel">
       <Search onSearchChange={onSearchChange} searchValue={searchValue} />
@@ -29,11 +35,34 @@ const ListPanel = ({ searchValue, onSearchChange }) => {
           margin: 5,
         }}
       ></div>
-      <select class="browser-default">
-        <option value="1">A-Z</option>
-        <option value="2">Z-A</option>
-        <option value="3">Random</option>
+      <select
+        class="browser-default"
+        onChange={onSortChange}
+        defaultValue="default"
+      >
+        <option value="default">A-Z</option>
+        <option value="reverse">Z-A</option>
+        <option value="shuffle">Shuffle</option>
       </select>
+      {sort === "shuffle" && (
+        <button
+          className="btn flex-center black-text"
+          style={{
+            position: "fixed",
+            bottom: 20,
+
+            background: "rgb(255,240,100)",
+            width: 75,
+            height: 75,
+            borderRadius: "50%",
+          }}
+          onClick={onShuffleClick}
+        >
+          <i class="material-icons medium" style={{ fontSize: 28 }}>
+            shuffle
+          </i>
+        </button>
+      )}
     </div>
   );
 };

@@ -4,15 +4,29 @@ import map from "lodash/map";
 import { connect } from "react-redux";
 import { fetchArtworkList } from "../../actions";
 import Lightbox from "../../common/Lightbox";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import ArtCard from "./ArtCard";
 import GalleryPanel from "./GalleryPanel";
 import MetaInfo from "../../common/MetaInfo";
+import Loading from "../../common/Loading";
+import {
+  shuffleList,
+  reverseObjectList,
+  sortObjectList,
+} from "../../common/functions";
+
+const renderList = (list) => {
+  console.log((list: "list"));
+  return map(list, (artwork) => {
+    return <ArtCard artwork={artwork} />;
+  });
+};
 
 class GalleryScroll extends Component {
   state = {
     loading: true,
     customCaptions: [],
+    sort: "default",
   };
   componentDidMount() {
     window.scrollTo(0, 0);
@@ -22,12 +36,6 @@ class GalleryScroll extends Component {
       .then(() => this.captionList());
   }
 
-  renderArtwork() {
-    return map(this.props.artworkList, (artwork) => {
-      return <ArtCard artwork={artwork} />;
-    });
-  }
-
   captionList() {
     var captionList = [];
     if (this.props.artworkList != null) {
@@ -35,7 +43,7 @@ class GalleryScroll extends Component {
         const { title, typeLabel, _id } = this.props.artworkList[i];
 
         captionList.push({
-          id: i,
+          id: _id,
           caption: (
             <>
               {!title ? (
@@ -88,19 +96,52 @@ class GalleryScroll extends Component {
     }
   }
 
+  filterList = (list) => {
+    console.log((list, "filter"));
+    if (this.state.sort === "reverse") {
+      reverseObjectList(list);
+    }
+    if (this.state.sort === "shuffle") {
+      shuffleList(list);
+    }
+    if (this.state.sort === "default") {
+      var noTitleArray = [];
+      sortObjectList(list);
+      noTitleArray = list.filter((item) => {
+        return item.title === "";
+      });
+      list = list.filter((item) => {
+        return item.title != "";
+      });
+      list.push.apply(list, noTitleArray);
+      console.log(list);
+    }
+    return list;
+  };
+
+  handleSortChange = (event) => {
+    this.setState({ sort: event.target.value });
+  };
+
+  handleShuffleClick = () => {
+    this.setState({ list: shuffleList(this.props.artworkList) });
+  };
   render() {
     return (
       <>
         <MetaInfo title="Mixed Media | Skip Wiese" />
-        <GalleryPanel />
+        <GalleryPanel
+          onSortChange={this.handleSortChange}
+          sort={this.state.sort}
+          onShuffleClick={this.handleShuffleClick}
+          type={this.props.match.params.type}
+        />
         {this.state.loading ? (
-          <div class="loader-container">
-            <div class="loader"></div>
-          </div>
+          <Loading />
         ) : (
           <div className="grid column">
-            <Lightbox customCaptions={this.state.customCaptions}>
-              {this.renderArtwork()}
+            <Lightbox>
+              {renderList(this.filterList(this.props.artworkList))}
             </Lightbox>
           </div>
         )}
@@ -113,4 +154,6 @@ function mapStateToProps({ artworkList }, ownProps) {
   return { artworkList };
 }
 
-export default connect(mapStateToProps, { fetchArtworkList })(GalleryScroll);
+export default connect(mapStateToProps, { fetchArtworkList })(
+  withRouter(GalleryScroll)
+);

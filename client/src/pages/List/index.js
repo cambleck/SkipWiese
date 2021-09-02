@@ -6,6 +6,12 @@ import ListItem from "./ListItem";
 import ListPanel from "./ListPanel";
 import ArtworkModal from "../_Admin/ArtworkModal/";
 import { Helmet } from "react-helmet";
+import Loading from "../../common/Loading";
+import {
+  shuffleList,
+  reverseObjectList,
+  sortObjectList,
+} from "../../common/functions";
 
 const CreateNewArtworkButton = () => {
   return (
@@ -22,7 +28,7 @@ const CreateNewArtworkButton = () => {
   );
 };
 
-const renderList = (list, auth, onDeleteClick) => {
+const renderList = (list) => {
   return _.map(list, ({ title, imageUrl, height, width, typeLabel, _id }) => {
     var size;
     if (height) {
@@ -47,11 +53,36 @@ class ListView extends React.Component {
     searchValue: "",
     id: "",
     loading: true,
+    sort: "default",
   };
+
+  componentDidMount() {
+    this.props.fetchListView().then(() => this.setState({ loading: false }));
+    this.props.fetchUser();
+  }
 
   filterList = (list) => {
     const self = this;
     let filter = [];
+
+    /* sort filter */
+    if (this.state.sort === "reverse") {
+      reverseObjectList(list);
+    } else if (this.state.sort === "shuffle") {
+      shuffleList(list);
+    } else {
+      var noTitleArray = [];
+      sortObjectList(list);
+      noTitleArray = list.filter((item) => {
+        return item.title === "";
+      });
+      list = list.filter((item) => {
+        return item.title != "";
+      });
+      list.push.apply(list, noTitleArray);
+    }
+
+    /* search filter */
     if (list && this.state.searchValue != "") {
       filter = list.filter(function (item) {
         return (
@@ -70,12 +101,16 @@ class ListView extends React.Component {
     return filter;
   };
 
-  onSearchChange = (event) => {
+  handleSearchChange = (event) => {
     this.setState({ searchValue: event.target.value });
   };
 
-  onDeleteClick = (imageUrl, id) => {
-    this.props.deleteArtwork(imageUrl, id);
+  handleSortChange = (event) => {
+    this.setState({ sort: event.target.value });
+  };
+
+  handleShuffleClick = () => {
+    this.setState({ list: shuffleList(this.props.artworkList) });
   };
   componentDidMount() {
     this.props.fetchListView().then(() => this.setState({ loading: false }));
@@ -92,22 +127,19 @@ class ListView extends React.Component {
         <div className="list-container">
           <div className="flex-center column">
             <ListPanel
-              onSearchChange={this.onSearchChange}
+              onSearchChange={this.handleSearchChange}
               searchValue={this.state.searchValue}
+              onSortChange={this.handleSortChange}
+              sort={this.state.sort}
+              onShuffleClick={this.handleShuffleClick}
             />
           </div>
           {this.props.auth && <CreateNewArtworkButton />}
           {this.state.loading ? (
-            <div class="loader-container">
-              <div class="loader"></div>
-            </div>
+            <Loading />
           ) : (
             <ul className="collection">
-              {renderList(
-                this.filterList(this.props.artworkList),
-                this.props.auth,
-                (imageUrl, id) => this.onDeleteClick(imageUrl, id)
-              )}
+              {renderList(this.filterList(this.props.artworkList))}
             </ul>
           )}
         </div>
