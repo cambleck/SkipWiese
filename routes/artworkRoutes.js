@@ -80,8 +80,7 @@ module.exports = (app) => {
     res.send(artwork);
   });
 
-  app.post("api/updateArtwork", requireLogin, async (req, res) => {
-    console.log("UPDATEADMALSKDMLKM");
+  app.post("/api/updateArtwork", requireLogin, async (req, res) => {
     const {
       title,
       type,

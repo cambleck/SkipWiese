@@ -35,12 +35,11 @@ const Header = ({ display, updateDisplay }) => {
   };
   const displayTabs = () => {
     return _.map(list, ({ href, label }) => {
-      console.log(href, "|", display);
       return (
-        <div className="flex-center column">
+        <div className="flex-center column" key={label}>
           <button
             onClick={() => onClick(href)}
-            class="nav-tab column"
+            className="nav-tab column"
             to={`/${href}`}
           >
             {label}
@@ -61,7 +60,7 @@ const Header = ({ display, updateDisplay }) => {
         <div className="stripe"></div>
       </nav>
       <div className="nav-content">
-        <ul class="flex-center row nav-width">{displayTabs()}</ul>
+        <ul className="flex-center row nav-width">{displayTabs()}</ul>
       </div>
     </header>
   );

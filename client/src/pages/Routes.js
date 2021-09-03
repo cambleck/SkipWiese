@@ -14,17 +14,19 @@ const ListView = loadable(() => import("./List"));
 
 export const Routes = () => {
   return (
-    <Switch>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/gallery" component={Gallery} />
+    <main>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/gallery" component={Gallery} />
 
-      <Route exact path="/gallery/:type" component={GalleryScroll} />
-      <Route exact path="/about" component={About} />
-      <Route exact path="/list" component={ListView} />
-      <Route exact path="/shop" component={Shop} />
-      <Route exact path="/login" component={Admin} />
-      <Route path="/:id" component={ArtworkPage} />
-      <Route component={FourZeroFour} />
-    </Switch>
+        <Route exact path="/gallery/:type" component={GalleryScroll} />
+        <Route exact path="/about" component={About} />
+        <Route exact path="/list" component={ListView} />
+        <Route exact path="/shop" component={Shop} />
+        <Route exact path="/login" component={Admin} />
+        <Route path="/:id" component={ArtworkPage} />
+        <Route component={FourZeroFour} />
+      </Switch>
+    </main>
   );
 };

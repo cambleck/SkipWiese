@@ -43,6 +43,7 @@ const renderList = (list) => {
         size={size}
         typeLabel={typeLabel}
         _id={_id}
+        key={_id}
       />
     );
   });

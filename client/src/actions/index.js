@@ -29,7 +29,6 @@ export const submitArtwork = (values, file, history, editMode) => async (
       "Content-Type": file.type,
     },
   });
-  console.log(editMode, "---", values);
   const res = await axios.post(
     editMode ? "/api/updateArtwork" : "/api/artwork",
     {

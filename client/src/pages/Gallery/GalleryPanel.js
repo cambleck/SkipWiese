@@ -5,7 +5,6 @@ import { useHistory } from "react-router-dom";
 
 function renderTypeOptions() {
   return _.map(typeList, ({ type }) => {
-    console.log(type);
     return (
       <option value={type.toUpperCase()} key={type}>
         {type}
@@ -27,7 +26,7 @@ const GalleryPanel = ({ onSortChange, sort, onShuffleClick, type }) => {
       style={{ width: "100%", marginTop: 30, background: "transparent" }}
     >
       <select
-        class="browser-default"
+        className="browser-default"
         style={{ maxWidth: 200, margin: 5 }}
         defaultValue={type.toUpperCase()}
         onChange={handleTypeChange}
@@ -35,7 +34,7 @@ const GalleryPanel = ({ onSortChange, sort, onShuffleClick, type }) => {
         {renderTypeOptions()}
       </select>
       <select
-        class="browser-default"
+        className="browser-default"
         onChange={onSortChange}
         defaultValue="default"
       >
@@ -57,7 +56,7 @@ const GalleryPanel = ({ onSortChange, sort, onShuffleClick, type }) => {
           }}
           onClick={onShuffleClick}
         >
-          <i class="material-icons medium" style={{ fontSize: 28 }}>
+          <i className="material-icons medium" style={{ fontSize: 28 }}>
             shuffle
           </i>
         </button>

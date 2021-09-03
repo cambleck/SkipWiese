@@ -16,9 +16,8 @@ import {
 } from "../../common/functions";
 
 const renderList = (list) => {
-  console.log((list: "list"));
   return map(list, (artwork) => {
-    return <ArtCard artwork={artwork} />;
+    return <ArtCard artwork={artwork} key={artwork._id} />;
   });
 };
 
@@ -97,7 +96,6 @@ class GalleryScroll extends Component {
   }
 
   filterList = (list) => {
-    console.log((list, "filter"));
     if (this.state.sort === "reverse") {
       reverseObjectList(list);
     }
@@ -114,7 +112,6 @@ class GalleryScroll extends Component {
         return item.title != "";
       });
       list.push.apply(list, noTitleArray);
-      console.log(list);
     }
     return list;
   };

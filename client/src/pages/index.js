@@ -16,16 +16,14 @@ class App extends React.Component {
   };
   render() {
     return (
-      <div>
-        <BrowserRouter>
-          <Header
-            display={this.state.display}
-            updateDisplay={(page) => this.updateDisplay(page)}
-          />
-          <body>{Routes()}</body>
-          <Footer />
-        </BrowserRouter>
-      </div>
+      <BrowserRouter>
+        <Header
+          display={this.state.display}
+          updateDisplay={(page) => this.updateDisplay(page)}
+        />
+        {Routes()}
+        <Footer />
+      </BrowserRouter>
     );
   }
 }

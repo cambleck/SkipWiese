@@ -36,7 +36,7 @@ const ListPanel = ({
         }}
       ></div>
       <select
-        class="browser-default"
+        className="browser-default"
         onChange={onSortChange}
         defaultValue="default"
       >
@@ -58,7 +58,7 @@ const ListPanel = ({
           }}
           onClick={onShuffleClick}
         >
-          <i class="material-icons medium" style={{ fontSize: 28 }}>
+          <i className="material-icons medium" style={{ fontSize: 28 }}>
             shuffle
           </i>
         </button>

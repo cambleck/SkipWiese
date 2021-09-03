@@ -12,7 +12,7 @@ const ArtistStatement = () => {
         alignItems: "flex-start",
 
         borderLeft: "5px solid rgb(70,82,90)",
-        padding: 20,
+        padding: "30px 20px 50px 20px",
         borderRadius: 5,
         background: "rgb(255,255,255)",
         boxShadow: "0px 0px 5px rgb(220,220,220) inset",
@@ -45,26 +45,28 @@ const ArtistStatement = () => {
           August 28, 1995
         </div>
       </div>
-      <p>
+      <br />
+      <div>
         Since my student days at the Art Institute of Chicago, I had been an
         admirer of the "Impressionists", those wonderful painters, like Monet,
         Pissarro, Renoir, Degas and so many others, who captured the moments of
         their time, like a candid camera.
-        <br />
-        <p>
-          Striving to create my own impressions of the moment, seems to be a
-          theme in my work, for as long as I can remember. My pastel paintings
-          are filled with broken color, filtering through other colors, into
-          what may appear to be, say white, or any other general color, is
-          really a display of pink lavenders, blues, yellows and everything in
-          between with the hope of capturing the color mood of that moment.
-        </p>
-        <p>
-          My black and white monotypes are silhouettes of life and action, not
-          detail, but passing moment, the after image that remains in my mind's
-          eye.
-        </p>
-      </p>
+      </div>
+      <br />
+      <div>
+        Striving to create my own impressions of the moment, seems to be a theme
+        in my work, for as long as I can remember. My pastel paintings are
+        filled with broken color, filtering through other colors, into what may
+        appear to be, say white, or any other general color, is really a display
+        of pink lavenders, blues, yellows and everything in between with the
+        hope of capturing the color mood of that moment.
+      </div>
+      <br />
+      <div>
+        My black and white monotypes are silhouettes of life and action, not
+        detail, but passing moment, the after image that remains in my mind's
+        eye.
+      </div>
     </div>
   );
 };

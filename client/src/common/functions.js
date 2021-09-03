@@ -9,12 +9,10 @@ export const shuffleList = (list) => {
 };
 
 export const reverseObjectList = (list) => {
-  console.log(list);
   list.sort((a, b) => (a.title > b.title ? 1 : -1));
   list.reverse((a, b) => (a.title > b.title ? 1 : -1));
 };
 
 export const sortObjectList = (list) => {
-  console.log(list);
   list.sort((a, b) => (a.title > b.title ? 1 : -1));
 };

@@ -11,6 +11,7 @@ const renderTypes = () => {
       <Link
         to={`./gallery/${type.toLowerCase()}`}
         className="type-card flex-center column"
+        key={type}
       >
         <img className="type-image" src={image} alt={type} />
         <div

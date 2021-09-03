@@ -30,7 +30,6 @@ class Display extends React.Component {
   }
 
   render() {
-    console.log(this.props.artworkList);
     return (
       <>
         {this.state.loading ? (
