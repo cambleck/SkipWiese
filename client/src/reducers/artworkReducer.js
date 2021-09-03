@@ -11,14 +11,16 @@ import {
 export default function (state = {}, action) {
   switch (action.type) {
     case FETCH_ARTWORK:
+      state = [];
       const art = action.payload;
       return { ...state, [action.payload._id]: art };
     case SUBMIT_ARTWORK:
-      const submitedWork = action.payload;
-      return { ...state, [action.payload._id]: submitedWork };
-    case FETCH_ARTWORK_LIST:
-      const artwork = action.payload;
       state = [];
+      const submitedWork = action.payload;
+      return [...state, submitedWork];
+    case FETCH_ARTWORK_LIST:
+      state = [];
+      const artwork = action.payload;
       return artwork;
     case FETCH_LISTVIEW:
       const listview = action.payload;

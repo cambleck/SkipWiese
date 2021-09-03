@@ -22,7 +22,7 @@ const options = {
     captionContainerPadding: "0px 10px",
   },
   progressBar: {
-    showProgressBar: false,
+    showProgressBar: true,
   },
   thumbnails: {
     thumbnailsOpacity: 0.4,

@@ -139,7 +139,11 @@ class ListView extends React.Component {
             <Loading />
           ) : (
             <ul className="collection">
-              {renderList(this.filterList(this.props.artworkList))}
+              {renderList(
+                this.filterList(
+                  this.props.artworkList ? this.props.artworkList : []
+                )
+              )}
             </ul>
           )}
         </div>

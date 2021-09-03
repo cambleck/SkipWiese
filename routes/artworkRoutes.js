@@ -56,6 +56,16 @@ module.exports = (app) => {
       } catch (err) {
         console.error(err.message);
       }
+    } else if (req.params.type === "featured") {
+      try {
+        artwork = await Artwork.find({
+          isFeatured: true,
+        }).sort({ title: 0 });
+
+        // return response with posts, total pages, and current page
+      } catch (err) {
+        console.error(err.message);
+      }
     } else {
       try {
         artwork = await Artwork.find({
@@ -68,6 +78,43 @@ module.exports = (app) => {
       }
     }
     res.send(artwork);
+  });
+
+  app.post("api/updateArtwork", requireLogin, async (req, res) => {
+    console.log("UPDATEADMALSKDMLKM");
+    const {
+      title,
+      type,
+      width,
+      height,
+      description,
+      imageUrl,
+      typeLabel,
+      isFeatured,
+      urlString,
+      _id,
+    } = req.body;
+    await Artwork.findOneAndUpdate(
+      { id: _id },
+      {
+        title,
+        type,
+        typeLabel,
+        width,
+        height,
+        description,
+        imageUrl,
+        isFeatured,
+        urlString,
+      }
+    );
+
+    try {
+      await artwork.save();
+      res.send(artwork);
+    } catch (err) {
+      res.send(400, err);
+    }
   });
 
   app.post("/api/artwork", requireLogin, async (req, res) => {

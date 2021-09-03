@@ -25,10 +25,10 @@ const TextInput = ({ value, onChange, label, editMode, inactive }) => {
   );
 };
 
-export const SubmitButton = ({ handleSubmit, editMode }) => {
+export const SubmitButton = ({ onClick, editMode }) => {
   return (
     <div className="flex-center" style={{ justifyContent: "flex-end" }}>
-      <button onClick={handleSubmit} className="modal-close btn" style={{}}>
+      <button onClick={onClick} className="modal-close btn" style={{}}>
         {editMode ? "UPDATE" : "SUBMIT"}
       </button>
     </div>

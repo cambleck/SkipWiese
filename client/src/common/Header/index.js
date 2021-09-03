@@ -30,10 +30,12 @@ const Header = ({ display, updateDisplay }) => {
   const history = useHistory();
   const onClick = (href) => {
     history.push(`${href}`);
+
     updateDisplay(href);
   };
   const displayTabs = () => {
     return _.map(list, ({ href, label }) => {
+      console.log(href, "|", display);
       return (
         <div className="flex-center column">
           <button

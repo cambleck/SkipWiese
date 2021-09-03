@@ -75,7 +75,12 @@ class CreateNewModal extends Component {
       isFeatured: isFeatured,
     };
 
-    this.props.submitArtwork(formValues, imageFile, this.props.history);
+    this.props.submitArtwork(
+      formValues,
+      imageFile,
+      this.props.history,
+      this.props.editMode
+    );
     this.setState(INITIAL_STATE);
   };
 
@@ -189,7 +194,7 @@ class CreateNewModal extends Component {
             <div></div>
           )}
           <SubmitButton
-            handleSubmit={() => this.handleSubmit()}
+            onClick={() => this.handleSubmit()}
             editMode={editMode}
           />
         </div>

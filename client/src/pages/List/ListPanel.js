@@ -46,11 +46,11 @@ const ListPanel = ({
       </select>
       {sort === "shuffle" && (
         <button
-          className="btn flex-center black-text"
+          className="btn flex-center black-text waves-effect waves-light"
           style={{
             position: "fixed",
             bottom: 20,
-
+            zIndex: 1000,
             background: "rgb(255,240,100)",
             width: 75,
             height: 75,
