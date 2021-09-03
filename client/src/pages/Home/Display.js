@@ -13,6 +13,7 @@ const renderList = (list) => {
         src={"https://skipwiese.s3.us-east-2.amazonaws.com/" + imageUrl}
         className="home-image"
         alt={caption}
+        key={imageUrl}
       />
     );
   });

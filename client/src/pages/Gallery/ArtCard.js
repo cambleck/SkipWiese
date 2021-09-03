@@ -6,7 +6,7 @@ const ArtworkInfo = ({ title, _id, typeLabel, size, description, noLink }) => {
   return (
     <div className="artwork-info-container">
       <Link
-        to={!noLink && `/${_id}`}
+        to={_id}
         className="artwork-info-card"
         style={{ cursor: noLink && "default" }}
       >
@@ -60,7 +60,7 @@ const ArtCard = ({ artwork, noLink }) => {
           <div className="artwork-info-container">
             <div className="card-action" style={{ fontWeight: "bold" }}></div>
             <Link
-              to={`/${_id}`}
+              to={_id}
               className=""
               style={{
                 textAlign: "center",
