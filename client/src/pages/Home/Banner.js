@@ -13,6 +13,7 @@ const Banner = () => {
           color: "black",
           textDecoration: "underline",
         }}
+        href="mailto:cbleck@comcast.net"
       >
         Find out more
       </a>
