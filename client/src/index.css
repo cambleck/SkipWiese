@@ -78,6 +78,7 @@ button:focus {
   border-bottom: 1px solid black !important;
   outline: none !important;
   padding-left: 5px;
+  -webkit-appearance: none;
 }
 
 .list-panel {

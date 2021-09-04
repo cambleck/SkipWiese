@@ -12,6 +12,7 @@ class App extends React.Component {
   };
 
   updateDisplay = (page) => {
+    console.log(page);
     this.setState({ display: page });
   };
   render() {

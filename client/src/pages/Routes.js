@@ -21,8 +21,9 @@ export const Routes = () => {
 
         <Route exact path="/gallery/:type" component={GalleryScroll} />
         <Route exact path="/about" component={About} />
-        <Route exact path="/list" component={ListView} />
         <Route exact path="/shop" component={Shop} />
+        <Route exact path="/list" component={ListView} />
+
         <Route exact path="/login" component={Admin} />
         <Route path="/:id" component={ArtworkPage} />
         <Route component={FourZeroFour} />
