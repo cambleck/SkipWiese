@@ -7,12 +7,12 @@ import Loading from "../../common/Loading";
 import { clearList, fetchArtworkList } from "../../actions";
 
 const renderList = (list) => {
-  return _.map(list, ({ imageUrl, caption, box }) => {
+  return _.map(list, ({ imageUrl, title }) => {
     return (
       <img
         src={"https://skipwiese.s3.us-east-2.amazonaws.com/" + imageUrl}
         className="home-image"
-        alt={caption}
+        alt={title}
         key={imageUrl}
       />
     );
