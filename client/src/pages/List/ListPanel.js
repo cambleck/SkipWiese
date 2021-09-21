@@ -39,6 +39,7 @@ const ListPanel = ({
         className="browser-default"
         onChange={onSortChange}
         defaultValue="default"
+        style={{ zIndex: 99909 }}
       >
         <option value="default">A-Z</option>
         <option value="reverse">Z-A</option>

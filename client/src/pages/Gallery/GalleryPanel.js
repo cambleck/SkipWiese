@@ -27,7 +27,7 @@ const GalleryPanel = ({ onSortChange, sort, onShuffleClick, type }) => {
     >
       <select
         className="browser-default"
-        style={{ maxWidth: 200, margin: 5 }}
+        style={{ maxWidth: 200, margin: 5, zIndex: 99909 }}
         defaultValue={type.toUpperCase()}
         onChange={handleTypeChange}
       >
