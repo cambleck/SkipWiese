@@ -44,6 +44,9 @@ const ListPanel = ({
         <option value="reverse">Z-A</option>
         <option value="shuffle">Shuffle</option>
       </select>
+      <i className="material-icons black-text" style={{ marginLeft: -20 }}>
+        arrow_drop_down
+      </i>
       {sort === "shuffle" && (
         <button
           className="btn flex-center black-text waves-effect waves-light"

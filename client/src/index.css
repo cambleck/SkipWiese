@@ -72,6 +72,7 @@ button:focus {
 .browser-default {
   max-width: 100px;
   border: none !important;
+  cursor: pointer;
   border-radius: 0px;
   color: black;
   padding: 0px;
@@ -83,37 +84,12 @@ button:focus {
 
 .list-panel {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
   max-width: 600px;
   width: 100%;
   padding: 20px;
   padding-top: 0px;
-}
-
-.list-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: black;
-  width: 225px;
-  height: 45px;
-  font-size: 16px;
-  text-transform: uppercase;
-  font-weight: bold;
-  border-radius: 5px;
-  margin: 40px;
-  background: rgb(255, 255, 253) !important;
-  box-shadow: 2px 2px 6px rgb(230, 230, 240), -2px -2px 6px rgb(240, 240, 240);
-}
-.list-button:hover {
-  box-shadow: 2px 2px 3px rgb(230, 230, 240) inset,
-    -2px -2px 2px rgb(255, 255, 255) inset;
-  background: rgba(250, 250, 253);
-}
-.list-button:active {
-  box-shadow: 0px 0px 40px rgba(120, 180, 250, 0.2) !important;
-  background: rgba(240, 245, 243);
 }
 
 .yellow-button {

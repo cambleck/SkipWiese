@@ -33,15 +33,22 @@ const GalleryPanel = ({ onSortChange, sort, onShuffleClick, type }) => {
       >
         {renderTypeOptions()}
       </select>
+      <i className="material-icons black-text" style={{ marginLeft: -25 }}>
+        arrow_drop_down
+      </i>
       <select
-        className="browser-default"
+        className="browser-default transparent"
         onChange={onSortChange}
         defaultValue="default"
+        style={{ zIndex: 99909 }}
       >
         <option value="default">A-Z</option>
         <option value="reverse">Z-A</option>
         <option value="shuffle">Shuffle</option>
       </select>
+      <i className="material-icons black-text" style={{ marginLeft: -20 }}>
+        arrow_drop_down
+      </i>
       {sort === "shuffle" && (
         <button
           className="btn flex-center black-text"
