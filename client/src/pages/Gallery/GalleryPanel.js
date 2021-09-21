@@ -37,7 +37,7 @@ const GalleryPanel = ({ onSortChange, sort, onShuffleClick, type }) => {
         arrow_drop_down
       </i>
       <select
-        className="browser-default transparent"
+        className="browser-default"
         onChange={onSortChange}
         defaultValue="default"
         style={{ zIndex: 99909 }}
