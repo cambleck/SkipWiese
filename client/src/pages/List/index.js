@@ -11,7 +11,7 @@ import {
   shuffleList,
   reverseObjectList,
   sortObjectList,
-} from "../../common/functions";
+} from "../../common/sortingFunctions";
 
 const CreateNewArtworkButton = () => {
   return (

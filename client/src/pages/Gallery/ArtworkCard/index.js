@@ -1,31 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import M from "materialize-css";
+import InfoCard from "./InfoCard";
 
-const ArtworkInfo = ({ title, _id, typeLabel, size, description, noLink }) => {
-  return (
-    <div className="artwork-info-container">
-      <Link
-        to={`/${_id}`}
-        className="artwork-info-card"
-        style={{ cursor: noLink && "default" }}
-      >
-        <div className="art-content">
-          <span className="artwork-info-title">{title}</span>
-          <span className="artwork-info-subContent">
-            {typeLabel ? typeLabel : ""}
-          </span>
-          <span className="artwork-info-subContent">{size && size}</span>
-          <span className="artwork-info-subContent" style={{ marginTop: 10 }}>
-            {description}
-          </span>
-        </div>
-      </Link>
-    </div>
-  );
-};
-
-const ArtCard = ({ artwork, noLink }) => {
+const ArtworkCard = ({ artwork, noLink }) => {
   const {
     height,
     width,
@@ -74,7 +52,7 @@ const ArtCard = ({ artwork, noLink }) => {
           </div>
         )
       ) : (
-        <ArtworkInfo
+        <InfoCard
           title={title}
           _id={_id}
           typeLabel={typeLabel}
@@ -87,4 +65,4 @@ const ArtCard = ({ artwork, noLink }) => {
   );
 };
 
-export default ArtCard;
+export default ArtworkCard;

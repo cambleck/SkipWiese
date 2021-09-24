@@ -3,7 +3,7 @@ import map from "lodash/map";
 import { connect } from "react-redux";
 import Lightbox from "../../common/Lightbox";
 import { fetchArtwork, fetchUser, deleteArtwork } from "../../actions";
-import ArtCard from "./ArtCard";
+import ArtworkCard from "./ArtworkCard";
 import ArtworkModal from "../_Admin/ArtworkModal/";
 import MetaInfo from "../../common/MetaInfo";
 import Loading from "../../common/Loading";
@@ -43,7 +43,7 @@ class ArtworkPage extends Component {
 
         {this.props.auth && <EditArtworkButton artwork={this.props.artwork} />}
         <Lightbox single>
-          <ArtCard artwork={this.props.artwork} noLink="true" />
+          <ArtworkCard artwork={this.props.artwork} noLink="true" />
         </Lightbox>
       </div>
     );

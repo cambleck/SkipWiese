@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { fetchArtworkList } from "../../actions";
 import Lightbox from "../../common/Lightbox";
 import { Link, withRouter } from "react-router-dom";
-import ArtCard from "./ArtCard";
+import ArtworkCard from "./ArtworkCard";
 import GalleryPanel from "./GalleryPanel";
 import MetaInfo from "../../common/MetaInfo";
 import Loading from "../../common/Loading";
@@ -13,11 +13,11 @@ import {
   shuffleList,
   reverseObjectList,
   sortObjectList,
-} from "../../common/functions";
+} from "../../common/sortingFunctions";
 
 const renderList = (list) => {
   return map(list, (artwork) => {
-    return <ArtCard artwork={artwork} key={artwork._id} />;
+    return <ArtworkCard artwork={artwork} key={artwork._id} />;
   });
 };
 
