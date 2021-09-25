@@ -1,6 +1,6 @@
 import React from "react";
 import M from "materialize-css";
-import Display from "./Display";
+import ImageGrid from "./ImageGrid";
 import Banner from "./Banner";
 import MetaInfo from "../../common/MetaInfo";
 
@@ -13,7 +13,7 @@ class Home extends React.Component {
       <div id="home" className="flex-center column">
         <MetaInfo title="Skip Wiese" />
         <Banner />
-        <Display />
+        <ImageGrid />
       </div>
     );
   }

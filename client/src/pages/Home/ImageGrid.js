@@ -19,7 +19,7 @@ const renderList = (list) => {
   });
 };
 
-class Display extends React.Component {
+class ImageGrid extends React.Component {
   state = {
     loading: true,
   };
@@ -52,4 +52,4 @@ function mapStateToProps({ artworkList }) {
 export default connect(mapStateToProps, {
   fetchArtworkList,
   clearList,
-})(Display);
+})(ImageGrid);
