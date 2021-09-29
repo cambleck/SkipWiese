@@ -66,6 +66,16 @@ module.exports = (app) => {
       } catch (err) {
         console.error(err.message);
       }
+    } else if (req.params.type === "shop") {
+      try {
+        artwork = await Artwork.find({
+          price: { $gt: 0 },
+        }).sort({ title: 0 });
+
+        // return response with posts, total pages, and current page
+      } catch (err) {
+        console.error(err.message);
+      }
     } else {
       try {
         artwork = await Artwork.find({
