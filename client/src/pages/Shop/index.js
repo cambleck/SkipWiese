@@ -31,7 +31,9 @@ class Shop extends React.Component {
         {this.state.loading ? (
           <Loading />
         ) : (
-          <div className="grid">{renderList(this.props.artworkList)}</div>
+          <div className="grid" style={{ marginTop: 10 }}>
+            {renderList(this.props.artworkList)}
+          </div>
         )}
       </div>
     );

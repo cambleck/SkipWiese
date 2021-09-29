@@ -16,7 +16,7 @@ const ShoppingCard = ({ title, image, price }) => {
             justifyContent: "space-between",
           }}
         >
-          <div>${price}.00</div>
+          <div style={{ fontSize: 12 }}>${price}.00</div>
         </div>
       </div>
     </div>
