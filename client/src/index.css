@@ -67,9 +67,12 @@ button:focus {
   margin: 15px;
   cursor: pointer;
   border-radius: 10px;
+  transition: 0.3s;
 }
 .shop-card:hover {
   opacity: 0.8;
+  transform: scale(1.05);
+  transition: 0.3s;
 }
 
 .addToCart-btn {

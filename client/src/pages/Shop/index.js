@@ -6,7 +6,7 @@ import ShoppingCartIcon from "./ShoppingCartIcon";
 import Loading from "../../common/Loading";
 import { clearList, fetchArtworkList } from "../../actions";
 import ShopCard from "./ShopCard";
-
+import InfoModal from "./InfoModal";
 const renderList = (list) => {
   return _.map(list, ({ imageUrl, title, price }) => {
     return <ShopCard image={imageUrl} title={title} price={price} />;
@@ -33,6 +33,7 @@ class Shop extends React.Component {
         ) : (
           <div className="grid" style={{ marginTop: 10 }}>
             {renderList(this.props.artworkList)}
+            <InfoModal />
           </div>
         )}
       </div>
