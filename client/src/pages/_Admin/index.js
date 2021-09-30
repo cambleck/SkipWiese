@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Login from "./Login";
 import Main from "./Main";
-import * as actions from "../../actions";
+import * as actions from "../../redux/actions";
 
 class Admin extends Component {
   componentDidMount() {

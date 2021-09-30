@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import M from "materialize-css";
 import Lightbox from "../../common/Lightbox";
 import Loading from "../../common/Loading";
-import { clearList, fetchArtworkList } from "../../actions";
+import { clearList, fetchArtworkList } from "../../redux/actions";
 
 const renderList = (list) => {
   return _.map(list, ({ imageUrl, title }) => {

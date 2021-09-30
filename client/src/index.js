@@ -7,7 +7,7 @@ import reduxThunk from "redux-thunk";
 import "./index.css";
 import SimpleReactLightbox from "simple-react-lightbox-pro";
 import App from "./pages";
-import reducers from "./reducers";
+import reducers from "./redux/reducers";
 import ReactGA from "react-ga";
 import axios from "axios";
 window.axios = axios;

@@ -1,7 +1,7 @@
 import React from "react";
 import _ from "lodash";
 import { connect } from "react-redux";
-import { fetchListView, fetchUser, deleteArtwork } from "../../actions";
+import { fetchListView, fetchUser, deleteArtwork } from "../../redux/actions";
 import ListItem from "./ListItem";
 import ListPanel from "./ListPanel";
 import ArtworkModal from "../_Admin/ArtworkModal/";

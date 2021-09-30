@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import MetaInfo from "../../common/MetaInfo";
 import ShoppingCartIcon from "./ShoppingCartIcon";
 import Loading from "../../common/Loading";
-import { clearList, fetchArtworkList } from "../../actions";
+import { clearList, fetchArtworkList } from "../../redux/actions";
 import ShopCard from "./ShopCard";
 import ShopArtworkInfoModal from "./ShopArtworkInfoModal";
 import CartModal from "./CartModal";

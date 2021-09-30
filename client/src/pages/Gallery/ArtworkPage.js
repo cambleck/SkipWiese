@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import map from "lodash/map";
 import { connect } from "react-redux";
 import Lightbox from "../../common/Lightbox";
-import { fetchArtwork, fetchUser, deleteArtwork } from "../../actions";
+import { fetchArtwork, fetchUser, deleteArtwork } from "../../redux/actions";
 import ArtworkCard from "./ArtworkCard";
 import ArtworkModal from "../_Admin/ArtworkModal/";
 import MetaInfo from "../../common/MetaInfo";

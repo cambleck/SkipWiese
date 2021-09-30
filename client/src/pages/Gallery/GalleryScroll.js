@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import _ from "lodash";
 import map from "lodash/map";
 import { connect } from "react-redux";
-import { fetchArtworkList } from "../../actions";
+import { fetchArtworkList } from "../../redux/actions";
 import Lightbox from "../../common/Lightbox";
 import { Link, withRouter } from "react-router-dom";
 import ArtworkCard from "./ArtworkCard";
