@@ -12,6 +12,9 @@ class ShopArtworkInfoModal extends React.Component {
           <h4>Cosmos</h4>
           <p>A bunch of text</p>
         </div>
+        <div style={{ margin: 10 }}>
+          All artwork is unframed, unmatted, and available for pickup only.
+        </div>
         <div class="modal-footer">
           <a href="#!" class="modal-close waves-effect waves-green btn-flat">
             ADD TO CART

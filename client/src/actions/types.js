@@ -5,3 +5,7 @@ export const CLEAR_LIST = "clear_list";
 export const FETCH_LISTVIEW = "fetch_listview";
 export const DELETE_ARTWORK = "delete_artwork";
 export const SUBMIT_ARTWORK = "submit_artwork";
+export const ADD_TO_CART = "add_to_cart";
+export const REMOVE_FROM_CART = "remove_from_cart";
+export const RESET_CART = "reset_cart";
+export const CHECKOUT = "checkout";

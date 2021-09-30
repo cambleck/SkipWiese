@@ -1,4 +1,3 @@
-import mapKeys from "lodash/mapKeys";
 import {
   FETCH_ARTWORK_LIST,
   FETCH_ARTWORK,
