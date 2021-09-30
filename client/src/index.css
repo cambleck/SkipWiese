@@ -594,12 +594,16 @@ ul li {
   color: black;
 }
 
-.modal {
+.admin-modal {
   max-width: 1000px;
   background: rgb(255, 252, 245);
   border-radius: 10px;
   padding: 100px;
   padding-top: 20px;
+}
+
+.shop-artwork-info-modal {
+  border-radius: 10px;
 }
 
 .btn {
@@ -684,7 +688,7 @@ ul li {
     height: 200px;
   }
 
-  .modal {
+  .admin-modal {
     padding: 30px;
   }
 }

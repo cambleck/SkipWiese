@@ -11,6 +11,7 @@ const artworkSchema = new Schema({
   description: String,
   imageUrl: String,
   isFeatured: Boolean,
+  price: Number,
 });
 
 mongoose.model("Artwork", artworkSchema);

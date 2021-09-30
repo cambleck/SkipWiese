@@ -136,7 +136,7 @@ class CreateNewModal extends Component {
     const { editMode, artwork, handleDelete } = this.props;
 
     return (
-      <div id="artworkModal" className="modal">
+      <div id="artworkModal" className="admin-modal modal">
         <div className="flex-center" style={{ marginBottom: 20 }}>
           <h5>{editMode ? "EDIT ARTWORK" : "NEW ARTWORK"}</h5>
         </div>
