@@ -16,9 +16,14 @@ class AddToCartModal extends React.Component {
             }
             className="addToCart-image"
           />
-          <h5>{item.title}</h5>
+          <a
+            href={`/${item._id}`}
+            style={{ color: "black", textDecoration: "underline" }}
+          >
+            <h5 style={{ fontWeight: "bold" }}>{item.title}</h5>
+          </a>
           <div style={{ marginTop: -10 }}>
-            {item.typeLabel} ({item.height} x {item.width})
+            {item.typeLabel} ({item.height}" x {item.width}")
           </div>
           <b style={{ fontSize: 18, margin: 10 }}>${item.price}</b>
           <a href="#!" class="modal-close addToCart-btn">
