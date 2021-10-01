@@ -11,6 +11,7 @@ const FourZeroFour = loadable(() => import("./404"));
 const ArtworkPage = loadable(() => import("./Gallery/ArtworkPage"));
 const GalleryScroll = loadable(() => import("./Gallery/GalleryScroll"));
 const ListView = loadable(() => import("./List"));
+const CartModal = loadable(() => import("./Shop/CartModal"));
 
 export const Routes = () => {
   return (
@@ -22,6 +23,7 @@ export const Routes = () => {
         <Route exact path="/gallery/:type" component={GalleryScroll} />
         <Route exact path="/about" component={About} />
         <Route exact path="/shop" component={Shop} />
+        <Route exact path="/shop/:title" component={CartModal} />
         <Route exact path="/list" component={ListView} />
 
         <Route exact path="/login" component={Admin} />

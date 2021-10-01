@@ -602,8 +602,42 @@ ul li {
   padding-top: 20px;
 }
 
-.shop-artwork-info-modal {
+.addToCartModal-content {
+  text-align: left;
+}
+
+.addToCart-image {
+  max-width: 300px;
+
+  width: 100%;
+  border-radius: 5px;
+}
+.addToCart-btn {
+  border: 3px solid black;
+  border-radius: 5px;
+  padding: 5px 15px;
+  color: black;
+  font-size: 14px;
+  margin: 10px;
+  width: 170px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  transition: 0.3s;
+  justify-content: center;
+}
+.addToCart-btn:hover {
+  background: black;
+  color: white;
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+.addToCart-modal {
   border-radius: 10px;
+  max-width: 400px;
+  padding: 10px;
+  border: 5px solid rgba(0, 0, 0, 0.5);
 }
 
 .btn {

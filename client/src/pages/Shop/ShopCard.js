@@ -1,17 +1,18 @@
 import React from "react";
 
-const ShoppingCard = ({ title, image, price }) => {
+const ShoppingCard = ({ item, onSelected }) => {
   return (
     <a
       class="shop-card modal-trigger black-text"
-      href="#shop-artwork-info-modal"
+      href="#addToCart"
+      onClick={() => onSelected(item)}
     >
       <img
-        src={"https://skipwiese.s3.us-east-2.amazonaws.com/" + image}
+        src={"https://skipwiese.s3.us-east-2.amazonaws.com/" + item.imageUrl}
         className="shop-card-image"
       />
       <div style={{ padding: 3 }}>
-        <b>{title}</b>
+        <b>{item.title}</b>
         <div
           style={{
             display: "flex",
@@ -19,7 +20,7 @@ const ShoppingCard = ({ title, image, price }) => {
             justifyContent: "space-between",
           }}
         >
-          <div style={{ fontSize: 12 }}>${price}</div>
+          <div style={{ fontSize: 12 }}>${item.price}</div>
         </div>
       </div>
     </a>

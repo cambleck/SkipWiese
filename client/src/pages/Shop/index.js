@@ -6,25 +6,34 @@ import ShoppingCartIcon from "./ShoppingCartIcon";
 import Loading from "../../common/Loading";
 import { clearList, fetchArtworkList } from "../../redux/actions";
 import ShopCard from "./ShopCard";
-import ShopArtworkInfoModal from "./ShopArtworkInfoModal";
+import AddToCartModal from "./AddToCartModal";
 import CartModal from "./CartModal";
-const renderList = (list) => {
-  return _.map(list, ({ imageUrl, title, price }) => {
-    return <ShopCard image={imageUrl} title={title} price={price} />;
+
+const ShopList = ({ list, onSelectedItem }) => {
+  return _.map(list, (item) => {
+    return <ShopCard item={item} onSelected={onSelectedItem} />;
   });
 };
 
 class Shop extends React.Component {
   state = {
     loading: true,
+    selectedItem: "",
   };
+
   componentDidMount() {
     this.props.clearList();
     this.props
       .fetchArtworkList("shop")
       .then(() => this.setState({ loading: false }));
   }
+
+  onSelectedItem = (item) => {
+    this.setState({ selectedItem: item });
+  };
+
   render() {
+    const { selectedItem } = this.state;
     return (
       <div className="flex-center ">
         <ShoppingCartIcon />
@@ -33,8 +42,11 @@ class Shop extends React.Component {
           <Loading />
         ) : (
           <div className="grid" style={{ marginTop: 10 }}>
-            {renderList(this.props.artworkList)}
-            <ShopArtworkInfoModal />
+            <ShopList
+              list={this.props.artworkList}
+              onSelectedItem={this.onSelectedItem}
+            />
+            <AddToCartModal item={selectedItem} />
             <CartModal />
           </div>
         )}
