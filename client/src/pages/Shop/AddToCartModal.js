@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "react-redux";
+import { addToCart } from "../../redux/actions";
 import M from "materialize-css";
 
 class AddToCartModal extends React.Component {
@@ -26,13 +28,22 @@ class AddToCartModal extends React.Component {
             {item.typeLabel} ({item.height}" x {item.width}")
           </div>
           <b style={{ fontSize: 18, margin: 10 }}>${item.price}</b>
-          <a href="#!" class="modal-close addToCart-btn">
+          <button
+            class="modal-close action-btn"
+            onClick={() => this.props.addToCart(item)}
+          >
             + ADD TO CART
-          </a>
+          </button>
         </div>
       </div>
     );
   }
 }
 
-export default AddToCartModal;
+function mapStateToProps({ cart }) {
+  return { cart };
+}
+
+export default connect(mapStateToProps, {
+  addToCart,
+})(AddToCartModal);

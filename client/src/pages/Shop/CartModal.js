@@ -1,5 +1,23 @@
 import React from "react";
+import _ from "lodash";
+import { connect } from "react-redux";
+import { removeFromCart } from "../../redux/actions";
 import M from "materialize-css";
+import CartItem from "./CartItem";
+
+const renderCartList = (list) => {
+  return _.map(list, ({ title, price, imageUrl, typeLabel, height, width }) => {
+    return (
+      <CartItem
+        title={title}
+        image={imageUrl}
+        price={price}
+        size={`${height} x ${width}`}
+        typeLabel={typeLabel}
+      />
+    );
+  });
+};
 
 class CartModal extends React.Component {
   componentDidMount() {
@@ -10,7 +28,12 @@ class CartModal extends React.Component {
       <div id="cart-modal" class="modal bottom-sheet">
         <div class="modal-content flex-center column">
           <h5>CART</h5>
-
+          <div
+            className="flex-center column"
+            style={{ width: "100%", maxWidth: 600 }}
+          >
+            {renderCartList(this.props.cart)}
+          </div>
           <div
             style={{
               border: "1px solid rgba(100,100,100,.2)",
@@ -36,13 +59,17 @@ class CartModal extends React.Component {
               if you have any questions.
             </div>
           </div>
-          <a href="#!" class="modal-close addToCart-btn">
-            CHECKOUT
-          </a>
+          <a class="modal-close action-btn">CHECKOUT</a>
         </div>
       </div>
     );
   }
 }
 
-export default CartModal;
+function mapStateToProps({ cart }) {
+  return { cart };
+}
+
+export default connect(mapStateToProps, {
+  removeFromCart,
+})(CartModal);
