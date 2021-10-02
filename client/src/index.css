@@ -648,6 +648,15 @@ ul li {
   max-height: 85% !important;
 }
 
+.disabled {
+  opacity: 0.1;
+  cursor: none;
+}
+.disabled:hover {
+  transform: none;
+  transition: none;
+}
+
 .btn {
   border-radius: 3px;
   width: 160px;

@@ -32,7 +32,11 @@ class CartModal extends React.Component {
             className="flex-center column"
             style={{ width: "100%", maxWidth: 600 }}
           >
-            {renderCartList(this.props.cart)}
+            {this.props.cart.length > 0 ? (
+              renderCartList(this.props.cart)
+            ) : (
+              <div style={{ margin: 10 }}>NO ARTWORK IN CART</div>
+            )}
           </div>
           <div
             style={{
@@ -59,7 +63,14 @@ class CartModal extends React.Component {
               if you have any questions.
             </div>
           </div>
-          <a class="modal-close action-btn">CHECKOUT</a>
+          <button
+            class={`modal-close action-btn ${
+              this.props.cart.length === 0 ? "disabled" : ""
+            }`}
+            disabled={this.props.cart.length === 0 && true}
+          >
+            CHECKOUT
+          </button>
         </div>
       </div>
     );
