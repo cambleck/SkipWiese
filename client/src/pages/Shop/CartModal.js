@@ -5,62 +5,82 @@ import { removeFromCart } from "../../redux/actions";
 import M from "materialize-css";
 import CartItem from "./CartItem";
 
-const renderCartList = (list) => {
-  return _.map(list, ({ title, price, imageUrl, typeLabel, height, width }) => {
-    return (
-      <CartItem
-        title={title}
-        image={imageUrl}
-        price={price}
-        size={`${height} x ${width}`}
-        typeLabel={typeLabel}
-      />
-    );
-  });
+const CartList = ({ list, removeFromCart }) => {
+  return _.map(
+    list,
+    ({ title, price, imageUrl, typeLabel, height, width, _id }) => {
+      return (
+        <CartItem
+          title={title}
+          image={imageUrl}
+          price={price}
+          size={`${height} x ${width}`}
+          typeLabel={typeLabel}
+          id={_id}
+          onRemoveItemClick={removeFromCart}
+        />
+      );
+    }
+  );
 };
 
 class CartModal extends React.Component {
-  state = {
-    deleteMode: false,
-  };
-
   componentDidMount() {
     M.AutoInit();
   }
 
-  onDeleteModeClick = () => {
-    this.setState({ deleteMode: !this.state.deleteMode });
+  removeFromCart = (id) => {
+    this.props.removeFromCart(id);
   };
+
+  cartTotal = () => {
+    const { cart } = this.props;
+    var total = 0;
+    for (let i = 0; i < cart.length; i++) {
+      total += cart[i].price;
+    }
+    return total;
+  };
+
   render() {
-    const { deleteMode } = this.state;
     return (
       <div id="cart-modal" class="modal bottom-sheet">
+        <button
+          className="clear-icon-btn modal-close"
+          style={{ position: "absolute", top: 10, right: 20 }}
+        >
+          <i className="material-icons ">cancel</i>
+        </button>
         <div class="modal-content flex-center column">
           <div
             className="flex-center"
             style={{ position: "relative", width: "100%", maxWidth: 600 }}
           >
-            <h5>CART</h5>
-            {this.props.cart.length > 0 && (
-              <button
-                className="clear-icon-btn"
-                style={{ position: "absolute", top: 20, right: 20 }}
-                onClick={() => this.onDeleteModeClick()}
-              >
-                {!deleteMode ? (
-                  <i className="material-icons">remove_circle_outline</i>
-                ) : (
-                  <b>Done</b>
-                )}
-              </button>
-            )}
+            <h5>SHOPPING CART</h5>
           </div>
-          <div
-            className="flex-center column"
-            style={{ width: "100%", maxWidth: 600 }}
-          >
+          <div className="flex-center column" style={{ width: "100%" }}>
             {this.props.cart.length > 0 ? (
-              renderCartList(this.props.cart)
+              <div
+                className="flex-center column"
+                style={{ width: "100%", maxWidth: 600 }}
+              >
+                <CartList
+                  list={this.props.cart}
+                  removeFromCart={this.removeFromCart}
+                />
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "flex-end",
+                    width: "100%",
+                    marginRight: 20,
+                    marginTop: 5,
+                  }}
+                >
+                  Subtotal ({this.props.cart.length} item
+                  {this.props.cart.length > 1 && "s"}): ${this.cartTotal()}
+                </div>
+              </div>
             ) : (
               <div style={{ margin: 10 }}>NO ARTWORK IN CART</div>
             )}

@@ -1,14 +1,23 @@
 import React from "react";
 
-const CartItem = ({ title, image, size, typeLabel, _id, price }) => {
+const CartItem = ({
+  title,
+  image,
+  size,
+  typeLabel,
+  id,
+  price,
+  onRemoveItemClick,
+}) => {
   return (
     <a
       className="list-item black-text"
-      key={_id}
+      key={id}
       style={{
         width: "100%",
         border: "1px solid rgba(0,0,0,.1)",
         borderRadius: 2,
+        postion: "relative",
       }}
     >
       <div
@@ -24,47 +33,64 @@ const CartItem = ({ title, image, size, typeLabel, _id, price }) => {
             display: "flex",
             justifyContent: "flex-start",
             alignItems: "center",
-            width: "90%",
+            width: "85%",
 
             textOverflow: "ellipsis",
 
             overflow: "hidden",
           }}
         >
-          <img
-            src={"https://skipwiese.s3.us-east-2.amazonaws.com/" + image}
-            alt=""
-            className="list-image"
-          />
+          <div className="flex-center column">
+            <img
+              src={"https://skipwiese.s3.us-east-2.amazonaws.com/" + image}
+              alt=""
+              className="list-image"
+            />
+            <button
+              className="clear-icon-btn flex-center"
+              style={{
+                padding: 0,
+                marginTop: -5,
+                marginBottom: 5,
+                fontSize: 12,
+              }}
+              onClick={() => onRemoveItemClick(id)}
+            >
+              Remove
+            </button>
+          </div>
           <div className="list-title">
-            <div
+            <a
               style={{
                 fontWeight: "bold",
-
                 fontSize: 13,
-
+                textOverflow: "ellipsis",
                 textAlign: "left",
               }}
+              className="hyperlink black-text"
             >
               {title && title}
-            </div>
-            <div style={{ fontSize: 12, color: "rgb(60, 64, 66)" }}>
-              {typeLabel ? typeLabel : ""} {size && `(${size})`}
+            </a>
+            <div
+              style={{
+                fontSize: 12,
+                color: "rgb(60, 64, 66)",
+                display: "flex",
+                alignItems: "center",
+                marginTop: -3,
+                color: "rgba(60,60,60,.9)",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+              }}
+            >
+              <div>
+                {typeLabel ? typeLabel : ""} {size && `(${size})`}
+              </div>
             </div>
           </div>
         </div>
 
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            width: "15%",
-            margin: 0,
-          }}
-        >
-          ${price}
-        </div>
+        <div style={{ marginRight: 10 }}>${price}</div>
       </div>
     </a>
   );

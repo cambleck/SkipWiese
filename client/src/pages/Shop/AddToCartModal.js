@@ -7,10 +7,26 @@ class AddToCartModal extends React.Component {
   componentDidMount() {
     M.AutoInit();
   }
+
+  itemAlreadyInCart = (id) => {
+    var list;
+    const { cart } = this.props;
+    list = cart.filter((item) => item._id === id);
+    if (list.length > 0) {
+      return true;
+    }
+    return false;
+  };
   render() {
     const { item } = this.props;
     return (
       <div id="addToCart" class="addToCart-modal modal">
+        <button
+          className="clear-icon-btn modal-close"
+          style={{ position: "absolute", top: 5, right: 5 }}
+        >
+          <i className="material-icons ">cancel</i>
+        </button>
         <div class="modal-content addToCartModal-content flex-center column">
           <img
             src={
@@ -28,12 +44,18 @@ class AddToCartModal extends React.Component {
             {item.typeLabel} ({item.height}" x {item.width}")
           </div>
           <b style={{ fontSize: 18, margin: 10 }}>${item.price}</b>
-          <button
-            class="modal-close action-btn"
-            onClick={() => this.props.addToCart(item)}
-          >
-            + ADD TO CART
-          </button>
+          {this.itemAlreadyInCart(item._id) ? (
+            <button class="modal-close action-btn disabled" disabled>
+              IN CART
+            </button>
+          ) : (
+            <button
+              class="modal-close action-btn"
+              onClick={() => this.props.addToCart(item)}
+            >
+              + ADD TO CART
+            </button>
+          )}
         </div>
       </div>
     );

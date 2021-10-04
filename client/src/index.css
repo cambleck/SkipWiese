@@ -477,6 +477,12 @@ input[type="text"]:focus {
   transform: scale(1.1);
 }
 
+.hyperlink:hover {
+  text-decoration: underline;
+  color: black;
+  cursor: pointer;
+}
+
 .banner {
   background: rgba(255, 255, 100, 0.9);
   display: flex;
