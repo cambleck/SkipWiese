@@ -36,7 +36,7 @@ class Shop extends React.Component {
     const { selectedItem } = this.state;
     return (
       <div className="flex-center ">
-        <ShoppingCartIcon />
+        <ShoppingCartIcon numberOfItemsInCart={this.props.cart.length} />
         <MetaInfo title="Shop | Skip Wiese" />
         {this.state.loading ? (
           <Loading />
@@ -55,8 +55,8 @@ class Shop extends React.Component {
   }
 }
 
-function mapStateToProps({ artworkList }) {
-  return { artworkList };
+function mapStateToProps({ artworkList, cart }) {
+  return { artworkList, cart };
 }
 
 export default connect(mapStateToProps, {

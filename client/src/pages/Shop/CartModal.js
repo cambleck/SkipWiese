@@ -20,14 +20,41 @@ const renderCartList = (list) => {
 };
 
 class CartModal extends React.Component {
+  state = {
+    deleteMode: false,
+  };
+
   componentDidMount() {
     M.AutoInit();
   }
+
+  onDeleteModeClick = () => {
+    this.setState({ deleteMode: !this.state.deleteMode });
+  };
   render() {
+    const { deleteMode } = this.state;
     return (
       <div id="cart-modal" class="modal bottom-sheet">
         <div class="modal-content flex-center column">
-          <h5>CART</h5>
+          <div
+            className="flex-center"
+            style={{ position: "relative", width: "100%", maxWidth: 600 }}
+          >
+            <h5>CART</h5>
+            {this.props.cart.length > 0 && (
+              <button
+                className="clear-icon-btn"
+                style={{ position: "absolute", top: 20, right: 20 }}
+                onClick={() => this.onDeleteModeClick()}
+              >
+                {!deleteMode ? (
+                  <i className="material-icons">remove_circle_outline</i>
+                ) : (
+                  <b>Done</b>
+                )}
+              </button>
+            )}
+          </div>
           <div
             className="flex-center column"
             style={{ width: "100%", maxWidth: 600 }}

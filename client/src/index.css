@@ -467,6 +467,16 @@ input[type="text"]:focus {
   color: black;
 }
 
+.clear-icon-btn {
+  background: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+.clear-icon-btn:hover {
+  transform: scale(1.1);
+}
+
 .banner {
   background: rgba(255, 255, 100, 0.9);
   display: flex;
