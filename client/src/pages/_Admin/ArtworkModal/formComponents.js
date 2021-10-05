@@ -9,7 +9,7 @@ const TextInput = ({ value, onChange, label, editMode, inactive }) => {
     <div
       className=" input-field col s6"
       style={{
-        marginTop: 15,
+        marginTop: 25,
         fontFamily: "Gill Sans",
         paddingLeft: 5,
       }}
@@ -117,33 +117,27 @@ export const TypePicker = ({ selectedValue, onChange }) => {
 export const ImageInput = ({ onChange, imageUrl, editMode }) => {
   return (
     <div
-      className="flex-center"
+      className="flex-center column"
       style={{ paddingTop: 10, justifyContent: "flex-start" }}
     >
-      {editMode && (
-        <Lightbox single>
-          <img
-            src={"https://skipwiese.s3.us-east-2.amazonaws.com/" + imageUrl}
-            style={{
-              width: 50,
-              height: 50,
-              objectFit: "cover",
-              marginRight: 10,
-            }}
-          />
-        </Lightbox>
-      )}
-      <div>
-        <label className="textInput-label">
-          {editMode ? "Edit Image" : "Add Image"}{" "}
-        </label>
-        <div style={{ paddingTop: 10 }}>
-          <input
-            type="file"
-            accept="image/*"
-            onChange={onChange}
-            style={{ marginLeft: 10 }}
-          />
+      {editMode && <Lightbox single></Lightbox>}
+      <div style={{ width: "100%" }} className="flex-center">
+        <div
+          class="file-field input-field"
+          style={{ justifyContent: "flex-start" }}
+        >
+          <div class="clear-icon-btn" style={{ transform: "none" }}>
+            <img
+              src={"https://skipwiese.s3.us-east-2.amazonaws.com/" + imageUrl}
+              style={{
+                width: 200,
+                height: 200,
+                objectFit: "cover",
+                marginRight: 10,
+              }}
+            />
+            <input type="file" accept="image/*" onChange={onChange} />
+          </div>
         </div>
       </div>
     </div>
@@ -231,6 +225,17 @@ export const DescriptionInput = ({ value, onChange, editMode }) => {
       value={value}
       onChange={onChange}
       label="Description"
+      editMode={editMode}
+      inactive={value === ""}
+    />
+  );
+};
+export const PriceInput = ({ value, onChange, editMode }) => {
+  return (
+    <TextInput
+      value={value}
+      onChange={onChange}
+      label="Price"
       editMode={editMode}
       inactive={value === ""}
     />

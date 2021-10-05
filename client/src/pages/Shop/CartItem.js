@@ -68,6 +68,7 @@ const CartItem = ({
                 textAlign: "left",
               }}
               className="hyperlink black-text"
+              href={`./${id}`}
             >
               {title && title}
             </a>

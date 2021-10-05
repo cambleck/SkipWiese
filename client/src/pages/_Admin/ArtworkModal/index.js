@@ -14,6 +14,7 @@ import {
   TypePicker,
   DescriptionInput,
   FeaturedCheckbox,
+  PriceInput,
 } from "./formComponents";
 import M from "materialize-css";
 
@@ -27,6 +28,7 @@ const INITIAL_STATE = {
   height: "",
   width: "",
   description: "",
+  price: "",
   isFeatured: false,
 };
 
@@ -41,6 +43,7 @@ class CreateNewModal extends Component {
     height: this.props.editMode ? this.props.artwork.height : "",
     width: this.props.editMode ? this.props.artwork.width : "",
     description: this.props.editMode ? this.props.artwork.description : "",
+    price: this.props.editMode ? this.props.artwork.price : "",
     isFeatured: this.props.editMode ? this.props.artwork.isFeatured : false,
   };
 
@@ -63,6 +66,7 @@ class CreateNewModal extends Component {
       imageFile,
       isFeatured,
       urlString,
+      price,
     } = this.state;
     const formValues = {
       title: title,
@@ -73,6 +77,7 @@ class CreateNewModal extends Component {
       width: width,
       description: description,
       isFeatured: isFeatured,
+      price: parseInt(price),
     };
 
     this.props.submitArtwork(
@@ -115,6 +120,9 @@ class CreateNewModal extends Component {
   handleDescriptionChange = (event) => {
     this.setState({ description: event.target.value });
   };
+  handlePriceChange = (event) => {
+    this.setState({ price: event.target.value });
+  };
 
   handleFeatureChange = () => {
     this.setState({ isFeatured: !this.state.isFeatured });
@@ -132,6 +140,7 @@ class CreateNewModal extends Component {
       height,
       description,
       isFeatured,
+      price,
     } = this.state;
     const { editMode, artwork, handleDelete } = this.props;
 
@@ -166,6 +175,11 @@ class CreateNewModal extends Component {
         <DescriptionInput
           value={description}
           onChange={this.handleDescriptionChange}
+          editMode={editMode}
+        />
+        <PriceInput
+          value={price}
+          onChange={this.handlePriceChange}
           editMode={editMode}
         />
         <UrlString
