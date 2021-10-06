@@ -26,7 +26,7 @@ export const Routes = () => {
         <Route exact path="/shop/:title" component={CartModal} />
         <Route exact path="/list" component={ListView} />
 
-        <Route exact path="/login" component={Admin} />
+        <Route exact path="/admin" component={Admin} />
         <Route path="/:id" component={ArtworkPage} />
         <Route component={FourZeroFour} />
       </Switch>

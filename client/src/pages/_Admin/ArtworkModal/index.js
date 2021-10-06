@@ -157,13 +157,11 @@ class CreateNewModal extends Component {
           editMode={editMode}
           imageUrl={editMode && this.props.artwork.imageUrl}
         />
-
         <TitleInput
           value={title}
           onChange={this.handleTitleChange}
           editMode={editMode}
         />
-
         <TypePicker
           selectedValue={editMode && `${type}`}
           onChange={this.handleTypeChange}
@@ -180,11 +178,17 @@ class CreateNewModal extends Component {
           onChange={this.handleDescriptionChange}
           editMode={editMode}
         />
-        <PriceInput
-          value={price}
-          onChange={this.handlePriceChange}
-          editMode={editMode}
-        />
+        <div style={{ display: "flex" }}>
+          <b className="flex-center">$</b>
+          <PriceInput
+            value={price}
+            onChange={this.handlePriceChange}
+            editMode={editMode}
+          />
+          <div className="flex-center" style={{ fontSize: 10 }}>
+            (Leave Blank if not for sale)
+          </div>
+        </div>
         <UrlString
           value={urlString}
           onChange={this.handleUrlStringChange}

@@ -15,11 +15,11 @@ class Main extends React.Component {
       >
         <div>
           <a
-            className="admin-main-button"
+            className="action-btn"
             href="./api/logout"
             style={{
               width: 200,
-              background: "white",
+
               marginTop: 50,
             }}
           >

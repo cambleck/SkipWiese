@@ -68,9 +68,9 @@ export const UrlString = ({ value, onChange, editMode }) => {
   return (
     <div
       className="flex-center"
-      style={{ fontSize: 18, justifyContent: "flex-start" }}
+      style={{ fontSize: 14, justifyContent: "flex-start" }}
     >
-      <div style={{ marginBottom: 7, color: "grey" }}>
+      <div style={{ marginBottom: -7, color: "grey" }}>
         {" "}
         https://skipwiese.com/
       </div>
