@@ -1,17 +1,21 @@
 import React from "react";
 import M from "materialize-css";
+import { SortDropdownSelect } from "../../common/DropdownSelect";
 
 const Search = ({ searchValue, onSearchChange }) => {
   return (
     <div className="search">
-      <i className="material-icons" style={{ marginRight: 5 }}>
+      <i
+        className="material-icons grey-text text-darken-4"
+        style={{ marginRight: 5, marginLeft: 10 }}
+      >
         search
       </i>
       <input
         className="search-input"
-        type="text"
         value={searchValue}
         onChange={onSearchChange}
+        type="search"
       />
     </div>
   );
@@ -27,27 +31,9 @@ const ListPanel = ({
   return (
     <div className="list-panel">
       <Search onSearchChange={onSearchChange} searchValue={searchValue} />
-      <div
-        style={{
-          width: 1,
-          height: 20,
-          background: "black",
-          margin: 5,
-        }}
-      ></div>
-      <select
-        className="browser-default"
-        onChange={onSortChange}
-        defaultValue="default"
-        style={{ zIndex: 99909 }}
-      >
-        <option value="default">A-Z</option>
-        <option value="reverse">Z-A</option>
-        <option value="shuffle">Shuffle</option>
-      </select>
-      <i className="material-icons black-text" style={{ marginLeft: -20 }}>
-        arrow_drop_down
-      </i>
+
+      <SortDropdownSelect onChange={onSortChange} />
+
       {sort === "shuffle" && (
         <button
           className="btn flex-center black-text waves-effect waves-light"

@@ -7,6 +7,7 @@ import ListPanel from "./ListPanel";
 import ArtworkModal from "../_Admin/ArtworkModal/";
 import { Helmet } from "react-helmet";
 import Loading from "../../common/Loading";
+
 import {
   shuffleList,
   reverseObjectList,
@@ -17,7 +18,7 @@ const CreateNewArtworkButton = () => {
   return (
     <>
       <a
-        className="waves-effect waves-light btn modal-trigger yellow black-text flex-center"
+        className="waves-effect waves-light btn modal-trigger action-btn flex-center"
         href="#artworkModal"
         style={{ position: "fixed", bottom: 20, right: 20 }}
       >

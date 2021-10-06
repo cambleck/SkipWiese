@@ -2,6 +2,10 @@ import React from "react";
 import _ from "lodash";
 import typeList from "../typeList";
 import { useHistory } from "react-router-dom";
+import {
+  SortDropdownSelect,
+  TypeDropdownSelect,
+} from "../../common/DropdownSelect";
 
 function renderTypeOptions() {
   return _.map(typeList, ({ type }) => {
@@ -23,32 +27,13 @@ const GalleryPanel = ({ onSortChange, sort, onShuffleClick, type }) => {
   return (
     <div
       className="flex-center"
-      style={{ width: "100%", marginTop: 30, background: "transparent" }}
+      style={{ width: "100%", marginTop: 20, background: "transparent" }}
     >
-      <select
-        className="browser-default"
-        style={{ maxWidth: 200, margin: 5, zIndex: 99909 }}
-        defaultValue={type.toUpperCase()}
+      <TypeDropdownSelect
         onChange={handleTypeChange}
-      >
-        {renderTypeOptions()}
-      </select>
-      <i className="material-icons black-text" style={{ marginLeft: -25 }}>
-        arrow_drop_down
-      </i>
-      <select
-        className="browser-default"
-        onChange={onSortChange}
-        defaultValue="default"
-        style={{ zIndex: 99909 }}
-      >
-        <option value="default">A-Z</option>
-        <option value="reverse">Z-A</option>
-        <option value="shuffle">Shuffle</option>
-      </select>
-      <i className="material-icons black-text" style={{ marginLeft: -20 }}>
-        arrow_drop_down
-      </i>
+        defaultValue={type.toUpperCase()}
+      />
+      <SortDropdownSelect onChange={onSortChange} />
       {sort === "shuffle" && (
         <button
           className="btn flex-center black-text"

@@ -40,7 +40,7 @@ const ListItem = ({ title, image, size, typeLabel, _id }) => {
             >
               {title && title}
             </div>
-            <div style={{ fontSize: 12, color: "rgb(60, 64, 66)" }}>
+            <div style={{ fontSize: 12 }}>
               {typeLabel ? typeLabel : ""} {size && `(${size})`}
             </div>
           </div>

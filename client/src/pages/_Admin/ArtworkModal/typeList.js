@@ -1,4 +1,5 @@
 export default [
+  { value: "NO-TYPE", label: "select type" },
   { value: "PRINT", label: "Print" },
   { value: "PRINT", label: "Linograph" },
   { value: "PRINT", label: "Intaglio" },

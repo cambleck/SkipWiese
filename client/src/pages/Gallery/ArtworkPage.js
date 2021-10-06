@@ -12,7 +12,7 @@ const EditArtworkButton = ({ artwork }) => {
   return (
     <>
       <a
-        className="waves-effect waves-light btn modal-trigger  light-green lighten-1 black-text flex-center"
+        className="waves-effect waves-light btn modal-trigger action-btn flex-center"
         href="#artworkModal"
         style={{ marginBottom: 20, position: "fixed", bottom: 20, right: 20 }}
       >

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import _ from "lodash";
 import typeList from "./typeList";
 import Lightbox from "../../../common/Lightbox";
+import { DropdownSelect } from "../../../common/DropdownSelect";
 
 const TextInput = ({ value, onChange, label, editMode, inactive }) => {
   return (
@@ -27,8 +28,8 @@ const TextInput = ({ value, onChange, label, editMode, inactive }) => {
 
 export const SubmitButton = ({ onClick, editMode }) => {
   return (
-    <div className="flex-center" style={{ justifyContent: "flex-end" }}>
-      <button onClick={onClick} className="modal-close btn" style={{}}>
+    <div className="flex-center" style={{ justifyContent: "center" }}>
+      <button onClick={onClick} className="modal-close action-btn" style={{}}>
         {editMode ? "UPDATE" : "SUBMIT"}
       </button>
     </div>
@@ -95,22 +96,14 @@ function renderTypeOptions() {
 }
 
 export const TypePicker = ({ selectedValue, onChange }) => {
+  console.log(selectedValue);
   return (
-    <select
-      className="browser-default"
-      style={{
-        background: "transparent",
-        border: "none",
-        bottomBorder: "1px solid black",
-        outline: "none",
-        maxWidth: 335,
-      }}
+    <DropdownSelect
       onChange={onChange}
       defaultValue={selectedValue}
-    >
-      <option value="no-type">no type</option>
-      {renderTypeOptions()}
-    </select>
+      options={typeList}
+      className="admin"
+    />
   );
 };
 
@@ -143,23 +136,6 @@ export const ImageInput = ({ onChange, imageUrl, editMode }) => {
     </div>
   );
 };
-/*
-thumbnailInput() {
-  return (
-    <div style={{ paddingTop: 10 }}>
-      <label className="textInput-label">Add Thumbnail</label>
-      <div style={{ paddingTop: 10 }}>
-        <input
-          type="file"
-          accept="image/*"
-          onChange={this.handleSelectedThumbnailFile}
-          style={{ marginLeft: 10 }}
-        />
-      </div>
-    </div>
-  );
-}
-*/
 
 const WidthInput = ({ value, onChange, editMode }) => {
   return (

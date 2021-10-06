@@ -146,7 +146,10 @@ class CreateNewModal extends Component {
 
     return (
       <div id="artworkModal" className="admin-modal modal">
-        <div className="flex-center" style={{ marginBottom: 20 }}>
+        <div
+          className="flex-center"
+          style={{ marginBottom: 20, textDecoration: "underline" }}
+        >
           <h5>{editMode ? "EDIT ARTWORK" : "NEW ARTWORK"}</h5>
         </div>
         <ImageInput
@@ -162,7 +165,7 @@ class CreateNewModal extends Component {
         />
 
         <TypePicker
-          selectedValue={editMode && `${type}|${typeLabel}`}
+          selectedValue={editMode && `${type}`}
           onChange={this.handleTypeChange}
         />
         <SizeInput
