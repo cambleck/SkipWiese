@@ -8,6 +8,7 @@ import { clearList, fetchArtworkList } from "../../redux/actions";
 import ShopCard from "./ShopCard";
 import AddToCartModal from "./AddToCartModal";
 import CartModal from "./CartModal";
+import ComingSoon from "./ComingSoon";
 
 const ShopList = ({ list, onSelectedItem }) => {
   return _.map(list, (item) => {
@@ -19,6 +20,7 @@ class Shop extends React.Component {
   state = {
     loading: true,
     selectedItem: "",
+    comingSoon: true,
   };
 
   componentDidMount() {
@@ -42,12 +44,18 @@ class Shop extends React.Component {
           <Loading />
         ) : (
           <div className="grid" style={{ marginTop: 10 }}>
-            <ShopList
-              list={this.props.artworkList}
-              onSelectedItem={this.onSelectedItem}
-            />
-            <AddToCartModal item={selectedItem} />
-            <CartModal />
+            {this.state.comingSoon ? (
+              <ComingSoon />
+            ) : (
+              <>
+                <ShopList
+                  list={this.props.artworkList}
+                  onSelectedItem={this.onSelectedItem}
+                />
+                <AddToCartModal item={selectedItem} />
+                <CartModal />
+              </>
+            )}
           </div>
         )}
       </div>
