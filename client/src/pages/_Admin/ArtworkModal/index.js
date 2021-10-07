@@ -19,7 +19,7 @@ import {
 import M from "materialize-css";
 
 const INITIAL_STATE = {
-  imageFile: "",
+  newImageFile: "",
   thumbnailFile: "",
   title: "",
   urlString: "",
@@ -34,8 +34,10 @@ const INITIAL_STATE = {
 
 class CreateNewModal extends Component {
   state = {
-    imageFile: this.props.editMode ? this.props.artwork.imageUrl : "",
-
+    newImageFile: "",
+    displayImage: this.props.editMode
+      ? `https://skipwiese.s3.us-east-2.amazonaws.com/${this.props.artwork.imageUrl}`
+      : "+",
     title: this.props.editMode ? this.props.artwork.title : "",
     urlString: this.props.editMode ? this.props.artwork.urlString : "",
     type: this.props.editMode ? this.props.artwork.type : "",
@@ -63,7 +65,7 @@ class CreateNewModal extends Component {
       height,
       width,
       description,
-      imageFile,
+      newImageFile,
       isFeatured,
       urlString,
       price,
@@ -82,7 +84,7 @@ class CreateNewModal extends Component {
 
     this.props.submitArtwork(
       formValues,
-      imageFile,
+      newImageFile,
       this.props.history,
       this.props.editMode
     );
@@ -91,12 +93,8 @@ class CreateNewModal extends Component {
 
   handleSelectedImageFile = (event) => {
     this.setState({
-      imageFile: event.target.files[0],
-    });
-  };
-  handleSelectedThumbnailFile = (event) => {
-    this.setState({
-      thumbnailFile: event.target.files[0],
+      displayImage: URL.createObjectURL(event.target.files[0]),
+      newImageFile: event.target.files[0],
     });
   };
 
@@ -130,7 +128,7 @@ class CreateNewModal extends Component {
 
   render() {
     const {
-      imageFile,
+      newImageFile,
       selectedImage,
       title,
       urlString,
@@ -155,7 +153,12 @@ class CreateNewModal extends Component {
         <ImageInput
           onChange={this.handleSelectedImageFile}
           editMode={editMode}
+          image={this.state.displayImage}
           imageUrl={editMode && this.props.artwork.imageUrl}
+        />
+        <FeaturedCheckbox
+          value={isFeatured}
+          onChange={this.handleFeatureChange}
         />
         <TitleInput
           value={title}
@@ -163,7 +166,7 @@ class CreateNewModal extends Component {
           editMode={editMode}
         />
         <TypePicker
-          selectedValue={editMode && `${type}`}
+          selectedValue={editMode && `${type}|${typeLabel}`}
           onChange={this.handleTypeChange}
         />
         <SizeInput
@@ -178,29 +181,22 @@ class CreateNewModal extends Component {
           onChange={this.handleDescriptionChange}
           editMode={editMode}
         />
-        <div style={{ display: "flex" }}>
-          <b className="flex-center">$</b>
-          <PriceInput
-            value={price}
-            onChange={this.handlePriceChange}
-            editMode={editMode}
-          />
-          <div className="flex-center" style={{ fontSize: 10 }}>
-            (Leave Blank if not for sale)
-          </div>
-        </div>
+
+        <PriceInput
+          value={price}
+          onChange={this.handlePriceChange}
+          editMode={editMode}
+        />
+
         <UrlString
           value={urlString}
           onChange={this.handleUrlStringChange}
           editMode={editMode}
         />
-        <FeaturedCheckbox
-          value={isFeatured}
-          onChange={this.handleFeatureChange}
-        />
+
         <div
           className="flex-center"
-          style={{ justifyContent: "space-between" }}
+          style={{ justifyContent: "space-between", marginTop: 40 }}
         >
           {editMode ? (
             <DeleteButton

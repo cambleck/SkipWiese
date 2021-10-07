@@ -8,7 +8,7 @@ import { DropdownSelect } from "../../../common/DropdownSelect";
 const TextInput = ({ value, onChange, label, editMode, inactive }) => {
   return (
     <div
-      className=" input-field col s6"
+      className=" input-field col s4"
       style={{
         marginTop: 25,
         fontFamily: "Gill Sans",
@@ -40,13 +40,9 @@ export const DeleteButton = ({ handleDelete }) => {
     <Link
       to="/list"
       className="flex-center"
-      style={{ justifyContent: "flex-end" }}
+      style={{ justifyContent: "flex-end", width: 100 }}
     >
-      <button
-        onClick={handleDelete}
-        className="modal-close btn"
-        style={{ background: "rgba(255,0,0,.5)" }}
-      >
+      <button onClick={handleDelete} className="modal-close action-btn delete">
         DELETE
       </button>
     </Link>
@@ -98,22 +94,32 @@ function renderTypeOptions() {
 export const TypePicker = ({ selectedValue, onChange }) => {
   console.log(selectedValue);
   return (
-    <DropdownSelect
-      onChange={onChange}
-      defaultValue={selectedValue}
-      options={typeList}
-      className="admin"
-    />
+    <div style={{ display: "flex" }}>
+      <div className="flex-center" style={{ marginRight: 15, marginLeft: 5 }}>
+        Type:
+      </div>
+      <DropdownSelect
+        onChange={onChange}
+        defaultValue={selectedValue}
+        options={typeList}
+        className="admin"
+      />
+    </div>
   );
 };
 
-export const ImageInput = ({ onChange, imageUrl, editMode }) => {
+export const ImageInput = ({
+  onChange,
+  imageUrl,
+  editMode,
+  selectedImage,
+  image,
+}) => {
   return (
     <div
       className="flex-center column"
       style={{ paddingTop: 10, justifyContent: "flex-start" }}
     >
-      {editMode && <Lightbox single></Lightbox>}
       <div style={{ width: "100%" }} className="flex-center">
         <div
           class="file-field input-field"
@@ -121,12 +127,15 @@ export const ImageInput = ({ onChange, imageUrl, editMode }) => {
         >
           <div class="clear-icon-btn" style={{ transform: "none" }}>
             <img
-              src={"https://skipwiese.s3.us-east-2.amazonaws.com/" + imageUrl}
+              src={image}
               style={{
-                width: 200,
-                height: 200,
+                maxWidth: 300,
+                minWidth: 150,
+                minHeight: 150,
                 objectFit: "cover",
                 marginRight: 10,
+                border: "1px solid rgba(100,100,100,.4)",
+                borderRadius: 5,
               }}
             />
             <input type="file" accept="image/*" onChange={onChange} />
@@ -169,15 +178,15 @@ export const SizeInput = ({
 }) => {
   return (
     <div className="flex-center" style={{ justifyContent: "flex-start" }}>
-      <WidthInput
-        value={widthValue}
-        onChange={widthOnChange}
-        editMode={editMode}
-      />
-      |
       <HeightInput
         value={heightValue}
         onChange={heightOnChange}
+        editMode={editMode}
+      />
+      x
+      <WidthInput
+        value={widthValue}
+        onChange={widthOnChange}
         editMode={editMode}
       />
     </div>
@@ -186,10 +195,10 @@ export const SizeInput = ({
 
 export const FeaturedCheckbox = ({ value, onChange }) => {
   return (
-    <p>
-      <label>
+    <p style={{ width: "100%", marginTop: -5 }} className="flex-center">
+      <label style={{ width: 200 }} className="action-btn">
         <input type="checkbox" checked={value} onChange={onChange} />
-        <span>Featured on Home Page</span>
+        <span>On Homepage</span>
       </label>
     </p>
   );
@@ -208,12 +217,18 @@ export const DescriptionInput = ({ value, onChange, editMode }) => {
 };
 export const PriceInput = ({ value, onChange, editMode }) => {
   return (
-    <TextInput
-      value={value}
-      onChange={onChange}
-      label="Price"
-      editMode={editMode}
-      inactive={value === ""}
-    />
+    <div style={{ display: "flex" }}>
+      <b className="flex-center">$</b>
+      <TextInput
+        value={value}
+        onChange={onChange}
+        label="Price"
+        editMode={editMode}
+        inactive={value === ""}
+      />
+      <div className="flex-center" style={{ fontSize: 10 }}>
+        (Leave Blank if not for sale)
+      </div>
+    </div>
   );
 };

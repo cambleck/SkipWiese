@@ -98,9 +98,9 @@ class CartModal extends React.Component {
             className="flex-center"
           >
             <div>
-              All artwork is currently being sold unframed and for pickup only
-              in <b style={{ width: "100%" }}>Waukegan, IL.</b> Exact location
-              and pickup time will be arranged when order is confirmed. Please{" "}
+              All artwork is currently being sold for pickup only in{" "}
+              <b style={{ width: "100%" }}>Waukegan, IL.</b> Exact location and
+              pickup time will be arranged when order is confirmed. Please{" "}
               <a
                 style={{ textDecoration: "underline", color: "black" }}
                 href="mailto:cbleck@comcast.net"

@@ -101,6 +101,7 @@ module.exports = (app) => {
       typeLabel,
       isFeatured,
       urlString,
+      price,
       _id,
     } = req.body;
     await Artwork.findOneAndUpdate(
@@ -115,6 +116,7 @@ module.exports = (app) => {
         imageUrl,
         isFeatured,
         urlString,
+        price,
       }
     );
 
@@ -137,6 +139,7 @@ module.exports = (app) => {
       typeLabel,
       isFeatured,
       urlString,
+      price,
     } = req.body;
     const artwork = new Artwork({
       title,
@@ -148,6 +151,7 @@ module.exports = (app) => {
       imageUrl,
       isFeatured,
       urlString,
+      price,
     });
 
     try {

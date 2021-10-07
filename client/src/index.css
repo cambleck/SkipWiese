@@ -624,6 +624,8 @@ ul li {
   border-radius: 10px;
   padding: 50px;
   padding-top: 20px;
+  max-height: 90%;
+  margin-top: -50px;
 }
 
 .addToCartModal-content {
@@ -654,18 +656,29 @@ ul li {
   font-family: "Gill Sans", Verdana, Arial, Tahoma, Serif;
 }
 
+.action-btn:hover {
+  background: black;
+  color: white;
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+.delete {
+  border: 3px solid red !important;
+  color: red;
+}
+
+.delete:hover {
+  background: red;
+  color: white !important;
+}
+
 .bottom-sheet {
   max-height: 100% !important;
   border-top: 10px solid rgb(250, 250, 100);
   box-shadow: 0px 0px 12px rgb(50, 62, 72) !important;
 
   background: rgb(250, 250, 250);
-}
-.action-btn:hover {
-  background: black;
-  color: white;
-  transform: scale(1.1);
-  transition: 0.3s;
 }
 
 .addToCart-modal {
@@ -708,6 +721,15 @@ ul li {
   width: 20px;
   color: black !important;
   font-size: 18px;
+}
+
+.delete {
+  border: 2px solid red;
+}
+
+.delete:hover {
+  background: red;
+  color: black;
 }
 
 /* iphone 5/se */
