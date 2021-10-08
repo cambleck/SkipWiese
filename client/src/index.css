@@ -57,10 +57,10 @@ button:focus {
 }
 
 .shop-card-image {
-  width: 150px;
+  width: 180px;
   height: 150px;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 5px 5px 0px 0px;
 }
 
 .shop-card {
@@ -68,6 +68,9 @@ button:focus {
   cursor: pointer;
   border-radius: 10px;
   transition: 0.3s;
+  max-width: 150px;
+  display: flex;
+  flex-direction: column;
 }
 .shop-card:hover {
   opacity: 0.8;
@@ -178,6 +181,7 @@ input[type="search"] {
 .artwork-image {
   max-width: 100%;
   max-height: 100%;
+  cursor: alias;
 }
 .card-image {
   max-width: 100%;
@@ -425,14 +429,17 @@ input[type="search"] {
   cursor: pointer;
   font-size: 14px;
   letter-spacing: 0.05em;
+  transition: 0.3s;
 }
 
 .type-card:hover {
   background: rgb(255, 255, 255);
-  opacity: 0.9;
+
   color: black;
-  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2) inset;
+
   color: rgb(75, 75, 75);
+  transition: 0.3s;
+  transform: scale(1.05);
 }
 .iframe {
   width: 560px;
@@ -634,7 +641,7 @@ ul li {
 
 .addToCart-image {
   max-width: 300px;
-
+  cursor: alias;
   width: 100%;
   border-radius: 5px;
 }

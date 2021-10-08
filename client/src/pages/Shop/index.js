@@ -41,11 +41,19 @@ class Shop extends React.Component {
         {this.state.loading ? (
           <Loading />
         ) : (
-          <div className="grid" style={{ marginTop: 10 }}>
+          <div
+            className="grid"
+            style={{
+              maxWidth: 700,
+              marginTop: 30,
+              alignItems: "flex-start",
+            }}
+          >
             <ShopList
               list={this.props.artworkList}
               onSelectedItem={this.onSelectedItem}
             />
+
             <AddToCartModal item={selectedItem} />
             <CartModal />
           </div>

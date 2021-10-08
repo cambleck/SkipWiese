@@ -107,7 +107,7 @@ class CartModal extends React.Component {
               >
                 email
               </a>{" "}
-              if you have any questions.
+              if you have any questions. (Delivery can be arranged)
             </div>
           </div>
           <button
