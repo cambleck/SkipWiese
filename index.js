@@ -35,6 +35,7 @@ app.use((req, res, next) => {
 
 require("./routes/authRoutes")(app);
 require("./routes/uploadRoutes")(app);
+require("./routes/paymentRoutes")(app);
 require("./routes/artworkRoutes")(app);
 
 if (process.env.NODE_ENV === "production") {

@@ -104,6 +104,7 @@ module.exports = (app) => {
       price,
       _id,
     } = req.body;
+    console.log("UPDATE");
     await Artwork.findOneAndUpdate(
       { id: _id },
       {

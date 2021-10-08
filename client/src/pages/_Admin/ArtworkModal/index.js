@@ -34,7 +34,7 @@ const INITIAL_STATE = {
 
 class CreateNewModal extends Component {
   state = {
-    newImageFile: "",
+    newImageFile: this.props.editMode ? this.props.artwork.imageUrl : "",
     displayImage: this.props.editMode
       ? `https://skipwiese.s3.us-east-2.amazonaws.com/${this.props.artwork.imageUrl}`
       : "+",

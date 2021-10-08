@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { removeFromCart } from "../../redux/actions";
 import M from "materialize-css";
 import CartItem from "./CartItem";
+import Checkout from "./Checkout";
 
 const CartList = ({ list, removeFromCart }) => {
   return _.map(
@@ -115,9 +116,10 @@ class CartModal extends React.Component {
               this.props.cart.length === 0 ? "disabled" : ""
             }`}
             disabled={this.props.cart.length === 0 && true}
-          >
-            CHECKOUT
-          </button>
+          ></button>
+          <form action="/create-checkout-session" method="POST">
+            <button type="submit">Checkout</button>
+          </form>
         </div>
       </div>
     );

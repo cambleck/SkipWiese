@@ -13,7 +13,7 @@ body,
   color: black;
   background-color: rgb(255, 253, 250);
   font-weight: 350;
-  font-family: "Gill Sans", Verdana, Arial, Tahoma, Serif;
+  font-family: "Gill Sans", -apple-system, BlinkMacSystemFont, sans-serif;
   letter-spacing: 0.01rem;
 
   word-spacing: 0.02rem;
