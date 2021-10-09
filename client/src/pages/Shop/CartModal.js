@@ -59,6 +59,31 @@ class CartModal extends React.Component {
           >
             <h5>SHOPPING CART</h5>
           </div>
+          <div
+            style={{
+              border: "1px solid rgba(100,100,100,.2)",
+              borderRadius: 10,
+              padding: 15,
+              margin: 10,
+              width: "100%",
+              maxWidth: 600,
+              textAlign: "center",
+            }}
+            className="flex-center"
+          >
+            <div>
+              All artwork is currently being sold for pickup only in{" "}
+              <b style={{ width: "100%" }}>Waukegan, IL.</b> Exact location and
+              pickup time will be arranged when order is confirmed. Please{" "}
+              <a
+                style={{ textDecoration: "underline", color: "black" }}
+                href="mailto:cbleck@comcast.net"
+              >
+                email
+              </a>{" "}
+              if you have any questions. (Delivery can be arranged)
+            </div>
+          </div>
           <div className="flex-center column" style={{ width: "100%" }}>
             {this.props.cart.length > 0 ? (
               <div
@@ -86,40 +111,8 @@ class CartModal extends React.Component {
               <div style={{ margin: 10 }}>NO ARTWORK IN CART</div>
             )}
           </div>
-          <div
-            style={{
-              border: "1px solid rgba(100,100,100,.2)",
-              borderRadius: 10,
-              padding: 15,
-              marginTop: 20,
-              width: "100%",
-              maxWidth: 600,
-              textAlign: "center",
-            }}
-            className="flex-center"
-          >
-            <div>
-              All artwork is currently being sold for pickup only in{" "}
-              <b style={{ width: "100%" }}>Waukegan, IL.</b> Exact location and
-              pickup time will be arranged when order is confirmed. Please{" "}
-              <a
-                style={{ textDecoration: "underline", color: "black" }}
-                href="mailto:cbleck@comcast.net"
-              >
-                email
-              </a>{" "}
-              if you have any questions. (Delivery can be arranged)
-            </div>
-          </div>
-          <button
-            class={`modal-close action-btn ${
-              this.props.cart.length === 0 ? "disabled" : ""
-            }`}
-            disabled={this.props.cart.length === 0 && true}
-          ></button>
-          <form action="/create-checkout-session" method="POST">
-            <button type="submit">Checkout</button>
-          </form>
+
+          <Checkout />
         </div>
       </div>
     );

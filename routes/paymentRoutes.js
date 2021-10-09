@@ -16,14 +16,14 @@ module.exports = (app) => {
       line_items: [
         {
           // TODO: replace this with the `price` of the product you want to sell
-          price: 200,
+          price: "{{PRICE_ID}}",
           quantity: 1,
         },
       ],
       payment_method_types: ["card"],
       mode: "payment",
-      success_url: `${YOUR_DOMAIN}?success=true`,
-      cancel_url: `${YOUR_DOMAIN}?canceled=true`,
+      success_url: `${DOMAIN}?success=true`,
+      cancel_url: `${DOMAIN}?canceled=true`,
     });
     res.redirect(303, session.url);
   });
