@@ -2,12 +2,12 @@ import React from "react";
 import _ from "lodash";
 import { connect } from "react-redux";
 import MetaInfo from "../../common/MetaInfo";
-import ShoppingCartIcon from "./ShoppingCartIcon";
+import CartIcon from "./Cart/CartIcon";
 import Loading from "../../common/Loading";
 import { clearList, fetchArtworkList } from "../../redux/actions";
 import ShopCard from "./ShopCard";
 import AddToCartModal from "./AddToCartModal";
-import CartModal from "./CartModal";
+import Cart from "./Cart/";
 
 const ShopList = ({ list, onSelectedItem }) => {
   return _.map(list, (item) => {
@@ -36,7 +36,7 @@ class Shop extends React.Component {
     const { selectedItem } = this.state;
     return (
       <div className="flex-center ">
-        <ShoppingCartIcon numberOfItemsInCart={this.props.cart.length} />
+        <CartIcon numberOfItemsInCart={this.props.cart.length} />
         <MetaInfo title="Shop | Skip Wiese" />
         {this.state.loading ? (
           <Loading />
@@ -55,7 +55,7 @@ class Shop extends React.Component {
             />
 
             <AddToCartModal item={selectedItem} />
-            <CartModal />
+            <Cart />
           </div>
         )}
       </div>

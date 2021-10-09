@@ -1,10 +1,10 @@
 import React from "react";
 import _ from "lodash";
 import { connect } from "react-redux";
-import { removeFromCart } from "../../redux/actions";
+import { removeFromCart } from "../../../redux/actions";
 import M from "materialize-css";
 import CartItem from "./CartItem";
-import Checkout from "./Checkout";
+import PaymentModal from "../Stripe";
 
 const CartList = ({ list, removeFromCart }) => {
   return _.map(
@@ -64,7 +64,8 @@ class CartModal extends React.Component {
               border: "1px solid rgba(100,100,100,.2)",
               borderRadius: 10,
               padding: 15,
-              margin: 10,
+              marginBottom: 20,
+              marginTop: 0,
               width: "100%",
               maxWidth: 600,
               textAlign: "center",
@@ -111,8 +112,17 @@ class CartModal extends React.Component {
               <div style={{ margin: 10 }}>NO ARTWORK IN CART</div>
             )}
           </div>
-
-          <Checkout />
+          <button
+            class={`action-btn modal-trigger ${
+              this.props.cart.length === 0 ? "disabled" : ""
+            }`}
+            disabled={this.props.cart.length === 0 && true}
+            style={{ marginTop: 30 }}
+            href="#stripe"
+          >
+            Continue
+          </button>
+          <PaymentModal />
         </div>
       </div>
     );
