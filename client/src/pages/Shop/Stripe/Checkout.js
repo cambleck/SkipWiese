@@ -19,10 +19,10 @@ const CARD_OPTIONS = {
       fontSize: "16px",
       fontSmoothing: "antialiased",
       ":-webkit-autofill": {
-        color: "#fce883",
+        color: "black",
       },
       "::placeholder": {
-        color: "#87bbfd",
+        color: "rgba(100,100,100,.5)",
       },
     },
     invalid: {
@@ -201,8 +201,8 @@ const CheckoutForm = () => {
           label="Phone"
           id="phone"
           type="tel"
-          placeholder="(941) 555-0123"
           required
+          placeholder="(941) 555-0123"
           autoComplete="tel"
           value={billingDetails.phone}
           onChange={(e) => {
@@ -219,9 +219,11 @@ const CheckoutForm = () => {
         />
       </fieldset>
       {error && <ErrorMessage>{error.message}</ErrorMessage>}
-      <SubmitButton processing={processing} error={error} disabled={!stripe}>
-        Pay $25
-      </SubmitButton>
+      <div style={{ width: "100%" }} className="flex-center">
+        <SubmitButton processing={processing} error={error} disabled={!stripe}>
+          Pay $1100
+        </SubmitButton>
+      </div>
     </form>
   );
 };

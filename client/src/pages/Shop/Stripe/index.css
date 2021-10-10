@@ -1,5 +1,31 @@
+html {
+  font-size: 16px;
+  font-family: Roboto, Open Sans, Segoe UI, sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  text-rendering: optimizeLegibility;
+  height: 100%;
+}
+
+input,
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  border-style: none;
+}
+
+input:-webkit-autofill {
+  background: white !important;
+}
+input:autofill:focus {
+  background: white !important;
+}
+
 .AppWrapper {
-  width: 500px;
+  max-width: 500px;
+  width: 100%;
   height: 400px;
   position: relative;
 }
@@ -22,8 +48,9 @@
 .FormGroup {
   margin: 0 15px 20px;
   padding: 10px;
+  margin-top: 10px;
   border-style: none;
-  background-color: white;
+  background-color: rgb(255, 253, 248);
   will-change: opacity, transform;
   box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08);
   border-radius: 4px;
@@ -46,6 +73,7 @@
   min-width: 70px;
   padding: 11px 0;
   color: black;
+  font-size: 16px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -59,6 +87,7 @@
 }
 .FormRowInput:-webkit-autofill {
   -webkit-text-fill-color: black;
+  background-color: transparent !important;
   /* Hack to hide the default webkit autofill */
   transition: background-color 100000000s;
   animation: 1ms void-animation-out;
@@ -69,12 +98,12 @@
   width: 100%;
   padding: 11px 15px 11px 0;
   color: black;
-  background-color: transparent;
+  background-color: transparent !important;
   animation: 1ms void-animation-out;
 }
 
 .FormRowInput::placeholder {
-  color: #87bbfd;
+  color: rgba(100, 100, 100, 0.4);
 }
 
 .StripeElement--webkit-autofill {
@@ -89,7 +118,7 @@
 .SubmitButton {
   display: block;
   font-size: 16px;
-  width: calc(100% - 30px);
+  width: 200px;
   height: 40px;
   margin: 40px 15px 0;
   background-color: rgb(255, 255, 250);

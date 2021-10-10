@@ -163,11 +163,18 @@ button:focus {
   border-radius: 5px;
 }
 
+input {
+  border-bottom: 1px solid rgba(100, 100, 100, 0.2) !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
 input[type="search"] {
   border-bottom: 1px solid rgba(100, 100, 100, 0) !important;
   box-shadow: none !important;
   outline: none !important;
 }
+
 .input-field input[type="search"]:focus {
   border-bottom: 1px solid rgba(0, 0, 0) !important;
   box-shadow: 0 1px 0 0 #000;
@@ -704,12 +711,16 @@ ul li {
   border-radius: 10px;
   padding: 10px;
   max-width: 500px;
+  max-height: 800px !important;
+
+  width: 100vw;
 }
 
 .disabled {
   opacity: 0.1;
   cursor: none;
 }
+
 .disabled:hover {
   transform: none;
   transition: none;
