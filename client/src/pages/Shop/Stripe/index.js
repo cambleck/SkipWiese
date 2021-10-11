@@ -1,6 +1,6 @@
 import React, { StrictMode } from "react";
 import M from "materialize-css";
-import Checkout from "./Checkout";
+import Checkout from "./TheCheckout";
 import logo from "../../../logo.png";
 import { FaStripe } from "react-icons/fa";
 
