@@ -7,6 +7,35 @@ import {
   useStripe,
   useElements,
 } from "@stripe/react-stripe-js";
+import "./index.css";
+
+const Field = ({
+  label,
+  id,
+  type,
+  placeholder,
+  required,
+  autoComplete,
+  value,
+  onChange,
+}) => (
+  <div className="FormRow" style={{ marginTop: -3 }}>
+    <label htmlFor={id} className="FormRowLabel">
+      {label}
+    </label>
+    <input
+      className="FormRowInput"
+      id={id}
+      type={type}
+      placeholder={placeholder}
+      required={required}
+      autoComplete={autoComplete}
+      value={value}
+      onChange={onChange}
+      style={{ marginTop: 7 }}
+    />
+  </div>
+);
 
 function CheckoutForm() {
   const [succeeded, setSucceeded] = useState(false);
@@ -46,6 +75,7 @@ function CheckoutForm() {
         "::placeholder": {
           color: "#32325d",
         },
+        borderRadius: "0px",
       },
       invalid: {
         color: "#fa755a",
@@ -79,19 +109,31 @@ function CheckoutForm() {
     }
   };
   return (
-    <form id="payment-form" onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="Enter email address"
-      />
-      <CardElement
-        id="card-element"
-        options={cardStyle}
-        onChange={handleChange}
-      />
-      <button disabled={processing || disabled || succeeded} id="submit">
+    <form id="form" onSubmit={handleSubmit} style={{ padding: 0 }}>
+      <fieldset className="FormGroup">
+        <Field
+          label="Email"
+          id="email"
+          type="email"
+          required
+          placeholder="Please enter email"
+          autoComplete="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </fieldset>
+      <fieldset className="FormGroup">
+        <CardElement
+          id="card-element"
+          options={cardStyle}
+          onChange={handleChange}
+        />
+      </fieldset>
+      <button
+        className="pay-button"
+        disabled={processing || disabled || succeeded}
+        id="submit"
+      >
         <span id="button-text">
           {processing ? (
             <div className="spinner" id="spinner"></div>
@@ -102,7 +144,11 @@ function CheckoutForm() {
       </button>
       {/* Show any error that happens when processing the payment */}
       {error && (
-        <div className="card-error" role="alert">
+        <div
+          className="card-error flex-center"
+          role="alert"
+          style={{ margin: 15, paddingBottom: 10 }}
+        >
           {error}
         </div>
       )}
@@ -125,7 +171,7 @@ const promise = loadStripe(
 
 export default function TheCheckout() {
   return (
-    <div className="App">
+    <div>
       <Elements stripe={promise}>
         <CheckoutForm />
       </Elements>
