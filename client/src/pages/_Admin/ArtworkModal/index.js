@@ -12,7 +12,8 @@ import {
   ImageInput,
   SizeInput,
   TypePicker,
-  DescriptionInput,
+  ArtDescriptionInput,
+  SaleDescriptionInput,
   FeaturedCheckbox,
   PriceInput,
 } from "./formComponents";
@@ -176,29 +177,49 @@ class CreateNewModal extends Component {
           heightOnChange={this.handleHeightChange}
           editMode={editMode}
         />
-        <DescriptionInput
+        <ArtDescriptionInput
           value={description}
           onChange={this.handleDescriptionChange}
           editMode={editMode}
         />
-
-        <PriceInput
-          value={price}
-          onChange={this.handlePriceChange}
-          editMode={editMode}
-        />
-
         <UrlString
           value={urlString}
           onChange={this.handleUrlStringChange}
           editMode={editMode}
         />
-
         <div
-          className="flex-center"
-          style={{ justifyContent: "space-between", marginTop: 40 }}
+          style={{
+            border: "1px solid rgb(0,0,0,.1)",
+            borderRadius: 10,
+            padding: 20,
+            margin: 10,
+            boxShadow: "0px 0px 15px rgba(0,0,0,.1)",
+            marginTop: 40,
+          }}
         >
-          {editMode ? (
+          <div
+            style={{
+              marginBottom: 10,
+              fontWeight: "bold",
+              textDecoration: "underline",
+            }}
+          >
+            FOR SALE
+          </div>
+          <PriceInput
+            value={price}
+            onChange={this.handlePriceChange}
+            editMode={editMode}
+          />
+          <SaleDescriptionInput
+            value={description}
+            onChange={this.handleDescriptionChange}
+            editMode={editMode}
+          />
+        </div>
+
+        <div className="flex-center" style={{ marginTop: 40 }}>
+          {editMode && (
             <DeleteButton
               handleDelete={() =>
                 this.handleDelete(
@@ -207,8 +228,6 @@ class CreateNewModal extends Component {
                 )
               }
             />
-          ) : (
-            <div></div>
           )}
           <SubmitButton
             onClick={() => this.handleSubmit()}

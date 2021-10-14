@@ -28,7 +28,7 @@ class AddToCartModal extends React.Component {
         >
           <i className="material-icons ">cancel</i>
         </button>
-        <div class="modal-content addToCartModal-content flex-center column">
+        <div class="modal-content addToCartModal-content">
           <Lightbox single>
             <img
               src={
@@ -38,21 +38,22 @@ class AddToCartModal extends React.Component {
             />
           </Lightbox>
           <a href={`/${item._id}`} style={{ color: "black" }}>
-            <h5 style={{ fontWeight: "bold", textAlign: "center" }}>
+            <h5 style={{ fontWeight: "bold", marginBottom: 5 }}>
               {item.title}
             </h5>
           </a>
-          <div style={{ marginTop: -10 }}>
+          <div>
             {item.typeLabel} ({item.height}" x {item.width}")
           </div>
-          <b style={{ fontSize: 18, margin: 10 }}>${item.price}</b>
+          <div style={{ marginTop: -3 }}>{item.shopDescription}</div>
+          <div style={{ fontSize: 20, marginBottom: 30 }}>${item.price}</div>
           {this.itemAlreadyInCart(item._id) ? (
-            <button class="modal-close action-btn disabled" disabled>
+            <button class="modal-close yellow-action-btn" disabled>
               IN CART
             </button>
           ) : (
             <button
-              class="modal-close action-btn"
+              class="modal-close yellow-action-btn"
               onClick={() => this.props.addToCart(item)}
             >
               + ADD TO CART

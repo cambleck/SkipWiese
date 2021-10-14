@@ -113,14 +113,14 @@ class CartModal extends React.Component {
             )}
           </div>
           <button
-            class={`action-btn modal-trigger ${
+            class={`yellow-action-btn modal-trigger${
               this.props.cart.length === 0 ? "disabled" : ""
             }`}
             disabled={this.props.cart.length === 0 && true}
             style={{ marginTop: 30 }}
             href="#stripe"
           >
-            Continue
+            Continue →
           </button>
           <PaymentModal total={this.cartTotal()} />
         </div>

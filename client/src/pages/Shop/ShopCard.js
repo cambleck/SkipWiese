@@ -11,20 +11,12 @@ const ShoppingCard = ({ item, onSelected }) => {
         src={"https://skipwiese.s3.us-east-2.amazonaws.com/" + item.imageUrl}
         className="shop-card-image"
       />
-      <div
-        style={{ padding: 10, textAlign: "center" }}
-        className="flex-center column"
-      >
-        <div style={{ fontWeight: 700, maxWidth: 160 }}>{item.title}</div>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
-        >
-          <div style={{ fontSize: 12 }}>${item.price}</div>
+      <div style={{ paddingBottom: 15, paddingTop: 5, paddingLeft: 10 }}>
+        <div style={{ fontWeight: 700, maxWidth: 170, fontSize: 16 }}>
+          {item.title}
         </div>
+
+        <div style={{ fontSize: 14, paddingLeft: 5 }}>${item.price}</div>
       </div>
     </a>
   );

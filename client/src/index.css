@@ -20,6 +20,18 @@ body,
   position: relative;
 }
 
+input {
+  border-radius: 6px !important;
+  text-indent: 10px;
+  margin-bottom: 6px;
+  border: 1px solid rgba(50, 50, 93, 0.1) !important;
+  max-height: 40px !important;
+  font-size: 16px !important;
+  width: 100% !important;
+  background: white;
+  box-sizing: border-box;
+}
+
 main {
   display: flex;
   min-height: 90vh;
@@ -104,9 +116,8 @@ button:focus {
 }
 
 .search-input {
-  margin-right: 5px !important;
-  margin-bottom: -2px !important;
-  border-bottom: 1px solid rgba(100, 100, 100, 0) !important;
+  margin-right: 0px !important;
+  border: none !important;
 }
 .search-input:focus {
   margin-right: 5px !important;
@@ -428,9 +439,7 @@ input[type="search"] {
   background: rgba(255, 255, 255);
   border: 1px solid rgb(240, 240, 230);
   box-shadow: 0px 0px 15px rgba(200, 202, 220, 0.3);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+
   letter-spacing: 0.02em;
   font-weight: 550;
   cursor: pointer;
@@ -619,11 +628,39 @@ ul li {
 }
 
 .addToCart-image {
-  max-width: 300px;
+  max-width: 400px;
   cursor: alias;
   width: 100%;
   border-radius: 5px;
 }
+.yellow-action-btn {
+  background: rgb(245, 245, 0);
+  font-family: "Gill Sans", Arial, sans-serif;
+  color: #000;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 12px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: block;
+  transition: all 0.2s ease;
+  box-shadow: 0px 4px 5.5px 0px rgba(0, 0, 0, 0.07);
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.yellow-action-btn:hover {
+  filter: contrast(115%);
+}
+.yellow-action-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
 .action-btn {
   border: 3px solid black;
   border-radius: 5px;

@@ -8,31 +8,51 @@ import { DropdownSelect } from "../../../common/DropdownSelect";
 const TextInput = ({ value, onChange, label, editMode, inactive }) => {
   return (
     <div
-      className=" input-field col s4"
       style={{
-        marginTop: 25,
         fontFamily: "Gill Sans",
         paddingLeft: 5,
       }}
     >
-      <input id={label} type="text" value={value} onChange={onChange} />
       <label
         className={editMode && !inactive ? "active" : undefined}
         htmlFor={label}
       >
         {label}
       </label>
+      <input id={label} type="text" value={value} onChange={onChange} />
+    </div>
+  );
+};
+
+const NumberInput = ({ value, onChange, label, editMode, inactive }) => {
+  return (
+    <div
+      style={{
+        fontFamily: "Gill Sans",
+        paddingLeft: 5,
+        width: 100,
+      }}
+    >
+      <label
+        className={editMode && !inactive ? "active" : undefined}
+        htmlFor={label}
+      >
+        {label}
+      </label>
+      <input id={label} type="number" value={value} onChange={onChange} />
     </div>
   );
 };
 
 export const SubmitButton = ({ onClick, editMode }) => {
   return (
-    <div className="flex-center" style={{ justifyContent: "center" }}>
-      <button onClick={onClick} className="modal-close action-btn" style={{}}>
-        {editMode ? "UPDATE" : "SUBMIT"}
-      </button>
-    </div>
+    <button
+      onClick={onClick}
+      className="modal-close yellow-action-btn"
+      style={{}}
+    >
+      {editMode ? "UPDATE" : "SUBMIT"}
+    </button>
   );
 };
 export const DeleteButton = ({ handleDelete }) => {
@@ -66,7 +86,7 @@ export const UrlString = ({ value, onChange, editMode }) => {
       className="flex-center"
       style={{ fontSize: 14, justifyContent: "flex-start" }}
     >
-      <div style={{ marginBottom: -7, color: "grey" }}>
+      <div style={{ marginBottom: -20, color: "grey" }}>
         {" "}
         https://skipwiese.com/
       </div>
@@ -148,7 +168,7 @@ export const ImageInput = ({
 
 const WidthInput = ({ value, onChange, editMode }) => {
   return (
-    <TextInput
+    <NumberInput
       value={value}
       onChange={onChange}
       label="Width"
@@ -160,7 +180,7 @@ const WidthInput = ({ value, onChange, editMode }) => {
 
 const HeightInput = ({ value, onChange, editMode }) => {
   return (
-    <TextInput
+    <NumberInput
       value={value}
       onChange={onChange}
       label="Height"
@@ -183,7 +203,7 @@ export const SizeInput = ({
         onChange={heightOnChange}
         editMode={editMode}
       />
-      x
+
       <WidthInput
         value={widthValue}
         onChange={widthOnChange}
@@ -204,12 +224,23 @@ export const FeaturedCheckbox = ({ value, onChange }) => {
   );
 };
 
-export const DescriptionInput = ({ value, onChange, editMode }) => {
+export const ArtDescriptionInput = ({ value, onChange, editMode }) => {
   return (
     <TextInput
       value={value}
       onChange={onChange}
-      label="Description"
+      label="Art Description"
+      editMode={editMode}
+      inactive={value === ""}
+    />
+  );
+};
+export const SaleDescriptionInput = ({ value, onChange, editMode }) => {
+  return (
+    <TextInput
+      value={value}
+      onChange={onChange}
+      label="Sale Description (Description for stuff you're selling)"
       editMode={editMode}
       inactive={value === ""}
     />
@@ -217,16 +248,18 @@ export const DescriptionInput = ({ value, onChange, editMode }) => {
 };
 export const PriceInput = ({ value, onChange, editMode }) => {
   return (
-    <div style={{ display: "flex" }}>
-      <b className="flex-center">$</b>
-      <TextInput
+    <div style={{ display: "flex", alignItems: "center" }}>
+      <NumberInput
         value={value}
         onChange={onChange}
         label="Price"
         editMode={editMode}
         inactive={value === ""}
       />
-      <div className="flex-center" style={{ fontSize: 10 }}>
+      <div
+        className="flex-center"
+        style={{ fontSize: 10, marginTop: 10, marginLeft: 10 }}
+      >
         (Leave Blank if not for sale)
       </div>
     </div>
