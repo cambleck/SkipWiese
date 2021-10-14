@@ -122,7 +122,7 @@ class CartModal extends React.Component {
           >
             Continue
           </button>
-          <PaymentModal />
+          <PaymentModal total={this.cartTotal()} />
         </div>
       </div>
     );

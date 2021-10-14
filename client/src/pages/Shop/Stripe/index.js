@@ -1,6 +1,6 @@
 import React, { StrictMode } from "react";
 import M from "materialize-css";
-import Checkout from "./ThirdCheckout";
+import Checkout from "./Checkout";
 import logo from "../../../logo.png";
 
 class PaymentModal extends React.Component {
@@ -20,7 +20,7 @@ class PaymentModal extends React.Component {
               <div className="stripe"></div>
             </nav>
 
-            <Checkout />
+            <Checkout total={this.props.total} />
           </div>
         </div>
       </StrictMode>
