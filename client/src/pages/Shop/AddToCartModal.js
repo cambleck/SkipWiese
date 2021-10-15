@@ -18,6 +18,11 @@ class AddToCartModal extends React.Component {
     }
     return false;
   };
+
+  onAddToCart = () => {
+    this.props.addToCart(this.props.item);
+    M.toast({ html: "Added to Cart", classes: "toast" });
+  };
   render() {
     const { item } = this.props;
     return (
@@ -45,7 +50,7 @@ class AddToCartModal extends React.Component {
           <div>
             {item.typeLabel} ({item.height}" x {item.width}")
           </div>
-          <div style={{ marginTop: -3 }}>{item.shopDescription}</div>
+          <div style={{ marginTop: -3 }}>{item.saleDescription}</div>
           <div style={{ fontSize: 20, marginBottom: 30 }}>${item.price}</div>
           {this.itemAlreadyInCart(item._id) ? (
             <button class="modal-close yellow-action-btn" disabled>
@@ -54,7 +59,7 @@ class AddToCartModal extends React.Component {
           ) : (
             <button
               class="modal-close yellow-action-btn"
-              onClick={() => this.props.addToCart(item)}
+              onClick={() => this.onAddToCart()}
             >
               + ADD TO CART
             </button>

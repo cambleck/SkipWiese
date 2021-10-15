@@ -9,6 +9,7 @@ const artworkSchema = new Schema({
   height: String,
   width: String,
   description: String,
+  saleDescription: String,
   imageUrl: String,
   isFeatured: Boolean,
   price: Number,

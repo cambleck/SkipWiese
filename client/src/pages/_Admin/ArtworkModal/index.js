@@ -46,6 +46,9 @@ class CreateNewModal extends Component {
     height: this.props.editMode ? this.props.artwork.height : "",
     width: this.props.editMode ? this.props.artwork.width : "",
     description: this.props.editMode ? this.props.artwork.description : "",
+    saleDescription: this.props.editMode
+      ? this.props.artwork.saleDescription
+      : "",
     price: this.props.editMode ? this.props.artwork.price : "",
     isFeatured: this.props.editMode ? this.props.artwork.isFeatured : false,
   };
@@ -70,6 +73,7 @@ class CreateNewModal extends Component {
       isFeatured,
       urlString,
       price,
+      saleDescription,
     } = this.state;
     const formValues = {
       title: title,
@@ -79,6 +83,7 @@ class CreateNewModal extends Component {
       height: height,
       width: width,
       description: description,
+      saleDescription: saleDescription,
       isFeatured: isFeatured,
       price: parseInt(price),
     };
@@ -95,6 +100,7 @@ class CreateNewModal extends Component {
   handleSelectedImageFile = (event) => {
     this.setState({
       displayImage: URL.createObjectURL(event.target.files[0]),
+
       newImageFile: event.target.files[0],
     });
   };
@@ -119,6 +125,9 @@ class CreateNewModal extends Component {
   handleDescriptionChange = (event) => {
     this.setState({ description: event.target.value });
   };
+  handleSaleDescriptionChange = (event) => {
+    this.setState({ saleDescription: event.target.value });
+  };
   handlePriceChange = (event) => {
     this.setState({ price: event.target.value });
   };
@@ -138,6 +147,7 @@ class CreateNewModal extends Component {
       width,
       height,
       description,
+      saleDescription,
       isFeatured,
       price,
     } = this.state;
@@ -212,8 +222,8 @@ class CreateNewModal extends Component {
             editMode={editMode}
           />
           <SaleDescriptionInput
-            value={description}
-            onChange={this.handleDescriptionChange}
+            value={saleDescription}
+            onChange={this.handleSaleDescriptionChange}
             editMode={editMode}
           />
         </div>

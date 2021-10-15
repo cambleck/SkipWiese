@@ -5,7 +5,14 @@ import typeList from "./typeList";
 import Lightbox from "../../../common/Lightbox";
 import { DropdownSelect } from "../../../common/DropdownSelect";
 
-const TextInput = ({ value, onChange, label, editMode, inactive }) => {
+const TextInput = ({
+  value,
+  onChange,
+  label,
+  editMode,
+  inactive,
+  placeholder,
+}) => {
   return (
     <div
       style={{
@@ -19,12 +26,25 @@ const TextInput = ({ value, onChange, label, editMode, inactive }) => {
       >
         {label}
       </label>
-      <input id={label} type="text" value={value} onChange={onChange} />
+      <input
+        id={label}
+        type="text"
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
+      />
     </div>
   );
 };
 
-const NumberInput = ({ value, onChange, label, editMode, inactive }) => {
+const NumberInput = ({
+  value,
+  onChange,
+  label,
+  editMode,
+  inactive,
+  placeholder,
+}) => {
   return (
     <div
       style={{
@@ -39,7 +59,13 @@ const NumberInput = ({ value, onChange, label, editMode, inactive }) => {
       >
         {label}
       </label>
-      <input id={label} type="number" value={value} onChange={onChange} />
+      <input
+        id={label}
+        type="number"
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
+      />
     </div>
   );
 };
@@ -146,6 +172,12 @@ export const ImageInput = ({
           style={{ justifyContent: "flex-start" }}
         >
           <div class="clear-icon-btn" style={{ transform: "none" }}>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={onChange}
+              className="image-input"
+            />
             <img
               src={image}
               style={{
@@ -158,7 +190,6 @@ export const ImageInput = ({
                 borderRadius: 5,
               }}
             />
-            <input type="file" accept="image/*" onChange={onChange} />
           </div>
         </div>
       </div>
@@ -174,6 +205,7 @@ const WidthInput = ({ value, onChange, editMode }) => {
       label="Width"
       editMode={editMode}
       inactive={value === ""}
+      placeholder="0"
     />
   );
 };
@@ -186,6 +218,7 @@ const HeightInput = ({ value, onChange, editMode }) => {
       label="Height"
       editMode={editMode}
       inactive={value === ""}
+      placeholder="0"
     />
   );
 };
@@ -243,19 +276,38 @@ export const SaleDescriptionInput = ({ value, onChange, editMode }) => {
       label="Sale Description (Description for stuff you're selling)"
       editMode={editMode}
       inactive={value === ""}
+      placeholder="Say something"
     />
   );
 };
 export const PriceInput = ({ value, onChange, editMode }) => {
   return (
     <div style={{ display: "flex", alignItems: "center" }}>
-      <NumberInput
-        value={value}
-        onChange={onChange}
-        label="Price"
-        editMode={editMode}
-        inactive={value === ""}
-      />
+      <div
+        style={{
+          fontFamily: "Gill Sans",
+          paddingLeft: 5,
+          width: 150,
+        }}
+      >
+        <label
+          className={editMode && value != "" ? "active" : undefined}
+          htmlFor={"Price"}
+        >
+          Price
+        </label>
+        <div className="flex-center">
+          <div style={{ marginRight: -17, marginTop: -7 }}>$</div>
+          <input
+            id={"Price"}
+            type="number"
+            placeholder="Not for sale"
+            value={value}
+            onChange={onChange}
+            style={{ textIndent: 19 }}
+          />
+        </div>
+      </div>
       <div
         className="flex-center"
         style={{ fontSize: 10, marginTop: 10, marginLeft: 10 }}

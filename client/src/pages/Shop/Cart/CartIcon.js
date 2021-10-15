@@ -7,7 +7,7 @@ const ShoppingCartIcon = ({ numberOfItemsInCart }) => {
       href="#cart-modal"
     >
       Cart ({numberOfItemsInCart})
-      <i className="material-icons" style={{ fontSize: 26, marginLeft: 5 }}>
+      <i className="material-icons" style={{ fontSize: 22, marginLeft: 5 }}>
         shopping_cart
       </i>
     </a>

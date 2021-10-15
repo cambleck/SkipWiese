@@ -102,6 +102,7 @@ module.exports = (app) => {
       isFeatured,
       urlString,
       price,
+      saleDescription,
       _id,
     } = req.body;
     console.log("UPDATE");
@@ -118,6 +119,7 @@ module.exports = (app) => {
         isFeatured,
         urlString,
         price,
+        saleDescription,
       }
     );
 
@@ -141,6 +143,7 @@ module.exports = (app) => {
       isFeatured,
       urlString,
       price,
+      saleDescription,
     } = req.body;
     const artwork = new Artwork({
       title,
@@ -153,6 +156,7 @@ module.exports = (app) => {
       isFeatured,
       urlString,
       price,
+      saleDescription,
     });
 
     try {

@@ -101,10 +101,11 @@ class CartModal extends React.Component {
                     justifyContent: "flex-end",
                     width: "100%",
                     marginRight: 20,
-                    marginTop: 5,
+                    marginTop: 15,
+                    fontSize: 16,
                   }}
                 >
-                  Subtotal ({this.props.cart.length} item
+                  Total ({this.props.cart.length} item
                   {this.props.cart.length > 1 && "s"}): ${this.cartTotal()}
                 </div>
               </div>

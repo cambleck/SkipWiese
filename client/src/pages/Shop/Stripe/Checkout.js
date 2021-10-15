@@ -19,7 +19,12 @@ const Field = ({
   value,
   onChange,
 }) => (
-  <div>
+  <div
+    style={{
+      paddingLeft: 5,
+    }}
+  >
+    <label htmlFor={label}>{label}</label>
     <input
       id={id}
       type={type}
@@ -133,6 +138,7 @@ function CheckoutForm({ total }) {
           onChange={(e) => setEmail(e.target.value)}
         />
       </div>
+      <div style={{ height: 6 }}></div>
       <CardElement
         id="card-element"
         options={cardStyle}
@@ -170,7 +176,7 @@ function CheckoutForm({ total }) {
         </a>{" "}
         Refresh the page to pay again.
       </p>
-      <div className="flex-center" style={{ marginBottom: -10 }}>
+      <div className="flex-center" style={{ marginBottom: -20, marginTop: 10 }}>
         <div style={{ marginRight: 3, fontSize: 14 }}>powered by</div>
         <a href="https://stripe.com" style={{ padding: 0, color: "black" }}>
           <FaStripe size={36} style={{ marginTop: 9 }} />
