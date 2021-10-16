@@ -205,7 +205,7 @@ const WidthInput = ({ value, onChange, editMode }) => {
       label="Width"
       editMode={editMode}
       inactive={value === ""}
-      placeholder="0"
+      placeholder="0 inches"
     />
   );
 };
@@ -218,7 +218,7 @@ const HeightInput = ({ value, onChange, editMode }) => {
       label="Height"
       editMode={editMode}
       inactive={value === ""}
-      placeholder="0"
+      placeholder="0 inches"
     />
   );
 };
