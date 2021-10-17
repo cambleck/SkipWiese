@@ -12,7 +12,6 @@ class Home extends React.Component {
     return (
       <div id="home" className="flex-center column">
         <MetaInfo title="Skip Wiese" />
-        <Banner />
         <ImageGrid />
       </div>
     );
