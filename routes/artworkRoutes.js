@@ -27,6 +27,10 @@ module.exports = (app) => {
     res.send(artwork);
   });
 
+  /*
+  TODO:
+Is this deleteing the image?
+  */
   app.get("/api/artwork/delete/:key/:id", async (req, res) => {
     const asd = await Artwork.deleteOne({ _id: req.params.id })
       .then(function () {
