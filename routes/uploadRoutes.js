@@ -10,7 +10,11 @@ const s3 = new aws.S3({
   },
   region: "us-east-2",
 });
-
+/*
+TODO:
+ if in edit mode
+ use same uuid then add image
+*/
 module.exports = (app) => {
   app.get("/api/upload", (req, res) => {
     const key = `${uuid()}.jpeg`;
