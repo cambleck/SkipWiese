@@ -44,7 +44,7 @@ class Shop extends React.Component {
           <div
             className="grid"
             style={{
-              maxWidth: 700,
+              maxWidth: 1000,
               marginTop: 30,
               alignItems: "flex-start",
             }}

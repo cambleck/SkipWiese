@@ -48,7 +48,7 @@ button:focus {
 }
 
 .toast {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.8);
   border: 2px solid black;
   border-radius: 10px;
   color: black;
@@ -450,6 +450,12 @@ input[type="search"] {
   object-fit: cover;
   border-radius: 5px 5px 0px 0px;
 }
+.shop-image {
+  width: 280px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 5px 5px 0px 0px;
+}
 
 .type-card {
   margin: 10px;
@@ -482,7 +488,8 @@ input[type="search"] {
 
 .shop-card-title {
   font-weight: 700;
-  max-width: 140px;
+  font-size: 18px;
+  max-width: 240px;
 }
 .iframe {
   width: 560px;
@@ -868,10 +875,6 @@ ul li {
     height: 120px;
   }
 
-  .shop-card-title {
-    font-weight: 700;
-    max-width: 110px;
-  }
   .btn {
     border-radius: 3px;
     width: 100px;

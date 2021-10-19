@@ -9,12 +9,12 @@ const ShoppingCard = ({ item, onSelected }) => {
     >
       <img
         src={"https://skipwiese.s3.us-east-2.amazonaws.com/" + item.imageUrl}
-        className="type-image"
+        className="shop-image"
       />
       <div style={{ paddingBottom: 15, paddingTop: 5, paddingLeft: 10 }}>
         <div className="shop-card-title">{item.title}</div>
 
-        <div style={{ paddingLeft: 5 }}>${item.price}</div>
+        <div style={{ paddingLeft: 5, fontSize: 18 }}>${item.price}</div>
       </div>
     </a>
   );
