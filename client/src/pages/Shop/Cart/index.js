@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { removeFromCart } from "../../../redux/actions";
 import M from "materialize-css";
 import CartItem from "./CartItem";
-import PaymentModal from "../Stripe";
+import PaymentModal from "../Stripe2";
 
 const CartList = ({ list, removeFromCart }) => {
   return _.map(

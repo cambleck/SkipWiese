@@ -61,6 +61,10 @@ class CreateNewModal extends Component {
     this.props.deleteArtwork(imageUrl, id);
   };
 
+  /*
+  TODO:
+Does this create a new _id when update?
+  */
   handleSubmit = () => {
     const {
       title,

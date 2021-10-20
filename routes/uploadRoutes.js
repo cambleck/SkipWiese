@@ -10,6 +10,7 @@ const s3 = new aws.S3({
   },
   region: "us-east-2",
 });
+
 /*
 TODO:
  if in edit mode
