@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { removeFromCart } from "../../../redux/actions";
 import M from "materialize-css";
 import CartItem from "./CartItem";
-import PaymentModal from "../Stripe2";
+import StripeModal from "../Stripe";
 
 const CartList = ({ list, removeFromCart }) => {
   return _.map(
@@ -123,7 +123,7 @@ class CartModal extends React.Component {
           >
             Continue →
           </button>
-          <PaymentModal total={this.cartTotal()} />
+          <StripeModal total={this.cartTotal()} cart={this.props.cart} />
         </div>
       </div>
     );

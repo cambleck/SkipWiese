@@ -4,11 +4,13 @@ import {
   useStripe,
   useElements,
 } from "@stripe/react-stripe-js";
+import { FaStripe } from "react-icons/fa";
 
-export default function CheckoutForm() {
+export default function CheckoutForm({ total }) {
   const stripe = useStripe();
   const elements = useElements();
 
+  const [email, setEmail] = useState("");
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -57,8 +59,9 @@ export default function CheckoutForm() {
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: "http://localhost:3000",
+        return_url: "http://localhost:3000/paymentStatus",
       },
+      receipt_email: email,
     });
 
     // This point will only be reached if there is an immediate error when
@@ -77,6 +80,13 @@ export default function CheckoutForm() {
 
   return (
     <form id="payment-form" onSubmit={handleSubmit}>
+      <input
+        id="email"
+        type="text"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        placeholder="Enter email address"
+      />
       <PaymentElement id="payment-element" />
       <button
         className="pay-button"
@@ -84,11 +94,21 @@ export default function CheckoutForm() {
         id="submit"
       >
         <span id="button-text">
-          {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
+          {isLoading ? (
+            <div className="spinner" id="spinner"></div>
+          ) : (
+            `Pay $${total}`
+          )}
         </span>
       </button>
       {/* Show any error or success messages */}
       {message && <div id="payment-message">{message}</div>}
+      <div className="flex-center" style={{ marginBottom: -20, marginTop: 10 }}>
+        <div style={{ marginRight: 3, fontSize: 14 }}>powered by</div>
+        <a href="https://stripe.com" style={{ padding: 0, color: "black" }}>
+          <FaStripe size={36} style={{ marginTop: 9 }} />
+        </a>
+      </div>
     </form>
   );
 }
