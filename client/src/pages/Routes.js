@@ -5,6 +5,7 @@ import loadable from "@loadable/component";
 const Home = loadable(() => import("./Home"));
 const Gallery = loadable(() => import("./Gallery"));
 const Shop = loadable(() => import("./Shop"));
+const Checkout = loadable(() => import("./Shop/Stripe"));
 const About = loadable(() => import("./About"));
 const Admin = loadable(() => import("./_Admin"));
 const FourZeroFour = loadable(() => import("./404"));

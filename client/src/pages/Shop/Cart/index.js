@@ -26,9 +26,18 @@ const CartList = ({ list, removeFromCart }) => {
 };
 
 class CartModal extends React.Component {
+  state = {
+    clientSecret: "",
+    paymentIntentId: "",
+  };
   componentDidMount() {
     M.AutoInit();
   }
+
+  setPaymentIntent = (data) => {
+    const { clientSecret, paymentIntentId } = data;
+    this.setState({ clientSecret, paymentIntentId });
+  };
 
   removeFromCart = (id) => {
     this.props.removeFromCart(id);
@@ -41,6 +50,30 @@ class CartModal extends React.Component {
       total += cart[i].price;
     }
     return total;
+  };
+
+  onContinueToCheckout = () => {
+    // Create PaymentIntent as soon as the page loads
+
+    if (this.state.clientSecret === "") {
+      console.log("payment Intent");
+      fetch("/api/create-payment-intent", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ items: this.props.cart }),
+      })
+        .then((res) => res.json())
+        .then((data) => this.setPaymentIntent(data));
+    } else {
+      fetch("/api/update-payment-intent", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          paymentIntentId: this.state.paymentIntentId,
+          items: this.props.cart,
+        }),
+      });
+    }
   };
 
   render() {
@@ -120,10 +153,14 @@ class CartModal extends React.Component {
             disabled={this.props.cart.length === 0 && true}
             style={{ marginTop: 30 }}
             href="#stripe"
+            onClick={() => this.onContinueToCheckout()}
           >
             Continue →
           </button>
-          <StripeModal total={this.cartTotal()} cart={this.props.cart} />
+          <StripeModal
+            total={this.cartTotal()}
+            clientSecret={this.state.clientSecret}
+          />
         </div>
       </div>
     );

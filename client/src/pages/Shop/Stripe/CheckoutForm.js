@@ -6,13 +6,14 @@ import {
 } from "@stripe/react-stripe-js";
 import { FaStripe } from "react-icons/fa";
 
-export default function CheckoutForm({ total }) {
+export default function CheckoutForm({ total, clientSecret }) {
   const stripe = useStripe();
   const elements = useElements();
 
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [receiptUrl, setReceiptUrl] = useState("");
 
   useEffect(() => {
     if (!stripe) {
@@ -56,10 +57,13 @@ export default function CheckoutForm({ total }) {
 
     setIsLoading(true);
 
+    stripe.retrievePaymentIntent(clientSecret).then(({ paymentIntent }) => {
+      setReceiptUrl(paymentIntent.receipt_url);
+    });
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: "http://localhost:3000/paymentStatus",
+        return_url: "http://localhost:3000",
       },
       receipt_email: email,
     });

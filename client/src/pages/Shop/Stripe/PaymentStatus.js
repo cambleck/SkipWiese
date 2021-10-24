@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { useStripe } from "@stripe/react-stripe-js";
 
 export default function PaymentSuccess() {
+  const stripe = useStripe();
   const [message, setMessage] = useState(null);
   useEffect(() => {
     const clientSecret = new URLSearchParams(window.location.search).get(
@@ -28,6 +30,6 @@ export default function PaymentSuccess() {
           break;
       }
     });
-  });
+  }, [stripe]);
   return <div>{message && <div id="payment-message">{message}</div>}</div>;
 }
