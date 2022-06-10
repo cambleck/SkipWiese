@@ -42,22 +42,23 @@ class Shop extends React.Component {
         {this.state.loading ? (
           <Loading />
         ) : (
-          <div
-            className="grid"
-            style={{
-              maxWidth: 1000,
-              marginTop: 30,
-              alignItems: "flex-start",
-            }}
-          >
-            <ShopList
-              list={this.props.artworkList}
-              onSelectedItem={this.onSelectedItem}
-            />
+          /* <div
+              className="grid"
+              style={{
+                maxWidth: 1000,
+                marginTop: 30,
+                alignItems: "flex-start",
+              }}
+            >
+              <ShopList
+                list={this.props.artworkList}
+                onSelectedItem={this.onSelectedItem}
+              />
 
-            <AddToCartModal item={selectedItem} />
-            <Cart />
-          </div>
+              <AddToCartModal item={selectedItem} />
+              <Cart />
+            </div>*/
+          <div style={{ marginTop: 200, fontSize: 40 }}>Coming Soon</div>
         )}
       </div>
     );
