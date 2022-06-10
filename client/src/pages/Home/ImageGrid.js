@@ -2,7 +2,7 @@ import React from "react";
 import _ from "lodash";
 import { connect } from "react-redux";
 import M from "materialize-css";
-import Lightbox from "../../common/Lightbox";
+
 import Loading from "../../common/Loading";
 import { clearList, fetchArtworkList } from "../../redux/actions";
 
@@ -11,7 +11,7 @@ const renderList = (list) => {
     return (
       <img
         src={"https://skipwiese.s3.us-east-2.amazonaws.com/" + imageUrl}
-        className="home-image"
+        className="home-image materialboxed"
         alt={title}
         key={imageUrl}
       />
@@ -24,6 +24,7 @@ class ImageGrid extends React.Component {
     loading: true,
   };
   componentDidMount() {
+    M.AutoInit();
     this.props.clearList();
     this.props
       .fetchArtworkList("featured")
@@ -36,9 +37,7 @@ class ImageGrid extends React.Component {
         {this.state.loading ? (
           <Loading />
         ) : (
-          <Lightbox>
-            <div className="grid">{renderList(this.props.artworkList)}</div>
-          </Lightbox>
+          <div className="grid">{renderList(this.props.artworkList)}</div>
         )}
       </>
     );

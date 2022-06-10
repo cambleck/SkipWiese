@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import map from "lodash/map";
 import { connect } from "react-redux";
-import Lightbox from "../../common/Lightbox";
+
 import { fetchArtwork, fetchUser, deleteArtwork } from "../../redux/actions";
 import ArtworkCard from "./ArtworkCard";
 import ArtworkModal from "../_Admin/ArtworkModal/";
@@ -42,9 +42,8 @@ class ArtworkPage extends Component {
         <MetaInfo title={`${this.props.artwork.title} | Skip Wiese`} />
 
         {this.props.auth && <EditArtworkButton artwork={this.props.artwork} />}
-        <Lightbox single>
-          <ArtworkCard artwork={this.props.artwork} noLink="true" />
-        </Lightbox>
+
+        <ArtworkCard artwork={this.props.artwork} noLink="true" />
       </div>
     );
   }

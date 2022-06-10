@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 import { addToCart } from "../../redux/actions";
 import M from "materialize-css";
-import Lightbox from "../../common/Lightbox";
 
 class AddToCartModal extends React.Component {
   componentDidMount() {
@@ -34,14 +33,13 @@ class AddToCartModal extends React.Component {
           <i className="material-icons ">cancel</i>
         </button>
         <div class="modal-content addToCartModal-content">
-          <Lightbox single>
-            <img
-              src={
-                "https://skipwiese.s3.us-east-2.amazonaws.com/" + item.imageUrl
-              }
-              className="addToCart-image"
-            />
-          </Lightbox>
+          <img
+            src={
+              "https://skipwiese.s3.us-east-2.amazonaws.com/" + item.imageUrl
+            }
+            className="addToCart-image"
+          />
+
           <a href={`/${item._id}`} style={{ color: "black" }}>
             <h5 style={{ fontWeight: "bold", marginBottom: 5 }}>
               {item.title}

@@ -3,7 +3,7 @@ import _ from "lodash";
 import map from "lodash/map";
 import { connect } from "react-redux";
 import { fetchArtworkList } from "../../redux/actions";
-import Lightbox from "../../common/Lightbox";
+
 import { Link, withRouter } from "react-router-dom";
 import ArtworkCard from "./ArtworkCard";
 import GalleryPanel from "./GalleryPanel";
@@ -137,9 +137,7 @@ class GalleryScroll extends Component {
           <Loading />
         ) : (
           <div className="grid column">
-            <Lightbox>
-              {renderList(this.filterList(this.props.artworkList))}
-            </Lightbox>
+            {renderList(this.filterList(this.props.artworkList))}
           </div>
         )}
       </>

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import _ from "lodash";
 import typeList from "./typeList";
-import Lightbox from "../../../common/Lightbox";
+
 import { DropdownSelect } from "../../../common/DropdownSelect";
 
 const TextInput = ({

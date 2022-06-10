@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import reduxThunk from "redux-thunk";
 import "./index.css";
-import SimpleReactLightbox from "simple-react-lightbox-pro";
+
 import App from "./pages";
 import reducers from "./redux/reducers";
 import ReactGA from "react-ga";
@@ -19,9 +19,7 @@ const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 
 ReactDOM.render(
   <Provider store={store}>
-    <SimpleReactLightbox>
-      <App />
-    </SimpleReactLightbox>
+    <App />
   </Provider>,
   document.querySelector("#root")
 );
