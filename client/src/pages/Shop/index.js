@@ -8,6 +8,7 @@ import { clearList, fetchArtworkList } from "../../redux/actions";
 import ShopCard from "./ShopCard";
 import AddToCartModal from "./AddToCartModal";
 import Cart from "./Cart/";
+import "./shop.css";
 
 const ShopList = ({ list, onSelectedItem }) => {
   return _.map(list, (item) => {

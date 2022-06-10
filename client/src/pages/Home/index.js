@@ -3,6 +3,7 @@ import M from "materialize-css";
 import ImageGrid from "./ImageGrid";
 import Banner from "./Banner";
 import MetaInfo from "../../common/MetaInfo";
+import "./home.css";
 
 class Home extends React.Component {
   componentDidMount() {
@@ -11,6 +12,7 @@ class Home extends React.Component {
   render() {
     return (
       <div id="home" className="flex-center column">
+        <Banner />
         <MetaInfo title="Skip Wiese" />
         <ImageGrid />
       </div>

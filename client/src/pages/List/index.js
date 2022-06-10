@@ -7,6 +7,7 @@ import ListPanel from "./ListPanel";
 import ArtworkModal from "../_Admin/ArtworkModal/";
 import { Helmet } from "react-helmet";
 import Loading from "../../common/Loading";
+import "./archive.css";
 
 import {
   shuffleList,

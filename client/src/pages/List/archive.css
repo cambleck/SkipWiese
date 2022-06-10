@@ -1,0 +1,31 @@
+.search-input {
+  margin-right: 0px !important;
+  border: none !important;
+}
+.search-input:focus {
+  margin-right: 5px !important;
+  margin-bottom: -2px !important;
+  border-bottom: 1px solid rgba(100, 100, 100, 0) !important;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  padding: 0px;
+  max-width: 400px;
+  border: 1px solid rgba(100, 100, 100, 0.2);
+  border-radius: 10px 0px 0px 10px;
+  height: 45px;
+}
+
+.list-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 600px;
+  width: 100%;
+  padding: 20px;
+  padding-top: 0px;
+}

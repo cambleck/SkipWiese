@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import Login from "./Login";
 import Main from "./Main";
 import * as actions from "../../redux/actions";
+import "./admin.css";
 
 class Admin extends Component {
   componentDidMount() {

@@ -4,7 +4,7 @@ const Banner = () => {
   return (
     <div className="banner">
       {" "}
-      Celebrating the Life of Skip Wiese || OCTOBER 2021
+      ArtWauk at Waukegan Harbor Gallery || Sat, June 18, 2022 (5pm - 8pm)
       <a
         style={{
           marginLeft: 5,
@@ -13,7 +13,7 @@ const Banner = () => {
           color: "black",
           textDecoration: "underline",
         }}
-        href="mailto:cbleck@comcast.net"
+        href="https://stayhappening.com/e/art-wauk-harbor-gallery-skip-wiese-is-featured-artist-E2ISU9OQX6I"
       >
         Find out more
       </a>
