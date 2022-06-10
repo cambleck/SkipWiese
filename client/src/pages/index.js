@@ -23,7 +23,6 @@ class App extends React.Component {
           updateDisplay={(page) => this.updateDisplay(page)}
         />
         {Routes()}
-        <Footer />
       </BrowserRouter>
     );
   }

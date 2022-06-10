@@ -12,6 +12,7 @@ const Banner = () => {
           fontWeight: "bold",
           color: "black",
           textDecoration: "underline",
+          zIndex: 99999,
         }}
         href="https://stayhappening.com/e/art-wauk-harbor-gallery-skip-wiese-is-featured-artist-E2ISU9OQX6I"
       >
