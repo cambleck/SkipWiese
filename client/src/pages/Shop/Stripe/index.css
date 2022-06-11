@@ -31,7 +31,13 @@ form {
 #payment-element {
   margin-bottom: 24px;
 }
-
+.header {
+  display: flex;
+  align-items: center;
+  height: 120px;
+  justify-content: space-around;
+  box-shadow: none;
+}
 .pay-button {
   background: rgb(245, 245, 0);
   font-family: Arial, sans-serif;

@@ -1,4 +1,3 @@
-import React from "react";
 import _ from "lodash";
 import typeList from "../typeList";
 import { useHistory } from "react-router-dom";
@@ -39,25 +38,6 @@ export default function GalleryPanel({
         defaultValue={type.toUpperCase()}
       />
       <SortDropdownSelect onChange={onSortChange} />
-      {sort === "shuffle" && (
-        <button
-          className="btn flex-center black-text"
-          style={{
-            position: "fixed",
-            bottom: 20,
-            right: 20,
-            background: "rgb(255,240,100)",
-            width: 75,
-            height: 75,
-            borderRadius: "50%",
-          }}
-          onClick={onShuffleClick}
-        >
-          <i className="material-icons medium" style={{ fontSize: 28 }}>
-            shuffle
-          </i>
-        </button>
-      )}
     </div>
   );
 }

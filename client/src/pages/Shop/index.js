@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import _ from "lodash";
 import { connect } from "react-redux";
 import MetaInfo from "../../common/MetaInfo";
@@ -10,59 +10,48 @@ import AddToCartModal from "./AddToCartModal";
 import Cart from "./Cart/";
 import "./shop.css";
 
-const ShopList = ({ list, onSelectedItem }) => {
+function ShopList({ list, onSelectedItem }) {
   return _.map(list, (item) => {
     return <ShopCard item={item} onSelected={onSelectedItem} />;
   });
-};
+}
 
-class Shop extends React.Component {
-  state = {
-    loading: true,
-    selectedItem: "",
-  };
+function Shop({ clearList, fetchArtworkList, cart, artworkList }) {
+  const [loading, setLoading] = useState(true);
+  const [selectedItem, setSelectedItem] = useState("");
 
-  componentDidMount() {
-    this.props.clearList();
-    this.props
-      .fetchArtworkList("shop")
-      .then(() => this.setState({ loading: false }));
+  useEffect(() => {
+    clearList();
+    fetchArtworkList("shop").then(() => setLoading(false));
+  }, []);
+
+  function onSelectedItem(item) {
+    setSelectedItem(item);
   }
 
-  onSelectedItem = (item) => {
-    this.setState({ selectedItem: item });
-  };
+  return (
+    <div className="flex-center ">
+      <CartIcon numberOfItemsInCart={cart.length} />
+      <MetaInfo title="Shop | Skip Wiese" />
+      {loading ? (
+        <Loading />
+      ) : (
+        <div
+          className="grid"
+          style={{
+            maxWidth: 1000,
+            marginTop: 30,
+            alignItems: "flex-start",
+          }}
+        >
+          <ShopList list={artworkList} onSelectedItem={onSelectedItem} />
 
-  render() {
-    const { selectedItem } = this.state;
-    return (
-      <div className="flex-center ">
-        <CartIcon numberOfItemsInCart={this.props.cart.length} />
-        <MetaInfo title="Shop | Skip Wiese" />
-        {this.state.loading ? (
-          <Loading />
-        ) : (
-          /* <div
-              className="grid"
-              style={{
-                maxWidth: 1000,
-                marginTop: 30,
-                alignItems: "flex-start",
-              }}
-            >
-              <ShopList
-                list={this.props.artworkList}
-                onSelectedItem={this.onSelectedItem}
-              />
-
-              <AddToCartModal item={selectedItem} />
-              <Cart />
-            </div>*/
-          <div style={{ marginTop: 200, fontSize: 40 }}>Coming Soon</div>
-        )}
-      </div>
-    );
-  }
+          <AddToCartModal item={selectedItem} />
+          <Cart />
+        </div>
+      )}
+    </div>
+  );
 }
 
 function mapStateToProps({ artworkList, cart }) {

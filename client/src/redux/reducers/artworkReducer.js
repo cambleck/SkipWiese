@@ -19,6 +19,8 @@ export default function (state = {}, action) {
       return [...state, submitedWork];
     case FETCH_ARTWORK_LIST:
       state = [];
+      console.log(action.payload, "PAYLOAD");
+      console.log(state);
       return action.payload;
     case FETCH_LISTVIEW:
       const listview = action.payload;
@@ -27,9 +29,7 @@ export default function (state = {}, action) {
     case DELETE_ARTWORK:
       state = [];
       return state.filter((artwork) => artwork._id !== action.payload);
-    case CLEAR_LIST:
-      state = [];
-      return state;
+
     default:
       return state;
   }

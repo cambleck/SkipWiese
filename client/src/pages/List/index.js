@@ -59,7 +59,8 @@ function ListView({ fetchListView, fetchUser, artworkList, auth }) {
   useEffect(() => {
     fetchListView().then(() => setLoading(false));
     fetchUser();
-  });
+    console.log("hasd");
+  }, []);
 
   function filterList(list) {
     const self = this;

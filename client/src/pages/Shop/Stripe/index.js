@@ -26,12 +26,12 @@ export default function Stripe({ total, cart, clientSecret }) {
       {clientSecret ? (
         <Elements options={options} stripe={promise}>
           <div className="flex-center column">
-            <nav className="nav transparent" style={{ marginBottom: -10 }}>
-              <div className="stripe"></div>
+            <nav className="header transparent" style={{ marginBottom: -10 }}>
+              <div className="header-stripe"></div>
               <div className="nav-wrapper">
                 <img src={logo} alt="Skip Wiese Logo" className="logo" />
               </div>
-              <div className="stripe"></div>
+              <div className="header-stripe"></div>
             </nav>
 
             <CheckoutForm total={total} clientSecret={clientSecret} />

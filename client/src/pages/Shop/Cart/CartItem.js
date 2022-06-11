@@ -1,6 +1,4 @@
-import React from "react";
-
-const CartItem = ({
+export default function CartItem({
   title,
   image,
   size,
@@ -8,7 +6,7 @@ const CartItem = ({
   id,
   price,
   onRemoveItemClick,
-}) => {
+}) {
   return (
     <a
       className="list-item black-text"
@@ -95,6 +93,4 @@ const CartItem = ({
       </div>
     </a>
   );
-};
-
-export default CartItem;
+}

@@ -32,7 +32,7 @@ function ArtworkPage({ fetchArtwork, fetchUser, artwork, auth }) {
     window.scrollTo(0, 0);
     fetchArtwork(id);
     fetchUser();
-  });
+  }, []);
 
   if (!artwork) {
     return <Loading />;

@@ -1,6 +1,4 @@
-import React from "react";
-
-const ShoppingCartIcon = ({ numberOfItemsInCart }) => {
+export default function ShoppingCartIcon({ numberOfItemsInCart }) {
   return (
     <a
       className="shopping-cart-button modal-trigger black-text"
@@ -12,6 +10,4 @@ const ShoppingCartIcon = ({ numberOfItemsInCart }) => {
       </i>
     </a>
   );
-};
-
-export default ShoppingCartIcon;
+}

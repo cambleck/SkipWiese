@@ -1,6 +1,4 @@
-import React from "react";
-
-const ShoppingCard = ({ item, onSelected }) => {
+export default function ShoppingCard({ item, onSelected }) {
   return (
     <a
       class="type-card modal-trigger black-text"
@@ -18,6 +16,4 @@ const ShoppingCard = ({ item, onSelected }) => {
       </div>
     </a>
   );
-};
-
-export default ShoppingCard;
+}

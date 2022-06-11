@@ -14,7 +14,7 @@ const GalleryScroll = loadable(() => import("./Gallery/GalleryScroll"));
 const ListView = loadable(() => import("./List"));
 const PaymentStatus = loadable(() => import("./Shop/Stripe/"));
 
-export const Routes = () => {
+export default function Routes() {
   return (
     <main>
       <Switch>
@@ -34,4 +34,4 @@ export const Routes = () => {
       </Switch>
     </main>
   );
-};
+}

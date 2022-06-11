@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import _ from "lodash";
 import map from "lodash/map";
 import { connect } from "react-redux";
@@ -10,7 +10,6 @@ import GalleryPanel from "./GalleryPanel";
 import MetaInfo from "../../common/MetaInfo";
 import Loading from "../../common/Loading";
 import {
-  shuffleList,
   reverseObjectList,
   sortObjectList,
 } from "../../common/sortingFunctions";
@@ -31,14 +30,11 @@ function GalleryScroll({ fetchArtworkList, artworkList }) {
   useEffect(() => {
     window.scrollTo(0, 0);
     fetchArtworkList(type).then(() => setLoading(false));
-  });
+  }, []);
 
   function filterList(list) {
     if (sort === "reverse") {
       reverseObjectList(list);
-    }
-    if (sort === "shuffle") {
-      shuffleList(list);
     }
     if (sort === "default") {
       var noTitleArray = [];
@@ -58,17 +54,12 @@ function GalleryScroll({ fetchArtworkList, artworkList }) {
     setSort(event.target.value);
   }
 
-  function handleShuffleClick() {
-    setList(shuffleList(this.props.artworkList));
-  }
-
   return (
     <>
       <MetaInfo title="Mixed Media | Skip Wiese" />
       <GalleryPanel
-        onSortChange={() => handleSortChange()}
+        onSortChange={(event) => handleSortChange(event)}
         sort={sort}
-        onShuffleClick={() => handleShuffleClick()}
         type={type}
       />
       {loading ? (

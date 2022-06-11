@@ -25,8 +25,9 @@ function ImageGrid({ clearList, fetchArtworkList, artworkList }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    clearList();
     fetchArtworkList("featured").then(() => setLoading(false));
-  });
+  }, []);
 
   return (
     <>

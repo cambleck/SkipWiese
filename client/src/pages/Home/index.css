@@ -1,7 +1,7 @@
 .home-image {
   width: 30vw;
   height: 30vw;
-
+  border-radius: 5px;
   object-fit: cover;
   margin: 3px;
 }
