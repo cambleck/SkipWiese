@@ -1,6 +1,7 @@
 import axios from "axios";
 import {
   FETCH_ARTWORK_LIST,
+  FETCH_HOME_ARTWORK_LIST,
   FETCH_ARTWORK,
   CLEAR_LIST,
   FETCH_LISTVIEW,

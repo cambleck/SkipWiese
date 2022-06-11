@@ -1,22 +1,14 @@
-import React from "react";
-import M from "materialize-css";
 import ImageGrid from "./ImageGrid";
 import Banner from "./Banner";
 import MetaInfo from "../../common/MetaInfo";
-import "./home.css";
+import "./index.css";
 
-class Home extends React.Component {
-  componentDidMount() {
-    M.AutoInit();
-  }
-  render() {
-    return (
-      <div id="home" className="flex-center column">
-        <Banner />
-        <MetaInfo title="Skip Wiese" />
-        <ImageGrid />
-      </div>
-    );
-  }
+export default function Home() {
+  return (
+    <div id="home" className="flex-center column">
+      <Banner />
+      <MetaInfo title="Skip Wiese" />
+      <ImageGrid />
+    </div>
+  );
 }
-export default Home;

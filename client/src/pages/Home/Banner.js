@@ -1,6 +1,6 @@
 import React from "react";
 
-const Banner = () => {
+export default function Banner() {
   return (
     <div className="banner">
       {" "}
@@ -19,6 +19,4 @@ const Banner = () => {
       </a>
     </div>
   );
-};
-
-export default Banner;
+}

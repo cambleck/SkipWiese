@@ -1,15 +1,16 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import Login from "./Login";
 import Main from "./Main";
 import * as actions from "../../redux/actions";
 import "./admin.css";
 
-class Admin extends Component {
-  componentDidMount() {
-    this.props.fetchUser();
-  }
-  renderContent() {
+function Admin({ fetchUser }) {
+  useEffect(() => {
+    fetchUser();
+  });
+
+  function Content() {
     switch (this.props.auth) {
       case null:
         return;
@@ -20,9 +21,7 @@ class Admin extends Component {
     }
   }
 
-  render() {
-    return <>{this.renderContent()}</>;
-  }
+  return <Content />;
 }
 
 function mapStateToProps({ auth }) {

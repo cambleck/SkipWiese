@@ -170,48 +170,6 @@ input[type="search"] {
   color: rgb(185, 187, 185);
 }
 
-.nav {
-  display: flex;
-  align-items: center;
-  height: 120px;
-  justify-content: space-around;
-  box-shadow: none;
-}
-
-.nav-content {
-  background: transparent;
-  margin-top: -35px;
-  height: 40px;
-}
-
-.nav-width {
-  width: 450px;
-}
-.nav-tab {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: black;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-  padding: 15px;
-  font-size: 12px;
-  margin-top: 7px;
-  z-index: 1000;
-  width: 75px;
-  height: 30px;
-  font-weight: 600;
-  border: none;
-  background: transparent;
-  font-family: "Gill Sans";
-  cursor: pointer;
-}
-
-.nav-tab:hover {
-  background-color: rgba(255, 255, 100, 0.5);
-}
-
 .artwork-info-subContent {
   font-size: 12px;
   margin-left: 3px;
@@ -257,11 +215,7 @@ input[type="search"] {
   margin: 120px 20px;
   max-width: 500px;
 }
-.logo {
-  width: 130px;
 
-  margin-top: 12px;
-}
 .artwork-info-container {
   display: flex;
   justify-content: flex-end;
@@ -298,20 +252,12 @@ input[type="search"] {
   flex-direction: column;
 }
 
-.nav-wrapper {
-  background-color: rgba(255, 250, 100, 0.02);
-}
 .pointer {
   cursor: pointer;
 }
 
 .right {
   margin-right: 20px;
-}
-.header-stripe {
-  width: 100%;
-  background: rgb(250, 240, 0);
-  height: 4px;
 }
 
 .flex-center {
@@ -640,11 +586,6 @@ ul li {
 
 /* iphone 6/7/8/X */
 @media only screen and (max-width: 400px) {
-  .nav-tab {
-    font-size: 10px;
-
-    width: 55px;
-  }
   .banner {
     height: 60px;
     font-size: 13px;
@@ -670,13 +611,6 @@ ul li {
 }
 /* iphone 6/7/8/X */
 @media only screen and (max-width: 600px) {
-  .logo {
-    width: 120px;
-    margin-top: 12px;
-  }
-  .nav-width {
-    width: 100%;
-  }
   .about-image-two {
     width: 100%;
     margin: 20px 0px;

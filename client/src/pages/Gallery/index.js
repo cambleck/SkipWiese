@@ -6,7 +6,7 @@ import "./gallery.css";
 
 import MetaInfo from "../../common/MetaInfo";
 
-const renderTypes = () => {
+function renderTypes() {
   return _.map(typeList, ({ type, image }) => {
     return (
       <Link
@@ -26,9 +26,9 @@ const renderTypes = () => {
       </Link>
     );
   });
-};
+}
 
-const Gallery = () => {
+export default function Gallery() {
   return (
     <div
       id="gallery"
@@ -39,6 +39,4 @@ const Gallery = () => {
       <div className="row type-grid">{renderTypes()}</div>
     </div>
   );
-};
-
-export default Gallery;
+}

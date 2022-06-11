@@ -18,6 +18,7 @@ export const Routes = () => {
   return (
     <main>
       <Switch>
+        <Redirect from="/home" to="/" />
         <Route exact path="/" component={Home} />
         <Route exact path="/gallery" component={Gallery} />
 

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import { useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -6,26 +6,18 @@ import { Routes } from "./Routes";
 import Header from "../common/Header";
 import Footer from "../common/Footer";
 
-class App extends React.Component {
-  state = {
-    display: window.location.pathname,
-  };
+export default function App() {
+  const [display, setDisplay] = useState(window.location.pathname);
 
-  updateDisplay = (page) => {
-    console.log(page);
-    this.setState({ display: page });
-  };
-  render() {
-    return (
-      <BrowserRouter>
-        <Header
-          display={this.state.display}
-          updateDisplay={(page) => this.updateDisplay(page)}
-        />
-        {Routes()}
-      </BrowserRouter>
-    );
+  function updateDisplay(page) {
+    setDisplay(page);
   }
-}
 
-export default App;
+  return (
+    <BrowserRouter>
+      <Header display={display} updateDisplay={(page) => updateDisplay(page)} />
+      {Routes()}
+      <Footer />
+    </BrowserRouter>
+  );
+}

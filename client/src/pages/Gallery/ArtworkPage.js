@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import map from "lodash/map";
 import { connect } from "react-redux";
-
+import { useParams } from "react-router-dom";
 import { fetchArtwork, fetchUser, deleteArtwork } from "../../redux/actions";
 import ArtworkCard from "./ArtworkCard";
 import ArtworkModal from "../_Admin/ArtworkModal/";
@@ -26,27 +26,26 @@ const EditArtworkButton = ({ artwork }) => {
   );
 };
 
-class ArtworkPage extends Component {
-  componentDidMount() {
+function ArtworkPage({ fetchArtwork, fetchUser, artwork, auth }) {
+  const { id } = useParams();
+  useEffect(() => {
     window.scrollTo(0, 0);
-    this.props.fetchArtwork(this.props.match.params.id);
-    this.props.fetchUser();
+    fetchArtwork(id);
+    fetchUser();
+  });
+
+  if (!artwork) {
+    return <Loading />;
   }
+  return (
+    <div className="flex-center column">
+      <MetaInfo title={`${artwork.title} | Skip Wiese`} />
 
-  render() {
-    if (!this.props.artwork) {
-      return <Loading />;
-    }
-    return (
-      <div className="flex-center column">
-        <MetaInfo title={`${this.props.artwork.title} | Skip Wiese`} />
+      {auth && <EditArtworkButton artwork={artwork} />}
 
-        {this.props.auth && <EditArtworkButton artwork={this.props.artwork} />}
-
-        <ArtworkCard artwork={this.props.artwork} noLink="true" />
-      </div>
-    );
-  }
+      <ArtworkCard artwork={artwork} noLink="true" />
+    </div>
+  );
 }
 
 function mapStateToProps({ artworkList, auth }, ownProps) {

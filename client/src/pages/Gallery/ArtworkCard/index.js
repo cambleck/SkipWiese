@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import M from "materialize-css";
 import InfoCard from "./InfoCard";
 
-const ArtworkCard = ({ artwork, noLink }) => {
+export default function ArtworkCard({ artwork, noLink }) {
   const {
     height,
     width,
@@ -63,6 +63,4 @@ const ArtworkCard = ({ artwork, noLink }) => {
       )}
     </div>
   );
-};
-
-export default ArtworkCard;
+}

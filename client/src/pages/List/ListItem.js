@@ -1,6 +1,4 @@
-import React from "react";
-
-const ListItem = ({ title, image, size, typeLabel, _id }) => {
+export default function ListItem({ title, image, size, typeLabel, _id }) {
   return (
     <a href={`/${_id}`} className=" list-item black-text" key={_id}>
       <div
@@ -67,6 +65,4 @@ const ListItem = ({ title, image, size, typeLabel, _id }) => {
       </div>
     </a>
   );
-};
-
-export default ListItem;
+}

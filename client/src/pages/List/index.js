@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import _ from "lodash";
 import { connect } from "react-redux";
 import { fetchListView, fetchUser, deleteArtwork } from "../../redux/actions";
@@ -7,15 +7,14 @@ import ListPanel from "./ListPanel";
 import ArtworkModal from "../_Admin/ArtworkModal/";
 import { Helmet } from "react-helmet";
 import Loading from "../../common/Loading";
-import "./archive.css";
-
+import "./index.css";
 import {
   shuffleList,
   reverseObjectList,
   sortObjectList,
 } from "../../common/sortingFunctions";
 
-const CreateNewArtworkButton = () => {
+function CreateNewArtworkButton() {
   return (
     <>
       <a
@@ -28,9 +27,9 @@ const CreateNewArtworkButton = () => {
       <ArtworkModal id="" />
     </>
   );
-};
+}
 
-const renderList = (list) => {
+function renderList(list) {
   return _.map(list, ({ title, imageUrl, height, width, typeLabel, _id }) => {
     var size;
     if (height) {
@@ -49,30 +48,26 @@ const renderList = (list) => {
       />
     );
   });
-};
+}
 
-class ListView extends React.Component {
-  state = {
-    searchValue: "",
-    id: "",
-    loading: true,
-    sort: "default",
-  };
+function ListView({ fetchListView, fetchUser, artworkList, auth }) {
+  const [searchValue, setSearchValue] = useState("");
+  const [id, setId] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [sort, setSort] = useState("default");
 
-  componentDidMount() {
-    this.props.fetchListView().then(() => this.setState({ loading: false }));
-    this.props.fetchUser();
-  }
+  useEffect(() => {
+    fetchListView().then(() => setLoading(false));
+    fetchUser();
+  });
 
-  filterList = (list) => {
+  function filterList(list) {
     const self = this;
     let filter = [];
 
     /* sort filter */
-    if (this.state.sort === "reverse") {
+    if (sort === "reverse") {
       reverseObjectList(list);
-    } else if (this.state.sort === "shuffle") {
-      shuffleList(list);
     } else {
       var noTitleArray = [];
       sortObjectList(list);
@@ -86,15 +81,11 @@ class ListView extends React.Component {
     }
 
     /* search filter */
-    if (list && this.state.searchValue != "") {
+    if (list && searchValue != "") {
       filter = list.filter(function (item) {
         return (
-          item.title
-            .toLowerCase()
-            .includes(self.state.searchValue.toLowerCase()) ||
-          item.typeLabel
-            .toLowerCase()
-            .includes(self.state.searchValue.toLowerCase())
+          item.title.toLowerCase().includes(searchValue.toLowerCase()) ||
+          item.typeLabel.toLowerCase().includes(searchValue.toLowerCase())
         );
       });
     } else {
@@ -102,57 +93,43 @@ class ListView extends React.Component {
     }
 
     return filter;
-  };
-
-  handleSearchChange = (event) => {
-    this.setState({ searchValue: event.target.value });
-  };
-
-  handleSortChange = (event) => {
-    this.setState({ sort: event.target.value });
-  };
-
-  handleShuffleClick = () => {
-    this.setState({ list: shuffleList(this.props.artworkList) });
-  };
-  componentDidMount() {
-    this.props.fetchListView().then(() => this.setState({ loading: false }));
-    this.props.fetchUser();
   }
-  render() {
-    return (
-      <div className="flex-center column">
-        <Helmet>
-          <meta charSet="utf-8" />
-          <title>List | Skip Wiese</title>
-          <link rel="canonical" href="http://mysite.com/example" />
-        </Helmet>
-        <div className="list-container">
-          <div className="flex-center column">
-            <ListPanel
-              onSearchChange={this.handleSearchChange}
-              searchValue={this.state.searchValue}
-              onSortChange={this.handleSortChange}
-              sort={this.state.sort}
-              onShuffleClick={this.handleShuffleClick}
-            />
-          </div>
-          {this.props.auth && <CreateNewArtworkButton />}
-          {this.state.loading ? (
-            <Loading />
-          ) : (
-            <ul className="collection">
-              {renderList(
-                this.filterList(
-                  this.props.artworkList ? this.props.artworkList : []
-                )
-              )}
-            </ul>
-          )}
+
+  function handleSearchChange(event) {
+    setSearchValue(event.target.value);
+  }
+
+  function handleSortChange(event) {
+    setSort(event.target.value);
+  }
+
+  return (
+    <div className="flex-center column">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>List | Skip Wiese</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
+      <div className="list-container">
+        <div className="flex-center column">
+          <ListPanel
+            onSearchChange={handleSearchChange}
+            searchValue={searchValue}
+            onSortChange={handleSortChange}
+            sort={sort}
+          />
         </div>
+        {auth && <CreateNewArtworkButton />}
+        {loading ? (
+          <Loading />
+        ) : (
+          <ul className="collection">
+            {renderList(filterList(artworkList ? artworkList : []))}
+          </ul>
+        )}
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 function mapStateToProps({ artworkList, auth }, ownProps) {

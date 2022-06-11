@@ -1,0 +1,81 @@
+.mid {
+  margin: 20px;
+  opacity: 0.6;
+  box-shadow: 0px 0px 30px yellow;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navlink {
+  color: black;
+  letter-spacing: 0.07em;
+  font-size: 13px;
+  text-decoration: none;
+  font-family: "Gill Sans";
+  font-weight: 500;
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.navlink:hover {
+  color: #000;
+  transform: scale(1.1);
+}
+.navlink-active {
+  padding: 10px;
+  letter-spacing: 0.07em;
+
+  color: rgba(231, 208, 172);
+  pointer-events: none;
+  color: #000;
+}
+
+.display-indicator {
+  display: block;
+  line-height: 1px;
+}
+
+.no-indicator {
+  display: none;
+  font-weight: bold;
+}
+
+.header-stripe {
+  width: 100%;
+  background: rgb(250, 240, 0);
+  height: 4px;
+}
+
+.logo {
+  width: 130px;
+
+  margin-top: 12px;
+}
+
+.nav-wrapper {
+  background-color: rgba(255, 250, 100, 0.02);
+}
+
+@media only screen and (max-width: 600px) {
+  .logo {
+    width: 120px;
+    margin-top: 12px;
+  }
+  .nav-width {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .nav-tab {
+    font-size: 10px;
+
+    width: 55px;
+  }
+}

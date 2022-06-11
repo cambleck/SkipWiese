@@ -1,6 +1,6 @@
 import React from "react";
 
-const Loading = () => {
+export default function Loading() {
   return (
     <div className="flex-center column" style={{ width: "100%", height: 400 }}>
       <div className="progress white" style={{ width: "50%" }}>
@@ -17,6 +17,4 @@ const Loading = () => {
       </div>
     </div>
   );
-};
-
-export default Loading;
+}

@@ -3,7 +3,7 @@ import image from "./skip.jpeg";
 import image2 from "./skip_painting_mural.jpeg";
 import MetaInfo from "../../common/MetaInfo";
 
-const ArtistStatement = () => {
+function ArtistStatement() {
   return (
     <div
       style={{
@@ -69,9 +69,9 @@ const ArtistStatement = () => {
       </div>
     </div>
   );
-};
+}
 
-const About = () => {
+export default function About() {
   return (
     <div
       style={{
@@ -199,6 +199,4 @@ const About = () => {
       </div>
     </div>
   );
-};
-
-export default About;
+}

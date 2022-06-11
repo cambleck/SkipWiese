@@ -1,19 +1,17 @@
 import React from "react";
 import _ from "lodash";
 
-const renderOptions = (list) => {
+function renderOptions(list) {
   return _.map(list, ({ value, label }) => {
     return <option value={value}>{label}</option>;
   });
-};
+}
 
-export const SortDropdownSelect = ({ onChange }) => {
+export function SortDropdownSelect({ onChange }) {
   const options = [
     { value: "default", label: "A-Z" },
     { value: "reverse", label: "Z-A" },
-    { value: "shuffle", label: "Shuffle" },
   ];
-
   return (
     <DropdownSelect
       onChange={onChange}
@@ -22,9 +20,9 @@ export const SortDropdownSelect = ({ onChange }) => {
       className="sort"
     />
   );
-};
+}
 
-export const TypeDropdownSelect = ({ onChange, defaultValue }) => {
+export function TypeDropdownSelect({ onChange, defaultValue }) {
   const options = [
     { value: "PASTEL", label: "Pastel" },
     { value: "MIXED MEDIA", label: "Mixed Media" },
@@ -48,14 +46,9 @@ export const TypeDropdownSelect = ({ onChange, defaultValue }) => {
       className="type"
     />
   );
-};
+}
 
-export const DropdownSelect = ({
-  options,
-  onChange,
-  defaultValue,
-  className,
-}) => {
+export function DropdownSelect({ options, onChange, defaultValue, className }) {
   return (
     <>
       <select
@@ -76,4 +69,4 @@ export const DropdownSelect = ({
       )}
     </>
   );
-};
+}

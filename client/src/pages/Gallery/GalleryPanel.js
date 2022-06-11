@@ -17,13 +17,18 @@ function renderTypeOptions() {
   });
 }
 
-const GalleryPanel = ({ onSortChange, sort, onShuffleClick, type }) => {
+export default function GalleryPanel({
+  onSortChange,
+  sort,
+  onShuffleClick,
+  type,
+}) {
   const history = useHistory();
 
-  const handleTypeChange = (event) => {
+  function handleTypeChange(event) {
     history.push(`/gallery/${event.target.value.toLowerCase()}`);
     window.location.reload();
-  };
+  }
   return (
     <div
       className="flex-center"
@@ -55,6 +60,4 @@ const GalleryPanel = ({ onSortChange, sort, onShuffleClick, type }) => {
       )}
     </div>
   );
-};
-
-export default GalleryPanel;
+}

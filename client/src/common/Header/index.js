@@ -1,8 +1,10 @@
 import React from "react";
 import _ from "lodash";
 import logo from "../../logo.png";
+import NavBar from "./NavBar";
 import M from "materialize-css";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
+import "./index.css";
 
 const list = [
   { href: "/", label: "Home" },
@@ -12,7 +14,7 @@ const list = [
   { href: "/shop", label: "Shop" },
 ];
 
-const Indicator = () => {
+function Indicator() {
   return (
     <div
       style={{
@@ -24,24 +26,17 @@ const Indicator = () => {
       }}
     ></div>
   );
-};
+}
 
-const Header = ({ display, updateDisplay }) => {
+export default function Header({ display, updateDisplay }) {
   const history = useHistory();
-  const onClick = (href) => {
-    history.push(`${href}`);
+  const page = useLocation().pathname.split("/")[1];
 
-    updateDisplay(href);
-  };
   const displayTabs = () => {
     return _.map(list, ({ href, label }) => {
       return (
         <div className="flex-center column" key={label}>
-          <button
-            onClick={() => onClick(href)}
-            className="nav-tab column"
-            to={`/${href}`}
-          >
+          <button className="nav-tab column" to={`/${href}`}>
             {label}
           </button>
           {display === href && <Indicator />}
@@ -52,17 +47,14 @@ const Header = ({ display, updateDisplay }) => {
   return (
     <header>
       <div className="header-stripe"></div>
-      <nav className="nav white">
-        <div className="stripe"></div>
+      <div className="nav white">
+        <div className="header-stripe mid"></div>
         <div className="nav-wrapper">
           <img src={logo} alt="Skip Wiese Logo" className="logo" />
         </div>
-        <div className="stripe"></div>
-      </nav>
-      <div className="nav-content">
-        <ul className="flex-center row nav-width">{displayTabs()}</ul>
+        <div className="header-stripe mid"></div>
       </div>
+      <NavBar page={page} />
     </header>
   );
-};
-export default Header;
+}

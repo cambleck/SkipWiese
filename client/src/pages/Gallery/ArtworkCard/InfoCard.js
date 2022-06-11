@@ -1,7 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const InfoCard = ({ title, _id, typeLabel, size, description, noLink }) => {
+export default function InfoCard({
+  title,
+  _id,
+  typeLabel,
+  size,
+  description,
+  noLink,
+}) {
   return (
     <div className="artwork-info-container">
       <Link
@@ -22,6 +29,4 @@ const InfoCard = ({ title, _id, typeLabel, size, description, noLink }) => {
       </Link>
     </div>
   );
-};
-
-export default InfoCard;
+}
