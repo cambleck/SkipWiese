@@ -33,7 +33,7 @@ function Shop({ clearList, fetchArtworkList, cart, artworkList }) {
     <div className="flex-center ">
       <CartIcon numberOfItemsInCart={cart.length} />
       <MetaInfo title="Shop | Skip Wiese" />
-      {loading ? (
+      {/*{loading ? (
         <Loading />
       ) : (
         <div
@@ -49,7 +49,8 @@ function Shop({ clearList, fetchArtworkList, cart, artworkList }) {
           <AddToCartModal item={selectedItem} />
           <Cart />
         </div>
-      )}
+        )}*/}
+      <div style={{ marginTop: 100, fontSize: 50 }}>COMING SOON</div>
     </div>
   );
 }
